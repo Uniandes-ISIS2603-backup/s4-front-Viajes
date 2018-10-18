@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { UsuarioModule } from './usuario/usuario.module';
+import { VueloModule } from './vuelo/vuelo.module';
 
 
 import { AppComponent } from './app.component';
@@ -11,7 +12,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-      UsuarioModule
+      UsuarioModule,
+        VueloModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,7 @@ import { VueloListComponent } from '../Vuelo/vuelo-list/vuelo-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [VueloListComponent]
+  declarations: [VueloListComponent],
+    exports:[VueloListComponent]
 })
 export class VueloModule { }
