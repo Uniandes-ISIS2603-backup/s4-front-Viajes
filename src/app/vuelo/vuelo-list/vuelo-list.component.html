@@ -1,3 +1,15 @@
-<p>
-  vuelo-list works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col" *ngFor = "let vuelo of vuelos">
+            <p>{{vuelo.numero}}</p>
+            <p>{{vuelo.costo}}</p>
+            <p>{{vuelo.puntuacion}}</p>
+            <p>{{vuelo.latitudOrigen}}</p>
+            <p>{{vuelo.longitudOrigen}}</p>
+            <p>{{vuelo.latitudDestino}}</p>
+            <p>{{vuelo.longitudOrigen}}</p>
+            <p>{{vuelo.fechaSalida}}</p>
+            <p>{{vuelo.fechaLlegada}}</p>
+        </div>
+    </div>
+</div>

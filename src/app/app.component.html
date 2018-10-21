@@ -1,9 +1,11 @@
-
-<div style="text-align:center">
-  <h1>
-    Welcome to Trip Builder!
-  </h1>
-<app-usuario-list></app-usuario-list>
-<app-vuelo-list></app-vuelo-list>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a id="vuelosTag" class="nav-link" routerLink="/vuelos/list">Vuelos</a>
+    </li>
+</ul>
+<div class="list">
+    <router-outlet></router-outlet>
 </div>
+
+
 
