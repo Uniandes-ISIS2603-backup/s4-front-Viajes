@@ -14,12 +14,12 @@ const routes: Routes = [
                 component: VueloListComponent
             }
         ]
-    },    
+    }    
 ];
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
