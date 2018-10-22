@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 
 import {Vuelo} from './vuelo';
 
-const API_URL = "../../assets/";
+const API_URL = '../../assets/';
 const vuelos = '/vuelo.json';
 
 /**

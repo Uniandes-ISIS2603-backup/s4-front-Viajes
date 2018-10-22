@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 
 import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
+import {UsuarioListComponent} from '../usuario/usuario-list/usuario-list.component';
 
 const routes: Routes = [
 
@@ -14,7 +15,19 @@ const routes: Routes = [
                 component: VueloListComponent
             }
         ]
-    }    
+    },
+
+  {
+    path: 'usuarios',
+    children: [
+      {
+        path: 'list',
+        component: UsuarioListComponent
+      }
+    ]
+  }
+
+
 ];
 
 @NgModule({
@@ -25,5 +38,5 @@ const routes: Routes = [
   exports: [RouterModule],
   declarations: []
 })
-export class AppRoutingModule { 
+export class AppRoutingModule {
 }
