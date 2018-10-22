@@ -6,7 +6,7 @@ import { Usuario } from './usuario';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
-const usuarios = '/usuarios';
+const usuarios = '/usuarios.json';
 
 /**
  * The service provider for everything related to "usuarios"

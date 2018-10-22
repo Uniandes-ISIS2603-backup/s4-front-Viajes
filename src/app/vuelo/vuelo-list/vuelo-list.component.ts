@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import {Vuelo} from '../vuelo';
 import {VueloService} from '../vuelo.service';
-   
+
 /**
  * The component for the list of vuelos in TripBuilder
  */
