@@ -1,0 +1,46 @@
+[
+    {
+      "numero" : "AVI1234",     
+      "costo" : 100000,
+      "puntuacion" : 4.5, 
+      "latitudOrigen" : 4.6098906,
+      "longitudOrigen" : -95.08167809,
+      "latLitudDestino" : 4.6097100,
+      "longitudDestino" : -98.08257639,
+      "fechaSalida" : "2018/10/18",
+      "fechaLlegada" : "2018/10/27"
+    },
+        {
+      "numero" : "AVI1235",     
+      "costo" : 100000,
+      "puntuacion" : 4.5, 
+      "latitudOrigen" : 4.6098906,
+      "longitudOrigen" : -95.08167809,
+      "latLitudDestino" : 4.6097100,
+      "longitudDestino" : -98.08257639,
+      "fechaSalida" : "2018/10/18",
+      "fechaLlegada" : "2018/10/27"
+    },
+        {
+      "numero" : "AVI1236",     
+      "costo" : 100000,
+      "puntuacion" : 4.5, 
+      "latitudOrigen" : 4.6098906,
+      "longitudOrigen" : -95.08167809,
+      "latLitudDestino" : 4.6097100,
+      "longitudDestino" : -98.08257639,
+      "fechaSalida" : "2018/10/18",
+      "fechaLlegada" : "2018/10/27"
+    },
+        {
+      "numero" : "AVI1237",     
+      "costo" : 100000,
+      "puntuacion" : 4.5, 
+      "latitudOrigen" : 4.6098906,
+      "longitudOrigen" : -95.08167809,
+      "latLitudDestino" : 4.6097100,
+      "longitudDestino" : -98.08257639,
+      "fechaSalida" : "2018/10/18",
+      "fechaLlegada" : "2018/10/27"
+    }
+]
