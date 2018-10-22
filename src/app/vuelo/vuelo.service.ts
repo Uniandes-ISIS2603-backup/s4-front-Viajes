@@ -4,13 +4,8 @@ import {HttpClient} from '@angular/common/http';
 
 import {Vuelo} from './vuelo';
 
-<<<<<<< HEAD
 const API_URL = "http://localhost:8000/frontstepbystep-api/api";
 const vuelos = '/vuelos';
-=======
-const API_URL = '../../assets/';
-const vuelos = '/vuelo.json';
->>>>>>> d4a97eeaf205b2ddaabae5d9faf0f8746b19ec8c
 
 /**
 * The service provider for everything related to vuelos
