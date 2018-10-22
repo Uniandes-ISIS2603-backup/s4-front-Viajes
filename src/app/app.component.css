@@ -8,7 +8,14 @@ h1{
     font-family: Arial;
     color: #fff;
 }
+
 #vuelosTag{
+    text-decoration: none;
+    font-family: Arial;
+    color: #152C9D;
+}
+
+#proveedoresTag{
     text-decoration: none;
     font-family: Arial;
     color: #152C9D;
@@ -22,6 +29,12 @@ h1{
 }
 
 #vuelosTag:hover{
+    background: #152C9D; 
+    color: #fff;
+    padding: 8px;
+}
+
+#proveedoresTag:hover{
     background: #152C9D; 
     color: #fff;
     padding: 8px;
