@@ -11,7 +11,7 @@ export interface Usuario {
   /**
    * El nombre del usuario.
    */
-  name: string;
+  nombre: string;
 
   /**
    * El documento del usuario.

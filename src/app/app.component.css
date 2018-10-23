@@ -11,13 +11,13 @@ h1{
 
 #vuelosTag{
     text-decoration: none;
-    font-family: Arial;
+    font-family: "Times New Roman";
     color: #152C9D;
 }
 
 #proveedoresTag{
     text-decoration: none;
-    font-family: Arial;
+    font-family: "Times New Roman";
     color: #152C9D;
 }
 
@@ -42,7 +42,7 @@ h1{
 }
 
 #proveedoresTag:hover{
-    background: #152C9D; 
+    background: #152C9D;
     color: #fff;
     padding: 8px;
 }
@@ -53,8 +53,9 @@ h1{
     padding: 8px;
 }
 
-.nav-tabs{
+.nav{
     width: 100%;
     background: orange;
     padding: 8px;
 }
+

@@ -1,7 +1,5 @@
 
-<div class="card">
-  <div class ="card-body">
-    <h1 class="card-title">Lista de usuarios</h1>
+    <h1 id="texto">Lista de usuarios</h1>
     <table class="table">
       <thead class="thead-dark">
       <tr>
@@ -13,28 +11,31 @@
       </tr>
       </thead>
       <tbody>
-      <div class="col" *ngFor="let usuario of usuarios">
-        <tr>
+      <tr *ngFor="let usuario of usuarios">
+
       <td>
-        UserName: {{usuario.userName}}
+        {{usuario.userName}}
       </td>
+
         <td>
-          Nombre: {{usuario.name}}
+          {{usuario.nombre}}
         </td>
+
         <td>
-          Documento: {{usuario.documento}}
+          {{usuario.documento}}
         </td>
-          <td>
-            Edad: {{usuario.edad}}
-          </td>
-          <td>
-            ID: {{usuario.id}}
-          </td>
-        </tr>
-      </div>
+
+        <td>
+          {{usuario.edad}}
+        </td>
+
+        <td>
+          {{usuario.id}}
+        </td>
+
+      </tr>
       </tbody>
     </table>
-  </div>
-</div>
+
 
 
