@@ -1,0 +1,14 @@
+ <div class="container-fluid">
+    <div class="row">
+        <div class="col" *ngFor = "let actividad of actividades">
+            <p>Nombre: {{actividad.nombreActividad}}</p>
+            <p>Costo: {{actividad.costo}}</p>
+            <p>Duracion: {{actividad.duracion}}</p>
+            <p>Identificador: {{actividad.identificador}}</p>
+            <p>Latitud: {{actividad.longitud}}</p>
+            <p>Longitud: {{actividad.latitud}}</p>
+            <p>Puntuacion: {{actividad.puntuacion}}</p>
+             <br>
+        </div>  
+    </div>
+</div>

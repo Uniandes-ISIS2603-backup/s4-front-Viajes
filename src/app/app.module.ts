@@ -5,8 +5,10 @@ import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
+
 import { UsuarioModule } from './usuario/usuario.module';
 import { VueloModule } from './vuelo/vuelo.module';
+import { ActividadModule } from './actividad/actividad.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { VueloModule } from './vuelo/vuelo.module';
     HttpClientModule,
     UsuarioModule,
     VueloModule,
+    ActividadModule,
     FormsModule
   ],
   providers: [],
