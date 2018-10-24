@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { VueloModule } from './vuelo/vuelo.module';
+import ( MedallaModule ) from './vuelo/vuelo.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
