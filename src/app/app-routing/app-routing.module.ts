@@ -4,6 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
 import {UsuarioListComponent} from '../usuario/usuario-list/usuario-list.component';
+import {ProveedorListComponent} from '../proveedor/proveedor-list/proveedor-list.component';
 
 const routes: Routes = [
 
@@ -18,6 +19,16 @@ const routes: Routes = [
     },
 
   {
+    path: 'proveedores',
+    children: [
+      {
+        path: 'list',
+        component: ProveedorListComponent
+      }
+    ]
+  },
+
+  {
     path: 'usuarios',
     children: [
       {
@@ -26,8 +37,6 @@ const routes: Routes = [
       }
     ]
   }
-
-
 ];
 
 @NgModule({
