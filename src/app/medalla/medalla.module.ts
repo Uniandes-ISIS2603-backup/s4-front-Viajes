@@ -6,6 +6,7 @@ import { MedallaListComponent } from './medalla-list/medalla-list.component';
   imports: [
     CommonModule
   ],
-  declarations: [MedallaListComponent]
+  declarations: [MedallaListComponent],
+  exports :[MedallaListComponent]
 })
 export class MedallaModule { }
