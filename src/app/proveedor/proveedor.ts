@@ -11,7 +11,7 @@ export interface Proveedor {
   /**
    * El user del proveedor
    */
-  username: string;
+  user: string;
 
   /**
    * La contraseña del proveedor
@@ -26,7 +26,7 @@ export interface Proveedor {
   /**
    * La puntuacion del proveedor
    */
-  puntuacion: number;
+  puntaje: number;
 
 }
 
