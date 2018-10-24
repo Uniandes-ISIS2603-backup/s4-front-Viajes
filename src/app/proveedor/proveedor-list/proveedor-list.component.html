@@ -1,3 +1,11 @@
-<p>
-  proveedor-list works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col" *ngFor = "let proveedor of proveedores">
+      <p>Id: {{proveedor.id}}</p>
+      <p>Username: {{proveedor.username}}</p>
+      <p>Nombre: {{proveedor.nombre}}</p>
+      <p>Puntaje: {{proveedor.puntuacion}}</p>
+      <br>
+    </div>
+  </div>
+</div>
