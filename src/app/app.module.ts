@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { VueloModule } from './vuelo/vuelo.module';
+import { MedallaModule } from './medalla/medalla.module';
 import { ProveedorModule } from './proveedor/proveedor.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UsuarioModule,
     VueloModule,
     ProveedorModule,
+    MedallaModule,
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
