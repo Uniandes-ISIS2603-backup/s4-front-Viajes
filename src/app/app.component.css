@@ -27,6 +27,12 @@ h1{
     color: #152C9D;
 }
 
+#vuelosTag{
+    text-decoration: none;
+    font-family: Arial;
+    color: #152C9D;
+}
+
 
 .nav-item{
     list-style: none;

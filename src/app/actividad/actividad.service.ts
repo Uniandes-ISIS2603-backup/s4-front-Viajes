@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Actividad } from './actividad';
+import { ActividadDetail } from './actividad-detail'
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-const API_URL = '../../assets/';
-const actividades = '/actividades.json'
-
+const API_URL = environment.apiURL;
+const actividades = '/actividad';
 /**
 * The service provider for everything related to Activities
 */
@@ -26,6 +26,14 @@ export class ActividadService {
     */
     getActividades(): Observable<Actividad[]> {
         return this.http.get<Actividad[]>(API_URL + actividades);
+    }
+    
+        /**
+    * Returns the Observable object with the details of an activity retrieved from the API
+    * @returns The activity details
+    */
+    getActividadDetail(actividadId): Observable<ActividadDetail> {
+        return this.http.get<ActividadDetail>(API_URL + actividades + '/' + actividadId);
     }
 
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ActividadListComponent } from './actividad-list/actividad-list.component';
 import { ActividadService } from './actividad.service';
+import { ActividadDetailComponent } from './actividad-detail/actividad-detail.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
@@ -17,7 +18,7 @@ import { FormsModule } from '@angular/forms';
         CommonModule,
         FormsModule
     ],
-    declarations: [ActividadListComponent],
+    declarations: [ActividadListComponent,ActividadDetailComponent],
     providers: [ActividadService],
     bootstrap: [ActividadListComponent]
 })

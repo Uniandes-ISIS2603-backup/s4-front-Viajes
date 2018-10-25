@@ -29,16 +29,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     UsuarioModule,
     VueloModule,
-<<<<<<< HEAD
     ActividadModule,
-    FormsModule
-=======
+    FormsModule,
     ProveedorModule,
     MedallaModule,
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
->>>>>>> origin/master
   ],
    bootstrap: [AppComponent],
   providers: [        {

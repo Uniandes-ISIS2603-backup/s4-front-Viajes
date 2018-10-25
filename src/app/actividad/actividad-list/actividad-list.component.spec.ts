@@ -12,7 +12,7 @@ import { Actividad } from '../actividad';
 describe('ActividadListComponent', () => {
     let component: ActividadListComponent;
     let fixture: ComponentFixture<ActividadListComponent>;
-    const actividades: Actividad[] = require('../../../assets/actividad.json');
+
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -34,16 +34,4 @@ describe('ActividadListComponent', () => {
         expect(component).toBeTruthy();
     });
 
-
-    it('should have a list of activities', () => {
-        component.actividades = actividades;
-        expect(component.actividades.length).toEqual(actividades.length);
-    });
-
-    it('a activity should be a activity (first and last)', () => {
-        component.actividades = actividades;
-        //revisar todos las actividades
-        expect(component.actividades[0].identificador).toEqual(actividades[0].identificador);
-        expect(component.actividades[actividades.length - 1].identificador).toEqual(actividades[actividades.length - 1].identificador);
-    });
 });
