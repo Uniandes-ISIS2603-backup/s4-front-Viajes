@@ -11,6 +11,7 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { VueloModule } from './vuelo/vuelo.module';
 
 import { ActividadModule } from './actividad/actividad.module';
+import { GuiaModule } from './guia/guia.module';
 
 import { MedallaModule } from './medalla/medalla.module';
 import { ProveedorModule } from './proveedor/proveedor.module';
@@ -30,6 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UsuarioModule,
     VueloModule,
     ActividadModule,
+    GuiaModule,
     FormsModule,
     ProveedorModule,
     MedallaModule,
