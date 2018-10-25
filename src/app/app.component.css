@@ -9,6 +9,12 @@ h1{
     color: #fff;
 }
 
+#guiasTag{
+    text-decoration: none;
+    font-family: Arial;
+    color: #152C9D;
+}
+
 #vuelosTag{
     text-decoration: none;
     font-family: Arial;
@@ -86,6 +92,12 @@ h1{
 }
 
 #usuariosTag:hover{
+    background: #152C9D; 
+    color: #fff;
+    padding: 8px;
+}
+
+#guiasTag:hover{
     background: #152C9D; 
     color: #fff;
     padding: 8px;
