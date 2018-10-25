@@ -6,12 +6,18 @@ import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
+
 import { UsuarioModule } from './usuario/usuario.module';
 import { VueloModule } from './vuelo/vuelo.module';
+
+import { ActividadModule } from './actividad/actividad.module';
+
 import { MedallaModule } from './medalla/medalla.module';
 import { ProveedorModule } from './proveedor/proveedor.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +29,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     UsuarioModule,
     VueloModule,
+    ActividadModule,
+    FormsModule,
     ProveedorModule,
     MedallaModule,
     FormsModule,

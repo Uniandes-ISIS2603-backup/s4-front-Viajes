@@ -1,16 +1,22 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col" *ngFor = "let vuelo of vuelos">
-            <p>Número: {{vuelo.numero}}</p>
-            <p>Costo: {{vuelo.costo}}</p>
-            <p>Puntuacion: {{vuelo.puntuacion}}</p>
-            <p>Latitud Origen: {{vuelo.latitudOrigen}}</p>
-            <p>Longitud origen: {{vuelo.longitudOrigen}}</p>
-            <p>Latitud Destino: {{vuelo.latitudDestino}}</p>
-            <p>Longitud Destino: {{vuelo.longitudOrigen}}</p>
-            <p>Fecha Salida: {{vuelo.fechaSalida}}</p>
-            <p>Fecha Llegada: {{vuelo.fechaLlegada}}</p>
-             <br>
-        </div>  
-    </div>
-</div>
+<h1 id="texto">Vuelos</h1>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th>Id</th>
+    <th>Numero</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let vuelo of vuelos">
+
+    <td>
+      {{vuelo.id}}
+    </td>
+
+    <td style="cursor: pointer;">
+      <dd class="figure-caption" routerLink="/vuelos/{{vuelo.id}}">{{vuelo.numero}}</dd>
+    </td>
+
+  </tr>
+  </tbody>
+</table>

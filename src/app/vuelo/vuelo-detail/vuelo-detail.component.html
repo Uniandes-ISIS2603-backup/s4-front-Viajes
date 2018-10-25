@@ -1,0 +1,52 @@
+<h1 id="texto">Vuelo #: {{vueloDetail.numero}}</h1>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th>Id</th>
+    <th>Numero</th>
+    <th>Costo</th>
+    <th>Capacidad</th>
+    <th>Coordenadas Origen</th>
+    <th>Coordenadas Destino</th>
+    <th>Fecha Salida</th>
+    <th>Fecha LLegada</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      {{vueloDetail.id}}
+    </td>
+
+    <td>
+      {{vueloDetail.numero}}
+    </td>
+
+    <td>
+      {{vueloDetail.costo}}
+    </td>
+
+    <td>
+      {{vueloDetail.capacidad}}
+    </td>
+
+    <td>
+      {{vueloDetail.latitudOrigen}}, {{vueloDetail.longitudOrigen}}
+    </td>
+
+    <td>
+      {{vueloDetail.latitudDestino}}, {{vueloDetail.longitudDestino}}
+    </td>
+
+    <td>
+      {{vueloDetail.fechaSalida| date:'yyyy-MM-dd'}}
+    </td>
+
+    <td>
+      {{vueloDetail.fechaLlegada| date:'yyyy-MM-dd'}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+

@@ -1,0 +1,46 @@
+[
+    {
+ 
+        "costo": 15000,
+        "duracion": 120,
+        "identificador": 2002,
+        "latitud": 45.67,
+        "longitud": 56.22,
+        "nombreActividad": "Caminata al Salto del Tequendama",
+        "puntuacion": 3
+
+    },
+    {
+
+        "costo": 15000,
+        "duracion": 120,
+        "identificador": 2002,
+        "latitud": 45.67,
+        "longitud": 56.22,
+        "nombreActividad": "Caminata al Salto del Tequendama",
+        "puntuacion": 2
+   
+    },
+    {
+
+        "costo": 15000,
+        "duracion": 120,
+        "identificador": 2002,
+        "latitud": 45.67,
+        "longitud": 56.22,
+        "nombreActividad": "Caminata al Salto del Tequendama",
+        "puntuacion": 2
+
+    },
+    {
+        "type": "actividadDetailDTO",
+        "costo": 15000,
+        "duracion": 120,
+        "identificador": 2002,
+        "latitud": 45.67,
+        "longitud": 56.22,
+        "nombreActividad": "Caminata al Salto del Tequendama",
+        "puntuacion": 2
+
+    }
+]

@@ -27,12 +27,50 @@ h1{
     color: #152C9D;
 }
 
+#vuelosTag{
+    text-decoration: none;
+    font-family: Arial;
+    color: #152C9D;
+}
+
 
 .nav-item{
     list-style: none;
     display: inline;
     padding-left: 4px;
     padding-right: 4px;
+
+}
+
+#actividadesTag:hover{
+    background: #152C9D; 
+    color: #fff;
+    padding: 8px;
+}
+
+#vuelosTag:hover{
+    background: #152C9D; 
+    color: #fff;
+    padding: 8px;
+}
+
+#proveedoresTag:hover{
+    background: #152C9D; 
+    color: #fff;
+    padding: 8px;
+}
+
+#usuariosTag:hover{
+    background: #152C9D; 
+    color: #fff;
+    padding: 8px;
+}
+
+.nav-tabs{
+    width: 100%;
+    background: orange;
+    padding: 8px;
+
 }
 
 #vuelosTag:hover{
