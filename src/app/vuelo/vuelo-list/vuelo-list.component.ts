@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 import {Vuelo} from '../vuelo';
 import {VueloService} from '../vuelo.service';
-   
+
 /**
  * The component for the list of vuelos in TripBuilder
  */
@@ -17,12 +19,14 @@ export class VueloListComponent implements OnInit {
      * Constructor of the component
      * @param vueloService The vuelo services provider
      */
-    constructor(private vueloService: VueloService) {}
+    constructor(private vueloService: VueloService, private route: ActivatedRoute) {}
+
+    allvuelos:string = 'no';
 
     /**
      * The list of vuelos in TripBuilder
      */
-    vuelos: Vuelo[];
+    @Input() vuelos: Vuelo[];
 
     /**
      * Asks the service to update the list of vuelos
@@ -37,6 +41,18 @@ export class VueloListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
+      this.route.queryParams
+        .filter(params => params.allvuelos)
+        .subscribe(params => {
+          console.log(params);
+
+          this.allvuelos = params.allvuelos;
+          console.log(this.allvuelos);
+        });
+      if (this.allvuelos == 'yes'){
+        console.log("allvuelos");
+
         this.getVuelos();
+      }
     }
 }

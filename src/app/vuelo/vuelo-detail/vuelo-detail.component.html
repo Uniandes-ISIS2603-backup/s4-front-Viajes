@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+  <div>
+    <div class="border margin">
+      <p class="h3 p-3">{{vueloDetail.id}}</p>
+      <div class="row">
+        <div class="col">
+          <dl>
+            <hr>
+            <dt> Vuelos</dt>
+            <div *ngFor = "let vuelo of vueloDetail.vuelos">
+              <dd class="caption" routerLink="/vuelos/{{vuelo.id}}">{{vuelo.numero}}</dd>
+            </div>
+            <hr>
+            <dt> Costo</dt>
+            <dd>{{vueloDetail.costo}}</dd>
+            <hr>
+            <dt>Capacidad</dt>
+            <dd>{{vueloDetail.capacidad}}</dd>
+            <hr>
+            <dt>latitud Origen</dt>
+            <dd>{{vueloDetail.latitudOrigen}}</dd>
+            <hr>
+            <dt>longitud Origen</dt>
+            <dd>{{vueloDetail.longitudOrigen}}</dd>
+            <hr>
+            <dt>latitud Destino</dt>
+            <dd>{{vueloDetail.latitudDestino}}</dd>
+            <hr>
+            <dt>longitud Destino</dt>
+            <dd>{{vueloDetail.longitudDestino}}</dd>
+            <hr>
+            <dt>Fecha Salida</dt>
+            <dd>{{vueloDetail.fechaSalida| date:'yyyy-MM-dd'}}</dd>
+            <hr>
+            <dt>Fecha Llegada</dt>
+            <dd>{{vueloDetail.fechaLlegada| date:'yyyy-MM-dd'}}</dd>
+            <hr>
+            <dt class="bold">Vuelo</dt>
+            <dd class="caption" routerLink="/editorials/{{vueloDetail.vuelo.id}}">{{vueloDetail.vuelo.numero}}</dd>
+            <hr>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

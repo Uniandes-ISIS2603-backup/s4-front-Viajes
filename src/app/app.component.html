@@ -1,14 +1,37 @@
-<ul class="nav nav-tabs">
+<div class="titulo">
+  <h1>
+    TripBuilder
+  </h1>
+</div>
+
+<ul class="nav justify-content-center">
     <li class="nav-item">
-        <a id="vuelosTag" class="nav-link" routerLink="/vuelos/list">Vuelos</a>
+        <a id="vuelosTag" class="nav-link" [routerLink]="['/vuelos/list']" [queryParams]="{allvuelos: 'yes'}">VUELOS</a>
+    </li>
+    <li class="nav-item">
+        <a id="proveedoresTag" class="nav-link" routerLink="/proveedores/list">PROVEEDORES</a>
+    </li>
+    <li class="nav-item">
+        <a id="usuariosTag" class="nav-link" routerLink="/usuarios/list">USUARIOS</a>
+    </li>
+    <li class="nav-item">
+        <a id="transportesTag" class="nav-link" routerLink="/transportes/list">TRANSPORTES</a>
+    </li>
+    <li class="nav-item">
+        <a id="actividadesTag" class="nav-link" routerLink="/actividades/list">ACTIVIDADES</a>
     </li>
     <li class="nav-item">
         <a id="actividadesTag" class="nav-link" routerLink="/actividades/list">Actividades</a>
     </li>
+    <li class="nav-item">
+        <a id="combosTag" class="nav-link" routerLink="/combos/list">COMBOS</a>
+    </li>
+  <li class="nav-item">
+    <a id="medallasTag" class="nav-link" routerLink="/medallas/list">MEDALLAS</a>
+  </li>
+
 </ul>
 <div class="list">
     <router-outlet></router-outlet>
 </div>
-
-
 

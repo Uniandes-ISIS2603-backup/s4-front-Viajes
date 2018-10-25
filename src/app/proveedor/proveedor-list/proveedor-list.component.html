@@ -1,3 +1,35 @@
-<p>
-  proveedor-list works!
-</p>
+<h1 id="texto">Proveedores</h1>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th>Id</th>
+    <th>User</th>
+    <th>Nombre</th>
+    <th>Puntaje</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let proveedor of proveedores">
+
+    <td>
+      {{proveedor.id}}
+    </td>
+
+    <td>
+      {{proveedor.user}}
+    </td>
+
+    <td>
+      {{proveedor.nombre}}
+    </td>
+
+    <td>
+      {{proveedor.puntaje}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+

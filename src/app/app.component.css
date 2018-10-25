@@ -1,13 +1,39 @@
+.titulo{
+   width: 100%;
+   background: #152C9D;
+   padding: 5px;
+}
+
+h1{
+    font-family: Arial;
+    color: #fff;
+}
 
 #vuelosTag{
     text-decoration: none;
+    font-family: Arial;
+    color: #152C9D;
 }
+
+#proveedoresTag{
+    text-decoration: none;
+    font-family: Arial;
+    color: #152C9D;
+}
+
+#usuariosTag{
+    text-decoration: none;
+    font-family: Arial;
+    color: #152C9D;
+}
+
 
 .nav-item{
     list-style: none;
     display: inline;
     padding-left: 4px;
     padding-right: 4px;
+
 }
 
 #actividadesTag:hover{
@@ -40,3 +66,28 @@
     padding: 8px;
 
 }
+
+#vuelosTag:hover{
+    background: #152C9D; 
+    color: #fff;
+    padding: 8px;
+}
+
+#proveedoresTag:hover{
+    background: #152C9D;
+    color: #fff;
+    padding: 8px;
+}
+
+#usuariosTag:hover{
+    background: #152C9D; 
+    color: #fff;
+    padding: 8px;
+}
+
+.nav{
+    width: 100%;
+    background: orange;
+    padding: 8px;
+}
+
