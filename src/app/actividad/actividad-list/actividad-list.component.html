@@ -1,0 +1,48 @@
+
+<h1 id="texto">Actividades</h1>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Costo</th>
+    <th>Duracion</th>
+    <th>Latitud</th>
+    <th>Longitud</th>
+    <th>Puntuacion</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let actividad of actividades">
+
+    <td>
+      {{actividad.identificador}}
+    </td>
+
+    <td>
+      {{actividad.nombreActividad}}
+    </td>
+
+    <td>
+      {{actividad.costo}}
+    </td>
+
+    <td>
+      {{actividad.duracion}}
+    </td>
+    
+    <td>
+      {{actividad.latitud}}
+    </td>
+    
+    <td>
+      {{actividad.longitud}}
+    </td>
+    
+    <td>
+      {{actividad.puntuacion}}
+    </td>
+    
+  </tr>
+  </tbody>
+</table>

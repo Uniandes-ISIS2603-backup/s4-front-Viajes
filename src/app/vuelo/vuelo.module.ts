@@ -17,9 +17,11 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
     CommonModule,
     FormsModule
   ],
+
   declarations: [VueloListComponent,
     VueloDetailComponent
   ],
+
   providers: [VueloService],
   bootstrap: [VueloListComponent]
 })
