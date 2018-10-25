@@ -22,7 +22,6 @@ export class VueloListComponent implements OnInit {
     constructor(private vueloService: VueloService, private route: ActivatedRoute) {}
 
     allvuelos:string = 'no';
-
     /**
      * The list of vuelos in TripBuilder
      */
