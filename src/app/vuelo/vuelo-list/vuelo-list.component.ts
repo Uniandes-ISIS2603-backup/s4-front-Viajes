@@ -9,12 +9,16 @@ import {VueloService} from '../vuelo.service';
  * The component for the list of vuelos in TripBuilder
  */
 @Component({
-  selector: 'app-vuelo',
+  selector: 'app-vuelo-list',
   templateUrl: './vuelo-list.component.html',
   styleUrls: ['./vuelo-list.component.css']
 })
 export class VueloListComponent implements OnInit {
 
+    /**
+     * The list of vuelos in TripBuilder
+     */
+      @Input() vuelos: Vuelo[];
     /**
      * Constructor of the component
      * @param vueloService The vuelo services provider
@@ -22,10 +26,7 @@ export class VueloListComponent implements OnInit {
     constructor(private vueloService: VueloService, private route: ActivatedRoute) {}
 
     allvuelos:string = 'no';
-    /**
-     * The list of vuelos in TripBuilder
-     */
-    @Input() vuelos: Vuelo[];
+
 
     /**
      * Asks the service to update the list of vuelos
