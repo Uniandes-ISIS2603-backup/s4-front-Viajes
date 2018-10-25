@@ -8,6 +8,9 @@ import {UsuarioListComponent} from '../usuario/usuario-list/usuario-list.compone
 import {ProveedorListComponent} from '../proveedor/proveedor-list/proveedor-list.component';
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
 
+import {ActividadListComponent} from '../actividad/actividad-list/actividad-list.component';
+import {ActividadDetailComponent} from '../actividad/actividad-detail/actividad-detail.component';
+
 const routes: Routes = [
 
     {
@@ -20,6 +23,20 @@ const routes: Routes = [
           {
             path: ':id',
             component: VueloDetailComponent
+          }
+        ]
+    },
+    
+    {
+        path: 'actividades',
+        children: [
+            {
+                path: 'list',
+                component: ActividadListComponent
+            },
+          {
+            path: ':id',
+            component: ActividadDetailComponent
           }
         ]
     },
