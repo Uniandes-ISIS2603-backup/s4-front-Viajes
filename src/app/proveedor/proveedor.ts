@@ -16,7 +16,7 @@ export interface Proveedor {
   /**
    * La contraseña del proveedor
    */
-  contrasena: string;
+  password: string;
 
   /**
    * El nombre del proveedor

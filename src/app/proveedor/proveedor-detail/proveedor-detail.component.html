@@ -1,3 +1,40 @@
-<p>
-  proveedor-detail works!
-</p>
+<h1 id="texto">Proveedor #: {{proveedorDetail.id}}</h1>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th>Id</th>
+    <th>User</th>
+    <th>Contraseña</th>
+    <th>Nombre</th>
+    <th>Puntaje</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+      {{proveedorDetail.id}}
+    </td>
+
+    <td>
+      {{proveedorDetail.user}}
+    </td>
+
+    <td>
+      {{proveedorDetail.password}}
+    </td>
+
+    <td>
+      {{proveedorDetail.nombre}}
+    </td>
+
+    <td>
+      {{proveedorDetail.puntaje}}
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<app-proveedores-list [proveedores]="other_proveedores"></app-proveedores-list>
+
+
+
