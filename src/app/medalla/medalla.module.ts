@@ -10,7 +10,6 @@ import {MedallaListComponent} from './medalla-list/medalla-list.component';
 
 @NgModule({
   imports: [
-    CommonModule
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

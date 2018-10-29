@@ -15,12 +15,7 @@ export interface Medalla {
   rutaImagen: string;
 
   /**
-   * El nombre de la medalla
-   */
-  nombre: string;
-
-  /**
    * La descripcion de la medalla
    */
-  descripcion: number;
+  descripcion: string;
 }

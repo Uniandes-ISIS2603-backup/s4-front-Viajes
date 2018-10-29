@@ -11,6 +11,8 @@ import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-
 import {ActividadListComponent} from '../actividad/actividad-list/actividad-list.component';
 import {ActividadDetailComponent} from '../actividad/actividad-detail/actividad-detail.component';
 
+import {MedallaListComponent} from '../medalla/medalla-list/medalla-list.component';
+
 const routes: Routes = [
 
     {
@@ -24,6 +26,16 @@ const routes: Routes = [
             path: ':id',
             component: VueloDetailComponent
           }
+        ]
+    },
+    
+    {
+        path: 'medallas',
+        children: [
+            {
+                path: 'list',
+                component: MedallaListComponent
+            }
         ]
     },
     
