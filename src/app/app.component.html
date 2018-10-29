@@ -1,39 +1,52 @@
-<div class="titulo">
-  <h1>
-    TripBuilder
-  </h1>
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div class="titulo">
+  <a class="navbar-brand" href="#">
+    <div class="form-inline">
+      <h2 class="mainTitle">TripBuilder</h2>
+    </div>
+  </a>
 </div>
-
-<ul class="nav justify-content-center">
-    <li class="nav-item">
-        <a id="vuelosTag" class="nav-link" [routerLink]="['/vuelos/list']" [queryParams]="{allvuelos: 'yes'}">VUELOS</a>
-    </li>
-    <li class="nav-item">
-        <a id="proveedoresTag" class="nav-link" [routerLink]="['/proveedores/list']" [queryParams]="{allproveedores: 'yes'}">PROVEEDORES</a>
-    </li>
-    <li class="nav-item">
-        <a id="usuariosTag" class="nav-link" routerLink="/usuarios/list">USUARIOS</a>
-    </li>
-    <li class="nav-item">
-        <a id="transportesTag" class="nav-link" routerLink="/transportes/list">TRANSPORTES</a>
-    </li>
-    <li class="nav-item">
-        <a id="actividadesTag" class="nav-link" routerLink="/actividades/list">ACTIVIDADES</a>
-    </li>
-
-    <li class="nav-item">
-        <a id="combosTag" class="nav-link" routerLink="/combos/list">COMBOS</a>
-    </li>
-  <li class="nav-item">
-    <a id="medallasTag" class="nav-link" routerLink="/medallas/list">MEDALLAS</a>
-  </li>
-  
-  <li class="nav-item">
-        <a id="guiasTag" class="nav-link" routerLink="/guias/list">GUIAS</a>
-    </li>
-
-</ul>
-<div class="list">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-nav mr-auto mt-0">
+      <a id="vuelosTag" class="nav-item nav-link" [routerLink]="['/vuelos/list']" [queryParams]="{allvuelos: 'yes'}">VUELOS</a>
+      <a id="proveedoresTag" class="nav-item nav-link" [routerLink]="['/proveedores/list']" [queryParams]="{allproveedores: 'yes'}">PROVEEDORES</a>
+      <a id="usuariosTag" class="nav-item nav-link" routerLink="/usuarios/list">USUARIOS</a>
+        <a id="transportesTag" class="nav-item nav-link" routerLink="/transportes/list">TRANSPORTES</a>
+        <a id="actividadesTag" class="nav-item nav-link" routerLink="/actividades/list">ACTIVIDADES</a>
+        <a id="combosTag" class="nav-item nav-link" routerLink="/combos/list">COMBOS</a>
+        <a id="medallasTag" class="nav-item nav-link" routerLink="/medallas/list">MEDALLAS</a>
+        <a id="guiasTag" class="nav-item nav-link" routerLink="/guias/list">GUIAS</a>
+    </div>
+    <div class="navbar-nav ml-auto flex-column">
+      <div class="flex-row">
+        <div class="form-inline">
+          <li class="right-space"><a id="signup-navbar-item" routerLink="home"><span class="fa fa-user"></span>
+            Sign Up</a></li>
+          <li><a id="login-navbar-item" routerLink="home"><span class="fa fa-sign-in"></span>Login</a></li>
+        </div>
+      </div>
+      <button id="checkout-navbar-item" type="button" class="btn btn-default">
+        <a href="#"><span class="fa fa-shopping-cart"></span>Checkout</a>
+      </button>
+    </div>
+  </div>
+</nav>
+<div>
     <router-outlet></router-outlet>
+  <br>
+  <br>
 </div>
 
+<footer class="footer bg-light" id="footer">
+  <div class="container">
+    <p class="navbar-text text-center">
+      <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">©TripBuilder Team 2018</span>
+    </p>
+  </div>
+</footer>
+</div>

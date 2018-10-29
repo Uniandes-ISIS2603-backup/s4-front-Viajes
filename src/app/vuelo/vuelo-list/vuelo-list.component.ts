@@ -4,6 +4,7 @@ import 'rxjs/add/operator/filter';
 
 import {Vuelo} from '../vuelo';
 import {VueloService} from '../vuelo.service';
+import {VueloDetail} from '../vuelo-detail';
 
 /**
  * The component for the list of vuelos in TripBuilder
@@ -14,19 +15,32 @@ import {VueloService} from '../vuelo.service';
   styleUrls: ['./vuelo-list.component.css']
 })
 export class VueloListComponent implements OnInit {
-
-    /**
-     * The list of vuelos in TripBuilder
-     */
-      @Input() vuelos: Vuelo[];
     /**
      * Constructor of the component
      * @param vueloService The vuelo services provider
      */
     constructor(private vueloService: VueloService, private route: ActivatedRoute) {}
 
-    allvuelos:string = 'no';
+    vuelos: Vuelo[];
+    vuelo_id: number;
+    selectedVuelo : Vuelo;
 
+    onSelected(vuelo_id: number):void {
+    this.vuelo_id = vuelo_id;
+    this.selectedVuelo = new class implements VueloDetail {
+      capacidad: number;
+      costo: number;
+      fechaLlegada: string;
+      fechaSalida: string;
+      id: number;
+      latitudDestino: number;
+      latitudOrigen: number;
+      longitudDestino: number;
+      longitudOrigen: number;
+      numero: string;
+    }
+    this.getVueloDetail();
+  }
 
     /**
      * Asks the service to update the list of vuelos
@@ -36,23 +50,18 @@ export class VueloListComponent implements OnInit {
             .subscribe(vuelos => this.vuelos = vuelos);
     }
 
+    getVueloDetail(): void {
+    this.vueloService.getVueloDetail(this.vuelo_id)
+      .subscribe(selectedVuelo => {
+        this.selectedVuelo = selectedVuelo
+      });
+    }
+
     /**
      * This will initialize the component by retrieving the list of vuelos from the service
      * This method will be called when the component is created
      */
     ngOnInit() {
-      this.route.queryParams
-        .filter(params => params.allvuelos)
-        .subscribe(params => {
-          console.log(params);
-
-          this.allvuelos = params.allvuelos;
-          console.log(this.allvuelos);
-        });
-      if (this.allvuelos == 'yes'){
-        console.log("allvuelos");
-
-        this.getVuelos();
-      }
+      this.getVuelos();
     }
 }

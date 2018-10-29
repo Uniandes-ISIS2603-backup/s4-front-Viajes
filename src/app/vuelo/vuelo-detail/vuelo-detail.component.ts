@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 
@@ -12,29 +12,37 @@ import { VueloDetail } from '../vuelo-detail';
   templateUrl: './vuelo-detail.component.html',
   styleUrls: ['./vuelo-detail.component.css']
 })
-export class VueloDetailComponent implements OnInit {
+export class VueloDetailComponent implements OnInit, OnDestroy {
+
 
   constructor(
     private vueloService: VueloService,
     private route: ActivatedRoute,
     private router: Router
   ) {
-
-}
-
-  vuelo_id: number;
-
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+        this.ngOnInit();
+      }
+    });
+  }
   /**
    * The book whose details are shown
    */
-  vueloDetail: VueloDetail;
+  @Input() vueloDetail: VueloDetail;
+
+  vuelo_id: number;
 
   /**
    * The other books shown in the sidebar
    */
   other_vuelos: Vuelo[];
 
-
+  /**
+   * The suscription which helps to know when a new book
+   * needs to be loaded
+   */
+  navigationSubscription;
   /**
    * The method which retrieves the details of the book that
    * we want to show
@@ -64,20 +72,31 @@ export class VueloDetailComponent implements OnInit {
    */
   ngOnInit() {
     this.vuelo_id = +this.route.snapshot.paramMap.get('id');
-    this.vueloDetail = new class implements VueloDetail {
-      capacidad: number;
-      costo: number;
-      fechaLlegada: string;
-      fechaSalida: string;
-      id: number;
-      latitudDestino: number;
-      latitudOrigen: number;
-      longitudDestino: number;
-      longitudOrigen: number;
-      numero: string;
+      this.vueloDetail = new class implements VueloDetail {
+        capacidad: number;
+        costo: number;
+        fechaLlegada: string;
+        fechaSalida: string;
+        id: number;
+        latitudDestino: number;
+        latitudOrigen: number;
+        longitudDestino: number;
+        longitudOrigen: number;
+        numero: string;
+        vuelos: Vuelo[];
+      }
+      this.getVueloDetail();
+      this.getOtherVuelos();
+  }
+
+  /**
+   * This method helps to refresh the view when we need to load another book into it
+   * when one of the other books in the list is clicked
+   */
+  ngOnDestroy() {
+    if (this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
     }
-    this.getVueloDetail();
-    this.getOtherVuelos();
   }
 
 }
