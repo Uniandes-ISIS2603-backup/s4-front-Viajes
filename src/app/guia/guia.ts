@@ -4,6 +4,11 @@
 */
 export class Guia {
     
+     /**
+    * The guide's name
+    */
+    nombre: string;
+    
     /**
     * The guide's document
     */
