@@ -4,6 +4,9 @@ import 'rxjs/add/operator/filter';
 
 import {Proveedor} from '../proveedor';
 import {ProveedorService} from '../proveedor.service';
+import {ProveedorDetail} from '../proveedor-detail';
+import {Vuelo} from '../../vuelo/vuelo';
+import {VueloDetail} from '../../vuelo/vuelo-detail';
 
 /**
  * The component for the list of proveedores in TripBuilder
@@ -14,18 +17,28 @@ import {ProveedorService} from '../proveedor.service';
   styleUrls: ['./proveedor-list.component.css']
 })
 export class ProveedorListComponent implements OnInit {
-
-  /**
-   * The list of proveedores in TripBuilder
-   */
-  @Input() proveedores: Proveedor[];
   /**
    * Constructor of the component
    * @param proveedorService The vuelo services provider
    */
   constructor(private proveedorService: ProveedorService,  private route: ActivatedRoute) {}
 
-  allproveedores:string = 'no';
+  @Input() proveedores: Proveedor[];
+  proveedor_id: number;
+  selectedProveedor : Proveedor;
+
+  onSelected(proveedor_id: number):void {
+    this.proveedor_id = proveedor_id;
+    this.selectedProveedor = new class implements ProveedorDetail {
+      id: number;
+      nombre: string;
+      password: string;
+      puntaje: number;
+      user: string;
+      vuelos: Vuelo;
+    }
+    this.getProveedorDetail();
+  }
   /**
    * Asks the service to update the list of proveedores
    */
@@ -34,23 +47,18 @@ export class ProveedorListComponent implements OnInit {
       .subscribe(proveedores => this.proveedores = proveedores);
   }
 
+  getProveedorDetail(): void {
+    this.proveedorService.getProveedorDetail(this.proveedor_id)
+      .subscribe(selectedProveedor => {
+        this.selectedProveedor = selectedProveedor
+      });
+  }
+
   /**
    * This will initialize the component by retrieving the list of proveedores from the service
    * This method will be called when the component is created
    */
   ngOnInit() {
-    this.route.queryParams
-      .filter(params => params.allproveedores)
-      .subscribe(params => {
-        console.log(params);
-
-        this.allproveedores = params.allproveedores;
-        console.log(this.allproveedores);
-      });
-    if (this.allproveedores == 'yes'){
-      console.log("allproveedores");
-
       this.getProveedores();
-    }
   }
 }

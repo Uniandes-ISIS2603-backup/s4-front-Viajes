@@ -2,6 +2,8 @@
  * Esta clase representa un proveedor de TripBuilder.
  *Contiene toda la informaciòn relevante a un vuelo
  */
+import {Vuelo} from '../vuelo/vuelo';
+
 export interface Proveedor {
   /**
    * El identificador del proveedor
@@ -27,6 +29,8 @@ export interface Proveedor {
    * La puntuacion del proveedor
    */
   puntaje: number;
+
+  vuelos: Vuelo;
 
 }
 

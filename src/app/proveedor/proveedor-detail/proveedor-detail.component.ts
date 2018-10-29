@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, OnDestroy, Input} from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 
 import { ProveedorService } from '../proveedor.service';
 import { Proveedor } from '../proveedor';
 import { ProveedorDetail } from '../proveedor-detail';
+import {VueloDetail} from '../../vuelo/vuelo-detail';
+import {Vuelo} from '../../vuelo/vuelo';
 
 
 @Component({
@@ -12,27 +14,35 @@ import { ProveedorDetail } from '../proveedor-detail';
   templateUrl: './proveedor-detail.component.html',
   styleUrls: ['./proveedor-detail.component.css']
 })
-export class ProveedorDetailComponent implements OnInit {
+export class ProveedorDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private proveedorService: ProveedorService,
     private route: ActivatedRoute,
     private router: Router
   ) {
-
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+        this.ngOnInit();
+      }
+    });
   }
-
-  proveedor_id: number;
-
   /**
    * The book whose details are shown
    */
-  proveedorDetail: ProveedorDetail;
+  @Input() proveedorDetail: ProveedorDetail;
 
+  proveedor_id: number;
   /**
    * The other books shown in the sidebar
    */
   other_proveedores: Proveedor[];
+
+  /**
+   * The suscription which helps to know when a new book
+   * needs to be loaded
+   */
+  navigationSubscription;
 
 
   /**
@@ -70,10 +80,22 @@ export class ProveedorDetailComponent implements OnInit {
       nombre: string;
       puntaje: number;
       user: string;
+      vuelos: Vuelo;
     }
     this.getProveedorDetail();
     this.getOtherProveedores();
   }
+
+  /**
+   * This method helps to refresh the view when we need to load another book into it
+   * when one of the other books in the list is clicked
+   */
+  ngOnDestroy() {
+    if (this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
+    }
+  }
+
 
 }
 
