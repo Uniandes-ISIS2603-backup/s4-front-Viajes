@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 import {Proveedor} from '../proveedor';
 import {ProveedorService} from '../proveedor.service';
@@ -7,23 +9,23 @@ import {ProveedorService} from '../proveedor.service';
  * The component for the list of proveedores in TripBuilder
  */
 @Component({
-  selector: 'app-proveedor',
+  selector: 'app-proveedores-list',
   templateUrl: './proveedor-list.component.html',
   styleUrls: ['./proveedor-list.component.css']
 })
 export class ProveedorListComponent implements OnInit {
 
   /**
+   * The list of proveedores in TripBuilder
+   */
+  @Input() proveedores: Proveedor[];
+  /**
    * Constructor of the component
    * @param proveedorService The vuelo services provider
    */
-  constructor(private proveedorService: ProveedorService) {}
+  constructor(private proveedorService: ProveedorService,  private route: ActivatedRoute) {}
 
-  /**
-   * The list of proveedores in TripBuilder
-   */
-  proveedores: Proveedor[];
-
+  allproveedores:string = 'no';
   /**
    * Asks the service to update the list of proveedores
    */
@@ -37,6 +39,18 @@ export class ProveedorListComponent implements OnInit {
    * This method will be called when the component is created
    */
   ngOnInit() {
-    this.getProveedores();
+    this.route.queryParams
+      .filter(params => params.allproveedores)
+      .subscribe(params => {
+        console.log(params);
+
+        this.allproveedores = params.allproveedores;
+        console.log(this.allproveedores);
+      });
+    if (this.allproveedores == 'yes'){
+      console.log("allproveedores");
+
+      this.getProveedores();
+    }
   }
 }

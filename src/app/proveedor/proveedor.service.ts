@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const proveedores = '/proveedores';
+import { ProveedorDetail } from './proveedor-detail';
 
 /**
  * The service provider for everything related to proveedores
@@ -26,5 +27,9 @@ export class ProveedorService {
    */
   getProveedores(): Observable<Proveedor[]> {
     return this.http.get<Proveedor[]>(API_URL + proveedores);
+  }
+
+  getProveedorDetail(proveedorId): Observable<ProveedorDetail> {
+    return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + proveedorId);
   }
 }

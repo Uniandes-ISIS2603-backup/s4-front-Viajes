@@ -1,7 +1,13 @@
+.container-fluid{
+  width: 100%;
+}
+
 .titulo{
-   width: 100%;
    background: #152C9D;
-   padding: 5px;
+}
+
+h2{
+  color: #fff;
 }
 
 h1{
@@ -9,91 +15,95 @@ h1{
     color: #fff;
 }
 
+#guiasTag{
+    font-family: Arial;
+    color: #152C9D;
+}
+
 #vuelosTag{
-    text-decoration: none;
     font-family: Arial;
     color: #152C9D;
 }
 
 #proveedoresTag{
-    text-decoration: none;
     font-family: Arial;
     color: #152C9D;
 }
 
 #usuariosTag{
-    text-decoration: none;
     font-family: Arial;
     color: #152C9D;
 }
 
-#vuelosTag{
-    text-decoration: none;
+#vuelosTag, #transportesTag, #actividadesTag, #combosTag, #guiasTag, #medallasTag{
     font-family: Arial;
     color: #152C9D;
 }
 
-
-.nav-item{
-    list-style: none;
-    display: inline;
-    padding-left: 4px;
-    padding-right: 4px;
-
-}
 
 #actividadesTag:hover{
     background: #152C9D; 
     color: #fff;
-    padding: 8px;
 }
 
 #vuelosTag:hover{
     background: #152C9D; 
     color: #fff;
-    padding: 8px;
 }
 
 #proveedoresTag:hover{
     background: #152C9D; 
     color: #fff;
-    padding: 8px;
 }
 
 #usuariosTag:hover{
     background: #152C9D; 
     color: #fff;
-    padding: 8px;
 }
 
-.nav-tabs{
-    width: 100%;
+.navbar-collapse{
     background: orange;
-    padding: 8px;
-
 }
 
 #vuelosTag:hover{
     background: #152C9D; 
     color: #fff;
-    padding: 8px;
 }
 
 #proveedoresTag:hover{
     background: #152C9D;
     color: #fff;
-    padding: 8px;
 }
 
 #usuariosTag:hover{
     background: #152C9D; 
     color: #fff;
-    padding: 8px;
 }
 
-.nav{
-    width: 100%;
-    background: orange;
-    padding: 8px;
+#transportesTag:hover{
+  background: #152C9D;
+  color: #fff;
 }
+
+#actividadesTag:hover{
+  background: #152C9D;
+  color: #fff;
+}
+
+#combosTag:hover{
+  background: #152C9D;
+  color: #fff;
+}
+
+#medallasTag:hover{
+  background: #152C9D;
+  color: #fff;
+}
+
+
+#guiasTag:hover{
+    background: #152C9D; 
+    color: #fff;
+}
+
 

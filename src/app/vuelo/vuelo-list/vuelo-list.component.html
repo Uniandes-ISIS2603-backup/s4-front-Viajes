@@ -1,22 +1,26 @@
-<h1 id="texto">Vuelos</h1>
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th>Id</th>
-    <th>Numero</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let vuelo of vuelos">
-
-    <td>
-      {{vuelo.id}}
-    </td>
-
-    <td style="cursor: pointer;">
-      <dd class="figure-caption" routerLink="/vuelos/{{vuelo.id}}">{{vuelo.numero}}</dd>
-    </td>
-
-  </tr>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="h4">Vuelos</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let vuelo of vuelos"
+            (click)="onSelected(vuelo.id)">
+          <td style="cursor: pointer;">
+            <dd>{{vuelo.numero}}</dd>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-8">
+      <div *ngIf="selectedVuelo">
+        <app-vuelo-detail [vueloDetail]="selectedVuelo"></app-vuelo-detail>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,7 @@ import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-
 
 import {ActividadListComponent} from '../actividad/actividad-list/actividad-list.component';
 import {ActividadDetailComponent} from '../actividad/actividad-detail/actividad-detail.component';
+import {GuiaListComponent} from '../guia/guia-list/guia-list.component';
 
 import {MedallaListComponent} from '../medalla/medalla-list/medalla-list.component';
 
@@ -52,7 +53,17 @@ const routes: Routes = [
           }
         ]
     },
-
+    
+    {
+        path: 'guias',
+        children: [
+            {
+                path: 'list',
+                component: GuiaListComponent
+            }
+        ]
+    },
+    
   {
         path: 'proveedores',
         children: [
