@@ -9,10 +9,9 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let medalla of medallas">
-
-    <td>
-      {{medalla.id}}
+  <tr *ngFor="let medalla of medallas" (click)="onSelected(medalla.id)">
+    <td style="cursor: pointer;">
+        <dd class="figure-caption" routerLink="/medallas/{{medalla.id}}">{{medalla.id}}</dd>
     </td>
 
     <td>
@@ -26,6 +25,12 @@
     <td>
       {{medalla.descripcion}}
     </td>
+ 
   </tr>
   </tbody>
 </table>
+    <div class="col-8">
+            <div *ngIf="selectedMedalla">
+                <app-medalla-detail>[medallaDetail]="selectedMedalla"></app-medalla-detail>
+            </div>
+    </div> 
