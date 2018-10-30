@@ -1,40 +1,22 @@
-<h1 id="texto">Proveedor #: {{proveedorDetail.id}}</h1>
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th>Id</th>
-    <th>User</th>
-    <th>Contraseña</th>
-    <th>Nombre</th>
-    <th>Puntaje</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      {{proveedorDetail.id}}
-    </td>
+<div class="panel-body">
+  <div class="border margin">
+    <p class="h3 p-3">Proveedor: {{proveedorDetail.nombre}}<p>
+    <div class="row">
+      <div class="col">
+        <dl>
+          <dt>Id</dt>
+          <dd>{{proveedorDetail.id}}</dd>
+          <dt>User</dt>
+          <dd>{{proveedorDetail.user}}</dd>
+          <dt>Contraseña</dt>
+          <dd>{{proveedorDetail.password}}</dd>
+          <dt>Puntaje</dt>
+          <dd>{{proveedorDetail.puntaje}}</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <td>
-      {{proveedorDetail.user}}
-    </td>
-
-    <td>
-      {{proveedorDetail.password}}
-    </td>
-
-    <td>
-      {{proveedorDetail.nombre}}
-    </td>
-
-    <td>
-      {{proveedorDetail.puntaje}}
-    </td>
-  </tr>
-  </tbody>
-</table>
-
-<app-proveedores-list [proveedores]="other_proveedores"></app-proveedores-list>
-
-
+<!---<app-proveedores-list [proveedores]="other_proveedores"></app-proveedores-list> --->
 

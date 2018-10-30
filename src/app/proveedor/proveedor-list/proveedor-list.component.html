@@ -1,19 +1,29 @@
-<h1 id="texto">Proveedores</h1>
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th>Id</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let proveedor of proveedores">
-
-    <td style="cursor: pointer;">
-      <dd class="figure-caption" routerLink="/proveedores/{{proveedor.id}}">{{proveedor.id}}</dd>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="h4">Proveedores</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let proveedor of proveedores"
+            (click)="onSelected(proveedor.id)">
+          <td style="cursor: pointer;">
+            <dd>{{proveedor.id}}</dd>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-8">
+      <div *ngIf="selectedProveedor">
+        <app-proveedor-detail [proveedorDetail]="selectedProveedor"></app-proveedor-detail>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
