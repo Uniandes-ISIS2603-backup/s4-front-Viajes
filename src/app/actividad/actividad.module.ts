@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { GuiaModule } from '../guia/guia.module';
 
 @NgModule({
     imports: [
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
         AppRoutingModule,
         HttpClientModule,
         CommonModule,
-        FormsModule
+        FormsModule,
+        GuiaModule
     ],
     declarations: [ActividadListComponent,ActividadDetailComponent],
     providers: [ActividadService],

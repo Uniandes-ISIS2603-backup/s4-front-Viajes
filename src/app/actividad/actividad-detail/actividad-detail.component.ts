@@ -29,8 +29,6 @@ export class ActividadDetailComponent implements OnInit {
         private actividadService: ActividadService 
     ) { }
 
-    
-    
 
     /**
     * El id de la actividad que viene en el path get .../actividad/actividad_id

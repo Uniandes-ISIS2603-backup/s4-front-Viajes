@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const actividades = '/actividad';
+const guia = '/guia';
 /**
 * The service provider for everything related to Activities
 */
@@ -33,7 +34,7 @@ export class ActividadService {
     * @returns The activity details
     */
     getActividadDetail(actividadId): Observable<ActividadDetail> {
-        return this.http.get<ActividadDetail>(API_URL + actividades + '/' + actividadId);
+        return this.http.get<ActividadDetail>(API_URL + actividades + '/' + actividadId + guia);
     }
 
 }

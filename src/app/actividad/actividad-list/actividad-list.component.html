@@ -10,10 +10,11 @@
     <th>Latitud</th>
     <th>Longitud</th>
     <th>Puntuacion</th>
+    <th>Guias para esta actividad</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let actividad of actividades">
+  <tr *ngFor="let actividad of actividades" >
 
     <td>
       {{actividad.identificador}}
@@ -41,6 +42,11 @@
     
     <td>
       {{actividad.puntuacion}}
+    </td>
+    
+    <td >
+        <app-actividad-detail [actividadDetail]="actividad"></app-actividad-detail>
+      
     </td>
     
   </tr>

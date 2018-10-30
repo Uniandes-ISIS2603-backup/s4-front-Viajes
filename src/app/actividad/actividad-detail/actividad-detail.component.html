@@ -2,16 +2,8 @@
     <div class="border margin">
         <p class="h3 p-3">{{actividadDetail.nombre}}<p> 
         <div class="row">
- 
-            <div class="col">
-                <dl>     
-                    <dt>Puntuacion</dt>
-                    <dd>{{actividadDetail.puntuacion}}</dd>
-
-                </dl>
-            </div>
-
+           <app-guia-list [guias]="actividadDetail.guias"></app-guia-list>
         </div>
     </div>
-
+    
 </div>
