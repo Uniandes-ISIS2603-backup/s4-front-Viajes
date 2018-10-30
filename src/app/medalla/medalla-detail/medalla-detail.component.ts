@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import {MedallaService} from '../medalla.service';
 import {Medalla} from '../medalla';
+import {MedallaDetail} from '../medalla-detail';
 
 @Component({
   selector: 'app-medalla-detail',
@@ -15,20 +16,29 @@ export class MedallaDetailComponent implements OnInit {
     private medallaService: MedallaService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+        this.ngOnInit();
+      }
+    }); }
 
-  medalla_id: number;
-    selectedMedalla : Medalla;
-    
-    onSelected(medalla_id: number):void {
-        this.medalla_id = medalla_id;
-        this.selectedMedalla = new MedallaDetail();
-        this.getMedallaDetail();     
-    }
   /**
    * The book whose details are shown
    */
-  medallaDetail: MedallaDetail;
+  @Input() medallaDetail: MedallaDetail;
+  medalla_id: number;
+
+  /**
+   * The suscription which helps to know when a new book
+   * needs to be loaded
+   */
+  navigationSubscription;
+    
+  /**
+   * The book whose details are shown
+   */
+  @Input() medallaDetail: MedallaDetail;
+  medalla_id: number;
 
   /**
    * The method which retrieves the details of the book that
@@ -51,6 +61,15 @@ export class MedallaDetailComponent implements OnInit {
     }
     this.getMedallaDetail();
   } 
+  
+    /**
+   * This method helps to refresh the view when we need to load another book into it
+   * when one of the other books in the list is clicked
+   */
+  ngOnDestroy() {
+    if (this.navigationSubscription) {
+      this.navigationSubscription.unsubscribe();
+    }
   
 
 
