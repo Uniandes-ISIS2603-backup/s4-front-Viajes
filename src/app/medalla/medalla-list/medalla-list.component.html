@@ -1,31 +1,29 @@
-<h1 id="texto">Lista de medallas</h1>
-<table class="table">
-  <thead class="thead-dark">
-  <tr>
-    <th>Id</th>
-    <th>Nombre</th>
-    <th>Ruta de imagen</th>
-    <th>Descripcion</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let medalla of medallas">
-
-    <td>
-      {{medalla.id}}
-    </td>
-
-    <td>
-      {{medalla.nombre}}
-    </td>
-
-    <td>
-      {{medalla.rutaImagen}}
-    </td>
-
-    <td>
-      {{medalla.descripcion}}
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="h4">Medalla</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let medalla of medallas"
+            (click)="onSelected(medalla.id)">
+          <td style="cursor: pointer;">
+            <dd>{{medalla.id}}</dd>
+          </td>
+        <td>
+            {{medalla.nombre}}
+        </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-8">
+      <div *ngIf="selectedMedalla">
+        <app-medalla-detail [medallaDetail]="selectedMedalla"></app-medalla-detail>
+      </div>
+    </div>
+  </div>
+</div>

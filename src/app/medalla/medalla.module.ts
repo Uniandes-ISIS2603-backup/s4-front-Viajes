@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {MedallaService} from './medalla.service';
 import {MedallaListComponent} from './medalla-list/medalla-list.component';
+import { MedallaDetailComponent } from './medalla-detail/medalla-detail.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import {MedallaListComponent} from './medalla-list/medalla-list.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [MedallaListComponent],
+  declarations: [MedallaListComponent, MedallaDetailComponent],
   providers :[MedallaService],
   bootstrap: [MedallaListComponent]
 })
