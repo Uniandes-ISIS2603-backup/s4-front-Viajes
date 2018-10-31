@@ -13,6 +13,7 @@ import {ActividadDetailComponent} from '../actividad/actividad-detail/actividad-
 import {GuiaListComponent} from '../guia/guia-list/guia-list.component';
 
 import {MedallaListComponent} from '../medalla/medalla-list/medalla-list.component';
+import {MedallaDetailComponent} from '../medalla/medalla-detail/medalla-detail.component';
 
 const routes: Routes = [
 
@@ -36,6 +37,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: MedallaListComponent
+            },
+            {
+                path: ':id',
+                component: MedallaDetailComponent
             }
         ]
     },

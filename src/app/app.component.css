@@ -16,27 +16,27 @@ h1{
 }
 
 #guiasTag{
-    font-family: Arial;
+    font-family: 'Cabin', sans-serif;
     color: #152C9D;
 }
 
 #vuelosTag{
-    font-family: Arial;
+    font-family: 'Cabin', sans-serif;
     color: #152C9D;
 }
 
 #proveedoresTag{
-    font-family: Arial;
+    font-family: 'Cabin', sans-serif;
     color: #152C9D;
 }
 
 #usuariosTag{
-    font-family: Arial;
+    font-family: 'Cabin', sans-serif;
     color: #152C9D;
 }
 
 #vuelosTag, #transportesTag, #actividadesTag, #combosTag, #guiasTag, #medallasTag{
-    font-family: Arial;
+    font-family: 'Cabin', sans-serif;
     color: #152C9D;
 }
 
