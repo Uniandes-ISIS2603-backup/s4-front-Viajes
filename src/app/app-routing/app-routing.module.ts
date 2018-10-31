@@ -45,7 +45,9 @@ const routes: Routes = [
         children: [
             {
                 path: 'list',
-                component: ActividadListComponent
+                component: ActividadListComponent                
+                
+                
             },
           {
             path: ':id',

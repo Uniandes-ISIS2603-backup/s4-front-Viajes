@@ -34,7 +34,7 @@ export class ActividadService {
     * @returns The activity details
     */
     getActividadDetail(actividadId): Observable<ActividadDetail> {
-        return this.http.get<ActividadDetail>(API_URL + actividades + '/' + actividadId + guia);
+        return this.http.get<ActividadDetail>(API_URL + actividades + '/' + actividadId);
     }
 
 }
