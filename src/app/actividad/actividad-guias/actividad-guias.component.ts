@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActividadService } from '../book.service';
+import { ActividadService } from '../actividad.service';
 import { Guia } from '../../guia/guia';
 
 @Component({
