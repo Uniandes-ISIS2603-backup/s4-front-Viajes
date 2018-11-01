@@ -22,7 +22,7 @@ export class ActividadCreateComponent implements OnInit {
     */
     constructor(
         private actividadService: ActividadService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
         private router: Router
     ) { }
 
@@ -44,24 +44,19 @@ export class ActividadCreateComponent implements OnInit {
     @Output() create = new EventEmitter();
 
     /**
-    * Creates a new editorial
+    * Creates an activity
     */
     createActividad(): Actividad {
-        this.actividad.puntuacion = 0;
+        console.log(this.actividad);
         this.actividadService.createActividad(this.actividad)
-            .subscribe(() => {+
-                this.actividad.identificador = actividad.identificador;
-                this.router.navigate(['/actividad/' + book.id]);
-            }, err => {
+            .subscribe((actividad) => {
+                this.actividad = actividad;
                 this.create.emit();
-                this.toastrService.success("The activity was created", "Activity creation");
-           
-                this.toastrService.error(err, "Error");
+                this.toastrService.success("La actividad fue creada", "Creacion de actividad");
+                
             });
-            
             return this.actividad;
     }
-
     /**
     * Informs the parent component that the user no longer wants to create an editorial
     */
