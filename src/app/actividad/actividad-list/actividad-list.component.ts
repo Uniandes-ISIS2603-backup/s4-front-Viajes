@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Actividad } from '../actividad';
 import { ActividadService } from '../actividad.service';
+import { ActividadDetail } from '../actividad-detail';
 
 /**
  * The component for the list of activities in TripBuilder
@@ -22,6 +23,25 @@ export class ActividadListComponent implements OnInit {
      * The list of activities in TripBuilder
      */
     actividades: Actividad[];
+    actividad_id: number;
+    selectedActividad : Actividad;
+    
+    actividadActual(actividad_id: number): Actividad {
+      
+        this.actividad_id = actividad_id;
+        this.selectedActividad = new ActividadDetail();
+        this.getActividadDetail();
+        return this.selectedActividad;  
+        
+    }
+    
+    onSelected(actividad_id: number):void {
+        this.actividad_id = actividad_id;
+        this.selectedActividad = new ActividadDetail();
+        this.getActividadDetail();
+
+        
+    }
 
     /**
      * Asks the service to update the list of activities
@@ -29,6 +49,13 @@ export class ActividadListComponent implements OnInit {
     getActividades(): void {
         this.actividadService.getActividades()
             .subscribe(actividades => this.actividades = actividades);
+    }
+    
+    getActividadDetail(): void {
+        this.actividadService.getActividadDetail(this.actividad_id)
+            .subscribe(selectedActividad => {
+                this.selectedActividad = selectedActividad
+            });
     }
 
     /**

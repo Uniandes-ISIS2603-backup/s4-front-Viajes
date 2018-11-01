@@ -19,6 +19,7 @@ import { FormsModule } from '@angular/forms';
     ],
     declarations: [GuiaListComponent],
     providers: [GuiaService],
-    bootstrap: [GuiaListComponent]
+    bootstrap: [GuiaListComponent],
+    exports: [GuiaListComponent]
 })
 export class GuiaModule { }

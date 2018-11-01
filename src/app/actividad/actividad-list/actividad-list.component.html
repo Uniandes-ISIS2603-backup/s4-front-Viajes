@@ -1,7 +1,16 @@
 
 <h1 id="texto">Actividades</h1>
+
+<div class="wrapper">
+ <a routerLink="/actividades/add"><button class="btn btn-success pull-right" > Crear Actividad</button></a> 
+</div>
+ 
+ 
 <table class="table">
   <thead class="thead-dark">
+      
+      
+      
   <tr>
     <th>Id</th>
     <th>Nombre</th>
@@ -13,14 +22,15 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let actividad of actividades">
+  <tr *ngFor="let actividad of actividades" >
 
     <td>
       {{actividad.identificador}}
     </td>
 
     <td>
-      {{actividad.nombreActividad}}
+        <a routerLink="/actividades/{{actividad.identificador}}">{{actividad.nombreActividad}}</a>
+     
     </td>
 
     <td>
@@ -42,6 +52,13 @@
     <td>
       {{actividad.puntuacion}}
     </td>
+    
+        
+     <!--<app-actividad-detail [actividadDetail]= "actividades[0]"></app-actividad-detail>-->
+     <!--  <a id="actividadDetailTag" class="nav-item nav-link" routerLink="/actividades/{{actividad.identificador}}">GUIAS</a>-->
+     
+      
+
     
   </tr>
   </tbody>
