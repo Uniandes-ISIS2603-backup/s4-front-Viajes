@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+import {Router} from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 
 import { ActividadService } from '../actividad.service';
@@ -21,6 +23,7 @@ export class ActividadCreateComponent implements OnInit {
     constructor(
         private actividadService: ActividadService,
         private toastrService: ToastrService
+        private router: Router
     ) { }
 
     /**
@@ -43,14 +46,20 @@ export class ActividadCreateComponent implements OnInit {
     /**
     * Creates a new editorial
     */
-    createActividad(): void {
+    createActividad(): Actividad {
+        this.actividad.puntuacion = 0;
         this.actividadService.createActividad(this.actividad)
-            .subscribe(() => {
+            .subscribe(() => {+
+                this.actividad.identificador = actividad.identificador;
+                this.router.navigate(['/actividad/' + book.id]);
+            }, err => {
                 this.create.emit();
                 this.toastrService.success("The activity was created", "Activity creation");
-            }, err => {
+           
                 this.toastrService.error(err, "Error");
             });
+            
+            return this.actividad;
     }
 
     /**
