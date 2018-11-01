@@ -74,3 +74,4 @@ export class MedallaDetailComponent implements OnInit {
 
 
 }
+}

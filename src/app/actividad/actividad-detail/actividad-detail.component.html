@@ -1,17 +1,8 @@
-<div class="panel-body">
-    <div class="border margin">
-        <p class="h3 p-3">{{actividadDetail.nombre}}<p> 
-        <div class="row">
- 
-            <div class="col">
-                <dl>     
-                    <dt>Puntuacion</dt>
-                    <dd>{{actividadDetail.puntuacion}}</dd>
-
-                </dl>
-            </div>
-
-        </div>
-    </div>
-
+<div *ngIf="actividadDetail.guias.length == 0">
+    <h1 id="emptyGuias">Ups! Esta actividad no tiene guias asociados</h1>
 </div>
+
+<div *ngIf="actividadDetail.guias.length > 0">
+    <app-actividad-guias [actividadGuias]="actividadDetail.guias"></app-actividad-guias>
+</div>
+

@@ -12,6 +12,8 @@ import {ActividadListComponent} from '../actividad/actividad-list/actividad-list
 import {ActividadDetailComponent} from '../actividad/actividad-detail/actividad-detail.component';
 import {GuiaListComponent} from '../guia/guia-list/guia-list.component';
 
+import {ActividadCreateComponent} from '../actividad/actividad-create/actividad-create.component';
+
 import {MedallaListComponent} from '../medalla/medalla-list/medalla-list.component';
 import {MedallaDetailComponent} from '../medalla/medalla-detail/medalla-detail.component';
 
@@ -50,12 +52,18 @@ const routes: Routes = [
         children: [
             {
                 path: 'list',
-                component: ActividadListComponent
+                component: ActividadListComponent                
+             
             },
-          {
-            path: ':id',
-            component: ActividadDetailComponent
-          }
+            {
+                path: ':identificador',
+                component: ActividadDetailComponent
+             },
+           {
+                path: 'add',
+                component: ActividadCreateComponent,
+                runGuardsAndResolvers: 'always'
+            }
         ]
     },
     
