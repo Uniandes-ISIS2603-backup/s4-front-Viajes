@@ -31,4 +31,13 @@ export class VueloService {
     getVueloDetail(vueloId): Observable<VueloDetail> {
     return this.http.get<VueloDetail>(API_URL + vuelos + '/' + vueloId);
     }
+
+  /**
+   * Crea un proveedor
+   * @param proveedor The new proveedor
+   * @returns The new proveedor with the new id
+   */
+  createVuelo(vuelo): Observable<Vuelo> {
+    return this.http.post<Vuelo>(API_URL + vuelos, vuelo);
+  }
 }

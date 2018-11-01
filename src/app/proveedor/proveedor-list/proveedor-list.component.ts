@@ -27,7 +27,13 @@ export class ProveedorListComponent implements OnInit {
   proveedor_id: number;
   selectedProveedor : Proveedor;
 
+  /**
+   * Shows or hides the author-create-component
+   */
+  showCreate: boolean;
+
   onSelected(proveedor_id: number):void {
+    this.showCreate = false;
     this.proveedor_id = proveedor_id;
     this.selectedProveedor = new class implements ProveedorDetail {
       id: number;
@@ -38,6 +44,17 @@ export class ProveedorListComponent implements OnInit {
       vuelos: Vuelo;
     }
     this.getProveedorDetail();
+  }
+
+  /**
+   * Shows or hides the create component
+   */
+  showHideCreate(): void {
+    if (this.selectedProveedor) {
+      this.selectedProveedor = undefined;
+      this.proveedor_id = undefined;
+    }
+    this.showCreate = !this.showCreate;
   }
   /**
    * Asks the service to update the list of proveedores
@@ -59,6 +76,9 @@ export class ProveedorListComponent implements OnInit {
    * This method will be called when the component is created
    */
   ngOnInit() {
+    this.showCreate = false;
+    this.selectedProveedor = undefined;
+    this.proveedor_id = undefined;
       this.getProveedores();
   }
 }

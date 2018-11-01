@@ -1,3 +1,90 @@
-<p>
-  vuelo-create works!
-</p>
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <br>
+    <h2 class="text-center">Crear un vuelo</h2>
+    <br>
+    <form name="vuelo" (ngSubmit)="f.form.valid && createVuelo()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="vueloNum"><b>Numero</b></label>
+        <input type="text" name="vueloNum" class="form-control" id="vueloNum" [(ngModel)]="vuelo.numero"
+               #vueloNum="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloNum.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar un numero de vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vueloCos"><b>Costo</b></label>
+        <input type="number" name="vueloCos" class="form-control" id="vueloCos" [(ngModel)]="vuelo.costo"
+               #vueloCos="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloCos.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar un costo del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vueloCap"><b>Capacidad</b></label>
+        <input type="number" name="vueloCap" class="form-control" id="vueloCap" [(ngModel)]="vuelo.capacidad"
+               #vueloCap="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloCap.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la capacidad del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="latOri"><b>Latitud Origen</b></label>
+        <input type="number" name="latOri" class="form-control" id="latOri" [(ngModel)]="vuelo.latitudOrigen"
+               #latOri="ngModel" [ngClass]="{ 'is-invalid': f.submitted && latOri.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la latitud de origen del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lonOri"><b>Longitud Origen</b></label>
+        <input type="number" name="lonOri" class="form-control" id="lonOri" [(ngModel)]="vuelo.longitudOrigen"
+               #lonOri="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lonOri.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la longitud de origen del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="latDes"><b>Latitud Destino</b></label>
+        <input type="number" name="latDes" class="form-control" id="latDes" [(ngModel)]="vuelo.latitudDestino"
+               #latDes="ngModel" [ngClass]="{ 'is-invalid': f.submitted && latDes.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la latitud de destino del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lonDes"><b>Longitud Destino</b></label>
+        <input type="number" name="lonDes" class="form-control" id="lonDes" [(ngModel)]="vuelo.longitudDestino"
+               #lonDes="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lonDes.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la longitud de destino del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fechaS"><b>Fecha Salida</b></label>
+        <input  name="fechaS" class="form-control" id="fechaS" [(ngModel)]="vuelo.fechaSalida"
+               #fechaS="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaS.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la fecha de salida del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+          <label for="fechaL"><b>Fecha Llegada</b></label>
+        <input name="fechaL" class="form-control" id="fechaL" [(ngModel)]="vuelo.fechaLlegada"
+               #fechaL="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaL.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la fecha de llegada del vuelo</div>
+        </div>
+      </div>
+      <div class="row form-inline justify-content-center align-self-center">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <div class="divider"></div>
+        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-3"></div>
+</div>
+
+

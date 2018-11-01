@@ -8,6 +8,7 @@ import {VueloService} from './vuelo.service';
 import { VueloListComponent } from './vuelo-list/vuelo-list.component';
 import { VueloDetailComponent } from './vuelo-detail/vuelo-detail.component';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
+import {VueloCreateComponent} from './vuelo-create/vuelo-create.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
   ],
 
   declarations: [VueloListComponent,
-    VueloDetailComponent
+    VueloDetailComponent, VueloCreateComponent
   ],
 
   providers: [VueloService],
