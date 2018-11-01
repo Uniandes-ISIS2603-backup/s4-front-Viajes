@@ -1,7 +1,16 @@
 
 <h1 id="texto">Actividades</h1>
+
+<div class="wrapper">
+ <a routerLink="/actividades/add"><button class="btn btn-success pull-right" > Crear Actividad</button></a> 
+</div>
+ 
+ 
 <table class="table">
   <thead class="thead-dark">
+      
+      
+      
   <tr>
     <th>Id</th>
     <th>Nombre</th>
@@ -10,7 +19,7 @@
     <th>Latitud</th>
     <th>Longitud</th>
     <th>Puntuacion</th>
-    <th>Guias para esta actividad</th>
+    <th>Ver guias</th>
   </tr>
   </thead>
   <tbody>
@@ -45,8 +54,11 @@
     </td>
     
     <td >
-        <app-actividad-detail [actividadDetail]="actividades[0]"></app-actividad-detail>
-      <!--<a routerLink="/actividades/{{actividad.identificador}}"><button class="btn btn-success pull-right" > Ver guias</button></a> -->
+        
+     <!--<app-actividad-detail [actividadDetail]= "actividades[0]"></app-actividad-detail>-->
+     <!--  <a id="actividadDetailTag" class="nav-item nav-link" routerLink="/actividades/{{actividad.identificador}}">GUIAS</a>-->
+    <a routerLink="/actividades/{{actividad.identificador}}"><button class="btn btn-success pull-right" > + </button></a>
+     
       
     </td>
     

@@ -1,2 +1,8 @@
+<div *ngIf="actividadDetail.guias.length == 0">
+    <h1 id="emptyGuias">Ups! Esta actividad no tiene guias asociados</h1>
+</div>
 
-<app-guia-list [guias]="actividadDetail.guias"></app-guia-list>
+<div *ngIf="actividadDetail.guias.length > 0">
+    <app-actividad-guias [actividadGuias]="actividadDetail.guias"></app-actividad-guias>
+</div>
+

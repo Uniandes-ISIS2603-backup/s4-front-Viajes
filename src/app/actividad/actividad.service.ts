@@ -36,5 +36,14 @@ export class ActividadService {
     getActividadDetail(actividadId): Observable<ActividadDetail> {
         return this.http.get<ActividadDetail>(API_URL + actividades + '/' + actividadId);
     }
+    
+     /**
+    * Creates an editorial
+    * @param editorial The editorial which will be created
+    * @returns The confirmation of the editorial's creation
+    */
+    createActividad(actividad): Observable<ActividadDetail> {
+        return this.http.post<ActividadDetail>(API_URL + actividad, actividad);
+    }
 
 }

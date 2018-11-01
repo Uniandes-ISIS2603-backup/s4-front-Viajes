@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit} from '@angular/core';
+import { ActivatedRoute,Router,NavigationEnd } from '@angular/router';
 
 import { ActividadService } from '../actividad.service';
-
+import { Guia } from '../../guia/guia';
 import { ActividadDetail } from '../actividad-detail';
 import { Actividad } from '../actividad';
+
 
 
 @Component({
@@ -14,10 +15,11 @@ import { Actividad } from '../actividad';
 })
 export class ActividadDetailComponent implements OnInit {
 
+    
     /**
     * The activity
     */
-    @Input() actividadDetail: ActividadDetail;
+    @Input ()actividadDetail: ActividadDetail;
     /**
     * Constructor for the component
     * @param route The route which helps to retrieves the id of the activity to be shown

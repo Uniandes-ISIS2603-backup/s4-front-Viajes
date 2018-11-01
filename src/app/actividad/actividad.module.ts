@@ -10,6 +10,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { GuiaModule } from '../guia/guia.module';
+import { ActividadCreateComponent } from './actividad-create/actividad-create.component';
+import { ActividadGuiasComponent } from './actividad-guias/actividad-guias.component';
 
 @NgModule({
     imports: [
@@ -20,7 +22,7 @@ import { GuiaModule } from '../guia/guia.module';
         FormsModule,
         GuiaModule
     ],
-    declarations: [ActividadListComponent,ActividadDetailComponent],
+    declarations: [ActividadListComponent,ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent],
     providers: [ActividadService],
     bootstrap: [ActividadListComponent]
 })

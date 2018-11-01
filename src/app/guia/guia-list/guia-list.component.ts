@@ -38,7 +38,7 @@ export class GuiaListComponent implements OnInit {
      */
     ngOnInit() {
    
-       this.getGuias();
+      this.getGuias();
        
     
         
