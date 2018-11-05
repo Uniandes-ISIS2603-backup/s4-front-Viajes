@@ -7,27 +7,20 @@
                 (click)="showHideCreate()">Crear una Medalla</button>
       </div>
       <br>
-      <br>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th class="h4">Medalla</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor = "let medalla of medallas"
+      <div class="card-columns">
+        <div class="card" *ngFor = "let medalla of medallas"
             (click)="onSelected(medalla.id)">
-          <td style="cursor: pointer;">
-            <dd>{{medalla.id}}</dd>
-          </td>
-        <td>
-            {{medalla.nombre}}
-        </td>
-        </tr>
-        </tbody>
-      </table>
+        <img style="cursor: pointer;" class="card-img-top" src="{{medalla.rutaImagen}}" alt="Card image cap">
+            <div class="card-body">
+                <h5 style="cursor: pointer;" class="card-title">{{medalla.nombre}}</h5>
+                <p class="card-text">{{medalla.descripcion}}</p>
+                <p class="card-text"><small class="text-muted">Click en la imagen o en el nombre para ver el detalle.</small></p>
+            </div>
+        </div>
+      </div>
+      <br>
     </div>
-    <div class="col-8">
+    <div class="col-6">
       <div *ngIf="selectedMedalla">
         <app-medalla-detail [medallaDetail]="selectedMedalla"></app-medalla-detail>
       </div>
