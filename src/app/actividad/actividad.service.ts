@@ -43,7 +43,7 @@ export class ActividadService {
     * @returns The confirmation of the editorial's creation
     */
     createActividad(actividad): Observable<ActividadDetail> {
-        return this.http.post<ActividadDetail>(API_URL + actividad, actividad);
+        return this.http.post<ActividadDetail>(API_URL + actividades, actividad);
     }
 
 }

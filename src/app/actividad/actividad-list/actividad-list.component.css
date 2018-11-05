@@ -1,3 +1,8 @@
+.body  {
+    background-image: url("/assets/Beach Sunset HD.jpg");
+    background-color: orangered;
+}
+
 .wrapper {
     text-align: right;
     height: 100px;
