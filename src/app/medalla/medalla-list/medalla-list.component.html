@@ -1,6 +1,13 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col">
+      <br>
+      <div class="row justify-content-center align-self-center">
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear una Medalla</button>
+      </div>
+      <br>
+      <br>
       <table class="table table-striped">
         <thead>
         <tr>
@@ -23,6 +30,9 @@
     <div class="col-8">
       <div *ngIf="selectedMedalla">
         <app-medalla-detail [medallaDetail]="selectedMedalla"></app-medalla-detail>
+      </div>
+      <div *ngIf="showCreate">
+        <app-medalla-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-medalla-create>
       </div>
     </div>
   </div>

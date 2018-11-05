@@ -18,7 +18,13 @@ export class MedallaListComponent implements OnInit {
   medalla_id:number;
   selectMedalla : Medalla;
   
+  /**
+   * Shows or hides the author-create-component
+   */
+  showCreate: boolean;
+  
   onSelected(medalla_id: number):void {
+    this.showCreate = false;
     this.medalla_id = medalla_id;
     this.selectedMedalla = new class implements MedallaDetail {
       nombre: string;
@@ -27,6 +33,17 @@ export class MedallaListComponent implements OnInit {
       rutaImagen: string;
     }
     this.getMedallaDetail();
+  }
+  
+   /**
+   * Shows or hides the create component
+   */
+  showHideCreate(): void {
+    if (this.selectedMedalla) {
+      this.selectedMedalla = undefined;
+      this.medalla_id = undefined;
+    }
+    this.showCreate = !this.showCreate;
   }
   
   getMedallas(): void{
@@ -39,6 +56,9 @@ export class MedallaListComponent implements OnInit {
         });
   }
   ngOnInit() {
+      this.showCreate = false;
+      this.selectedMedalla = undefined;
+      this.medalla_id = undefined;
       this.getMedallas();
   }
 

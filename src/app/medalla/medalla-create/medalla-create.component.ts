@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { MedallaService } from '../medalla.service';
+import { Author } from '../medalla';
 
 @Component({
   selector: 'app-medalla-create',
@@ -7,9 +10,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MedallaCreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+        private medallaService: MedallaService,
+        private toastrService: ToastrService) { }
 
+
+  /**
+   * The new medalla
+   */
+   medalla: Medalla;
+   
+   createMedalla(): Medalla {
+        this.medallaService.createMedalla(this.medalla)
+            .subscribe((medalla) => {
+                this.medalla = medalla;
+                this.create.emit();
+                this.toastrService.success("La medalla fue creada satisfactoriamente", "Creación de medalla");                
+            });
+            return this.medalla;
+    }
+    
+    @Output() cancel = new EventEmitter();
+    @Output() create = new EventEmitter();
+    
+    cancelCreation(): void {
+        this.cancel.emit();
+    }
+    
   ngOnInit() {
+       this.medalla = new class implements Proveedor {
+      id: number;
+      nombre: string;
+      rutaImagen: string;
+      descripcion: string;
+    }
   }
 
 }

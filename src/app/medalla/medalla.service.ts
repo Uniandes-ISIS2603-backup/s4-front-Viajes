@@ -18,4 +18,12 @@ export class MedallaService {
   getMedallaDetail(medallaId): Observable<MedallaDetail> {
       return this.http.get<MedallaDetail>(API_URL + medallas + '/' + medallaId);
   }
+   /**
+    * Creates a medalla
+    * @param medalla The new medalla
+    * @returns The new medalla with the new id
+    */
+    createMedalla(medalla): Observable<Medalla> {
+        return this.http.post<Medalla>(API_URL + medallas, medalla);
+    }
 }
