@@ -18,13 +18,15 @@ import { ProveedorModule } from './proveedor/proveedor.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VueloCreateComponent } from './vuelo/vuelo-create/vuelo-create.component';
+import { MedallaCreateComponent } from './medalla-create/medalla-create.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    VueloCreateComponent
+    VueloCreateComponent,
+    MedallaCreateComponent
   ],
   imports: [
     BrowserModule,

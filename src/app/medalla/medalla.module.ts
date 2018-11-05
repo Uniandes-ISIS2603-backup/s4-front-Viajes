@@ -8,6 +8,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {MedallaService} from './medalla.service';
 import {MedallaListComponent} from './medalla-list/medalla-list.component';
 import { MedallaDetailComponent } from './medalla-detail/medalla-detail.component';
+import { MedallaCreateComponent } from './medalla-create/medalla-create.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,7 @@ import { MedallaDetailComponent } from './medalla-detail/medalla-detail.componen
     CommonModule,
     FormsModule
   ],
-  declarations: [MedallaListComponent, MedallaDetailComponent],
+  declarations: [MedallaListComponent, MedallaDetailComponent, MedallaCreateComponent],
   providers :[MedallaService],
   bootstrap: [MedallaListComponent]
 })
