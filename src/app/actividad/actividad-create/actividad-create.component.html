@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Agregar una nueva actividad</h2>
+            <br>
+            <form name="actividad" (ngSubmit)="f.form.valid && createActividad()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="bookName"><b>Nombre de la actividad</b></label>
+                    <input type="text" name="nombreActividad" class="form-control" id="nombreActividad" [(ngModel)]="actividad.nombreActividad"
+                        #nombreActividad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreActividad.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Nombre de la actividad vacio</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="bookPublishDate"><b>Costo</b></label>
+                    <div [ngClass]="{ 'is-invalid': f.submitted && actividadCosto.invalid }">
+                        <input class="form-control" id="actividadCosto" name="actividadCosto" [(ngModel)]="actividad.costo"
+                            #actividadCosto="ngModel" [ngClass]="{'is-invalid': f.submitted && actividadCosto.invalid }"
+                            required>
+                        <div class="invalid-feedback">
+                            <div>Costo de la actividad vacío</div>
+                        </div>
+                    </div>
+                </div>
+                
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>

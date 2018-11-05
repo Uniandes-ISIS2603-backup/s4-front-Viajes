@@ -1,7 +1,4 @@
-/**
-* Esta clase representa un vuelo de TripBuilder.
-*Contiene toda la informaciòn relevante a un vuelo
-*/
+type DateString = {month: number,day: number,year: number};
 export interface Vuelo {
     /**
      * El identificador del vuelo
@@ -36,9 +33,9 @@ export interface Vuelo {
     /**
      * La fecha de salida del vuelo
      */
-    fechaSalida: string;
+    fechaSalida: DateString|string;
     /**
      * La fecha de llegada del vuelo
      */
-    fechaLlegada: string;
+    fechaLlegada: DateString|string;
 }

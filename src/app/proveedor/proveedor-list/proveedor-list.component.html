@@ -1,6 +1,13 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col">
+    <div class="col-4">
+      <br>
+      <div class="row justify-content-center align-self-center">
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear un Proveedor</button>
+      </div>
+      <br>
+      <br>
       <table class="table table-striped">
         <thead>
         <tr>
@@ -20,6 +27,9 @@
     <div class="col-8">
       <div *ngIf="selectedProveedor">
         <app-proveedor-detail [proveedorDetail]="selectedProveedor"></app-proveedor-detail>
+      </div>
+      <div *ngIf="showCreate">
+        <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
       </div>
     </div>
   </div>

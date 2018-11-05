@@ -21,12 +21,18 @@ export class VueloListComponent implements OnInit {
      */
     constructor(private vueloService: VueloService, private route: ActivatedRoute) {}
 
-    vuelos: Vuelo[];
+    @Input() vuelos: Vuelo[];
     vuelo_id: number;
     selectedVuelo : Vuelo;
 
+  /**
+   * Shows or hides the author-create-component
+   */
+  showCreate: boolean;
+
     onSelected(vuelo_id: number):void {
-    this.vuelo_id = vuelo_id;
+      this.showCreate = false;
+      this.vuelo_id = vuelo_id;
     this.selectedVuelo = new class implements VueloDetail {
       capacidad: number;
       costo: number;
@@ -40,6 +46,17 @@ export class VueloListComponent implements OnInit {
       numero: string;
     }
     this.getVueloDetail();
+  }
+
+  /**
+   * Shows or hides the create component
+   */
+  showHideCreate(): void {
+    if (this.selectedVuelo) {
+      this.selectedVuelo = undefined;
+      this.vuelo_id = undefined;
+    }
+    this.showCreate = !this.showCreate;
   }
 
     /**
@@ -62,6 +79,9 @@ export class VueloListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
+      this.showCreate = false;
+      this.selectedVuelo = undefined;
+      this.vuelo_id = undefined;
       this.getVuelos();
     }
 }

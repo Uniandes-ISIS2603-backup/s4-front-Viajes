@@ -32,4 +32,13 @@ export class ProveedorService {
   getProveedorDetail(proveedorId): Observable<ProveedorDetail> {
     return this.http.get<ProveedorDetail>(API_URL + proveedores + '/' + proveedorId);
   }
+
+  /**
+   * Crea un proveedor
+   * @param proveedor The new proveedor
+   * @returns The new proveedor with the new id
+   */
+  createProveedor(proveedor): Observable<Proveedor> {
+    return this.http.post<Proveedor>(API_URL + proveedores, proveedor);
+  }
 }
