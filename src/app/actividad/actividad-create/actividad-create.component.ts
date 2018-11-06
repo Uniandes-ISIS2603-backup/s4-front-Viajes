@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
+import {Router} from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 
 import { ActividadService } from '../actividad.service';
@@ -20,7 +22,8 @@ export class ActividadCreateComponent implements OnInit {
     */
     constructor(
         private actividadService: ActividadService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private router: Router
     ) { }
 
     /**
@@ -41,18 +44,19 @@ export class ActividadCreateComponent implements OnInit {
     @Output() create = new EventEmitter();
 
     /**
-    * Creates a new editorial
+    * Creates an activity
     */
-    createActividad(): void {
+    createActividad(): Actividad {
+        console.log(this.actividad);
         this.actividadService.createActividad(this.actividad)
-            .subscribe(() => {
+            .subscribe((actividad) => {
+                this.actividad = actividad;
                 this.create.emit();
-                this.toastrService.success("The activity was created", "Activity creation");
-            }, err => {
-                this.toastrService.error(err, "Error");
+                this.toastrService.success("La actividad fue creada", "Creacion de actividad");
+                
             });
+            return this.actividad;
     }
-
     /**
     * Informs the parent component that the user no longer wants to create an editorial
     */

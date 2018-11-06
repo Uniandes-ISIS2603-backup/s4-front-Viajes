@@ -60,7 +60,7 @@ const routes: Routes = [
                 component: ActividadDetailComponent
              },
            {
-                path: 'add',
+                path: 'create',
                 component: ActividadCreateComponent,
                 runGuardsAndResolvers: 'always'
             }

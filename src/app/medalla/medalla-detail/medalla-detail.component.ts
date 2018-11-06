@@ -10,7 +10,7 @@ import {MedallaDetail} from '../medalla-detail';
   templateUrl: './medalla-detail.component.html',
   styleUrls: ['./medalla-detail.component.css']
 })
-export class MedallaDetailComponent implements OnInit {
+export class MedallaDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private medallaService: MedallaService,
@@ -54,8 +54,7 @@ export class MedallaDetailComponent implements OnInit {
       rutaImagen: string;
     }
     this.getMedallaDetail();
-  } 
-  
+  }
     /**
    * This method helps to refresh the view when we need to load another book into it
    * when one of the other books in the list is clicked
