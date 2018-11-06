@@ -6,7 +6,6 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {UsuarioService} from './usuario.service';
-import { UsuarioEntradasComponent } from './usuario-entradas/usuario-entradas.component';
 
 @NgModule({
   imports: [
@@ -15,7 +14,7 @@ import { UsuarioEntradasComponent } from './usuario-entradas/usuario-entradas.co
     HttpClientModule,
     CommonModule,
     FormsModule  ],
-  declarations: [UsuarioListComponent, UsuarioEntradasComponent],
+  declarations: [UsuarioListComponent],
   providers: [UsuarioService],
   bootstrap: [UsuarioListComponent]
 })
