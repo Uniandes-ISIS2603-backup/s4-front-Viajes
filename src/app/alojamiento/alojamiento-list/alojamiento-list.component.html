@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="col">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Alojamiento</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let alojamiento of alojamientos">
+                    <td>{{alojamiento.nombre}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

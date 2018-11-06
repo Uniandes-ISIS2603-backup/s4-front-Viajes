@@ -17,6 +17,9 @@ import {ActividadCreateComponent} from '../actividad/actividad-create/actividad-
 import {MedallaListComponent} from '../medalla/medalla-list/medalla-list.component';
 import {MedallaDetailComponent} from '../medalla/medalla-detail/medalla-detail.component';
 
+import {AlojamientoListComponent} from '../alojamiento/alojamiento-list/alojamiento-list.component';
+import {TransporteListComponent} from '../transporte/transporte-list/transporte-list.component'; 
+
 const routes: Routes = [
 
     {
@@ -63,6 +66,26 @@ const routes: Routes = [
                 path: 'create',
                 component: ActividadCreateComponent,
                 runGuardsAndResolvers: 'always'
+            }
+        ]
+    },
+    
+    {
+        path: 'alojamientos',
+        children: [
+            {
+                path: 'list',
+                component: AlojamientoListComponent
+            }
+        ]  
+    },
+    
+    {
+        path: 'transportes', 
+        children: [
+            {
+                path: 'list',
+                component: TransporteListComponent
             }
         ]
     },

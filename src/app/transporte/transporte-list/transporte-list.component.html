@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="col">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Transporte</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let transporte of transportes">
+                    <td>{{transporte.nombre}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
