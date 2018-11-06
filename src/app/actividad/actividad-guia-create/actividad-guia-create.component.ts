@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 
 import { ActivatedRoute,Router,NavigationEnd } from '@angular/router';
 
@@ -35,9 +35,8 @@ export class ActividadGuiaCreateComponent implements OnInit {
     /**
     * The new editorial
     */
-    actividad: Actividad;
     
-    actividadId: number;
+    @Input() actividadId: number;
     
     guia: Guia;
     
@@ -54,29 +53,40 @@ export class ActividadGuiaCreateComponent implements OnInit {
     * that the user created a new editorial
     */
     @Output() create = new EventEmitter();
+    @Output() updateGuias = new EventEmitter();
 
     /**
     * Creates an activity
     */
     createGuia(): Guia {
-        console.log(this.guia);
         this.guiaService.createGuia(this.guia)
-            .subscribe((guia) => {
-                this.guia = guia;
+            .subscribe((guia) =>
+            {
+                this.guia = this.guia;
+                this.guiaId = this.guia.documento;
                 this.create.emit();
-                this.associateActividadGuia();
                 this.toastrService.success("El guia fue creada", "Creacion de guia");
                 
+            }
+            );
+        this.actividadService.associateActividadGuia(this.actividadId,this.guia.documento).
+            subscribe(() => {
+                this.updateGuias.emit();
+                this.toastrService.success("El guia se pudo asociar a la actividad", 'Guia asociado');
+            }, err => {
+                this.toastrService.error(err, 'Error');
             });
+            
             return this.guia;
     }
     
       /**
     * Creates an activity
     */
-    associateActividadGuia(): void{
-        console.log(this.guia);
-        this.actividadService.associateActividadGuia(this.actividadId,this.guiaId);
+    associateActividadGuia(): any{
+
+       console.log(this.actividadService.associateActividadGuia(this.actividadId,this.guiaId));
+       return this.actividadService.associateActividadGuia(this.actividadId,this.guiaId);
             
     }
     
@@ -91,10 +101,8 @@ export class ActividadGuiaCreateComponent implements OnInit {
     * This function will initialize the component
     */
     ngOnInit() {
-        this.guia = new Guia();       
-        this.actividadId = +this.route.snapshot.paramMap.get('identificador');
-        if (this.actividadId){
-        this.actividad = new Actividad();
+        this.guia = new Guia();      
+
         }
     }
-}
+
