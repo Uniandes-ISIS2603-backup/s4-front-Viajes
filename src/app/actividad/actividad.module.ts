@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { GuiaModule } from '../guia/guia.module';
 import { ActividadCreateComponent } from './actividad-create/actividad-create.component';
 import { ActividadGuiasComponent } from './actividad-guias/actividad-guias.component';
+import { ActividadGuiaCreateComponent } from './actividad-guia-create/actividad-guia-create.component';
 
 @NgModule({
     imports: [
@@ -22,7 +23,7 @@ import { ActividadGuiasComponent } from './actividad-guias/actividad-guias.compo
         FormsModule,
         GuiaModule
     ],
-    declarations: [ActividadListComponent,ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent],
+    declarations: [ActividadListComponent,ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent, ActividadGuiaCreateComponent],
     providers: [ActividadService],
     bootstrap: [ActividadListComponent]
 })
