@@ -76,7 +76,7 @@ export class ProveedorCreateComponent implements OnInit {
       password: string;
       puntaje: number;
       user: string;
-      vuelos: Vuelo;
+      vuelos: Vuelo[];
     }
   }
 

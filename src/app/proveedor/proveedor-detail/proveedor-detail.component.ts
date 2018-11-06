@@ -80,7 +80,7 @@ export class ProveedorDetailComponent implements OnInit, OnDestroy {
       nombre: string;
       puntaje: number;
       user: string;
-      vuelos: Vuelo;
+      vuelos: Vuelo[];
     }
     this.getProveedorDetail();
     this.getOtherProveedores();

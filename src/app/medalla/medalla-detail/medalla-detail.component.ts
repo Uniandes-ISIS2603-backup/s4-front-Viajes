@@ -33,12 +33,6 @@ export class MedallaDetailComponent implements OnInit {
    * needs to be loaded
    */
   navigationSubscription;
-    
-  /**
-   * The book whose details are shown
-   */
-  @Input() medallaDetail: MedallaDetail;
-  medalla_id: number;
 
   /**
    * The method which retrieves the details of the book that

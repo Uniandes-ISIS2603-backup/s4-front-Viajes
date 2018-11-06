@@ -16,7 +16,7 @@ export class MedallaListComponent implements OnInit {
   constructor(private medallaService: MedallaService) { }
   @Input() medallas: Medalla[];
   medalla_id:number;
-  selectMedalla : Medalla;
+  selectedMedalla : Medalla;
   
   onSelected(medalla_id: number):void {
     this.medalla_id = medalla_id;

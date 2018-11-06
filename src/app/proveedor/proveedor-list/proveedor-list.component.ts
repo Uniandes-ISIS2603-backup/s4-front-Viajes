@@ -41,7 +41,7 @@ export class ProveedorListComponent implements OnInit {
       password: string;
       puntaje: number;
       user: string;
-      vuelos: Vuelo;
+      vuelos: Vuelo[];
     }
     this.getProveedorDetail();
   }
@@ -67,7 +67,7 @@ export class ProveedorListComponent implements OnInit {
   getProveedorDetail(): void {
     this.proveedorService.getProveedorDetail(this.proveedor_id)
       .subscribe(selectedProveedor => {
-        this.selectedProveedor = selectedProveedor
+        this.selectedProveedor = selectedProveedor;
       });
   }
 
