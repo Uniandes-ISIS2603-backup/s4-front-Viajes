@@ -28,6 +28,8 @@ export class Guia {
     * Guide´s ranking
     */
     puntuacion: number;
+    
+    sueldo:number;
 
     
 }

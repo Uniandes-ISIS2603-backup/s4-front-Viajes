@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Actividad } from './actividad';
+import { Guia } from '../guia/guia';
 import { ActividadDetail } from './actividad-detail'
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const actividades = '/actividad';
-const guia = '/guia';
+const guias = '/guia';
+
 /**
 * The service provider for everything related to Activities
 */
@@ -44,6 +46,17 @@ export class ActividadService {
     */
     createActividad(actividad): Observable<ActividadDetail> {
         return this.http.post<ActividadDetail>(API_URL + actividades, actividad);
+    }
+    
+    /**
+    * Creates an editorial
+    * @param editorial The editorial which will be created
+    * @returns The confirmation of the editorial's creation
+    */
+    associateActividadGuia(actividadId,guiaId): Observable<Guia> {
+       
+        return this.http.post<Guia>(API_URL + actividades + '/' + actividadId + guias + '/' + guiaId,null)
+        
     }
 
 }

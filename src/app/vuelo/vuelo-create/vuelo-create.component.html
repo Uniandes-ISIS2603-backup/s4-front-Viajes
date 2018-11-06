@@ -63,18 +63,25 @@
       </div>
       <div class="form-group">
         <label for="fechaS"><b>Fecha Salida</b></label>
-        <input  name="fechaS" class="form-control" id="fechaS" [(ngModel)]="vuelo.fechaSalida"
-               #fechaS="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaS.invalid }" required>
-        <div class="invalid-feedback">
-          <div>Se requiere especificar la fecha de salida del vuelo</div>
+        <div [ngClass]="{ 'is-invalid': f.submitted && fechaS.invalid }">
+          <input class="form-control" id="fechaS" name="fechaS" [(ngModel)]="vuelo.fechaSalida"
+                  #fechaS="ngModel" [ngClass]="{'is-invalid': f.submitted && (fechaS.untouched || fechaS.invalid) }"
+                 required>
+          <div class="invalid-feedback">
+            <div>Se requiere especificar la fecha de salida del vuelo</div>
+          </div>
         </div>
       </div>
+
       <div class="form-group">
           <label for="fechaL"><b>Fecha Llegada</b></label>
-        <input name="fechaL" class="form-control" id="fechaL" [(ngModel)]="vuelo.fechaLlegada"
-               #fechaL="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fechaL.invalid }" required>
-        <div class="invalid-feedback">
-          <div>Se requiere especificar la fecha de llegada del vuelo</div>
+        <div [ngClass]="{ 'is-invalid': f.submitted && fechaL.invalid }">
+          <input class="form-control" id="fechaL" name="fechaL" [(ngModel)]="vuelo.fechaLlegada"
+                  #fechaL="ngModel" [ngClass]="{'is-invalid': f.submitted && (fechaL.untouched || fechaL.invalid) }"
+                 required>
+          <div class="invalid-feedback">
+            <div>Se requiere especificar la fecha de llegada del vuelo</div>
+          </div>
         </div>
       </div>
       <div class="row form-inline justify-content-center align-self-center">

@@ -5,6 +5,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
 import {VueloDetailComponent} from '../vuelo/vuelo-detail/vuelo-detail.component';
 import {UsuarioListComponent} from '../usuario/usuario-list/usuario-list.component';
+import {AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component';
+import {UsuarioDetailComponent} from '../usuario-detail/usuario-detail.component';
 import {ProveedorListComponent} from '../proveedor/proveedor-list/proveedor-list.component';
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
 
@@ -96,6 +98,19 @@ const routes: Routes = [
       {
         path: 'list',
         component: UsuarioListComponent
+      }, {
+        path: 'id',
+        component: UsuarioDetailComponent
+      }
+    ]
+  },
+
+  {
+    path: 'administradores',
+    children: [
+      {
+        path: 'list',
+        component: AdministradorListComponent
       }
     ]
   }

@@ -5,8 +5,8 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ProveedorService } from '../proveedor.service';
 import { Proveedor } from '../proveedor';
 import { ProveedorDetail } from '../proveedor-detail';
-import {VueloDetail} from '../../vuelo/vuelo-detail';
 import {Vuelo} from '../../vuelo/vuelo';
+import {Actividad} from '../../actividad/actividad';
 
 
 @Component({
@@ -75,11 +75,13 @@ export class ProveedorDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.proveedor_id = +this.route.snapshot.paramMap.get('id');
     this.proveedorDetail = new class implements ProveedorDetail {
-      password: string;
+      actividades: Actividad[];
       id: number;
       nombre: string;
+      password: string;
       puntaje: number;
       user: string;
+      vuelo: Vuelo;
       vuelos: Vuelo[];
     }
     this.getProveedorDetail();
