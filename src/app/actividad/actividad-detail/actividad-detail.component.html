@@ -1,8 +1,9 @@
 <div *ngIf="actividadDetail.guias.length == 0">
-    <h1 id="emptyGuias">Ups! Esta actividad no tiene guias asociados</h1>
+    <h1 id="emptyGuias">Ups! Esta actividad no tiene guias asociados,pero puede asociarle un guia existente</h1>
 </div>
 
 <div *ngIf="actividadDetail.guias.length > 0">
     <app-actividad-guias [actividadGuias]="actividadDetail.guias"></app-actividad-guias>
 </div>
 
+<app-actividad-guia-create></app-actividad-guia-create>
