@@ -1,0 +1,16 @@
+<p>
+  <button type="button" class="btn btn-outline-primary" (click)="isCollapsed = !isCollapsed"
+          [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample">
+    Vuelos del proveedor
+  </button>
+</p>
+<div id="collapseExample" [ngbCollapse]="isCollapsed">
+  <table class="table table-striped">
+    <tbody>
+    <tr *ngFor="let vuelo of proveedorVuelos">
+      <td><span id="proveedor-vuelo"><b>{{vuelo.id}}</b></span><span>: </span><span id="vuelo-numero">{{vuelo.numero}}</span></td>
+      <td>Costo: {{vuelo.costo}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

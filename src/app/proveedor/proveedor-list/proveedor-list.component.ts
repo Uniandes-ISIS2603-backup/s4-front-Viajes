@@ -6,7 +6,7 @@ import {Proveedor} from '../proveedor';
 import {ProveedorService} from '../proveedor.service';
 import {ProveedorDetail} from '../proveedor-detail';
 import {Vuelo} from '../../vuelo/vuelo';
-import {VueloDetail} from '../../vuelo/vuelo-detail';
+import {Actividad} from '../../actividad/actividad';
 
 /**
  * The component for the list of proveedores in TripBuilder
@@ -36,11 +36,13 @@ export class ProveedorListComponent implements OnInit {
     this.showCreate = false;
     this.proveedor_id = proveedor_id;
     this.selectedProveedor = new class implements ProveedorDetail {
+      actividades: Actividad[];
       id: number;
       nombre: string;
       password: string;
       puntaje: number;
       user: string;
+      vuelo: Vuelo;
       vuelos: Vuelo[];
     }
     this.getProveedorDetail();

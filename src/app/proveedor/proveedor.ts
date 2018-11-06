@@ -30,7 +30,7 @@ export interface Proveedor {
    */
   puntaje: number;
 
-  vuelos: Vuelo[];
+  vuelo: Vuelo;
 
 }
 
