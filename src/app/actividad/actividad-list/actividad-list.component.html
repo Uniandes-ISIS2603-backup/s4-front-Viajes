@@ -1,0 +1,67 @@
+<style>
+    
+    
+</style>
+<body>
+<h1 id="texto">Actividades</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+      
+      
+      
+  <tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Costo($USD)</th>
+    <th>Duracion (mins)</th>
+    <th>Latitud</th>
+    <th>Longitud</th>
+    <th>Puntuacion</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let actividad of actividades" >
+
+    <td>
+      {{actividad.identificador}}
+    </td>
+
+    <td>
+        <a routerLink="/actividades/{{actividad.identificador}}">{{actividad.nombreActividad}}</a>
+     
+    </td>
+
+    <td>
+      {{actividad.costo}}
+    </td>
+
+    <td>
+      {{actividad.duracion}}
+    </td>
+    
+    <td>
+      {{actividad.latitud}}
+    </td>
+    
+    <td>
+      {{actividad.longitud}}
+    </td>
+    
+    <td>
+      {{actividad.puntuacion}}
+    </td>
+    
+        
+     <!--<app-actividad-detail [actividadDetail]= "actividades[0]"></app-actividad-detail>-->
+     <!--  <a id="actividadDetailTag" class="nav-item nav-link" routerLink="/actividades/{{actividad.identificador}}">GUIAS</a>-->
+     
+      
+
+    
+  </tr>
+  </tbody>
+</table>
+
+    <app-actividad-create></app-actividad-create>
+</body>

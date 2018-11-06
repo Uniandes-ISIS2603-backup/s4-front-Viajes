@@ -1,0 +1,26 @@
+<div class="panel-body">
+  <div class="border margin">
+    <p class="h3 p-3">Vuelo# {{vueloDetail.numero}}<p>
+    <div class="row">
+      <div class="col">
+        <dl>
+          <dt>Costo</dt>
+          <dd>{{vueloDetail.costo}}</dd>
+          <dt>Capacidad</dt>
+          <dd>{{vueloDetail.capacidad}}</dd>
+          <dt>Coordenadas Origen</dt>
+          <dd>{{vueloDetail.latitudOrigen}}, {{vueloDetail.longitudOrigen}}</dd>
+          <dt>Coordenadas Destino</dt>
+          <dd>{{vueloDetail.latitudDestino}}, {{vueloDetail.longitudDestino}}</dd>
+          <dt>Fecha Salida</dt>
+          <dd>{{vueloDetail.fechaSalida| date:'yyyy-MM-dd'}}</dd>
+          <dt>Fecha llegada</dt>
+          <dd>{{vueloDetail.fechaLlegada| date:'yyyy-MM-dd'}}</dd>
+        </dl>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

@@ -1,3 +1,40 @@
-<p>
-  proveedor-list works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <br>
+      <div class="row justify-content-center align-self-center">
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear un Proveedor</button>
+      </div>
+      <br>
+      <br>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="h4">Proveedores</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let proveedor of proveedores"
+            (click)="onSelected(proveedor.id)">
+          <td style="cursor: pointer;">
+            <dd>{{proveedor.id}}</dd>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-8">
+      <div *ngIf="selectedProveedor">
+        <app-proveedor-detail [proveedorDetail]="selectedProveedor"></app-proveedor-detail>
+      </div>
+      <div *ngIf="showCreate">
+        <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

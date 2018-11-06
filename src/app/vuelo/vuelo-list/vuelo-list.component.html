@@ -12,5 +12,39 @@
             <p>Fecha Llegada: {{vuelo.fechaLlegada}}</p>
              <br>
         </div>  
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <br>
+      <div class="row justify-content-center align-self-center">
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear un Vuelo</button>
+      </div>
+      <br>
+      <br>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th class="h4">Vuelos</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor = "let vuelo of vuelos"
+            (click)="onSelected(vuelo.id)">
+          <td style="cursor: pointer;">
+            <dd>{{vuelo.numero}}</dd>
+          </td>
+        </tr>
+        </tbody>
+      </table>
     </div>
+    <div class="col-8">
+      <div *ngIf="selectedVuelo">
+        <app-vuelo-detail [vueloDetail]="selectedVuelo"></app-vuelo-detail>
+      </div>
+      <div *ngIf="showCreate">
+        <app-vuelo-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-vuelo-create>
+      </div>
+    </div>
+  </div>
 </div>

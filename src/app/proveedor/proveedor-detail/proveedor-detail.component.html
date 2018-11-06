@@ -1,0 +1,24 @@
+<div class="panel-body">
+  <div class="border margin">
+    <p class="h3 p-3">Proveedor: {{proveedorDetail.nombre}}<p>
+    <div class="row">
+      <div class="col">
+        <dl>
+          <dt>Id</dt>
+          <dd>{{proveedorDetail.id}}</dd>
+          <dt>User</dt>
+          <dd>{{proveedorDetail.user}}</dd>
+          <dt>Contraseña</dt>
+          <dd>{{proveedorDetail.password}}</dd>
+          <dt>Puntaje</dt>
+          <dd>{{proveedorDetail.puntaje}}</dd>
+          <dt>Vuelos</dt>
+            <app-proveedor-vuelos [proveedorVuelos] ="proveedorDetail.vuelos"></app-proveedor-vuelos>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!---<app-proveedores-list [proveedores]="other_proveedores"></app-proveedores-list> --->
+

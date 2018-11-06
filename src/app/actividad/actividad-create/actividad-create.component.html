@@ -1,0 +1,69 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Agregar una nueva actividad</h2>
+            <br>
+            <form name="actividad" (ngSubmit)="f.form.valid && createActividad()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                    <label for="actividadIdentificador"><b>ID(recuerda que tiene que ser único)</b></label>
+                    <input type="number" name="actividadIdentificador" class="form-control" id="actividadIdentificador" [(ngModel)]="actividad.identificador"
+                        #actividadIdentificador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadIdentificador.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El ID esta vacio</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="actividadName"><b>Nombre</b></label>
+                    <input type="text" name="nombreActividad" class="form-control" id="nombreActividad" [(ngModel)]="actividad.nombreActividad"
+                        #nombreActividad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreActividad.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El nombre de la actividad esta vacio</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="actividadCosto"><b>Costo($USD)</b></label>
+                    <input type="number" name="actividadCosto" class="form-control" id="actividadCosto" [(ngModel)]="actividad.costo"
+                        #actividadCosto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadCosto.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El costo esta vacio</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="actividadDuracion"><b>Duracion (mins)</b></label>
+                    <input type="number" name="actividadDuracion" class="form-control" id="actividadDuracion" [(ngModel)]="actividad.duracion"
+                        #actividadDuracion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadDuracion.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>La duracion esta vacía</div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="actividadLatitud"><b>Latitud de la actividad</b></label>
+                    <input type="number" name="actividadLatitud" class="form-control" id="actividadLatitud" [(ngModel)]="actividad.latitud"
+                        #actividadLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadLatitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>La latitud esta vacia</div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="actividadLongitud"><b>Longitud de la actividad</b></label>
+                    <input type="number" name="actividadLongitud" class="form-control" id="actividadLongitud" [(ngModel)]="actividad.longitud"
+                        #actividadLongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadLongitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>La longitud esta vacia</div>
+                    </div>
+                </div>
+                
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>
