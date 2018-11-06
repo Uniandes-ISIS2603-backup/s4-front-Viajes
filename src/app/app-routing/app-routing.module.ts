@@ -4,6 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
 import {UsuarioListComponent} from '../usuario/usuario-list/usuario-list.component';
+import {AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component';
+import {UsuarioDetailComponent} from '../usuario-detail/usuario-detail.component';
 
 const routes: Routes = [
 
@@ -23,6 +25,19 @@ const routes: Routes = [
       {
         path: 'list',
         component: UsuarioListComponent
+      }, {
+        path: 'id',
+        component: UsuarioDetailComponent
+      }
+    ]
+  },
+
+  {
+    path: 'administradores',
+    children: [
+      {
+        path: 'list',
+        component: AdministradorListComponent
       }
     ]
   }

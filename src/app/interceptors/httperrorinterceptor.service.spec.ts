@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HttperrorinterceptorService } from './httperrorinterceptor.service';
+import { HttpErrorInterceptor } from './httperrorinterceptor.service';
 
 describe('HttperrorinterceptorService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: HttperrorinterceptorService = TestBed.get(HttperrorinterceptorService);
+    const service: HttpErrorInterceptor = TestBed.get(HttpErrorInterceptor);
     expect(service).toBeTruthy();
   });
 });

@@ -12,7 +12,6 @@ const vuelos = '/vuelos';
 */
 @Injectable()
 export class VueloService {
-
     /**
     * Constructor of the service
     * @param http The HttpClient - This is necessary in order to perform requests
