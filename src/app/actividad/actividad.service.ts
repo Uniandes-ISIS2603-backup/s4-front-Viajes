@@ -9,7 +9,7 @@ import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const actividades = '/actividad';
-const guia = '/guia';
+const guias = '/guia';
 
 /**
 * The service provider for everything related to Activities
@@ -54,7 +54,9 @@ export class ActividadService {
     * @returns The confirmation of the editorial's creation
     */
     associateActividadGuia(actividadId,guiaId): Observable<Guia> {
-        return this.http.post<Guia>(API_URL + actividades + '/' + actividadId + '/' + guia + '/' + guiaId,guiaId);
+       
+        return this.http.post<Guia>(API_URL + actividades + '/' + actividadId + guias + '/' + guiaId,null)
+        
     }
 
 }

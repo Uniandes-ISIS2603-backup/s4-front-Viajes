@@ -6,8 +6,6 @@ import { Guia } from '../../guia/guia';
 import { ActividadDetail } from '../actividad-detail';
 import { Actividad } from '../actividad';
 
-
-
 @Component({
     selector: 'app-actividad-detail',
     templateUrl: './actividad-detail.component.html',
