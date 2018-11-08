@@ -2,7 +2,7 @@
  * Esta clase representa un usuario.
  * Contiene toda la información de un usuario.
  */
-export interface Usuario {
+export class Usuario {
   /**
    * El id del usuario.
    */

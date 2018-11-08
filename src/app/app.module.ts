@@ -18,13 +18,12 @@ import { MedallaModule } from './medalla/medalla.module';
 import { ProveedorModule } from './proveedor/proveedor.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UsuarioDetailComponent } from './usuario-detail/usuario-detail.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    UsuarioDetailComponent
+    AppComponent
+
   ],
   imports: [
     BrowserModule,

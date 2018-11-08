@@ -53,7 +53,7 @@ export class ActividadService {
     * @param editorial The editorial which will be created
     * @returns The confirmation of the editorial's creation
     */
-    associateActividadGuia(actividadId,guiaId): Observable<Guia> {
+    associateActividadGuia(actividadId, guiaId): Observable<Guia> {
         return this.http.post<Guia>(API_URL + actividades + '/' + actividadId + '/' + guia + '/' + guiaId,guiaId);
     }
 
