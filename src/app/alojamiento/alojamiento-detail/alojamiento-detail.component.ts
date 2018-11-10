@@ -22,7 +22,7 @@ export class AlojamientoDetailComponent implements OnInit {
     * @param route The route which helps to retrieves the id of the alojamiento to be shown
     */
     constructor(private route: ActivatedRoute, 
-                private alojamientoService: AlojamientoService
+                private alojamientoService: AlojamientoService,
                 private router: Router) { }
     
     /**
@@ -50,3 +50,4 @@ export class AlojamientoDetailComponent implements OnInit {
         this.getAlojamientoDetail();
         }
     }
+}

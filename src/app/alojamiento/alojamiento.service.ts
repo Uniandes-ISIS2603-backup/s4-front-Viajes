@@ -35,8 +35,8 @@ export class AlojamientoService {
     * @param alojamiento 
     * @returns True si se crea correctamente, false de lo contrario
     */
-    createAlojamiento(alojamiento): Observable<AlojamientoDetail> {
-        return this.http.post<AlojamientoDetail>(API_URL + alojamientos, alojamiento);
+    createAlojamiento(alojamiento): Observable<Alojamiento> {
+        return this.http.post<Alojamiento>(API_URL + alojamientos, alojamiento);
     }
     
     /**

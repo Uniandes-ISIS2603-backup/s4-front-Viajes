@@ -1,6 +1,6 @@
 import {Proveedor} from '../proveedor/proveedor'; 
 
-export interface Alojamiento {
+export class Alojamiento {
     
     /**
      * ID del alojamiento.

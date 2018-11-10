@@ -45,4 +45,5 @@ export class TransporteService {
     getTransporteDetail(transporteId): Observable<TransporteDetail> {
         return this.http.get<TransporteDetail>(API_URL + transportes + '/' + transporteId);
     }
+}
 
