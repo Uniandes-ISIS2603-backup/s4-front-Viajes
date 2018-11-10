@@ -1,17 +1,32 @@
-<div class="container-fluid">
-    <div class="col">
+<body>
+    <h1 id = "texto"> Alojamientos </h1> 
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Alojamiento</th>    
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Ubicacion</th>
+                    <th>Costo</th>
+                    <th>Estrellas</th>  
+                    <th>Tipo</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                    <th>Puntuacion</th>     
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let alojamiento of alojamientos">
+                    <td>{{alojamiento.id}}</td>
                     <td>{{alojamiento.nombre}}</td>
-
+                    <td>{{alojamiento.ubicacion}}</td>
+                    <td>{{alojamiento.costo}}</td>
+                    <td>{{alojamiento.estrellas}}</td>
+                    <td>{{alojamiento.tipo}}</td>
+                    <td>{{alojamiento.latitud}}</td>
+                    <td>{{alojamiento.longitud}}</td>
+                    <td>{{alojamiento.puntuacion}}</td>
                 </tr>
             </tbody>
         </table>
-    </div>
-</div>
+    <app-alojamiento-create></app-alojamiento-create>
+</body>

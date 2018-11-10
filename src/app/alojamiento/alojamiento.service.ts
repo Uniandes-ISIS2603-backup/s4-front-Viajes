@@ -1,20 +1,13 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
- 
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 import {Alojamiento} from './alojamiento';
+import {AlojamientoDetail} from './alojamiento-detail';
 import { environment } from '../../environments/environment';
 
-
-
-const API_URL = "../../assets/";
-const alojamientos = '/alojamientoData.json';
+const API_URL = environment.apiURL;
+const alojamientos = '/alojamientos';
 
 
 /**
@@ -35,6 +28,23 @@ export class AlojamientoService {
     */
     getAlojamientos(): Observable<Alojamiento[]> { 
         return this.http.get<Alojamiento[]>(API_URL + alojamientos);
+    }
+    
+    /**
+    * Crea un nuevo alojamiento
+    * @param alojamiento 
+    * @returns True si se crea correctamente, false de lo contrario
+    */
+    createAlojamiento(alojamiento): Observable<AlojamientoDetail> {
+        return this.http.post<AlojamientoDetail>(API_URL + alojamientos, alojamiento);
+    }
+    
+    /**
+    * Retorna el detail de alojameinto
+    * @returns Detail del recurso
+    */
+    getAlojamientoDetail(alojamientoId): Observable<AlojamientoDetail> {
+        return this.http.get<AlojamientoDetail>(API_URL + alojamientos + '/' + alojamientoId);
     }
 }
 

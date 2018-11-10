@@ -1,17 +1,22 @@
-<div class="container-fluid">
-    <div class="col">
+<body>
+    <h1 id = "texto"> Transportes </h1> 
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
-                    <th>Transporte</th>    
+                    <th>Id</th>
+                    <th>Costo</th>
+                    <th>Destino</th>
+                    <th>Puntuacion</th>     
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor = "let transporte of transportes">
-                    <td>{{transporte.nombre}}</td>
-
+                    <td>{{transporte.id}}</td>
+                    <td>{{alojamiento.costo}}</td>
+                    <td>{{alojamiento.destino}}</td>
+                    <td>{{alojamiento.puntuacion}}</td>
                 </tr>
             </tbody>
         </table>
-    </div>
-</div>
+    <app-transporte-create></app-transporte-create>
+</body>
