@@ -29,7 +29,7 @@ import {UsuarioService} from '../usuario.service';
     }
 
     /**
-     * This will initialize the component by retrieving the list of vuelos from the service
+     * This will initialize the component by retrieving the list of usuarios from the service
      * This method will be called when the component is created
      */
     ngOnInit() {

@@ -26,7 +26,7 @@ export class ActividadDetailComponent implements OnInit {
     */
     constructor(
         private route: ActivatedRoute,
-        private actividadService: ActividadService 
+        private actividadService: ActividadService
     ) { }
 
 
@@ -40,7 +40,7 @@ export class ActividadDetailComponent implements OnInit {
     getActividadDetail(): void {
         this.actividadService.getActividadDetail(this.actividad_id)
             .subscribe(actividadDetail => {
-                this.actividadDetail = actividadDetail
+                this.actividadDetail = actividadDetail;
             });
     }
 
@@ -51,7 +51,7 @@ export class ActividadDetailComponent implements OnInit {
     */
     ngOnInit() {
         this.actividad_id = +this.route.snapshot.paramMap.get('identificador');
-        if (this.actividad_id){
+        if (this.actividad_id) {
         this.actividadDetail = new ActividadDetail();
         this.getActividadDetail();
         }
