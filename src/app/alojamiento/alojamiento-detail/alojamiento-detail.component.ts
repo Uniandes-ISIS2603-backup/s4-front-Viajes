@@ -46,15 +46,7 @@ export class AlojamientoDetailComponent implements OnInit {
     ngOnInit() {
         this.alojamientoId = +this.route.snapshot.paramMap.get('id');
         if (this.alojamientoId) {
-        this.alojamientoDetail = new AlojamientoDetail(
-            nombre: string; 
-            costo: number; 
-            estrellas: number;
-            tipo: string;
-            latitud: number;
-            longitud: number;
-            puntuacion: number;
-        }
+        this.alojamientoDetail = new AlojamientoDetail();
         this.getAlojamientoDetail();
         }
     }

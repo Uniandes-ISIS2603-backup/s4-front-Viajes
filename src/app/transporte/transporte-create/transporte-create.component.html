@@ -1,3 +1,121 @@
-<p>
-  transporte-create works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Agregar un nuevo transporte</h2>
+            <br>
+            <form name="transporte" (ngSubmit)="f.form.valid && createTransporte()" #f="ngForm" novalidate>
+                  
+                <div class="form-group">
+                    <label for="transporteId"><b>ID(Identificador unico)</b></label>
+                    <input type="number" name="transporteId" class="form-control" id="transporteId" [(ngModel)]="transporte.id"
+                        #transporteId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transporteId.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Id invalido</div>
+                    </div>
+                </div>
+                  
+                  
+                <div class="form-group">
+                    <label for="destinoTransporte"><b>Destino</b></label>
+                    <input type="text" name="destinoTransporte" class="form-control" id="destinoTransporte" [(ngModel)]="transporte.destino"
+                        #destinoTransporte="ngModel" [ngClass]="{ 'is-invalid': f.submitted && destinoTransporte.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Destino invalido</div>
+                    </div>
+                </div>
+                  
+                  
+                <div class="form-group">
+                    <label for="transporteCosto"><b>Costo</b></label>
+                    <input type="number" name="transporteCosto" class="form-control" id="transporteCosto" [(ngModel)]="transporte.costo"
+                        #transporteCosto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transporteCosto.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Costo invalido</div>
+                    </div>
+                </div>
+                  
+                <div class="form-group">
+                    <label for="transporteLatitudOrigen"><b>LatitudOrigen</b></label>
+                    <input type="number" name="transporteLatitudOrigen" class="form-control" id="transporteLatitudOrigen" [(ngModel)]="transporte.latitudOrigen"
+                        #transporteLatitudOrigen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transporteLatitudOrigen.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>LatitudO invalida</div>
+                    </div>
+                </div>
+                  
+                <div class="form-group">
+                    <label for="transporteLongitudOrigen"><b>LongitudOrigen</b></label>
+                    <input type="number" name="transporteLongitudOrigen" class="form-control" id="transporteLongitudOrigen" [(ngModel)]="transporte.longitudOrigen"
+                        #transporteLongitudOrigen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transporteLongitudOrigen.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>LongitudO invalida</div>
+                    </div>
+                </div>
+                  
+                <div class="form-group">
+                    <label for="transporteLatitudDestino"><b>LatitudDestino</b></label>
+                    <input type="number" name="transporteLatitudDestino" class="form-control" id="transporteLatitudDestino" [(ngModel)]="transporte.latitudDestino"
+                        #transporteLatitudDestino="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transporteLatitudDestino.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>LatitudD invalida</div>
+                    </div>
+                </div>
+                  
+                <div class="form-group">
+                    <label for="transporteLongitudDestino"><b>LongitudDestino</b></label>
+                    <input type="number" name="transporteLongitudDestino" class="form-control" id="transporteLongitudDestino" [(ngModel)]="transporte.longitudDestino"
+                        #transporteLongitudDestino="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transporteLongitudDestino.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>LongitudD invalida</div>
+                    </div>
+                </div>
+                  
+                <div class="form-group">
+                    <label for="transporteNumeroDias"><b>NumeroDias</b></label>
+                    <input type="number" name="transporteNumeroDias" class="form-control" id="transporteNumeroDias" [(ngModel)]="transporte.numeroDias"
+                        #transporteNumeroDias="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transporteNumeroDias.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Numero de dias invalido</div>
+                    </div>
+                </div>
+                  
+                  <div class="form-group">
+                    <label for="transporteNumeroHoras"><b>NumeroHoras</b></label>
+                    <input type="number" name="transporteNumeroHoras" class="form-control" id="transporteNumeroHoras" [(ngModel)]="transporte.numeroHoras"
+                        #transporteNumeroHoras="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transporteNumeroHoras.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Numero de Horas invalido</div>
+                    </div>
+                </div>
+                  
+                  <div class="form-group">
+                    <label for="transporteNumeroMinutos"><b>NumeroMinutos</b></label>
+                    <input type="number" name="transporteNumeroMinutos" class="form-control" id="transporteNumeroMinutos" [(ngModel)]="transporte.numeroMinutos"
+                        #transporteNumeroMinutos="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transporteNumeroMinutos.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Numero de Minutos invalido</div>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label for="transportePuntuacion"><b>Puntuacion</b></label>
+                    <input type="number" name="transportePuntuacion" class="form-control" id="transportePuntuacion" [(ngModel)]="transporte.puntuacion"
+                        #transportePuntuacion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && transportePuntuacion.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Puntuacion invalida</div>
+                    </div>
+                </div>    
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>

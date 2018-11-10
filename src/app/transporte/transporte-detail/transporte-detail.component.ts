@@ -21,7 +21,9 @@ export class TransporteDetailComponent implements OnInit {
     * Constructor del componente
     * @param route The route which helps to retrieves the id of the transporte to be shown
     */
-    constructor(private route: TransporteRoute, private transporteService: TransporteService) { }
+    constructor(private route: TransporteRoute, 
+                private transporteService: TransporteService,
+                private router: Router) { }
   
     /**
      * Id del transporte
