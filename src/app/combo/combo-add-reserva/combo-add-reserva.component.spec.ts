@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BookAddReviewComponent } from './book-add-review.component';
+import {ComboAddReservaComponent } from './combo-add-reserva.component';
 
-describe('BookAddReviewComponent', () => {
-  let component: BookAddReviewComponent;
-  let fixture: ComponentFixture<BookAddReviewComponent>;
+describe('ComboAddReservaComponent', () => {
+  let component: ComboAddReservaComponent;
+  let fixture: ComponentFixture<ComboAddReservaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookAddReviewComponent ]
+      declarations: [ ComboAddReservaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BookAddReviewComponent);
+    fixture = TestBed.createComponent(ComboAddReservaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

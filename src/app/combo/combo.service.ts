@@ -2,22 +2,22 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
-import {Book} from './book';
-import {BookDetail} from './book-detail';
-import {Review} from './review';
+import {Combo} from './combo';
+import {ComboDetail} from './combo-detail';
+import {Reserva} from '../reserva/reserva';
 
 
 import {environment} from '../../environments/environment';
 const API_URL = environment.apiURL;
-const books = '/books';
-const reviews = '/reviews';
+const combos = '/combos';
+const reservas = '/reservas';
 
 
 /**
 * The service provider for everything related to books
 */
 @Injectable()
-export class BookService {
+export class ComboService {
 
     /**
     * Constructor of the service
@@ -29,8 +29,8 @@ export class BookService {
     * Returns the Observable object containing the list of books retrieved from the API
     * @returns The list of books in real time
     */
-    getBooks(): Observable<Book[]> {
-        return this.http.get<Book[]>(API_URL + books);
+    getCombos(): Observable<Combo[]> {
+        return this.http.get<Combo[]>(API_URL + combos);
     }
 
     /**
@@ -38,16 +38,16 @@ export class BookService {
     * @param book The new book
     * @returns The book with its new id if it was created, false if it wasn't
     */
-    createBook(book): Observable<BookDetail> {
-        return this.http.post<BookDetail>(API_URL + books, book);
+    createCombo(combo): Observable<ComboDetail> {
+        return this.http.post<ComboDetail>(API_URL + combos, combo);
     }
 
     /**
     * Returns the Observable object with the details of an author retrieved from the API
     * @returns The author details
     */
-    getBookDetail(bookId): Observable<BookDetail> {
-        return this.http.get<BookDetail>(API_URL + books + '/' + bookId);
+    getComboDetail(comboId): Observable<ComboDetail> {
+        return this.http.get<ComboDetail>(API_URL + combos + '/' + comboId);
     }
 
     /**
@@ -55,8 +55,8 @@ export class BookService {
     * @param review The review
     * @returns True if the review was posted, false otherwise
     */
-    createReview(bookId, review): Observable<Review> {
-        return this.http.post<Review>(API_URL + books + '/' + bookId + reviews, review);
+    createReserva(comboId, reserva): Observable<Reserva> {
+        return this.http.post<Reserva>(API_URL + combos + '/' + comboId + reservas, reserva);
     }
 
     /**
@@ -64,7 +64,7 @@ export class BookService {
         * @param book The updated book
         * @returns The updated book
         */
-    updateBook(book): Observable<BookDetail> {
-        return this.http.put<BookDetail>(API_URL + books + '/' + book.id, book);
+    updateCombo(combo): Observable<ComboDetail> {
+        return this.http.put<ComboDetail>(API_URL + combos + '/' + combo.id, combo);
     }
 }

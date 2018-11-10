@@ -2,15 +2,15 @@ import { Component, OnInit, Input, OnChanges, EventEmitter, Output } from '@angu
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 
-import { Review } from '../review';
-import { BookService } from '../book.service';
-import { Book } from '../../book/book';
+import { Reserva } from '../../reserva/reserva';
+import { ComboService } from '../combo.service';
+import { Combo } from '../../combo/combo';
 @Component({
-    selector: 'app-book-add-review',
-    templateUrl: './book-add-review.component.html',
-    styleUrls: ['./book-add-review.component.css']
+    selector: 'app-combo-add-reserva',
+    templateUrl: './combo-add-reserva.component.html',
+    styleUrls: ['./combo-add-reserva.component.css']
 })
-export class BookAddReviewComponent implements OnInit, OnChanges {
+export class ComboAddReservaComponent implements OnInit, OnChanges {
 
     /**
     * The constructor of the component
@@ -18,19 +18,19 @@ export class BookAddReviewComponent implements OnInit, OnChanges {
     * @param toastrService The toastr to show messages to the user
     */
     constructor(
-        private bookService: BookService,
+        private comboService: ComboService,
         private toastrService: ToastrService
     ) { }
 
     /**
     * The book's id
     */
-    @Input() book: Book;
+    @Input() combo: Combo;
 
     /**
     * The review to post
     */
-    review: Review;
+    reserva: Reserva;
     
     public isCollapsed = true;
 
@@ -38,30 +38,29 @@ export class BookAddReviewComponent implements OnInit, OnChanges {
     * The Event Emitter which sends the signal when a review has just been posted
     * so that the list of reviews refreshes
     */
-    @Output() updateReviews = new EventEmitter();
+    @Output() updateReservas = new EventEmitter();
 
     /**
     * This function posts a review
     * @param reviewForm The form of the review
     */
-    postReview(reviewForm: NgForm): Review {
-        this.review.book = this.book;
-        this.bookService.createReview(this.book.id,this.review)
+    postReserva(reservaForm: NgForm): Reserva {
+        this.comboService.createReserva(this.combo.id,this.reserva)
             .subscribe(() => {
-                reviewForm.resetForm();
-                this.updateReviews.emit();
-                this.toastrService.success("The review was successfully created", 'Review added');
+                reservaForm.resetForm();
+                this.updateReservas.emit();
+                this.toastrService.success("The reserva was successfully created", 'Reserva added');
             }, err => {
                 this.toastrService.error(err, 'Error');
             });
-        return this.review;
+        return this.reserva;
     }
 
     /**
     * The function which initializes the component.
     */
     ngOnInit() {
-        this.review = new Review();
+        this.reserva = new Reserva();
     }
 
     /**

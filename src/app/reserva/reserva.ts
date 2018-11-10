@@ -43,4 +43,6 @@ export class Reserva {
     * La actividad de la reserva
     */
     actividad: Actividad;
+    
+    
 }

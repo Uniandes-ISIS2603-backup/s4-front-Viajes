@@ -1,17 +1,16 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BookService} from './book.service';
-import {BookListComponent} from './book-list/book-list.component';
+import {ComboService} from './combo.service';
+import {ComboListComponent} from './combo-list/combo-list.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {BookReviewComponent} from './book-reviews/book-review.component';
-import {BookCreateComponent} from './book-create/book-create.component';
-import {BookDetailComponent} from './book-detail/book-detail.component';
-import {BookAddReviewComponent} from './book-add-review/book-add-review.component';
-import {BookEditComponent} from './book-edit/book-edit.component';
+//import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ComboReservaComponent} from './combo-reservas/combo-reserva.component';
+import {ComboCreateComponent} from './combo-create/combo-create.component';
+import {ComboDetailComponent} from './combo-detail/combo-detail.component';
+import {ComboAddReservaComponent} from './combo-add-reserva/combo-add-reserva.component';
 
 @NgModule({
     imports: [
@@ -20,13 +19,13 @@ import {BookEditComponent} from './book-edit/book-edit.component';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule,
+//        NgbModule,
         ReactiveFormsModule
     ],
     declarations: [
-        BookListComponent, BookDetailComponent, BookReviewComponent, BookCreateComponent, BookAddReviewComponent, BookEditComponent
+        ComboListComponent, ComboDetailComponent, ComboReservaComponent, ComboCreateComponent, ComboAddReservaComponent
     ],
-    providers: [BookService],
-    exports: [BookListComponent, BookEditComponent]
+    providers: [ComboService],
+    exports: [ComboListComponent]
 })
-export class BookModule {}
+export class ComboModule {}

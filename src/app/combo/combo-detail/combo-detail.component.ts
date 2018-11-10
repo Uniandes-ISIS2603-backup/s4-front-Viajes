@@ -2,18 +2,18 @@ import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 
 
-import {BookService} from '../book.service';
-import {Book} from '../book';
-import {BookDetail} from '../book-detail';
-import {BookReviewComponent} from '../book-reviews/book-review.component';
-import {BookAddReviewComponent} from '../book-add-review/book-add-review.component';
+import {ComboService} from '../combo.service';
+import {Combo} from '../combo';
+import {ComboDetail} from '../combo-detail';
+import {ComboReservaComponent} from '../combo-reservas/combo-reserva.component';
+import {ComboAddReservaComponent} from '../combo-add-reserva/combo-add-reserva.component';
 
 @Component({
-    selector: 'app-book-detail',
-    templateUrl: './book-detail.component.html',
-    styleUrls: ['./book-detail.component.css']
+    selector: 'app-combo-detail',
+    templateUrl: './combo-detail.component.html',
+    styleUrls: ['./combo-detail.component.css']
 })
-export class BookDetailComponent implements OnInit, OnDestroy {
+export class ComboDetailComponent implements OnInit, OnDestroy {
 
     /**
     * The constructor of the component
@@ -23,7 +23,7 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     * @param toastrService The toastr to show messages to the user
     */
     constructor(
-        private bookService: BookService,
+        private comboService: ComboService,
         private route: ActivatedRoute,
         private router: Router
     ) {
@@ -39,17 +39,17 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     /**
     * The book's id retrieved from the path
     */
-    book_id: number;
+    combo_id: number;
 
     /**
     * The book whose details are shown
     */
-    bookDetail: BookDetail;
+    comboDetail: ComboDetail;
 
     /**
     * The other books shown in the sidebar
     */
-    other_books: Book[];
+    other_combos: Combo[];
 
     /**
     * The suscription which helps to know when a new book
@@ -62,25 +62,25 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     /**
      * The child BookReviewListComponent
      */
-    @ViewChild(BookReviewComponent) reviewListComponent: BookReviewComponent;
+    @ViewChild(ComboReservaComponent) reservaListComponent: ComboReservaComponent;
 
     /**
      * The child BookReviewListComponent
      */
-    @ViewChild(BookAddReviewComponent) reviewAddComponent: BookAddReviewComponent;
+    @ViewChild(ComboAddReservaComponent) reservaAddComponent: ComboAddReservaComponent;
 
-    toggleReviews(): void {
-        if (this.reviewAddComponent.isCollapsed == false) {
-            this.reviewAddComponent.isCollapsed = true;
+    toggleReservas(): void {
+        if (this.reservaAddComponent.isCollapsed == false) {
+            this.reservaAddComponent.isCollapsed = true;
         }
-        this.reviewListComponent.isCollapsed = !this.reviewListComponent.isCollapsed;
+        this.reservaListComponent.isCollapsed = !this.reservaListComponent.isCollapsed;
     }
 
-    toggleCreateReview(): void {
-        if (this.reviewListComponent.isCollapsed == false) {
-            this.reviewListComponent.isCollapsed = true;
+    toggleCreateReserva(): void {
+        if (this.reservaListComponent.isCollapsed == false) {
+            this.reservaListComponent.isCollapsed = true;
         }
-        this.reviewAddComponent.isCollapsed = !this.reviewAddComponent.isCollapsed;
+        this.reservaAddComponent.isCollapsed = !this.reservaAddComponent.isCollapsed;
     }
 
 
@@ -88,21 +88,21 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     * The method which retrieves the details of the book that
     * we want to show
     */
-    getBookDetail(): void {
-        this.bookService.getBookDetail(this.book_id)
-            .subscribe(bookDetail => {
-                this.bookDetail = bookDetail;
+    getComboDetail(): void {
+        this.comboService.getComboDetail(this.combo_id)
+            .subscribe(comboDetail => {
+                this.comboDetail =comboDetail;
             });
     }
 
     /**
     * This method retrieves all the books in the Bookstore to show them in the list
     */
-    getOtherBooks(): void {
-        this.bookService.getBooks()
-            .subscribe(books => {
-                this.other_books = books;
-                this.other_books = this.other_books.filter(book => book.id !== this.book_id);
+    getOtherCombos(): void {
+        this.comboService.getCombos()
+            .subscribe(combos => {
+                this.other_combos = combos;
+                this.other_combos = this.other_combos.filter(combo => combo.id !== this.combo_id);
             });
     }
 
@@ -110,10 +110,10 @@ export class BookDetailComponent implements OnInit, OnDestroy {
      * The function called when a review is posted, so that the child component can refresh the list
      */
     updateReviews(): void {
-        this.getBookDetail();
-        this.reviewListComponent.updateReviews(this.bookDetail.reviews);
-        this.reviewListComponent.isCollapsed = false;
-        this.reviewAddComponent.isCollapsed = true;
+        this.getComboDetail();
+        this.reservaListComponent.updateReservas(this.comboDetail.reservas);
+        this.reservaListComponent.isCollapsed = false;
+        this.reservaAddComponent.isCollapsed = true;
     }
 
     /**
@@ -122,10 +122,10 @@ export class BookDetailComponent implements OnInit, OnDestroy {
     * they are never considered undefined
     */
     ngOnInit() {
-        this.book_id = +this.route.snapshot.paramMap.get('id');
-        this.bookDetail = new BookDetail();
-        this.getBookDetail();
-        this.getOtherBooks();
+        this.combo_id = +this.route.snapshot.paramMap.get('id');
+        this.comboDetail = new ComboDetail();
+        this.getComboDetail();
+        this.getOtherCombos();
         this.showEdit = true;
     }
 

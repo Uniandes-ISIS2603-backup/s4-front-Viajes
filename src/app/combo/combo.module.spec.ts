@@ -1,13 +1,13 @@
-import {BookModule} from './book.module';
+import {ComboModule} from './combo.module';
 
-describe('BookModule', () => {
-    let bookModule: BookModule;
+describe('ComboModule', () => {
+    let comboModule: ComboModule;
 
     beforeEach(() => {
-        bookModule = new BookModule();
+        comboModule = new ComboModule();
     });
 
     it('should create an instance', () => {
-        expect(bookModule).toBeTruthy();
+        expect(comboModule).toBeTruthy();
     });
 });

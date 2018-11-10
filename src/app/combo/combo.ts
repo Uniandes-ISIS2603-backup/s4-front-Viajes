@@ -1,6 +1,4 @@
-import { Editorial } from '../editorial/editorial';
-
-export class Book {
+export class Combo {
     /**
     * The book's id
     */
@@ -9,31 +7,27 @@ export class Book {
     /**
     * The book's name
     */
-    name: string;
+    nombre: string;
 
     /**
     * The book's ISBN
     */
-    isbn: string;
+    costo: number;
 
     /**
     * A brief summary of the book
     */
-    description: string;
+    dias: number;
 
     /**
     * The location of the book's image
     */
-    image: string;
+    horas: number;
 
     /**
      * The book's publishing date
      */
-    publishingdate: any;
+    puntuacion: number;
     
 
-    /**
-    * The editorial of the book
-    */
-    editorial: Editorial;
 }

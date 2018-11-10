@@ -3,32 +3,26 @@ import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 
-import {BookService} from '../book.service';
-import {EditorialService} from '../../editorial/editorial.service';
-import {Book} from '../book';
-import {Author} from '../../author/author';
-import {Editorial} from '../../editorial/editorial';
+import {ComboService} from '../combo.service';
+import {Combo} from '../combo';
 
 @Component({
-    selector: 'app-book-create',
-    templateUrl: './book-create.component.html',
-    styleUrls: ['./book-create.component.css'],
+    selector: 'app-combo-create',
+    templateUrl: './combo-create.component.html',
+    styleUrls: ['./combo-create.component.css'],
     providers: [DatePipe]
 })
-export class BookCreateComponent implements OnInit {
+export class ComboCreateComponent implements OnInit {
 
     /**
     * Constructor for the component
-    * @param bookService The books' services provider
-    * @param authorService The authors' services provider
-    * @param editorialService The editorials' services provider
+    * @param comboService The books' services provider
     * @param toastrService The toastr to show messages to the user
     * @param router The router
     */
     constructor(
         private dp: DatePipe,
-        private bookService: BookService,
-        private editorialService: EditorialService,
+        private comboService:ComboService,
         private toastrService: ToastrService,
         private router: Router
     ) {}
@@ -36,69 +30,38 @@ export class BookCreateComponent implements OnInit {
     /**
     * The new book
     */
-    book: Book;
+    combo: Combo;
 
-    /**
-    * The list of all the authors in the BookStore
-    */
-    authors: Author[];
-
-    /**
-    * The list of all the editorials in the BookStore
-    */
-    editorials: Editorial[];
-
-    /**
-    * The authors of the new book
-    * This list is passed as a parameter to the child two-list component
-    * It is also updated by that child component
-    */
-    bookAuthors: Author[];
-
-    /**
-    * Retrieves the list of editorials in the BookStore
-    */
-    getEditorials(): void {
-        this.editorialService.getEditorials()
-            .subscribe(editorials => {
-                this.editorials = editorials;
-            }, err => {
-                this.toastrService.error(err, 'Error');
-            });
-    }
-
+   
     /**
     * Cancels the creation of the new book
     * Redirects to the books' list page
     */
     cancelCreation(): void {
-        this.toastrService.warning('The book wasn\'t created', 'Book creation');
-        this.router.navigate(['/books/list']);
+        this.toastrService.warning('The combo wasn\'t created', 'Combo creation');
+        this.router.navigate(['/combos/list']);
     }
 
     /**
     * Creates a new book
     */
-    createBook(): Book {
-        let dateB: Date = new Date(this.book.publishingdate.year, this.book.publishingdate.month - 1, this.book.publishingdate.day);
-        this.book.publishingdate = this.dp.transform(dateB, 'yyyy-MM-dd');
-        this.bookService.createBook(this.book)
-            .subscribe(book => {
-                this.book.id = book.id;
-                this.router.navigate(['/books/' + book.id]);
+    createCombo(): Combo {
+  
+        this.comboService.createCombo(this.combo)
+            .subscribe(combo => {
+                this.combo.id = combo.id;
+                this.router.navigate(['/combos/' + combo.id]);
             }, err => {
                 this.toastrService.error(err, 'Error');
             });
-        return this.book;
+        return this.combo;
     }
 
     /**
     * This function will initialize the component
     */
     ngOnInit() {
-        this.book = new Book();
-        this.book.editorial = new Editorial();
-        this.getEditorials();
+        this.combo = new Combo();
     }
 
 }

@@ -3,33 +3,33 @@ import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/filter';
 
 
-import {Book} from '../../book/book';
-import {BookService} from '../../book/book.service';
+import {Combo} from '../../combo/combo';
+import {ComboService} from '../../combo/combo.service';
 @Component({
-    selector: 'app-book-list',
-    templateUrl: './book-list.component.html',
-    styleUrls: ['./book-list.component.css']
+    selector: 'app-combo-list',
+    templateUrl: './combo-list.component.html',
+    styleUrls: ['./combo-list.component.css']
 })
-export class BookListComponent implements OnInit {
+export class ComboListComponent implements OnInit {
 
     /**
     * The list of books to display
     */
-    @Input() books: Book[];
+    @Input() combos: Combo[];
 
     /**
     * The component's constructor
     */
-    constructor(private bookService: BookService, private route: ActivatedRoute) {}
+    constructor(private comboService: ComboService, private route: ActivatedRoute) {}
 
-    allbooks: string = 'no';
+    allcombos: string = 'no';
     /**
     * This method retrieves all the books in the Bookstore to show them in the list
     */
-    getBooks(): void {
-        this.bookService.getBooks()
-            .subscribe(books => {
-                this.books = books;
+    getCombos(): void {
+        this.comboService.getCombos()
+            .subscribe(combos => {
+                this.combos = combos;
             });
     }
 
@@ -38,17 +38,17 @@ export class BookListComponent implements OnInit {
     */
     ngOnInit() {
         this.route.queryParams
-            .filter(params => params.allbooks)
+            .filter(params => params.allcombos)
             .subscribe(params => {
                 console.log(params);
 
-                this.allbooks = params.allbooks;
-                console.log(this.allbooks);
+                this.allcombos = params.allcombos;
+                console.log(this.allcombos);
             });
-        if (this.allbooks == 'yes') {
-            console.log("allbooks");
+        if (this.allcombos == 'yes') {
+            console.log("allcombos");
 
-            this.getBooks();
+            this.getCombos();
         }
     }
 
