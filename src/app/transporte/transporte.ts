@@ -1,6 +1,6 @@
 import {Proveedor} from '../proveedor/proveedor'; 
 
-export interface Transporte{
+export class Transporte{
     
 
     /**
