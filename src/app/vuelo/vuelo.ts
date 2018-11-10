@@ -1,5 +1,5 @@
 type DateString = {month: number,day: number,year: number};
-export interface Vuelo {
+export class Vuelo {
     /**
      * El identificador del vuelo
      */
