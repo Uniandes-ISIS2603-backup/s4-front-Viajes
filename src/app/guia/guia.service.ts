@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
-const guia = '/guia';
+const guias = '/guia';
 /**
 * The service provider for everything related to Activities
 */
@@ -24,7 +24,16 @@ export class GuiaService {
     * @returns The list of Actividades in real time
     */
     getGuias(): Observable<Guia[]> {
-        return this.http.get<Guia[]>(API_URL + guia);
+        return this.http.get<Guia[]>(API_URL + guias);
+    }
+    
+     /**
+    * Creates an editorial
+    * @param editorial The editorial which will be created
+    * @returns The confirmation of the editorial's creation
+    */
+    createGuia(guia): Observable<Guia> {
+        return this.http.post<Guia>(API_URL + guias, guia);
     }
     
 }

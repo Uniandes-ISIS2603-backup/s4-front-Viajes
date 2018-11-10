@@ -24,23 +24,23 @@ export class ActividadListComponent implements OnInit {
      */
     actividades: Actividad[];
     actividad_id: number;
-    selectedActividad : Actividad;
-    
+    selectedActividad: Actividad;
+
     actividadActual(actividad_id: number): Actividad {
-      
+
         this.actividad_id = actividad_id;
         this.selectedActividad = new ActividadDetail();
         this.getActividadDetail();
-        return this.selectedActividad;  
-        
+        return this.selectedActividad;
+
     }
-    
-    onSelected(actividad_id: number):void {
+
+    onSelected(actividad_id: number): void {
         this.actividad_id = actividad_id;
         this.selectedActividad = new ActividadDetail();
         this.getActividadDetail();
 
-        
+
     }
 
     /**
@@ -50,7 +50,7 @@ export class ActividadListComponent implements OnInit {
         this.actividadService.getActividades()
             .subscribe(actividades => this.actividades = actividades);
     }
-    
+
     getActividadDetail(): void {
         this.actividadService.getActividadDetail(this.actividad_id)
             .subscribe(selectedActividad => {

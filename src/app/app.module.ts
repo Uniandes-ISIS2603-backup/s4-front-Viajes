@@ -8,6 +8,7 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 
 import { UsuarioModule } from './usuario/usuario.module';
+import { AdministradorModule } from './administrador/administrador.module';
 import { VueloModule } from './vuelo/vuelo.module';
 
 import { ActividadModule } from './actividad/actividad.module';
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent
+
   ],
   imports: [
     BrowserModule,
@@ -34,13 +36,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UsuarioModule,
     VueloModule,
     ActividadModule,
-    GuiaModule,
-    FormsModule,
+    GuiaModule, 
     ProveedorModule,
     MedallaModule,
     AlojamientoModule,
     TransporteModule,
     FormsModule,
+    AdministradorModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule
   ],

@@ -5,6 +5,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
 import {VueloDetailComponent} from '../vuelo/vuelo-detail/vuelo-detail.component';
 import {UsuarioListComponent} from '../usuario/usuario-list/usuario-list.component';
+import {AdministradorListComponent} from '../administrador/administrador-list/administrador-list.component';
+import {UsuarioDetailComponent} from '../usuario/usuario-detail/usuario-detail.component';
 import {ProveedorListComponent} from '../proveedor/proveedor-list/proveedor-list.component';
 import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-detail.component';
 
@@ -16,6 +18,7 @@ import {ActividadCreateComponent} from '../actividad/actividad-create/actividad-
 
 import {MedallaListComponent} from '../medalla/medalla-list/medalla-list.component';
 import {MedallaDetailComponent} from '../medalla/medalla-detail/medalla-detail.component';
+import {UsuarioCreateComponent} from '../usuario/usuario-create/usuario-create.component';
 
 import {AlojamientoListComponent} from '../alojamiento/alojamiento-list/alojamiento-list.component';
 import {TransporteListComponent} from '../transporte/transporte-list/transporte-list.component'; 
@@ -119,6 +122,25 @@ const routes: Routes = [
       {
         path: 'list',
         component: UsuarioListComponent
+      }, {
+        path: 'id',
+        component: UsuarioDetailComponent
+      }
+    ]
+  },
+
+  {
+    path: 'registro',
+    component: UsuarioCreateComponent
+
+  },
+
+  {
+    path: 'administradores',
+    children: [
+      {
+        path: 'list',
+        component: AdministradorListComponent
       }
     ]
   }

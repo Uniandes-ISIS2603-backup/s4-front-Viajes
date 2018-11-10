@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 import {Alojamiento} from './alojamiento';
-import { enviroment } from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 
 
