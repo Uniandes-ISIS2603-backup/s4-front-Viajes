@@ -16,6 +16,10 @@ import { GuiaModule } from './guia/guia.module';
 
 import { MedallaModule } from './medalla/medalla.module';
 import { ProveedorModule } from './proveedor/proveedor.module';
+
+import { AlojamientoModule } from './alojamiento/alojamiento.module';
+import { TransporteModule } from './transporte/transporte.module';
+  
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -32,10 +36,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UsuarioModule,
     VueloModule,
     ActividadModule,
-    GuiaModule,
-    FormsModule,
+    GuiaModule, 
     ProveedorModule,
     MedallaModule,
+    AlojamientoModule,
+    TransporteModule,
     FormsModule,
     AdministradorModule,
     ToastrModule.forRoot(),
