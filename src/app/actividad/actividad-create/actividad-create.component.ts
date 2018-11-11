@@ -63,6 +63,8 @@ export class ActividadCreateComponent implements OnInit {
     cancelCreation(): void {
         this.cancel.emit();
     }
+    
+   
 
     /**
     * This function will initialize the component
