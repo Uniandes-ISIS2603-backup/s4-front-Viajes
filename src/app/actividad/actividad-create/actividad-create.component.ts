@@ -44,20 +44,21 @@ export class ActividadCreateComponent implements OnInit {
    */
   @Output() create = new EventEmitter();
 
-  /**
-   * Creates an activity
-   */
-  createActividad(): Actividad {
-    console.log(this.actividad);
-    this.actividadService.createActividad(this.actividad)
-      .subscribe((actividad) => {
-        this.actividad = actividad;
-        this.create.emit();
-        this.toastrService.success("La actividad fue creada", "Creacion de actividad");
-
-      });
-    return this.actividad;
-  }
+    /**
+    * Creates an activity
+    */
+    createActividad(): Actividad {
+        console.log(this.actividad);
+        this.actividadService.createActividad(this.actividad)
+            .subscribe((actividad) => {
+                this.actividad = actividad;
+                this.create.emit();
+                this.toastrService.success("La actividad fue creada", "Creacion de actividad");
+                
+            });
+            return this.actividad;
+    }
+ 
 
   /**
    * Informs the parent component that the user no longer wants to create an editorial
