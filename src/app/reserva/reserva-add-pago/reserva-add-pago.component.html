@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Ingrese la siguiente información para realizar el pago</h2>
+            <br>
+            <form name="pago" (ngSubmit)="f.form.valid && createPago()" #f="ngForm" novalidate> 
+                <div class="form-group">
+                    <label for="tarejta"><b>Ingrese su Tarjeta(recuerda que no puede contener caracteres especiales)</b></label>
+                    <input type="number" name="tarejta" class="form-control" id="tarejta" [(ngModel)]="pago.tarejta"
+                    #tarejta="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tarejta.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>La terjeta esta vacia</div>
+                    </div>
+                </div>
+                
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary" >Crear</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+
