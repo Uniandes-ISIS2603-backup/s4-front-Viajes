@@ -23,6 +23,24 @@ import {UsuarioCreateComponent} from '../usuario/usuario-create/usuario-create.c
 import {AlojamientoListComponent} from '../alojamiento/alojamiento-list/alojamiento-list.component';
 import {TransporteListComponent} from '../transporte/transporte-list/transporte-list.component'; 
 
+import {ComboListComponent} from '../combo/combo-list/combo-list.component';
+import {ComboDetailComponent} from '../combo/combo-detail/combo-detail.component';
+
+import {ComboCreateComponent} from '../combo/combo-create/combo-create.component';
+
+
+import {ReservaListComponent} from '../reserva/reserva-list/reserva-list.component';
+import {ReservaDetailComponent} from '../reserva/reserva-detail/reserva-detail.component';
+
+import {ReservaCreateComponent} from '../reserva/reserva-create/reserva-create.component';
+
+import {PagoListComponent} from '../pago/pago-list/pago-list.component';
+import {PagoDetailComponent} from '../pago/pago-detail/pago-detail.component';
+
+import {PagoCreateComponent} from '../pago/pago-create/pago-create.component';
+
+
+
 const routes: Routes = [
 
     {
@@ -143,7 +161,65 @@ const routes: Routes = [
         component: AdministradorListComponent
       }
     ]
-  }
+  },
+  {
+        path: 'combos',
+        children: [
+            {
+                path: 'list',
+                component: ComboListComponent                
+             
+            },
+            {
+                path: ':identificador',
+                component: ComboDetailComponent
+             },
+           {
+                path: 'create',
+                component: ComboCreateComponent,
+                runGuardsAndResolvers: 'always'
+            }
+        ]
+    },
+      {
+        path: 'reservas',
+        children: [
+            {
+                path: 'list',
+                component: ReservaListComponent                
+             
+            },
+            {
+                path: ':identificador',
+                component: ReservaDetailComponent
+             },
+           {
+                path: 'create',
+                component: ReservaCreateComponent,
+                runGuardsAndResolvers: 'always'
+            }
+        ]
+    },
+      {
+        path: 'pagos',
+        children: [
+            {
+                path: 'list',
+                component: PagoListComponent                
+             
+            },
+            {
+                path: ':identificador',
+                component: PagoDetailComponent
+             },
+           {
+                path: 'create',
+                component: PagoCreateComponent,
+                runGuardsAndResolvers: 'always'
+            }
+        ]
+    }
+  
 ];
 
 @NgModule({

@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Agregar un nuevo combo</h2>
+            <br>
+            <form name="combo" (ngSubmit)="f.form.valid && createCombo()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="comboName"><b>Nombre</b></label>
+                    <input type="text" name="nombreCombo" class="form-control" id="nombreCombo" [(ngModel)]="combo.nombreCombo"
+                        #nombreCombo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreCombo.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El nombre del combo esta vacio</div>
+                    </div>
+                </div>
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>

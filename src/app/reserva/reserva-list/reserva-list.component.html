@@ -1,0 +1,84 @@
+<!--<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" *ngFor = "let reserva of reservas">
+            <figure class="figure" routerLink="/reservas/{{reserva.id}}" style="cursor: pointer;"> 
+                
+                <figcaption class="title-caption text-center">{{book.name}}</figcaption>
+                <div *ngFor = "let author of book.authors">
+                    <figcaption class="author-caption text-center" routerLink="/authors/{{author.id}}">{{author.name}}</figcaption>
+                </div>
+            </figure>
+        </div>
+    </div>
+</div>-->
+<style>
+    
+    
+</style>
+<body>
+<h1 id="texto">Reservas</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+      
+      
+      
+  <tr>
+    <th>Id</th>
+    <th>Cantidad Personas</th>
+    <th>Esta Pagada</th>
+    <th>Costo($USD)</th>
+    <th>Fecha Inicio</th>
+    <th>Fecha Fin</th>
+    <th>Actividad</th>
+    <!--<th>Descripcion Actividad</th>-->
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let reserva of reservas" >
+
+    <td>
+      {{reserva.id}}
+    </td>
+
+    <td>
+      {{reserva.cantidadPersonas}}
+    </td>
+
+    <td>
+      {{reserva.pagada}}
+    </td>
+    
+    <td>
+      {{reserva.costo}}
+    </td>
+    
+    <td>
+      {{reserva.fechaInicio}}
+    </td>
+    
+    <td>
+      {{reserva.fechaFin}}
+    </td>
+    
+    <td>
+      {{reserva.getTipo()}}
+    </td>
+    
+<!--    <td>
+        <a routerLink="/actividades/{{actividad.identificador}}">{{actividad.nombreActividad}}</a>
+    </td>-->
+        
+     <!--<app-actividad-detail [actividadDetail]= "actividades[0]"></app-actividad-detail>-->
+     <!--  <a id="actividadDetailTag" class="nav-item nav-link" routerLink="/actividades/{{actividad.identificador}}">GUIAS</a>-->
+     
+      
+
+    
+  </tr>
+  </tbody>
+</table>
+
+    <app-reserva-create></app-reserva-create>
+</body>
