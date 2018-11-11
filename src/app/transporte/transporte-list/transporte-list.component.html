@@ -1,0 +1,37 @@
+<body>
+    <h1 id = "texto"> Transportes </h1> 
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Costo</th>
+                    <th>Destino</th>
+                    <th>LatitudOrigen</th>
+                    <th>LongitudOrigen</th>
+                    <th>LatitudDestino</th>
+                    <th>LongitudDestino</th>
+                    <th>Dias</th>
+                    <th>Horas</th>
+                    <th>Minutos</th>
+                    <th>Destino</th>
+                    <th>Puntuacion</th>     
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let transporte of transportes">
+                    <td>{{transporte.id}}</td>
+                    <td>{{transporte.costo}}</td>
+                    <td>{{transporte.destino}}</td>
+                    <td>{{transporte.latitudOrigen}}</td>
+                    <td>{{transporte.longitudOrigen}}</td>
+                    <td>{{transporte.latitudDestino}}</td>
+                    <td>{{transporte.longitudDestino}}</td>
+                    <td>{{transporte.numeroDias}}</td>
+                    <td>{{transporte.numeroHoras}}</td>
+                    <td>{{transporte.numeroMinutos}}</td>
+                    <td>{{transporte.puntuacion}}</td>
+                </tr>
+            </tbody>
+        </table> 
+    <app-transporte-create></app-transporte-create>
+</body>

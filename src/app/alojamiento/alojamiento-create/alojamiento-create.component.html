@@ -1,0 +1,113 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Agregar un nuevo alojamiento</h2>
+            <br>
+            <form name="alojamiento" (ngSubmit)="f.form.valid && createAlojamiento()" #f="ngForm" novalidate>
+                  
+                <div class="form-group">
+                    <label for="alojamientoId"><b>ID(Identificador unico)</b></label>
+                    <input type="number" name="alojamientoId" class="form-control" id="alojamientoId" [(ngModel)]="alojamiento.id"
+                        #alojamientoId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && alojamientoId.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Id invalido</div>
+                    </div>
+                </div>
+                  
+                  
+                <div class="form-group">
+                    <label for="nombreAlojamiento"><b>Nombre</b></label>
+                    <input type="text" name="nombreAlojamiento" class="form-control" id="nombreAlojamiento" [(ngModel)]="alojamiento.nombre"
+                        #nombreAlojamiento="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreAlojamiento.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Nombre invalido</div>
+                    </div>
+                </div>
+                  
+                  
+                <div class="form-group">
+                    <label for="alojamientoCosto"><b>Costo</b></label>
+                    <input type="number" name="alojamientoCosto" class="form-control" id="alojamientoCosto" [(ngModel)]="alojamiento.costo"
+                        #alojamientoCosto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && alojamientoCosto.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Costo invalido</div>
+                    </div>
+                </div>
+                  
+                <div class="form-group">
+                    <label for="alojamientoEstrellas"><b>Estrellas</b></label>
+                    <input type="number" name="alojamientoEstrellas" class="form-control" id="alojamientoEstrellas" [(ngModel)]="alojamiento.estrellas"
+                        #alojamientoEstrellas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && alojamientoEstrellas.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Estrellas invalido</div>
+                    </div>
+                </div>
+                  
+                <div class="form-group">
+                    <label for="alojamientoTipo"><b>Tipo</b></label>
+                    <input type="number" name="alojamientoTipo" class="form-control" id="alojamientoTipo" [(ngModel)]="alojamiento.tipo"
+                        #alojamientoTipo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && alojamientoTipo.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Tipo invalido</div>
+                    </div>
+                </div>
+                  
+                <div class="form-group">
+                    <label for="alojamientoNoches"><b>Noches</b></label>
+                    <input type="text" name="alojamientoNoches" class="form-control" id="alojamientoNoches" [(ngModel)]="alojamiento.noches"
+                        #alojamientoNoches="ngModel" [ngClass]="{ 'is-invalid': f.submitted && alojamientoNoches.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Noches invalido</div>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <label for="alojamientoLatitud"><b>Latitud</b></label>
+                    <input type="number" name="alojamientoLatitud" class="form-control" id="alojamientoLatitud" [(ngModel)]="alojamiento.latitud"
+                        #alojamientoLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && alojamientoLatitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Latitud invalida</div>
+                    </div>
+                </div>
+                  
+                 <div class="form-group">
+                    <label for="alojamientoLongitud"><b>Longitud</b></label>
+                    <input type="number" name="alojamientoLongitud" class="form-control" id="alojamientoLongitud" [(ngModel)]="alojamiento.longitud"
+                        #alojamientoLongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && alojamientoLongitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Longitud invalida</div>
+                    </div>
+                </div>
+                
+                 <div class="form-group">
+                    <label for="alojamientoPuntuacion"><b>Puntuacion</b></label>
+                    <input type="number" name="alojamientoPuntuacion" class="form-control" id="alojamientoPuntuacion" [(ngModel)]="alojamiento.puntuacion"
+                        #alojamientoPuntuacion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && alojamientoPuntuacion.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Puntuacion invalida</div>
+                    </div>
+                </div>
+                
+               <div class="form-group">
+                    <label for="ubicacionAlojamiento"><b>Ubicacion</b></label>
+                    <input type="text" name="ubicacionAlojamiento" class="form-control" id="ubicacionAlojamiento" [(ngModel)]="alojamiento.ubicacion"
+                        #ubicacionAlojamiento="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ubicacionAlojamiento.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Ubicacion invalido</div>
+                    </div>
+                </div>
+                  
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>

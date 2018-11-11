@@ -35,7 +35,17 @@ h1{
     color: #152C9D;
 }
 
-#vuelosTag, #transportesTag, #actividadesTag, #combosTag, #guiasTag, #medallasTag{
+#alojamientosTag{
+    font-family: 'Cabin', sans-serif;
+    color: #152C9D; 
+}
+
+#transportesTag{
+    font-family: 'Cabin', sans-serif;
+    color: #152C9D; 
+}
+
+#vuelosTag, #transportesTag, #actividadesTag, #combosTag, #guiasTag, #medallasTag, #alojamientosTag{ 
     font-family: 'Cabin', sans-serif;
     color: #152C9D;
 }
@@ -83,6 +93,11 @@ h1{
 #transportesTag:hover{
   background: #152C9D;
   color: #fff;
+}
+
+#alojamientosTag:hover{
+    background: #152C9D;
+    color: #fff;
 }
 
 #actividadesTag:hover{
