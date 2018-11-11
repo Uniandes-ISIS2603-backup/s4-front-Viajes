@@ -1,11 +1,12 @@
-.margin{
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-bottom: 10px;
+.row{
+    width: 500px;
 }
 
-.caption{
-    color: grey;
+
+#emptyGuias {
+    align-content: center;
+    height: 200px;
+    text-align: center;
+    opacity: 0.5;
 }
 

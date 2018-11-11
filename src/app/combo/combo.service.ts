@@ -8,7 +8,8 @@ import {Reserva} from '../reserva/reserva';
 
 
 import {environment} from '../../environments/environment';
-const API_URL = environment.apiURL;
+//const API_URL = environment.apiURL;
+const API_URL ="http://localhost:8080/s4_viajes-api";
 const combos = '/combos';
 const reservas = '/reservas';
 
@@ -59,12 +60,24 @@ export class ComboService {
         return this.http.post<Reserva>(API_URL + combos + '/' + comboId + reservas, reserva);
     }
 
-    /**
-        * Updates a new book
-        * @param book The updated book
-        * @returns The updated book
-        */
-    updateCombo(combo): Observable<ComboDetail> {
-        return this.http.put<ComboDetail>(API_URL + combos + '/' + combo.id, combo);
-    }
+
+
+  /**
+   * Creates an editorial
+   * @param editorial The editorial which will be created
+   * @returns The confirmation of the editorial's creation
+   */
+  associateActividadGuia(comboId,reservaId): Observable<Reserva> {
+
+    return this.http.post<Reserva>(API_URL + combos + '/' + comboId + reservas + '/' + reservaId,null)
+
+  }
+//    /**
+//        * Updates a new book
+//        * @param book The updated book
+//        * @returns The updated book
+//        */
+//    updateCombo(combo): Observable<ComboDetail> {
+//        return this.http.put<ComboDetail>(API_URL + combos + '/' + combo.id, combo);
+//    }
 }

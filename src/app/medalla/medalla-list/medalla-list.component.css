@@ -1,4 +1,4 @@
-.card-columns {
+/*.card-columns {
   @include media-breakpoint-only(lg) {
     column-count: 4;
   }
@@ -9,4 +9,4 @@
 
 .card-columns {
         display: inline-block;
-}
+}*/

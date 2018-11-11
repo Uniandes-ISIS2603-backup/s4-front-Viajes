@@ -1,16 +1,55 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<style>
+    
+    
+</style>
+<body>
+<h1 id="texto">Pagos</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+      
+      
+      
+  <tr>
+    <th>Id</th>
+    <th>Paga Con Tarjeta</th>
+    <th>Tarjeta</th>
+    <!--<th>Servicio Pagado</th>-->
+
+    <!--<th>Descripcion Actividad</th>-->
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pago of pagos" >
+
+    <td>
+      {{pago.id}}
+    </td>
+
+    <td>
+      {{pago.pagaConTarjeta}}
+    </td>
+
+    <td>
+      {{pago.tarjeta}}
+    </td>
+    
+ 
+    
+<!--    <td>
+        <a routerLink="/reservas/{{reserva.id}}">{{reserva.getTipoPorId()}}</a>
+    </td>-->
+        
+     <!--<app-pago-detail [actividadDetail]= "pagos[0]"></app-pago-detail>-->
+     <!--  <a id="pagoDetailTag" class="nav-item nav-link" routerLink="/pagos/{{pago.identificador}}">GUIAS</a>-->
+     
+      
+
+    
+  </tr>
+  </tbody>
+</table>
+
+    <app-pago-create></app-pago-create>
+</body>

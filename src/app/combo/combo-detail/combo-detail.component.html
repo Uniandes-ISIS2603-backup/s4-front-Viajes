@@ -1,3 +1,17 @@
+<div *ngIf="comboDetail.reservas.length == 0">
+  <h1 id="emptyReservas">Ups! Este combo no tiene reservas asociados, reserva ya y has tu sueño realidad!</h1>
+</div>
+
+<div *ngIf="comboDetail.reservas.length > 0">
+  <app-combo-reservas [comboReservas]="comboDetail.reservas"></app-combo-reservas>
+</div>
+
+<app-combo-reserva-create [comboId] = "comboDetail.id"></app-combo-reserva-create>
+
+
+
+
+
 <!--<div class="panel panel-default"> 
     <div>
         <div class="border margin">

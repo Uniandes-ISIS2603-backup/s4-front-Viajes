@@ -1,16 +1,82 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Agregar una nueva actividad</h2>
+            <br>
+            <form name="reserva" (ngSubmit)="f.form.valid && createReserva()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                    <label for="cantidadPersonas"><b>Indique la cantidad de personas que haran uso del servicio a reservar.(recuerda que tiene que ser único)</b></label>
+                    <input type="number" name="cantidadPersonas" class="form-control" id="cantidadPersonas" [(ngModel)]="reserva.cantidadPersonas"
+                        #cantidadPersonas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cantidadPersonas.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>Debe ingresar una cantidad valida</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fechaInicio"><b>Fecha inicio reserva</b></label>
+                    <div [ngClass]="{ 'is-invalid': f.submitted && fechaInicio.invalid }">
+                        <input class="form-control" id="fechaInicio" name="fechaInicio" [(ngModel)]="reserva.fechaInicio"
+                            ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fechaInicio="ngModel" [ngClass]="{'is-invalid': (fechaInicio.untouched || fechaInicio.invalid) }"
+                            required>
+                        <div class="invalid-feedback">
+                            <div>La fecha de inicio de la reserva es incorrecta</div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="fechaFin"><b>Fecha fin reserva</b></label>
+                    <div [ngClass]="{ 'is-invalid': f.submitted && fechaFin.invalid }">
+                        <input class="form-control" id="fechaFin" name="fechaFin" [(ngModel)]="reserva.fechaFin"
+                            ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fechaFin="ngModel" [ngClass]="{'is-invalid': (fechaFin.untouched || fechaFin.invalid) }"
+                            required>
+                        <div class="invalid-feedback">
+                            <div>La fecha de fin de la reserva es incorrecta</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idVuelo"><b>Id del vuelo a reservar (Ingrese el id en alguno y en el resto -1)</b></label>
+                    <input type="number" name="idVuelo" class="form-control" id="idVuelo" [(ngModel)]="reserva.idVuelo"
+                        #idVuelo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idVuelo.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El id de del vuelo no puede estar esta vacío</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="idAlojamiento"><b>Id del alojamiento a reservar (Ingrese el id en alguno y en el resto -1)</b></label>
+                    <input type="number" name="idAlojamiento" class="form-control" id="idAlojamiento" [(ngModel)]="reserva.idAlojamiento"
+                        #idAlojamiento="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idAlojamiento.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El id de del alojamiento no puede estar esta vacío</div>
+                 </div>
+<!--                </div>
+                  <div class="form-group">
+                    <label for="idVuelo"><b>Id del vuelo a reservar (Ingrese el id en alguno y en el resto -1)</b></label>
+                    <input type="number" name="idVuelo" class="form-control" id="idVuelo" [(ngModel)]="reserva.idVuelo"
+                        #idVuelo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idVuelo.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El id de del vuelo no puede estar esta vacío</div>
+                    </div>
+                </div>
+                  <div class="form-group">
+                    <label for="idVuelo"><b>Id del vuelo a reservar (Ingrese el id en alguno y en el resto -1)</b></label>
+                    <input type="number" name="idVuelo" class="form-control" id="idVuelo" [(ngModel)]="reserva.idVuelo"
+                        #idVuelo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && idVuelo.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El id de del vuelo no puede estar esta vacío</div>
+                    </div>-->
+                </div>
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>

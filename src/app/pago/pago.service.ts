@@ -7,7 +7,8 @@ import {PagoDetail} from './pago-detail';
 
 
 import {environment} from '../../environments/environment';
-const API_URL = environment.apiURL;
+//const API_URL = environment.apiURL;
+const API_URL ="http://localhost:8080/s4_viajes-api";
 const pagos = '/pagos';
 
 

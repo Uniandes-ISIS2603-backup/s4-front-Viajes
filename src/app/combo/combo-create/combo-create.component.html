@@ -1,70 +1,23 @@
-<!--<div class="container-fluid">
+<div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <br>
-            <h2 class="text-center">Add a new book</h2>
+            <h2 class="text-center">Agregar un nuevo combo</h2>
             <br>
-            <form name="book" (ngSubmit)="f.form.valid && createBook()" #f="ngForm" novalidate>
+            <form name="combo" (ngSubmit)="f.form.valid && createCombo()" #f="ngForm" novalidate>
                 <div class="form-group">
-                    <label for="bookName"><b>Name</b></label>
-                    <input type="text" name="bookName" class="form-control" id="bookName" [(ngModel)]="book.name"
-                        #bookName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bookName.invalid }" required>
+                    <label for="comboName"><b>Nombre</b></label>
+                    <input type="text" name="nombreCombo" class="form-control" id="nombreCombo" [(ngModel)]="combo.nombreCombo"
+                        #nombreCombo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreCombo.invalid }" required>
                     <div class="invalid-feedback">
-                        <div>The book's name is missing</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="bookPublishDate"><b>Publication date</b></label>
-                    <div [ngClass]="{ 'is-invalid': f.submitted && bookPublishDate.invalid }">
-                        <input class="form-control" id="bookPublishDate" name="bookPublishDate" [(ngModel)]="book.publishingdate"
-                            ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #bookPublishDate="ngModel" [ngClass]="{'is-invalid': (bookPublishDate.untouched || bookPublishDate.invalid) }"
-                            required>
-                        <div class="invalid-feedback">
-                            <div>The book's publication date is missing</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="bookDescription"><b>Description</b></label>
-                    <textarea name="bookDescription" class="form-control" id="bookDescription" [(ngModel)]="book.description"
-                        #bookDescription="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bookDescription.invalid }"
-                        required></textarea>
-                    <div class="invalid-feedback">
-                        <div>The book's description is missing</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="bookISBN"><b>ISBN</b></label>
-                    <input type="text" name="bookISBN" class="form-control" id="bookISBN" [(ngModel)]="book.isbn"
-                        #bookISBN="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bookISBN.invalid }" required>
-                    <div class="invalid-feedback">
-                        <div>The book's ISBN is missing</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="bookImage"><b>Image</b></label>
-                    <input type="text" name="authorImage" class="form-control" id="bookImage" [(ngModel)]="book.image"
-                        #bookImage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bookImage.invalid }" required>
-                    <div class="invalid-feedback">
-                        <div>The book's image is missing</div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="bookEditorial"><b>Editorial</b></label>
-                    <select class="custom-select" name="bookEditorial" id="bookEditorial" [(ngModel)]="book.editorial.id"
-                        #bookEditorial="ngModel" [ngClass]="{ 'is-invalid': f.submitted && bookEditorial.invalid }"
-                        required>
-                        <option [value]="editorial.id" *ngFor="let editorial of editorials">{{editorial.name}}</option>
-                    </select>
-                    <div class="invalid-feedback">
-                        <div>The book's editorial is missing</div>
+                        <div>El nombre del combo esta vacio</div>
                     </div>
                 </div>
                 <br>
                 <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary">Create</button>
+                    <button type="submit" class="btn btn-primary">Crear</button>
                     <div class="divider"></div>
-                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
                 </div>
             </form>
             <br>
@@ -72,4 +25,4 @@
     </div>
 </div>
 <br>
-<br>-->
+<br>

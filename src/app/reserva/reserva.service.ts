@@ -3,11 +3,14 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 import {Reserva} from './reserva';
+import {Pago} from '../pago/pago';
+
 import {ReservaDetail} from './reserva-detail';
 
 
 import {environment} from '../../environments/environment';
-const API_URL = environment.apiURL;
+//const API_URL = environment.apiURL;
+const API_URL ="http://localhost:8080/s4_viajes-api";
 const reservas = '/reservas';
 
 
@@ -47,6 +50,18 @@ export class ReservaService {
     getReservaDetail(reservaId): Observable<ReservaDetail> {
         return this.http.get<ReservaDetail>(API_URL + reservas + '/' + reservaId);
     }
+    
+    
+    /**
+    * Creates a review
+    * @param review The review
+    * @returns True if the review was posted, false otherwise
+    */
+    createPago(pago): Observable<Pago> {
+        pago= this.http.post<Reserva>(API_URL + reservas, pago);
+        return pago;
+    }
+
 
 //    /**
 //    * Creates a review

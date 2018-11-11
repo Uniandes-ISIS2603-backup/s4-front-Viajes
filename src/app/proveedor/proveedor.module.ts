@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+//import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {ProveedorService} from './proveedor.service';
@@ -22,7 +22,7 @@ import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
     CommonModule,
     FormsModule,
     VueloModule,
-    NgbModule
+//    NgbModule
   ],
   declarations: [ProveedorListComponent,
     ProveedorDetailComponent,

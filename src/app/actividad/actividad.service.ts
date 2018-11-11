@@ -7,7 +7,9 @@ import { ActividadDetail } from './actividad-detail'
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
-const API_URL = environment.apiURL;
+//const API_URL = environment.apiURL;
+const API_URL ="http://localhost:8080/s4_viajes-api";
+
 const actividades = '/actividad';
 const guias = '/guia';
 

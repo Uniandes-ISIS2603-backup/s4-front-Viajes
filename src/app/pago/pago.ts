@@ -22,4 +22,9 @@ export class Pago {
     * La actividad de la reserva
     */
     reserva: Reserva;
+    
+     /**
+    * id de la reserva a pagar
+    */
+    idReservaAPagar: number;
 }
