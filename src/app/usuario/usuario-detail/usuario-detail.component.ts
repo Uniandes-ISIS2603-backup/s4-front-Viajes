@@ -14,7 +14,7 @@ export class UsuarioDetailComponent implements OnInit, OnDestroy {
    * The usuario
    */
   @Input()usuarioDetail: UsuarioDetail;
-  private navigationSubscription;
+  navigationSubscription;
   /**
    * Constructor for the component
    * @param route The route which helps to retrieves the id of the usuario to be shown
@@ -23,8 +23,15 @@ export class UsuarioDetailComponent implements OnInit, OnDestroy {
    */
   constructor(
     private route: ActivatedRoute,
-    private usuarioService: UsuarioService
-  ) { }
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) {
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+        this.ngOnInit();
+      }
+    });
+  }
 
 
   /**
