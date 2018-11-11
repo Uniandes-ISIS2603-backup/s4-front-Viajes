@@ -15,33 +15,34 @@ import { Actividad } from '../actividad';
 })
 export class ActividadCreateComponent implements OnInit {
 
-    /**
-    * Constructor for the component
-    * @param editorialService The editorials' services provider
-    * @param toastrService The toastr to show messages to the user 
-    */
-    constructor(
-        private actividadService: ActividadService,
-        private toastrService: ToastrService,
-        private router: Router
-    ) { }
+  /**
+   * Constructor for the component
+   * @param editorialService The editorials' services provider
+   * @param toastrService The toastr to show messages to the user
+   */
+  constructor(
+    private actividadService: ActividadService,
+    private toastrService: ToastrService,
+    private router: Router
+  ) {
+  }
 
-    /**
-    * The new editorial
-    */
-    actividad: Actividad;
+  /**
+   * The new editorial
+   */
+  actividad: Actividad;
 
-    /**
-    * The output which tells the parent component
-    * that the user no longer wants to create an editorial
-    */
-    @Output() cancel = new EventEmitter();
+  /**
+   * The output which tells the parent component
+   * that the user no longer wants to create an editorial
+   */
+  @Output() cancel = new EventEmitter();
 
-    /**
-    * The output which tells the parent component
-    * that the user created a new editorial
-    */
-    @Output() create = new EventEmitter();
+  /**
+   * The output which tells the parent component
+   * that the user created a new editorial
+   */
+  @Output() create = new EventEmitter();
 
     /**
     * Creates an activity
@@ -57,19 +58,19 @@ export class ActividadCreateComponent implements OnInit {
             });
             return this.actividad;
     }
-    /**
-    * Informs the parent component that the user no longer wants to create an editorial
-    */
-    cancelCreation(): void {
-        this.cancel.emit();
-    }
-    
-   
+ 
 
-    /**
-    * This function will initialize the component
-    */
-    ngOnInit() {
-        this.actividad = new Actividad();
-    }
+  /**
+   * Informs the parent component that the user no longer wants to create an editorial
+   */
+  cancelCreation(): void {
+    this.cancel.emit();
+  }
+
+  /**
+   * This function will initialize the component
+   */
+  ngOnInit() {
+    this.actividad = new Actividad();
+  }
 }

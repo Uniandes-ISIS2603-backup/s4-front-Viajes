@@ -3,7 +3,6 @@ import {UsuarioService} from '../usuario.service';
 import {Usuario} from '../usuario';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
-import {Actividad} from '../../actividad/actividad';
 
 @Component({
   selector: 'app-usuario-create',
@@ -30,6 +29,7 @@ export class UsuarioCreateComponent implements OnInit {
   usuario: Usuario;
 
 
+
   /**
    * The output which tells the parent component
    * that the user no longer wants to create an usuario
@@ -52,7 +52,6 @@ export class UsuarioCreateComponent implements OnInit {
         this.usuario = usuario;
         this.create.emit();
         this.toastrService.success('El usuario fue creado', 'Registro de usuario');
-
       });
     return this.usuario;
   }
@@ -65,9 +64,7 @@ export class UsuarioCreateComponent implements OnInit {
 
 
   ngOnInit() {
-
     this.usuario = new Usuario();
-
   }
 }
 
