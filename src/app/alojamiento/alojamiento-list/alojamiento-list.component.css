@@ -1,0 +1,9 @@
+.wrapper {
+    text-align: left;
+    height: 80px;
+}
+
+.btn btn-success pull-right {
+    position: absolute;
+    top: 50%;
+}
