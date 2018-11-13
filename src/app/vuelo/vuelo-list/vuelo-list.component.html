@@ -1,42 +1,16 @@
-        <div class="container-fluid">
-    <div class="row">
-        <div class="col" *ngFor = "let vuelo of vuelos">
-            <p>Número: {{vuelo.numero}}</p>
-            <p>Costo: {{vuelo.costo}}</p>
-            <p>Puntuacion: {{vuelo.puntuacion}}</p>
-            <p>Latitud Origen: {{vuelo.latitudOrigen}}</p>
-            <p>Longitud origen: {{vuelo.longitudOrigen}}</p>
-            <p>Latitud Destino: {{vuelo.latitudDestino}}</p>
-            <p>Longitud Destino: {{vuelo.longitudOrigen}}</p>
-            <p>Fecha Salida: {{vuelo.fechaSalida}}</p>
-            <p>Fecha Llegada: {{vuelo.fechaLlegada}}</p>
-             <br>
-        </div>  
 <div class="container-fluid">
   <div class="row">
     <div class="col-4">
       <br>
-      <div class="row justify-content-center align-self-center">
-        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()">Crear un Vuelo</button>
+      <br>
+      <div class="card text-center" style="width: 18rem;" *ngFor = "let vuelo of vuelos"
+           (click)="onSelected(vuelo.id)">
+        <a><h4 class="font-weight-bold">{{vuelo.numero}}</h4></a>
+        <div class="card-body">
+          <h5 class="card-title">Vuelo Avianca {{vuelo.numero}}</h5>
+          <p class="card-text">Vuelo con destino a New York</p>
+        </div>
       </div>
-      <br>
-      <br>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th class="h4">Vuelos</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor = "let vuelo of vuelos"
-            (click)="onSelected(vuelo.id)">
-          <td style="cursor: pointer;">
-            <dd>{{vuelo.numero}}</dd>
-          </td>
-        </tr>
-        </tbody>
-      </table>
     </div>
     <div class="col-8">
       <div *ngIf="selectedVuelo">
@@ -46,5 +20,9 @@
         <app-vuelo-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-vuelo-create>
       </div>
     </div>
+  </div>
+  <div class="row justify-content-center align-self-center">
+    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+            (click)="showHideCreate()">Crear un Vuelo</button>
   </div>
 </div>

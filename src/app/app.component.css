@@ -11,13 +11,23 @@ h2{
 }
 
 h1{
-    font-family: Arial;
+    font-family: 'Cabin', sans-serif;
     color: #fff;
+}
+
+h3{
+  font-family: 'Cabin', sans-serif;
 }
 
 #guiasTag{
     font-family: 'Cabin', sans-serif;
     color: #152C9D;
+}
+
+
+#alojamientoTag{
+  font-family: 'Cabin', sans-serif;
+  color: #152C9D;
 }
 
 #vuelosTag{

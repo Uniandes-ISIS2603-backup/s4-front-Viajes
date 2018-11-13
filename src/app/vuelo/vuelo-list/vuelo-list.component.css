@@ -1,3 +1,8 @@
 p{
     color: #9d9190;
 }
+
+.card{
+  font-family: 'Cabin', sans-serif;
+  display: inline-block;
+}
