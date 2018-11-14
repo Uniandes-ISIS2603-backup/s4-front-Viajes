@@ -1,7 +1,7 @@
 type DateString = {month: number,day: number,year: number};
 
 
-export interface Entrada {
+export class Entrada {
         /**
     * El id de la entrada
     */

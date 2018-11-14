@@ -1,0 +1,65 @@
+<style>
+    
+    
+</style>
+<body>
+<h1 id="texto">Combos</h1>
+
+<table class="table">
+  <thead class="thead-dark">
+      
+      
+      
+  <tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Costo($USD)</th>
+    <th>Dias</th>
+    <th>Horas</th>
+    <th>Puntuacion</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let combo of combos" >
+
+    <td>
+      {{combo.id}}
+    </td>
+
+    <td>
+      {{combo.nombre}}
+    </td>
+<!--    <td>
+        <a routerLink="/combos/{{combo.id}}">{{combo.nombre}}</a>
+     
+    </td>-->
+
+    <td>
+      {{combo.costo}}
+    </td>
+
+    <td>
+      {{combo.dias}}
+    </td>
+    
+    <td>
+      {{combo.horas}}
+    </td>
+   
+    <td>
+      {{horas.puntuacion}}
+    </td>
+    
+        
+     <!--<app-actividad-detail [actividadDetail]= "actividades[0]"></app-actividad-detail>-->
+     <!--  <a id="actividadDetailTag" class="nav-item nav-link" routerLink="/actividades/{{actividad.identificador}}">GUIAS</a>-->
+     
+      
+
+    
+  </tr>
+  </tbody>
+</table>
+
+    <app-combo-create></app-combo-create>
+</body>

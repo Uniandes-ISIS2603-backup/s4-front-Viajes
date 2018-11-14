@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import {FormsModule} from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -19,7 +20,11 @@ import { ProveedorModule } from './proveedor/proveedor.module';
 
 import { AlojamientoModule } from './alojamiento/alojamiento.module';
 import { TransporteModule } from './transporte/transporte.module';
-  
+
+import { ComboModule } from './combo/combo.module';
+import { ReservaModule } from './reserva/reserva.module';
+import { PagoModule } from './pago/pago.module';
+
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -38,13 +43,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ActividadModule,
     GuiaModule, 
     ProveedorModule,
+    NgbModule,
     MedallaModule,
     AlojamientoModule,
     TransporteModule,
+    ComboModule,
+    ReservaModule,
+    PagoModule,
     FormsModule,
     AdministradorModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
    bootstrap: [AppComponent],
   providers: [        {
