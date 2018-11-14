@@ -1,67 +1,89 @@
 <html>
 <head>
     <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
-<div class="container-fluid">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
- <div class="titulo">
-  <a class="navbar-brand" href="#">
-    <div class="form-inline">
-      <h2 class="mainTitle">TripBuilder</h2>
-    </div>
-  </a>
-</div>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="navbar-nav mr-auto mt-0">
-      <a id="vuelosTag" class="nav-item nav-link" [routerLink]="['/vuelos/list']" [queryParams]="{allvuelos: 'yes'}">VUELOS</a>
-      <a id="proveedoresTag" class="nav-item nav-link" [routerLink]="['/proveedores/list']" [queryParams]="{allproveedores: 'yes'}">PROVEEDORES</a>
-      <a id="usuariosTag" class="nav-item nav-link" routerLink="/usuarios/list">USUARIOS</a>
-        <a id="transportesTag" class="nav-item nav-link" routerLink="/transportes/list">TRANSPORTES</a>
-        <a id="actividadesTag" class="nav-item nav-link" routerLink="/actividades/list">ACTIVIDADES</a>
-        <a id="combosTag" class="nav-item nav-link" routerLink="/combos/list">COMBOS</a>
-        <a id="medallasTag" class="nav-item nav-link" routerLink="/medallas/list">MEDALLAS</a>
-        <a id="guiasTag" class="nav-item nav-link" routerLink="/guias/list">GUIAS</a>
-        <a id="alojamientoTag" class="nav-item nav-link" routerLink="/alojamientos/list">ALOJAMIENTOS</a> 
-    </div>
-    <div class="navbar-nav ml-auto flex-column">
-      <div class="flex-row">
-        <div class="form-inline">
-          <li class="right-space"><a id="signup-navbar-item" routerLink="/registro"><span class="fa fa-user"></span>
-            Registrarse &nbsp;</a></li>
-          <li><a id="login-navbar-item" routerLink="home"><span class="fa fa-sign-in"></span>Ingresar</a></li>
+<body>
+<br>
+<div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+      <ul class="navbar-nav mr-auto">
+        <li>
+          <a class="navbar-brand" href="#"><span class="fas fa-plane-departure"></span> TripBuilder</a>
+        </li>
+      </ul>
+      <div class="navbar-nav ml-auto flex-column">
+        <div class="flex-row">
+          <div class="form-inline">
+            <li class="right-space"><a id="signup-navbar-item" routerLink="/registro"><span class="fa fa-user"></span>
+              Registrarse &nbsp;</a></li>
+            <li><a id="login-navbar-item" routerLink="home"><span class="fas fa-sign-in-alt"></span> Iniciar sesión</a></li>
+          </div>
         </div>
       </div>
-      <button id="checkout-navbar-item" type="button" class="btn btn-default">
-        <a href="#"><span class="fa fa-shopping-cart"></span>Salir</a>
-      </button>
     </div>
-  </div>
-</nav>
+  </nav>
+<hr>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a id="vuelosTag" class="nav-item nav-link" [routerLink]="['/vuelos/list']" [queryParams]="{allvuelos: 'yes'}"><span class="fas fa-plane"></span> VUELOS</a>
+        </li>
+        <li class="nav-item">
+          <a id="proveedoresTag" class="nav-item nav-link" [routerLink]="['/proveedores/list']" [queryParams]="{allproveedores: 'yes'}"><span class="fas fa-suitcase"></span> PROVEEDORES</a>
+        </li>
+        <li class="nav-item active">
+          <a id="usuariosTag" class="nav-item nav-link" routerLink="/usuarios/list"><span class="fas fa-users"></span> USUARIOS</a>
+        </li>
+        <li class="nav-item active">
+          <a id="transportesTag" class="nav-item nav-link" routerLink="/transportes/list"><span class="fas fa-shuttle-van"></span> TRANSPORTES</a>
+        </li>
+        <li class="nav-item active">
+          <a id="actividadesTag" class="nav-item nav-link" routerLink="/actividades/list"><span class="fas fa-hiking"></span> ACTIVIDADES</a>
+        </li>
+        <li class="nav-item active">
+          <a id="combosTag" class="nav-item nav-link" routerLink="/combos/list"><span class="fas fa-box"></span> COMBOS</a>
+        </li>
+        <li class="nav-item active">
+          <a id="medallasTag" class="nav-item nav-link" routerLink="/medallas/list"><span class="fas fa-medal"></span> MEDALLAS</a>
+        </li>
+        <li class="nav-item active">
+          <a id="guiasTag" class="nav-item nav-link" routerLink="/guias/list"><span class="fas fa-map"></span> GUIAS</a>
+        </li>
+        <li class="nav-item active">
+          <a id="alojamientoTag" class="nav-item nav-link" routerLink="/alojamientos/list"><span class="fas fa-hotel"></span> ALOJAMIENTOS</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
   <ngb-carousel>
     <ng-template ngbSlide>
-      <img src="http://www.panavision-tours.com/viajes/viajes-alemania/viajes-alemania.jpg" width="100%" height="400 px" alt="Random first slide">
+      <img src="http://www.panavision-tours.com/viajes/viajes-alemania/viajes-alemania.jpg" width="100%" height="350 px" alt="Random first slide">
       <div class="carousel-caption">
         <h3>TripBuilder, tu plan de viaje hasta el más mínimo detalle. </h3>
       </div>
     </ng-template>
     <ng-template ngbSlide>
-      <img src="https://www.marketingdirecto.com/wp-content/uploads/2017/02/viajar.jpg" width="100%" height="400 px" alt="Random second slide">
+      <img src="https://www.marketingdirecto.com/wp-content/uploads/2017/02/viajar.jpg" width="100%" height="350 px" alt="Random second slide">
       <div class="carousel-caption">
         <h3>Viajes, transportes, alojamientos, actividades, todo en un solo lugar.</h3>
       </div>
     </ng-template>
     <ng-template ngbSlide>
-      <img src="https://marketing4ecommerce.mx/wp-content/uploads/2016/04/Campa%C3%B1aViajesOk.jpg"  width="100%" height="400 px" alt="Random third slide">
+      <img src="https://marketing4ecommerce.mx/wp-content/uploads/2016/04/Campa%C3%B1aViajesOk.jpg"  width="100%" height="350 px" alt="Random third slide">
       <div class="carousel-caption">
         <h3>Organiza el viaje de tus sueños en pocos clicks</h3>
       </div>
     </ng-template>
     <ng-template ngbSlide>
-      <img src="https://www.marketingdirecto.com/wp-content/uploads/2017/02/viajar.jpg"  width="100%" height="400 px" alt="Random fourth slide">
+      <img src="https://www.marketingdirecto.com/wp-content/uploads/2017/02/viajar.jpg"  width="100%" height="350 px" alt="Random fourth slide">
       <div class="carousel-caption">
         <h3>Nunca antes había sido tan fácil planear tus viajes.</h3>
       </div>
@@ -72,8 +94,8 @@
   <br>
   <br>
 </div>
-</div>
 
+</body>
 <footer class="footer bg-light" id="footer">
   <div class="container">
     <p class="navbar-text text-center">

@@ -1,14 +1,12 @@
-.container-fluid{
+body{
   width: 100%;
+  font-family: 'Cabin', sans-serif;
 }
 
 .titulo{
    background: #152C9D;
 }
 
-h2{
-  color: #fff;
-}
 
 h1{
     font-family: 'Cabin', sans-serif;
@@ -19,116 +17,61 @@ h3{
   font-family: 'Cabin', sans-serif;
 }
 
-#guiasTag{
+#vuelosTag, #transportesTag, #actividadesTag, #combosTag, #guiasTag, #medallasTag, #alojamientoTag, #usuariosTag, #proveedoresTag{
     font-family: 'Cabin', sans-serif;
+  font-size: 14px;
+
+  margin: 5px;
     color: #152C9D;
 }
 
+.navbar{
+  padding: 0 2px 0 2px;
+}
 
-#alojamientoTag{
-  font-family: 'Cabin', sans-serif;
+.navbar-brand{
+  background: #fff;
   color: #152C9D;
+  padding: 5px;
 }
 
-#vuelosTag{
-    font-family: 'Cabin', sans-serif;
-    color: #152C9D;
+#navbarSupportedContent1{
+  background: #ffffff;
 }
 
-#proveedoresTag{
-    font-family: 'Cabin', sans-serif;
-    color: #152C9D;
-}
-
-#usuariosTag{
-    font-family: 'Cabin', sans-serif;
-    color: #152C9D;
-}
-
-#alojamientosTag{
-    font-family: 'Cabin', sans-serif;
-    color: #152C9D; 
-}
-
-#transportesTag{
-    font-family: 'Cabin', sans-serif;
-    color: #152C9D; 
-}
-
-#vuelosTag, #transportesTag, #actividadesTag, #combosTag, #guiasTag, #medallasTag, #alojamientosTag{ 
-    font-family: 'Cabin', sans-serif;
-    color: #152C9D;
-}
-
-
-#actividadesTag:hover{
-    background: #152C9D; 
-    color: #fff;
-}
-
-#vuelosTag:hover{
-    background: #152C9D; 
-    color: #fff;
-}
-
-#proveedoresTag:hover{
-    background: #152C9D; 
-    color: #fff;
-}
-
-#usuariosTag:hover{
-    background: #152C9D; 
-    color: #fff;
-}
-
-.navbar-collapse{
-    background: orange;
-}
-
-#vuelosTag:hover{
-    background: #152C9D; 
-    color: #fff;
-}
-
-#proveedoresTag:hover{
+#vuelosTag:hover, #proveedoresTag:hover, #usuariosTag:hover, #transportesTag:hover, #alojamientoTag:hover, #actividadesTag:hover, #combosTag:hover, #medallasTag:hover, #guiasTag:hover{
     background: #152C9D;
+  border-radius: 5px;
     color: #fff;
 }
 
-#usuariosTag:hover{
-    background: #152C9D; 
-    color: #fff;
+#signup-navbar-item{
+  color: #152C9D;
+  padding: 4px;
 }
 
-#transportesTag:hover{
+#signup-navbar-item:hover{
+  color: #ffffff;
   background: #152C9D;
-  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-#alojamientosTag:hover{
-    background: #152C9D;
-    color: #fff;
+#login-navbar-item{
+  color: #152C9D;
+  padding: 4px;
 }
 
-#actividadesTag:hover{
+#login-navbar-item:hover{
+  color: #ffffff;
   background: #152C9D;
-  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-#combosTag:hover{
-  background: #152C9D;
-  color: #fff;
+.container{
+  width: 80%;
 }
-
-#medallasTag:hover{
-  background: #152C9D;
-  color: #fff;
-}
-
-
-#guiasTag:hover{
-    background: #152C9D; 
-    color: #fff;
-}
-
 
