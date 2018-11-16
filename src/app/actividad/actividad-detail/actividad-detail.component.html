@@ -1,11 +1,12 @@
 
-
-
-
+<h1> {{actividadDetail.nombreActividad}}</h1>
 
     <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="500" data-pin-scale-width="80" href=<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="500" data-pin-scale-width="80" href="https://www.pinterest.es/nelsoncadenas07/paisajes-colombianos/"></a>
     
 <div id="guias_list">
+    <div id="guiaslist">
     <app-actividad-guias [actividadGuias]="actividadDetail.guias"></app-actividad-guias>
+    </div>
     <app-actividad-guia-create [actividadId] = "actividadDetail.identificador"></app-actividad-guia-create>
 </div>
+

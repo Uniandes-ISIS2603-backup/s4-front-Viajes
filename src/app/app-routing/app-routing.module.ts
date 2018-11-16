@@ -13,6 +13,7 @@ import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-
 import {ActividadListComponent} from '../actividad/actividad-list/actividad-list.component';
 import {ActividadDetailComponent} from '../actividad/actividad-detail/actividad-detail.component';
 import {GuiaListComponent} from '../guia/guia-list/guia-list.component';
+import {GuiaDetailComponent} from '../guia/guia-detail/guia-detail.component';
 
 import {ActividadCreateComponent} from '../actividad/actividad-create/actividad-create.component';
 
@@ -114,7 +115,11 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: GuiaListComponent
-            }
+            },
+             {
+                path: ':documento',
+                component: GuiaDetailComponent
+             }
         ]
     },
   {

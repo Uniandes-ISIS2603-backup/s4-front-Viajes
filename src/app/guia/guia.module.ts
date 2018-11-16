@@ -8,6 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { GuiaDetailComponent } from './guia-detail/guia-detail.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { FormsModule } from '@angular/forms';
         CommonModule,
         FormsModule
     ],
-    declarations: [GuiaListComponent],
+    declarations: [GuiaListComponent, GuiaDetailComponent],
     providers: [GuiaService],
     bootstrap: [GuiaListComponent],
     exports: [GuiaListComponent]
