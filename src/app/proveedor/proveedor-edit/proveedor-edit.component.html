@@ -1,0 +1,99 @@
+<!--Template para el Typeahead de los authors-->
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+</ng-template>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <br>
+        <h2 class="text-center">Editar un proveedor</h2>
+      <br>
+      <form name="book" (ngSubmit)="f.form.valid && updateProveedor()" #f="ngForm" novalidate>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="thumb">
+              <img class="img-fluid" src="http://s3.amazonaws.com/zweb-s3.uploads/carp/2011/07/air-canada-logo.jpg"/>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group">
+              <label for="proveedorName"><b>Nombre</b></label>
+              <input type="text" name="proveedorName" class="form-control" id="proveedorName" [(ngModel)]="proveedor.nombre"
+                     #proveedorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorName.invalid }" required>
+              <div class="invalid-feedback">
+                <div>El nombre del proveedor es necesario</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="proveedorUser"><b>User</b></label>
+              <input type="text" name="proveedorUser" class="form-control" id="proveedorUser" [(ngModel)]="proveedor.user"
+                     #proveedorUser="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorUser.invalid }" required>
+              <div class="invalid-feedback">
+                <div>El usuario del proveedor es necesario</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="proveedorPass"><b>Password</b></label>
+              <input type="password" name="proveedorPass" class="form-control" id="proveedorPass" [(ngModel)]="proveedor.password"
+                     #proveedorPass="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorPass.invalid }" required>
+              <div class="invalid-feedback">
+                <div>La contraseña del proveedor es necesaria</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="proveedorPun"><b>Puntaje</b></label>
+              <input type="number" name="proveedorPun" class="form-control" id="proveedorPun" [(ngModel)]="proveedor.puntaje"
+                     #proveedorPun="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorPun.invalid }" required>
+              <div class="invalid-feedback">
+                <div>El puntaje del proveedor es necesario</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <h4>Vuelos de {{proveedor.nombre}}: </h4>
+            <div class="row">
+              <div class="col-md-9"> <input id="typeahead-template" type="text" class="form-control" [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [ngbTypeahead]="search"
+                                            (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead"
+                                            [resultTemplate]="rt" [inputFormatter]="formatter" />
+              </div>
+              <button type="button" (click)="addVuelo()" class="btn btn-primary"><span class="fa fa-plus"></span></button>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6 text-center" >
+                <table class="table table-striped">
+                  <tbody>
+                  <tr *ngFor = "let vuelo of proveedor.vuelos" >
+                    <td> <dd>{{vuelo.numero}}</dd></td>
+                    <td id="vuelo-delete">
+                      <button class="btn btn-danger" (click)="removeVuelo(vuelo)"><span class="fa fa-trash"></span></button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <div class="row form-inline justify-content-center ">
+          <button type="submit" class="btn btn-primary">Edit</button>
+
+          <div class="divider"></div>
+
+          <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+        </div>
+      </form>
+      <br>
+    </div>
+  </div>
+</div>
+<br>
+<br>

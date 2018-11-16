@@ -1,86 +1,55 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/filter';
 
-import {Proveedor} from '../proveedor';
-import {ProveedorService} from '../proveedor.service';
-import {ProveedorDetail} from '../proveedor-detail';
-import {Vuelo} from '../../vuelo/vuelo';
-import {Actividad} from '../../actividad/actividad';
 
-/**
- * The component for the list of proveedores in TripBuilder
- */
+import {Proveedor} from '../../proveedor/proveedor';
+import {ProveedorService} from '../../proveedor/proveedor.service';
 @Component({
-  selector: 'app-proveedores-list',
+  selector: 'app-proveedor-list',
   templateUrl: './proveedor-list.component.html',
   styleUrls: ['./proveedor-list.component.css']
 })
 export class ProveedorListComponent implements OnInit {
-  /**
-   * Constructor of the component
-   * @param proveedorService The vuelo services provider
-   */
-  constructor(private proveedorService: ProveedorService,  private route: ActivatedRoute) {}
 
+  /**
+   * The list of books to display
+   */
   @Input() proveedores: Proveedor[];
-  proveedor_id: number;
-  selectedProveedor : Proveedor;
 
   /**
-   * Shows or hides the author-create-component
+   * The component's constructor
    */
-  showCreate: boolean;
+  constructor(private proveedorService: ProveedorService, private route: ActivatedRoute) {}
 
-  onSelected(proveedor_id: number):void {
-    this.showCreate = false;
-    this.proveedor_id = proveedor_id;
-    this.selectedProveedor = new class implements ProveedorDetail {
-      actividades: Actividad[];
-      id: number;
-      nombre: string;
-      password: string;
-      puntaje: number;
-      user: string;
-      vuelo: Vuelo;
-      vuelos: Vuelo[];
-    }
-    this.getProveedorDetail();
-  }
-
+  allproveedores: string = 'no';
   /**
-   * Shows or hides the create component
-   */
-  showHideCreate(): void {
-    if (this.selectedProveedor) {
-      this.selectedProveedor = undefined;
-      this.proveedor_id = undefined;
-    }
-    this.showCreate = !this.showCreate;
-  }
-  /**
-   * Asks the service to update the list of proveedores
+   * This method retrieves all the books in the Bookstore to show them in the list
    */
   getProveedores(): void {
     this.proveedorService.getProveedores()
-      .subscribe(proveedores => this.proveedores = proveedores);
-  }
-
-  getProveedorDetail(): void {
-    this.proveedorService.getProveedorDetail(this.proveedor_id)
-      .subscribe(selectedProveedor => {
-        this.selectedProveedor = selectedProveedor;
+      .subscribe(proveedores => {
+        this.proveedores = proveedores;
       });
   }
 
   /**
-   * This will initialize the component by retrieving the list of proveedores from the service
-   * This method will be called when the component is created
+   * The method which initializes the component
    */
   ngOnInit() {
-    this.showCreate = false;
-    this.selectedProveedor = undefined;
-    this.proveedor_id = undefined;
+    this.route.queryParams
+      .filter(params => params.allproveedores)
+      .subscribe(params => {
+        console.log(params);
+
+        this.allproveedores = params.allproveedores;
+        console.log(this.allproveedores);
+      });
+    if (this.allproveedores == 'yes') {
+      console.log("allproveedores");
+
       this.getProveedores();
+    }
   }
+
 }

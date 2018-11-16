@@ -12,7 +12,7 @@ import {ProveedorDetailComponent} from './proveedor-detail/proveedor-detail.comp
 import { ProveedorCreateComponent } from './proveedor-create/proveedor-create.component';
 import { ProveedorVuelosComponent } from './proveedor-vuelos/proveedor-vuelos.component';
 import {VueloModule} from '../vuelo/vuelo.module';
-import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
+import { ProveedorEditComponent } from './proveedor-edit/proveedor-edit.component';
 
 @NgModule({
   imports: [
@@ -27,7 +27,8 @@ import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
   declarations: [ProveedorListComponent,
     ProveedorDetailComponent,
     ProveedorCreateComponent,
-    ProveedorVuelosComponent
+    ProveedorVuelosComponent,
+    ProveedorEditComponent
   ],
   providers: [ProveedorService],
   bootstrap: [ProveedorListComponent]

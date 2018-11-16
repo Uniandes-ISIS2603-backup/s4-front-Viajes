@@ -1,40 +1,15 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-4">
-      <br>
-      <div class="row justify-content-center align-self-center">
-        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()">Crear un Proveedor</button>
-      </div>
-      <br>
-      <br>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th class="h4">Proveedores</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor = "let proveedor of proveedores"
-            (click)="onSelected(proveedor.id)">
-          <td style="cursor: pointer;">
-            <dd>{{proveedor.id}}</dd>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-8">
-      <div *ngIf="selectedProveedor">
-        <app-proveedor-detail [proveedorDetail]="selectedProveedor"></app-proveedor-detail>
-      </div>
-      <div *ngIf="showCreate">
-        <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
-      </div>
+    <div class="col-md-2" *ngFor = "let proveedor of proveedores">
+      <figure class="figure" routerLink="/proveedores/{{proveedor.id}}" style="cursor: pointer;">
+        <div class="img-thumbnail border-0">
+          <img class="img-fluid" src="http://s3.amazonaws.com/zweb-s3.uploads/carp/2011/07/air-canada-logo.jpg" alt="{{proveedor.nombre}}" />
+        </div>
+        <figcaption class="title-caption text-center">{{proveedor.nombre}}</figcaption>
+        <div *ngFor = "let vuelo of proveedor.vuelos">
+          <figcaption class="author-caption text-center" routerLink="/vuelos/{{vuelo.id}}">Vuelo #{{vuelo.numero}}</figcaption>
+        </div>
+      </figure>
     </div>
   </div>
 </div>
-
-
-
-

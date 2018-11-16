@@ -41,4 +41,13 @@ export class ProveedorService {
   createProveedor(proveedor): Observable<Proveedor> {
     return this.http.post<Proveedor>(API_URL + proveedores, proveedor);
   }
+
+  /**
+   * Updates an author
+   * @param author The author's information updated
+   * @returns The confirmation that the author was updated
+   */
+  updateProveedor(proveedor): Observable<ProveedorDetail> {
+    return this.http.put<ProveedorDetail>(API_URL + proveedores + '/' + proveedor.id, proveedor);
+  }
 }

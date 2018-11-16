@@ -38,6 +38,8 @@ import {PagoListComponent} from '../pago/pago-list/pago-list.component';
 import {PagoDetailComponent} from '../pago/pago-detail/pago-detail.component';
 
 import {PagoCreateComponent} from '../pago/pago-create/pago-create.component';
+import {ProveedorCreateComponent} from '../proveedor/proveedor-create/proveedor-create.component';
+import {ProveedorEditComponent} from '../proveedor/proveedor-edit/proveedor-edit.component';
 
 
 
@@ -52,11 +54,11 @@ const routes: Routes = [
             },
           {
             path: ':id',
-            component: VueloDetailComponent
+            component: VueloDetailComponent,
+            runGuardsAndResolvers: 'always'
           }
         ]
     },
-    
     {
         path: 'medallas',
         children: [
@@ -70,14 +72,12 @@ const routes: Routes = [
             }
         ]
     },
-    
     {
         path: 'actividades',
         children: [
             {
                 path: 'list',
-                component: ActividadListComponent                
-             
+                component: ActividadListComponent
             },
             {
                 path: ':identificador',
@@ -90,7 +90,6 @@ const routes: Routes = [
             }
         ]
     },
-    
     {
         path: 'alojamientos',
         children: [
@@ -98,11 +97,10 @@ const routes: Routes = [
                 path: 'list',
                 component: AlojamientoListComponent
             }
-        ]  
+        ]
     },
-    
     {
-        path: 'transportes', 
+        path: 'transportes',
         children: [
             {
                 path: 'list',
@@ -110,7 +108,6 @@ const routes: Routes = [
             }
         ]
     },
-    
     {
         path: 'guias',
         children: [
@@ -120,7 +117,6 @@ const routes: Routes = [
             }
         ]
     },
-    
   {
         path: 'proveedores',
         children: [
@@ -129,8 +125,18 @@ const routes: Routes = [
                component: ProveedorListComponent
            },
           {
-             path: ':id',
-             component: ProveedorDetailComponent
+            path: 'add',
+            component: ProveedorCreateComponent,
+            runGuardsAndResolvers: 'always'
+          },
+          {
+            path: ':id/edit',
+            component: ProveedorEditComponent
+          },
+          {
+            path: ':id',
+            component: ProveedorDetailComponent,
+            runGuardsAndResolvers: 'always'
           }
           ]
     },
