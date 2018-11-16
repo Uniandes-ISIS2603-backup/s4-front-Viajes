@@ -1,12 +1,9 @@
-.row{
+
+
+#guias_list{
     width: 500px;
+    float: right;
+    
 }
 
-
-#emptyGuias {
-    align-content: center;
-    height: 200px;
-    text-align: center;
-    opacity: 0.5;
-}
 
