@@ -1,4 +1,3 @@
-type DateString = {month: number,day: number,year: number};
 export class Vuelo {
     /**
      * El identificador del vuelo
@@ -33,9 +32,9 @@ export class Vuelo {
     /**
      * La fecha de salida del vuelo
      */
-    fechaSalida: DateString|string;
+    fechaSalida: any;
     /**
      * La fecha de llegada del vuelo
      */
-    fechaLlegada: DateString|string;
+    fechaLlegada: any;
 }

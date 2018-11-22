@@ -65,7 +65,7 @@
         <label for="fechaS"><b>Fecha Salida</b></label>
         <div [ngClass]="{ 'is-invalid': f.submitted && fechaS.invalid }">
           <input class="form-control" id="fechaS" name="fechaS" [(ngModel)]="vuelo.fechaSalida"
-                  #fechaS="ngModel" [ngClass]="{'is-invalid': f.submitted && (fechaS.untouched || fechaS.invalid) }"
+                 ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fechaS="ngModel" [ngClass]="{'is-invalid': f.submitted && (fechaS.untouched || fechaS.invalid) }"
                  required>
           <div class="invalid-feedback">
             <div>Se requiere especificar la fecha de salida del vuelo</div>
@@ -77,7 +77,7 @@
           <label for="fechaL"><b>Fecha Llegada</b></label>
         <div [ngClass]="{ 'is-invalid': f.submitted && fechaL.invalid }">
           <input class="form-control" id="fechaL" name="fechaL" [(ngModel)]="vuelo.fechaLlegada"
-                  #fechaL="ngModel" [ngClass]="{'is-invalid': f.submitted && (fechaL.untouched || fechaL.invalid) }"
+                 ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fechaL="ngModel" [ngClass]="{'is-invalid': f.submitted && (fechaL.untouched || fechaL.invalid) }"
                  required>
           <div class="invalid-feedback">
             <div>Se requiere especificar la fecha de llegada del vuelo</div>

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {VueloService} from './vuelo.service';
 import { VueloListComponent } from './vuelo-list/vuelo-list.component';
 import { VueloDetailComponent } from './vuelo-detail/vuelo-detail.component';
@@ -16,6 +16,7 @@ import {VueloCreateComponent} from './vuelo-create/vuelo-create.component';
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
+    NgbModule,
     FormsModule
   ],
 
