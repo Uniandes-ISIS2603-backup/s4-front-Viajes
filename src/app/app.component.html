@@ -6,14 +6,17 @@
 <body>
 <br>
 <div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar">
     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
       <ul class="navbar-nav mr-auto">
         <li>
-          <a class="navbar-brand" href="#"><span class="fas fa-plane-departure"></span> TripBuilder</a>
+          <a class="navbar-brand" href="#"><span class="fas fa-plane-departure"></span> TripBuilder </a>
         </li>
       </ul>
       <div class="navbar-nav ml-auto flex-column">
+        <div>
+          <a class="navbar-text" id="info" href="#"><span class="fas fa-phone"></span> Más información <b>321 345 72 13</b></a>
+        </div>
         <div class="flex-row">
           <div class="form-inline">
             <li class="right-space"><a id="signup-navbar-item" routerLink="/registro"><span class="fa fa-user"></span>
@@ -25,7 +28,7 @@
     </div>
   </nav>
 <hr>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -95,11 +98,24 @@
   <br>
 </div>
 
+
+
 </body>
-<footer class="footer bg-light" id="footer">
+<footer class="footer " id="footer">
   <div class="container">
-    <p class="navbar-text text-center">
-      <img src="../assets/uniandes.png" alt="logo" width="8%" /><span id="footer-text">©TripBuilder Team 2018</span>
+    <ul class="text-left form-inline">
+      <li>
+        <a><span class="fab fa-facebook-square"></span></a>
+      </li>
+      <li>
+        <a><span class="fab fa-facebook-square"></span></a>
+      </li>
+      <li>
+        <a><span class="fab fa-facebook-square"></span></a>
+      </li>
+    </ul>
+    <p class="navbar-text text-right">
+      <img src="../assets/uniandes.png" alt="logo" width="15%" /><span id="footer-text">    ©TripBuilder Team 2018</span>
     </p>
   </div>
 </footer>

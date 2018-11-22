@@ -33,6 +33,12 @@ h3{
   background: #fff;
   color: #152C9D;
   padding: 5px;
+  font-size: 25px;
+}
+
+#info{
+  color: #152C9D;
+  text-decoration: none;
 }
 
 #navbarSupportedContent1{
@@ -45,6 +51,13 @@ h3{
     color: #fff;
 }
 
+#vuelosTag:active, #proveedoresTag:active, #usuariosTag:active, #transportesTag:active, #alojamientoTag:active, #actividadesTag:active, #combosTag:active, #medallasTag:active, #guiasTag:active{
+  background: orange;
+  border-radius: 5px;
+  color: #fff;
+}
+
+
 #signup-navbar-item{
   color: #152C9D;
   padding: 4px;
@@ -54,7 +67,17 @@ h3{
   color: #ffffff;
   background: #152C9D;
   text-decoration: none;
-  padding: 10px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#signup-navbar-item:active{
+  color: #ffffff;
+  background: red;
+  text-decoration: none;
+  padding: 5px;
+  margin: 5px;
   border-radius: 5px;
 }
 
@@ -67,11 +90,28 @@ h3{
   color: #ffffff;
   background: #152C9D;
   text-decoration: none;
-  padding: 10px;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#login-navbar-item:active{
+  color: #ffffff;
+  background: limegreen;
+  text-decoration: none;
+  padding: 5px;
+  margin: 5px;
   border-radius: 5px;
 }
 
 .container{
   width: 80%;
 }
+
+footer{
+  background: #152C9D;
+  color: white;
+  font-family: 'Cabin', sans-serif;
+}
+
 
