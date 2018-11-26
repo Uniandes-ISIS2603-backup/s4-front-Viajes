@@ -8,8 +8,31 @@
     height: 100px;
 }
 
-.btn btn-success pull-right {
-    position: absolute;
-    top: 80%;
+.table-hover{
+  width: 50%;
+  margin: 10px;
 }
 
+.table tr th{
+  background: #152C9D;
+  color: #ffffff;
+}
+
+.table{
+  font-family: 'Cabin', sans-serif;
+}
+
+h1,p{
+  font-family: 'Cabin', sans-serif;
+  margin: 10px;
+}
+
+.table tr td a{
+  text-decoration: none;
+  color: #000;
+}
+
+button{
+  background: #152C9D;
+  margin-left: 25px;
+}

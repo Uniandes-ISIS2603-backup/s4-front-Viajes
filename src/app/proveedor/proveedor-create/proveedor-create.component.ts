@@ -179,6 +179,7 @@ export class ProveedorCreateComponent implements OnInit {
       password: string;
       puntaje: number;
       user: string;
+      imagen: string;
       vuelo: Vuelo;
     }
     this.proveedor.vuelo = new Vuelo();

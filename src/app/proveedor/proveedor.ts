@@ -30,6 +30,14 @@ export interface Proveedor {
    */
   puntaje: number;
 
+  /**
+   * La imagen del proveedor
+   */
+  imagen: string;
+
+  /**
+   * El vuelo del proveedor
+   */
   vuelo: Vuelo;
 
 }

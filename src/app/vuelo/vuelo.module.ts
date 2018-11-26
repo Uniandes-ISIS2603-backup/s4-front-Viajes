@@ -9,6 +9,7 @@ import { VueloListComponent } from './vuelo-list/vuelo-list.component';
 import { VueloDetailComponent } from './vuelo-detail/vuelo-detail.component';
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {VueloCreateComponent} from './vuelo-create/vuelo-create.component';
+import { VueloEditComponent } from './vuelo-edit/vuelo-edit.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import {VueloCreateComponent} from './vuelo-create/vuelo-create.component';
   ],
 
   declarations: [VueloListComponent,
-    VueloDetailComponent, VueloCreateComponent
+    VueloDetailComponent, VueloCreateComponent, VueloEditComponent
   ],
 
   providers: [VueloService],

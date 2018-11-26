@@ -1,7 +1,7 @@
 <body>
-    <h1 id = "texto"> Transportes </h1> 
-        <table class="table table-striped">
-            <thead class="thead-dark">
+    <h1 id = "texto"> Transportes </h1>
+    <p>A continuación, se muestra un listado de los transportes terrestres disponibles en TripBuilderTeam:</p>
+        <table class="table table-hover">
                 <tr>
                     <th>Id</th>
                     <th>Costo</th>
@@ -16,7 +16,6 @@
                     <th>Destino</th>
                     <th>Puntuacion</th>     
                 </tr>
-            </thead>
             <tbody>
                 <tr *ngFor = "let transporte of transportes">
                     <td>{{transporte.id}}</td>
@@ -32,6 +31,14 @@
                     <td>{{transporte.puntuacion}}</td>
                 </tr>
             </tbody>
-        </table> 
-    <app-transporte-create></app-transporte-create>
+        </table>
+    <br>
+
+    <div *ngIf="showCreate">
+      <app-transporte-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-transporte-create>
+    </div>
+    <div class="row ">
+      <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Crear un Transporte</button>
+    </div>
 </body>

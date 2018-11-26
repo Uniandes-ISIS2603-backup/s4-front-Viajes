@@ -109,9 +109,37 @@ h3{
 }
 
 footer{
+  width: 100%;
   background: #152C9D;
   color: white;
   font-family: 'Cabin', sans-serif;
+  bottom: 0;
+  position: relative;
 }
 
+footer ul{
+  display: flex;
+}
+
+footer .row{
+  align-items: center;
+  margin: auto;
+}
+
+footer ul li{
+  text-decoration: none;
+  list-style: none;
+  display: inline;
+}
+
+footer ul.social li a{
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 35px;
+  color: #fff;
+}
+
+footer ul.social li a:hover{
+  color: orange;
+}
 

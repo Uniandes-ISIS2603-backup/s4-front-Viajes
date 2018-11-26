@@ -1,8 +1,32 @@
+#texto{
+  color: #000;
+}
+
 p{
-    color: #9d9190;
+  color: #ffffff;
 }
 
 .card{
   font-family: 'Cabin', sans-serif;
-  display: inline-block;
+  background: #152C9D;
+  color: #ffffff;
+  margin: 3px;
+}
+
+.row{
+  width: 80%;
+  padding: 10px;
+}
+
+button{
+  background: #152C9D;
+  margin-left: 5px;
+}
+
+.list-group{
+  background: orange;
+}
+
+.checked{
+  color: gold;
 }
