@@ -9,6 +9,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { GuiaDetailComponent } from './guia-detail/guia-detail.component';
+import { GuiaEditComponent } from './guia-edit/guia-edit.component';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { GuiaDetailComponent } from './guia-detail/guia-detail.component';
         CommonModule,
         FormsModule
     ],
-    declarations: [GuiaListComponent, GuiaDetailComponent],
+    declarations: [GuiaListComponent, GuiaDetailComponent, GuiaEditComponent],
     providers: [GuiaService],
     bootstrap: [GuiaListComponent],
     exports: [GuiaListComponent]

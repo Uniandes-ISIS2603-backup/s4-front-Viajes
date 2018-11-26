@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
 import {VueloDetailComponent} from '../vuelo/vuelo-detail/vuelo-detail.component';
@@ -12,6 +13,7 @@ import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-
 
 import {ActividadListComponent} from '../actividad/actividad-list/actividad-list.component';
 import {ActividadDetailComponent} from '../actividad/actividad-detail/actividad-detail.component';
+import {ActividadEditComponent} from '../actividad/actividad-edit/actividad-edit.component';
 import {GuiaListComponent} from '../guia/guia-list/guia-list.component';
 import {GuiaDetailComponent} from '../guia/guia-detail/guia-detail.component';
 
@@ -87,7 +89,24 @@ const routes: Routes = [
            {
                 path: 'create',
                 component: ActividadCreateComponent,
-                runGuardsAndResolvers: 'always'
+                runGuardsAndResolvers: 'always',
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
+            },
+            {
+                path: ':id/edit',
+                component: ActividadEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
+                
             }
         ]
     },

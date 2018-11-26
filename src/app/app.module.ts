@@ -4,6 +4,8 @@ import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxPermissionsModule} from 'ngx-permissions';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
@@ -54,6 +56,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdministradorModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
+    ModalDialogModule.forRoot(),
+    NgxPermissionsModule.forRoot()
   ],
    bootstrap: [AppComponent],
   providers: [        {

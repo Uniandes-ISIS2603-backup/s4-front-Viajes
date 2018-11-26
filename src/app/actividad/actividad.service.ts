@@ -58,5 +58,23 @@ export class ActividadService {
     return this.http.post<Guia>(API_URL + actividades + '/' + actividadId + guias + '/' + guiaId,null)
 
   }
+  
+    /**
+    * Updates an editorial
+    * @param editorial The editorial which will be update
+    * @returns The confirmation of the editorial's update
+    */
+    updateActividad(actividad): Observable<ActividadDetail> {
+        return this.http.put<ActividadDetail>(API_URL + actividades + '/' + actividad.id, actividad);
+    }
+    
+    /**
+    * Deletes an editorial
+    * @param editorialId The editorial which will be deleted
+    * @returns True if the editorial was deleted, false otherwise
+    */
+    deleteActividad(actividadId): Observable<ActividadDetail> {
+        return this.http.delete<ActividadDetail>(API_URL + actividades + '/' + actividadId);
+    }
 
 }

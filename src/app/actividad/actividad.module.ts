@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 import { ActividadListComponent } from './actividad-list/actividad-list.component';
 import { ActividadService } from './actividad.service';
@@ -13,17 +14,19 @@ import { GuiaModule } from '../guia/guia.module';
 import { ActividadCreateComponent } from './actividad-create/actividad-create.component';
 import { ActividadGuiasComponent } from './actividad-guias/actividad-guias.component';
 import { ActividadGuiaCreateComponent } from './actividad-guia-create/actividad-guia-create.component';
+import { ActividadEditComponent } from './actividad-edit/actividad-edit.component';
 
 @NgModule({
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+        NgxPermissionsModule,
         CommonModule,
         FormsModule,
         GuiaModule
     ],
-    declarations: [ActividadListComponent,ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent, ActividadGuiaCreateComponent],
+    declarations: [ActividadListComponent,ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent, ActividadGuiaCreateComponent, ActividadEditComponent],
     providers: [ActividadService],
     bootstrap: [ActividadListComponent]
 })
