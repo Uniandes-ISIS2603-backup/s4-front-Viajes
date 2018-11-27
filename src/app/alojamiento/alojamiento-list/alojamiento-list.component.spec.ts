@@ -13,6 +13,8 @@ describe('AlojamientoListComponent', () => {
   let component: AlojamientoListComponent;
   let fixture: ComponentFixture<AlojamientoListComponent>;
 
+  let mousePosition: string;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppRoutingModule, HttpClientModule, AppModule],

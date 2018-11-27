@@ -23,7 +23,7 @@ import { ActividadGuiaCreateComponent } from './actividad-guia-create/actividad-
         FormsModule,
         GuiaModule
     ],
-    declarations: [ActividadListComponent,ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent, ActividadGuiaCreateComponent],
+    declarations: [ActividadListComponent, ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent, ActividadGuiaCreateComponent],
     providers: [ActividadService],
     bootstrap: [ActividadListComponent]
 })

@@ -31,7 +31,7 @@ export class ProveedorEditComponent implements OnInit {
    * The constructor of the component
    * @param proveedorService The proveedor service which communicates with the API
    * @param transporteService The transporte service which communicates with the API
-   * @param actividadService The actividad service which communicates with the API 
+   * @param actividadService The actividad service which communicates with the API
    * @param alojamientoService The alojamiento service which communicates with the API
    * @param vueloService The vuelo service which communicates with the API
    * @param toastrService The toastr to show messages to the user

@@ -4,30 +4,23 @@ import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
-
 import { UsuarioModule } from './usuario/usuario.module';
 import { AdministradorModule } from './administrador/administrador.module';
 import { VueloModule } from './vuelo/vuelo.module';
-
 import { ActividadModule } from './actividad/actividad.module';
 import { GuiaModule } from './guia/guia.module';
-
 import { MedallaModule } from './medalla/medalla.module';
 import { ProveedorModule } from './proveedor/proveedor.module';
-
 import { AlojamientoModule } from './alojamiento/alojamiento.module';
 import { TransporteModule } from './transporte/transporte.module';
-
 import { ComboModule } from './combo/combo.module';
 import { ReservaModule } from './reserva/reserva.module';
 import { PagoModule } from './pago/pago.module';
-
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -41,7 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UsuarioModule,
     VueloModule,
     ActividadModule,
-    GuiaModule, 
+    GuiaModule,
     ProveedorModule,
     NgbModule,
     MedallaModule,
@@ -53,6 +46,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     AdministradorModule,
     ToastrModule.forRoot(),
+    NgxPermissionsModule.forRoot(),
     BrowserAnimationsModule,
   ],
    bootstrap: [AppComponent],
