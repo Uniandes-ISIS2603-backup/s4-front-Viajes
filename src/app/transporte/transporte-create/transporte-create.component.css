@@ -1,0 +1,12 @@
+button{
+  background: orange;
+  margin: 5px;
+  font-family: 'Cabin', sans-serif;
+}
+
+form{
+  background: #152C9D;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 5px;
+}

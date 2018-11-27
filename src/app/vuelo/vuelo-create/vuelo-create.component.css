@@ -1,4 +1,12 @@
 button{
-  background: #152C9D;
+  background: orange;
   margin: 5px;
+}
+
+form{
+  margin: auto;
+  background: #152C9D;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 5px;
 }

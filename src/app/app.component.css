@@ -108,6 +108,41 @@ h3{
   width: 80%;
 }
 
+.contenido{
+  background: #e69500
+;
+}
+
+.contenido h3{
+text-align: center;
+  font-family: 'Cabin', sans-serif;
+  margin: auto;
+  padding-top: 50px;
+  color: #ffffff;
+}
+
+.contenido ul{
+  text-align: center;
+  margin: auto;
+  padding-top: 20px;
+}
+
+.contenido ul li{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 50px;
+}
+
+.contenido ul li i{
+  color: #ffffff;
+  font-size: 40px;
+}
+
+.contenido ul li div{
+  color: #ffffff;
+}
+
+
 footer{
   width: 100%;
   background: #152C9D;

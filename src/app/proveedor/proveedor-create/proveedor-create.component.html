@@ -4,9 +4,9 @@
     <br>
     <h2 class="text-center">Crear un proveedor</h2>
     <br>
-    <form name="proveedor" (ngSubmit)="f.form.valid && createProveedor()" #f="ngForm" novalidate>
+    <form class="justify-content-center" name="proveedor" (ngSubmit)="f.form.valid && createProveedor()" #f="ngForm" novalidate>
       <div class="form-group">
-        <label for="proveedorName"><b>User</b></label>
+        <label for="proveedorName"><b>Usuario</b></label>
         <input type="text" name="proveedorUser" class="form-control" id="proveedorUser" [(ngModel)]="proveedor.user"
                #proveedorUser="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorUser.invalid }" required>
         <div class="invalid-feedback">
@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="proveedorName"><b>Name</b></label>
+        <label for="proveedorName"><b>Nombre</b></label>
         <input type="text" name="proveedorName" class="form-control" id="proveedorName" [(ngModel)]="proveedor.nombre"
                #proveedorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorName.invalid }" required>
         <div class="invalid-feedback">
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="proveedorName"><b>Password</b></label>
+        <label for="proveedorName"><b>Contraseña</b></label>
         <input type="password" name="proveedorPass" class="form-control" id="proveedorPass" [(ngModel)]="proveedor.password"
                #proveedorPass="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorName.invalid }" required>
         <div class="invalid-feedback">
@@ -38,9 +38,9 @@
         </div>
       </div>
       <div class="row form-inline justify-content-center align-self-center">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">Crear</button>
         <div class="divider"></div>
-        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
       </div>
     </form>
   </div>

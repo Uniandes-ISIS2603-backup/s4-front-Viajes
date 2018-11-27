@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
@@ -69,6 +69,18 @@ export class ProveedorCreateComponent implements OnInit {
    * The list of all the editorials in the BookStore
    */
   alojamientos: Alojamiento[];
+
+  /**
+   * The output which tells the parent component
+   * that the user no longer wants to create an author
+   */
+  @Output() cancel = new EventEmitter();
+
+  /**
+   * The output which tells the parent component
+   * that the user created a new author
+   */
+  @Output() create = new EventEmitter();
 
   /**
    * The authors of the new book
@@ -147,26 +159,26 @@ export class ProveedorCreateComponent implements OnInit {
   }
 
   /**
-   * Cancels the creation of the new book
-   * Redirects to the books' list page
-   */
-  cancelCreation(): void {
-    this.toastrService.warning('El proveedor no fue creado', 'Creaciòn del proveedor');
-    this.router.navigate(['/proveedores/list']);
-  }
-
-  /**
    * Creates a new book
    */
   createProveedor(): Proveedor {
     this.proveedorService.createProveedor(this.proveedor)
       .subscribe(proveedor => {
-        this.proveedor.id = proveedor.id;
-        this.router.navigate(['/proveedores/' + proveedor.id]);
+        this.proveedor = proveedor;
+        this.create.emit();
+        this.toastrService.success("El proveedor fue creado", "Creación del proveedor");
       }, err => {
         this.toastrService.error(err, 'Error');
       });
     return this.proveedor;
+  }
+
+  /**
+   * Emits the signal to tell the parent component that the
+   * user no longer wants to create an user
+   */
+  cancelCreation(): void {
+    this.cancel.emit();
   }
 
   /**

@@ -34,6 +34,7 @@ p{
 button{
   background: #152C9D;
   margin-left: 20px;
+  font-family: 'Cabin', sans-serif;
 }
 
 .list-group{
