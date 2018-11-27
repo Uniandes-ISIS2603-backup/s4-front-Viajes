@@ -30,9 +30,15 @@ export class AlojamientoListComponent implements OnInit {
   alojamiento_id: number;
      selectedAlojamiento: Alojamiento;
 
+  /**
+   * Shows or hides the author-create-component
+   */
+  showCreate: boolean;
+
     alojamientoActual(alojamiento_id: number): Alojamiento {
 
-        this.alojamiento_id = alojamiento_id;
+      this.showCreate = false;
+      this.alojamiento_id = alojamiento_id;
         this.selectedAlojamiento = new AlojamientoDetail();
         this.getAlojamientoDetail();
         return this.selectedAlojamiento;
@@ -44,6 +50,17 @@ export class AlojamientoListComponent implements OnInit {
         this.getAlojamientoDetail();
     }
 
+  /**
+   * Shows or hides the create component
+   */
+  showHideCreate(): void {
+    if (this.selectedAlojamiento) {
+      this.selectedAlojamiento = undefined;
+      this.alojamiento_id = undefined;
+    }
+    this.showCreate = !this.showCreate;
+  }
+    
     /**
      * Actualizar la lista de alojamientos
      */
@@ -69,6 +86,7 @@ export class AlojamientoListComponent implements OnInit {
      */
      
      ngOnInit() {
+       this.showCreate = false;
          this.getAlojamientos();
       this.map = new ol.Map({
         target: 'map',

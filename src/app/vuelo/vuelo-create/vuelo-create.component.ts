@@ -1,9 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {DatePipe} from '@angular/common';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {VueloService} from '../../vuelo/vuelo.service';
 import {ToastrService} from 'ngx-toastr';
 import {Vuelo} from '../vuelo';
-type DateString = {month: number,day: number,year: number};
 
 @Component({
   selector: 'app-vuelo-create',
@@ -41,12 +41,12 @@ export class VueloCreateComponent implements OnInit {
    */
     createVuelo(): Vuelo {
     console.log(this.vuelo);
-    let fechaS: Date = new Date((<DateString>this.vuelo.fechaSalida).year,(<DateString>this.vuelo.fechaSalida).month,(<DateString>this.vuelo.fechaSalida).day);
-    this.vuelo.fechaSalida = this.dp.transform(fechaS, 'yyyy-MM-dd');
+    let fechaS: Date = new Date(this.vuelo.fechaSalida.year, this.vuelo.fechaSalida.month - 1, this.vuelo.fechaSalida.day, this.vuelo.fechaSalida.hour);
+    this.vuelo.fechaSalida = this.dp.transform(fechaS, 'yyyy-MM-dd-hh');
     console.log(this.vuelo)
     console.log(this.vuelo);
-    let fechaL: Date = new Date((<DateString>this.vuelo.fechaLlegada).year,(<DateString>this.vuelo.fechaLlegada).month,(<DateString>this.vuelo.fechaLlegada).day);
-    this.vuelo.fechaLlegada = this.dp.transform(fechaL, 'yyyy-MM-dd');
+    let fechaL: Date = new Date(this.vuelo.fechaLlegada.year, this.vuelo.fechaLlegada.month, this.vuelo.fechaLlegada.day, this.vuelo.fechaLlegada.hour);
+    this.vuelo.fechaLlegada = this.dp.transform(fechaL, 'yyyy-MM-dd-hh');
     console.log(this.vuelo)
     this.vueloService.createVuelo(this.vuelo)
       .subscribe((vuelo) => {
@@ -73,8 +73,8 @@ export class VueloCreateComponent implements OnInit {
     this.vuelo = new class implements Vuelo {
       capacidad: number;
       costo: number;
-      fechaLlegada: string;
-      fechaSalida: string;
+      fechaLlegada: any;
+      fechaSalida: any;
       id: number;
       latitudDestino: number;
       latitudOrigen: number;

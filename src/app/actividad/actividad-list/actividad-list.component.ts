@@ -26,6 +26,11 @@ export class ActividadListComponent implements OnInit {
     actividad_id: number;
     selectedActividad: Actividad;
 
+  /**
+   * Shows or hides the author-create-component
+   */
+  showCreate: boolean;
+
     actividadActual(actividad_id: number): Actividad {
 
         this.actividad_id = actividad_id;
@@ -36,12 +41,24 @@ export class ActividadListComponent implements OnInit {
     }
 
     onSelected(actividad_id: number): void {
+      this.showCreate = false;
         this.actividad_id = actividad_id;
         this.selectedActividad = new ActividadDetail();
         this.getActividadDetail();
 
 
     }
+
+  /**
+   * Shows or hides the create component
+   */
+  showHideCreate(): void {
+    if (this.selectedActividad) {
+      this.selectedActividad = undefined;
+      this.actividad_id = undefined;
+    }
+    this.showCreate = !this.showCreate;
+  }
 
     /**
      * Asks the service to update the list of activities
@@ -63,6 +80,7 @@ export class ActividadListComponent implements OnInit {
      * This method will be called when the component is created
      */
     ngOnInit() {
+      this.showCreate = false;
         this.getActividades();
     }
 }

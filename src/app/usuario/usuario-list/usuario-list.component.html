@@ -1,13 +1,12 @@
 
-    <h1 id="texto">Lista de usuarios</h1>
-    <table class="table">
-      <thead class="thead-dark">
+    <h1 id="texto">Usuarios</h1>
+    <p>A continuación, se muestra una lista de todos los usuarios registrados en TripBuilder y disponibles para realizar compras:</p>
+    <table class="table table-hover">
       <tr>
         <th>UserName</th>
         <th>Documento</th>
 
       </tr>
-      </thead>
       <tbody>
       <tr *ngFor="let usuario of usuarios" (click)="onSelected(usuario.id)">
         <td style="cursor: pointer;">

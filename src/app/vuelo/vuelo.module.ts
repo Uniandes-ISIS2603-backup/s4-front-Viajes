@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {VueloService} from './vuelo.service';
 import { VueloListComponent } from './vuelo-list/vuelo-list.component';
 import { VueloDetailComponent } from './vuelo-detail/vuelo-detail.component';
@@ -13,6 +13,7 @@ import 'ol/ol.css';
 import {Map, View} from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
+import { VueloEditComponent } from './vuelo-edit/vuelo-edit.component';
 
 const map = new Map({
   target: 'map',
@@ -32,11 +33,12 @@ const map = new Map({
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
+    NgbModule,
     FormsModule
   ],
 
   declarations: [VueloListComponent,
-    VueloDetailComponent, VueloCreateComponent
+    VueloDetailComponent, VueloCreateComponent, VueloEditComponent
   ],
 
   providers: [VueloService],

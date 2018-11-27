@@ -25,7 +25,6 @@ import {NgxPermissionsModule} from 'ngx-permissions';
 @NgModule({
   declarations: [
     AppComponent
-
   ],
   imports: [
     BrowserModule,

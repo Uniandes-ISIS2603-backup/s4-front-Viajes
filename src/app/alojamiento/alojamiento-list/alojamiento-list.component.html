@@ -62,3 +62,31 @@
       map.addControl(mousePosition);
     </script>
   </body>
+
+    <p id="texto1">A continuación se muestran los alojamientos disponibles en TripBuilder:</p>
+    <div class="row">
+      <div class="card text-center col-sm-2" style="width: 18rem;" *ngFor = "let alojamiento of alojamientos"
+           (click)="onSelected(alojamiento.id)">
+        <div class="card-body">
+          <a><h4 class="font-weight-bold">{{alojamiento.nombre}}</h4></a>
+          <p class="card-text">Precios desde ${{alojamiento.costo}}</p>
+          <span class="fas fa-star checked"></span>
+          <span class="fas fa-star checked"></span>
+          <span class="fas fa-star checked"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div *ngIf="selectedAlojamiento">
+        <app-alojamiento-detail [alojamientoDetail]="selectedAlojamiento"></app-alojamiento-detail>
+      </div>
+    </div>
+    <div *ngIf="showCreate">
+      <app-alojamiento-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-alojamiento-create>
+    </div>
+    <div class="row">
+      <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Crear un Alojamiento</button>
+    </div>
