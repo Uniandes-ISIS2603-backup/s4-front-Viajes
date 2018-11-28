@@ -44,7 +44,7 @@ export class MedallaEditComponent implements OnInit {
     focus$ = new Subject<string>();
     click$ = new Subject<string>();
 
-    }
+    
 
     formatter = (x: {name: string}) => x.name;
 
