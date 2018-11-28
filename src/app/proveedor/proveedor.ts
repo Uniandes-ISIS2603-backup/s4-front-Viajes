@@ -13,7 +13,7 @@ export interface Proveedor {
   /**
    * El user del proveedor
    */
-  user: string;
+  username: string;
 
   /**
    * La contraseña del proveedor
@@ -28,17 +28,11 @@ export interface Proveedor {
   /**
    * La puntuacion del proveedor
    */
-  puntaje: number;
+  puntuacion: number;
 
   /**
    * La imagen del proveedor
    */
   imagen: string;
-
-  /**
-   * El vuelo del proveedor
-   */
-  vuelo: Vuelo;
-
 }
 

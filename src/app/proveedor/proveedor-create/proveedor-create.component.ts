@@ -187,14 +187,12 @@ export class ProveedorCreateComponent implements OnInit {
   ngOnInit() {
     this.proveedor = new class implements Proveedor {
       id: number;
+      imagen: string;
       nombre: string;
       password: string;
-      puntaje: number;
-      user: string;
-      imagen: string;
-      vuelo: Vuelo;
+      puntuacion: number;
+      username: string;
     }
-    this.proveedor.vuelo = new Vuelo();
     this.getVuelos();
   }
 

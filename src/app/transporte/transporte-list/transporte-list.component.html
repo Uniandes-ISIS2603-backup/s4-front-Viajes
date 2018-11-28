@@ -1,39 +1,18 @@
 <body>
     <h1 id = "texto"> Transportes </h1>
-    <p>A continuación, se muestra un listado de los transportes terrestres disponibles en TripBuilderTeam:</p>
-        <table class="table table-hover">
-                <tr>
-                    <th>Id</th>
-                    <th>Costo</th>
-                    <th>Destino</th>
-                    <th>LatitudOrigen</th>
-                    <th>LongitudOrigen</th>
-                    <th>LatitudDestino</th>
-                    <th>LongitudDestino</th>
-                    <th>Dias</th>
-                    <th>Horas</th>
-                    <th>Minutos</th>
-                    <th>Destino</th>
-                    <th>Puntuacion</th>     
-                </tr>
-            <tbody>
-                <tr *ngFor = "let transporte of transportes">
-                    <td>{{transporte.id}}</td>
-                    <td>{{transporte.costo}}</td>
-                    <td>{{transporte.destino}}</td>
-                    <td>{{transporte.latitudOrigen}}</td>
-                    <td>{{transporte.longitudOrigen}}</td>
-                    <td>{{transporte.latitudDestino}}</td>
-                    <td>{{transporte.longitudDestino}}</td>
-                    <td>{{transporte.numeroDias}}</td>
-                    <td>{{transporte.numeroHoras}}</td>
-                    <td>{{transporte.numeroMinutos}}</td>
-                    <td>{{transporte.puntuacion}}</td>
-                </tr>
-            </tbody>
-        </table>
-    <br>
-
+    <p id="texto">A continuación, se muestra un listado de los transportes terrestres disponibles en TripBuilderTeam:</p>
+    <div class="row">
+      <div class="card" style="width: 18rem;" *ngFor = "let transporte of transportes" (click)="onSelected(transporte.imagen)">
+        <img class="card-img-top" src="{{transporte.imagen}}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text justify-content-end">{{transporte.puntuacion}} <span class="fas fa-star checked"></span>
+            Precios desde ${{transporte.costo}}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedTransporte">
+      <app-transporte-detail [transporteDetail]="selectedTransporte"></app-transporte-detail>
+    </div>
     <div *ngIf="showCreate">
       <app-transporte-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-transporte-create>
     </div>

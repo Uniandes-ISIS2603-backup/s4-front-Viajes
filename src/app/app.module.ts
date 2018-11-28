@@ -26,6 +26,7 @@ import { PagoModule } from './pago/pago.module';
 
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ActividadModule,
     GuiaModule, 
     ProveedorModule,
+    ModalDialogModule.forRoot(),
     NgbModule,
     MedallaModule,
     AlojamientoModule,
@@ -50,7 +52,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PagoModule,
     FormsModule,
     AdministradorModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
     BrowserAnimationsModule,
   ],
    bootstrap: [AppComponent],

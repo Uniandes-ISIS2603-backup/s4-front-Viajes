@@ -62,6 +62,8 @@ export class ProveedorEditComponent implements OnInit {
    */
   vuelos: Vuelo[];
 
+  servicios: Vuelo[];
+
   /**
    * The list of all the editorials in the BookStore
    */
@@ -89,7 +91,7 @@ export class ProveedorEditComponent implements OnInit {
 
     return merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
       map(term => (term === '' ? this.vuelos
-        : this.vuelos.filter(v => v.numero.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
+        : this.vuelos.filter(v => v.nombre.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
     );
   }
 
@@ -154,10 +156,10 @@ export class ProveedorEditComponent implements OnInit {
 
   addVuelo(): void {
     if (this.model != undefined && this.model.id != undefined) {
-      this.proveedor.vuelos.push(this.model);
-      for (let i = 0; i < this.vuelos.length; i++) {
-        if (this.vuelos[i].id === this.model.id) {
-          this.vuelos.splice(i, 1);
+      this.proveedor.servicios.push(this.model);
+      for (let i = 0; i < this.servicios.length; i++) {
+        if (this.servicios[i].id === this.model.id) {
+          this.servicios.splice(i, 1);
         }
       }
       this.model = new Vuelo();
@@ -166,10 +168,10 @@ export class ProveedorEditComponent implements OnInit {
   }
 
   removeVuelo(vuelo): void {
-    this.vuelos.push(vuelo);
-    for (let i = 0; i < this.proveedor.vuelos.length; i++) {
-      if (this.proveedor.vuelos[i].id == vuelo.id) {
-        this.proveedor.vuelos.splice(i, 1);
+    this.servicios.push(vuelo);
+    for (let i = 0; i < this.proveedor.servicios.length; i++) {
+      if (this.proveedor.servicios[i].id == vuelo.id) {
+        this.proveedor.servicios.splice(i, 1);
       }
     }
   }
@@ -178,7 +180,7 @@ export class ProveedorEditComponent implements OnInit {
    * This function updates the book
    */
   updateProveedor(): void {
-    if (this.proveedor.vuelos.length == 0) {
+    if (this.proveedor.servicios.length == 0) {
       this.toastrService.error('El proveedor debe de tener al menos un vuelo!', 'Error');
     } else {
       this.proveedorService.updateProveedor(this.proveedor)

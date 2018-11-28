@@ -15,16 +15,18 @@
     <th>Latitud</th>
     <th>Longitud</th>
     <th>Puntuacion</th>
+    <th>Disponibilidad Fechas</th>
+    <th>Fechas Disponibles</th>
   </tr>
   <tbody>
   <tr *ngFor="let actividad of actividades" >
 
     <td>
-      {{actividad.identificador}}
+      {{actividad.id}}
     </td>
 
     <td>
-        <a routerLink="/actividades/{{actividad.identificador}}">{{actividad.nombreActividad}}</a>
+        <a routerLink="/actividades/{{actividad.id}}">{{actividad.nombre}}</a>
      
     </td>
 
@@ -46,6 +48,14 @@
     
     <td>
       {{actividad.puntuacion}}
+    </td>
+
+    <td>
+      {{actividad.disponibilidadFecha}}
+    </td>
+
+    <td>
+      {{actividad.fechasDisponibles}}
     </td>
     
         

@@ -34,16 +34,21 @@ export class VueloListComponent implements OnInit {
       this.showCreate = false;
       this.vuelo_id = vuelo_id;
     this.selectedVuelo = new class implements VueloDetail {
-      capacidad: number;
       costo: number;
-      fechaLlegada: string;
-      fechaSalida: string;
+      destino: string;
+      disponibilidadFecha: any[];
+      duracion: number;
+      fechasDisponibles: any[];
+      fechasLlegada: any[];
       id: number;
+      latitud: number;
       latitudDestino: number;
-      latitudOrigen: number;
+      longitud: number;
       longitudDestino: number;
-      longitudOrigen: number;
-      numero: string;
+      nombre: string;
+      origen: string;
+      imagen: string;
+      puntuacion: number;
     }
     this.getVueloDetail();
   }
