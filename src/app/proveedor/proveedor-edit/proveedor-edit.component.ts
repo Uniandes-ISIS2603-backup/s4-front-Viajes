@@ -18,6 +18,7 @@ import {Vuelo} from '../../vuelo/vuelo';
 import {Transporte} from '../../transporte/transporte';
 import {Actividad} from '../../actividad/actividad';
 import {Alojamiento} from '../../alojamiento/alojamiento';
+import {Servicio} from '../../servicio';
 
 @Component({
   selector: 'app-proveedor-edit',
@@ -57,27 +58,8 @@ export class ProveedorEditComponent implements OnInit {
   proveedor: ProveedorDetail
 
   proveedor_id: number;
-  /**
-   * The list of all the authors in the BookStore
-   */
-  vuelos: Vuelo[];
 
-  servicios: Vuelo[];
-
-  /**
-   * The list of all the editorials in the BookStore
-   */
-  transportes: Transporte[];
-
-  /**
-   * The list of all the editorials in the BookStore
-   */
-  actividades: Actividad[];
-
-  /**
-   * The list of all the editorials in the BookStore
-   */
-  alojamientos: Alojamiento[];
+  servicios: Servicio[];
 
 
   @ViewChild('instance') instance: NgbTypeahead;
@@ -90,8 +72,8 @@ export class ProveedorEditComponent implements OnInit {
     const inputFocus$ = this.focus$;
 
     return merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
-      map(term => (term === '' ? this.vuelos
-        : this.vuelos.filter(v => v.nombre.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
+      map(term => (term === '' ? this.servicios
+        : this.servicios.filter(v => v.nombre.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
     );
   }
 
@@ -111,7 +93,7 @@ export class ProveedorEditComponent implements OnInit {
   getVuelos(): void {
     this.vueloService.getVuelos()
       .subscribe(vuelos => {
-        this.vuelos = vuelos;
+        this.servicios = vuelos;
       });
   }
 
@@ -121,7 +103,7 @@ export class ProveedorEditComponent implements OnInit {
   getTransportes(): void {
     this.transporteService.getTransportes()
       .subscribe(transportes => {
-        this.transportes = transportes;
+        this.servicios = transportes;
       });
   }
 
@@ -131,7 +113,7 @@ export class ProveedorEditComponent implements OnInit {
   getActividades(): void {
     this.actividadService.getActividades()
       .subscribe(actividades => {
-        this.actividades = actividades;
+        this.servicios = actividades;
       });
   }
 
@@ -141,7 +123,7 @@ export class ProveedorEditComponent implements OnInit {
   getAlojamientos(): void {
     this.alojamientoService.getAlojamientos()
       .subscribe(alojamientos => {
-        this.alojamientos = alojamientos;
+        this.servicios = alojamientos;
       });
   }
 
@@ -156,10 +138,10 @@ export class ProveedorEditComponent implements OnInit {
 
   addVuelo(): void {
     if (this.model != undefined && this.model.id != undefined) {
-      this.proveedor.vuelos.push(this.model);
-      for (let i = 0; i < this.vuelos.length; i++) {
-        if (this.vuelos[i].id === this.model.id) {
-          this.vuelos.splice(i, 1);
+      this.proveedor.servicios.push(this.model);
+      for (let i = 0; i < this.servicios.length; i++) {
+        if (this.servicios[i].id === this.model.id) {
+          this.servicios.splice(i, 1);
         }
       }
       this.model = new Vuelo();
@@ -168,20 +150,20 @@ export class ProveedorEditComponent implements OnInit {
   }
 
   removeVuelo(vuelo): void {
-    this.vuelos.push(vuelo);
-    for (let i = 0; i < this.proveedor.vuelos.length; i++) {
-      if (this.proveedor.vuelos[i].id == vuelo.id) {
-        this.proveedor.vuelos.splice(i, 1);
+    this.servicios.push(vuelo);
+    for (let i = 0; i < this.proveedor.servicios.length; i++) {
+      if (this.proveedor.servicios[i].id == vuelo.id) {
+        this.proveedor.servicios.splice(i, 1);
       }
     }
   }
 
   addTransporte(): void {
     if (this.model != undefined && this.model.id != undefined) {
-      this.proveedor.transportes.push(this.model);
-      for (let i = 0; i < this.transportes.length; i++) {
-        if (this.transportes[i].id === this.model.id) {
-          this.transportes.splice(i, 1);
+      this.proveedor.servicios.push(this.model);
+      for (let i = 0; i < this.servicios.length; i++) {
+        if (this.servicios[i].id === this.model.id) {
+          this.servicios.splice(i, 1);
         }
       }
       this.model = new Transporte();
@@ -190,20 +172,20 @@ export class ProveedorEditComponent implements OnInit {
   }
 
   removeTransporte(transporte): void {
-    this.transportes.push(transporte);
-    for (let i = 0; i < this.proveedor.transportes.length; i++) {
-      if (this.proveedor.transportes[i].id == transporte.id) {
-        this.proveedor.transportes.splice(i, 1);
+    this.servicios.push(transporte);
+    for (let i = 0; i < this.proveedor.servicios.length; i++) {
+      if (this.proveedor.servicios[i].id == transporte.id) {
+        this.proveedor.servicios.splice(i, 1);
       }
     }
   }
 
   addAlojamiento(): void {
     if (this.model != undefined && this.model.id != undefined) {
-      this.proveedor.alojamientos.push(this.model);
-      for (let i = 0; i < this.alojamientos.length; i++) {
-        if (this.alojamientos[i].id === this.model.id) {
-          this.alojamientos.splice(i, 1);
+      this.proveedor.servicios.push(this.model);
+      for (let i = 0; i < this.servicios.length; i++) {
+        if (this.servicios[i].id === this.model.id) {
+          this.servicios.splice(i, 1);
         }
       }
       this.model = new Alojamiento();
@@ -212,20 +194,20 @@ export class ProveedorEditComponent implements OnInit {
   }
 
   removeAlojamiento(alojamiento): void {
-    this.alojamientos.push(alojamiento);
-    for (let i = 0; i < this.proveedor.alojamientos.length; i++) {
-      if (this.proveedor.alojamientos[i].id == alojamiento.id) {
-        this.proveedor.alojamientos.splice(i, 1);
+    this.servicios.push(alojamiento);
+    for (let i = 0; i < this.proveedor.servicios.length; i++) {
+      if (this.proveedor.servicios[i].id == alojamiento.id) {
+        this.proveedor.servicios.splice(i, 1);
       }
     }
   }
 
   addActividad(): void {
     if (this.model != undefined && this.model.id != undefined) {
-      this.proveedor.actividades.push(this.model);
-      for (let i = 0; i < this.actividades.length; i++) {
-        if (this.actividades[i].id === this.model.id) {
-          this.actividades.splice(i, 1);
+      this.proveedor.servicios.push(this.model);
+      for (let i = 0; i < this.servicios.length; i++) {
+        if (this.servicios[i].id === this.model.id) {
+          this.servicios.splice(i, 1);
         }
       }
       this.model = new Actividad();
@@ -234,10 +216,10 @@ export class ProveedorEditComponent implements OnInit {
   }
 
   removeActividad(actividad): void {
-    this.actividades.push(actividad);
-    for (let i = 0; i < this.proveedor.actividades.length; i++) {
-      if (this.proveedor.actividades[i].id == actividad.id) {
-        this.proveedor.actividades.splice(i, 1);
+    this.servicios.push(actividad);
+    for (let i = 0; i < this.proveedor.servicios.length; i++) {
+      if (this.proveedor.servicios[i].id == actividad.id) {
+        this.proveedor.servicios.splice(i, 1);
       }
     }
   }
@@ -246,12 +228,8 @@ export class ProveedorEditComponent implements OnInit {
    * This function updates the book
    */
   updateProveedor(): void {
-    if (this.proveedor.vuelos.length == 0) {
+    if (this.proveedor.servicios.length == 0) {
       this.toastrService.error('El proveedor debe de tener al menos un vuelo!', 'Error');
-    }
-    if (this.proveedor.transportes.length == 0)
-    {
-      this.toastrService.error('El proveedor debe de teer al menos un transporte!', 'Error');
     }
     else {
       this.proveedorService.updateProveedor(this.proveedor)

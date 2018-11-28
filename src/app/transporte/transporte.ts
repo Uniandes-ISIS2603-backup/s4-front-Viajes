@@ -1,6 +1,7 @@
-import {Proveedor} from '../proveedor/proveedor'; 
+import {Proveedor} from '../proveedor/proveedor';
+import {TransporteB} from '../transporteb';
 
-export class Transporte{
+export class Transporte extends TransporteB{
     
 
     nombre: string;

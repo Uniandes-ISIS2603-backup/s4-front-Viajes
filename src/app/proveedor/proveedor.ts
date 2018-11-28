@@ -3,6 +3,7 @@
  *Contiene toda la informaciòn relevante a un vuelo
  */
 import {Vuelo} from '../vuelo/vuelo';
+import {Servicio} from '../servicio';
 
 export class Proveedor {
   /**
@@ -34,5 +35,6 @@ export class Proveedor {
    * La imagen del proveedor
    */
   imagen: string;
+
 }
 
