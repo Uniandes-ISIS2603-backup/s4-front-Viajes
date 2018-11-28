@@ -39,4 +39,22 @@ export class VueloService {
   createVuelo(vuelo): Observable<Vuelo> {
     return this.http.post<Vuelo>(API_URL + vuelos, vuelo);
   }
+
+  /**
+   * Updates an author
+   * @param author The author's information updated
+   * @returns The confirmation that the author was updated
+   */
+  updateVuelo(vuelo): Observable<VueloDetail> {
+    return this.http.put<VueloDetail>(API_URL + vuelos + '/' + vuelo.id, vuelo);
+  }
+
+  /**
+   * Deletes an author from the BookStore
+   * @param authorId The id of the author
+   * @returns The confirmation that the author was deleted
+   */
+  deleteVuelo(vueloId): Observable<boolean> {
+    return this.http.delete<boolean>(API_URL + vuelos + '/' + vueloId);
+  }
 }

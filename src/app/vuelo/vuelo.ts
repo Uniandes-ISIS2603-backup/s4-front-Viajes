@@ -2,25 +2,25 @@ export class Vuelo {
     /**
      * El identificador del vuelo
      */
-    numero: string;
+    nombre: string;
 
-    id:number;
+    id: number;
     /**
      * El costo del vuelo
      */
     costo: number;
-    /**
-     * La capacidad (pasajeros) del vuelo
-     */
-    capacidad: number;
+  /**
+   * Puntuacion del vuelo
+   */
+    puntuacion: number;
     /**
      * La latitud origen del vuelo
      */
-    latitudOrigen: number;
+    latitud: number;
     /**
      * La longitud origen del vuelo
      */
-    longitudOrigen: number;
+    longitud: number;
     /**
      * La latitud destino del vuelo
      */
@@ -30,11 +30,35 @@ export class Vuelo {
      */
     longitudDestino: number;
     /**
+     * La longitud destino del vuelo
+     */
+    duracion: number;
+    /**
+    * Origen del vuelo
+    */
+    origen: string;
+    /**
+    * Destino del vuelo
+    */
+    destino: string;
+    /**
      * La fecha de salida del vuelo
      */
-    fechaSalida: any;
+    fechasDisponibles: any[];
     /**
      * La fecha de llegada del vuelo
      */
-    fechaLlegada: any;
+    fechasLlegada: any[];
+    /**
+    * disponibilidadFecha
+    */
+    disponibilidadFecha: any[];
+  /**
+   * Imagen del vuelo
+   */
+    imagen: string;
 }
+
+
+
+

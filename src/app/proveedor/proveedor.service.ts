@@ -50,4 +50,13 @@ export class ProveedorService {
   updateProveedor(proveedor): Observable<ProveedorDetail> {
     return this.http.put<ProveedorDetail>(API_URL + proveedores + '/' + proveedor.id, proveedor);
   }
+
+  /**
+   * Deletes a book
+   * @param bookId The book's id
+   * @returns True if the book was deleted, false otherwise
+   */
+  deleteProveedor(proveedorId): Observable<ProveedorDetail> {
+    return this.http.delete<ProveedorDetail>(API_URL + proveedores + '/' + proveedorId);
+  }
 }

@@ -27,7 +27,7 @@
             </div>
             <div class="form-group">
               <label for="proveedorUser"><b>User</b></label>
-              <input type="text" name="proveedorUser" class="form-control" id="proveedorUser" [(ngModel)]="proveedor.user"
+              <input type="text" name="proveedorUser" class="form-control" id="proveedorUser" [(ngModel)]="proveedor.username"
                      #proveedorUser="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorUser.invalid }" required>
               <div class="invalid-feedback">
                 <div>El usuario del proveedor es necesario</div>
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
               <label for="proveedorPun"><b>Puntaje</b></label>
-              <input type="number" name="proveedorPun" class="form-control" id="proveedorPun" [(ngModel)]="proveedor.puntaje"
+              <input type="number" name="proveedorPun" class="form-control" id="proveedorPun" [(ngModel)]="proveedor.puntuacion"
                      #proveedorPun="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorPun.invalid }" required>
               <div class="invalid-feedback">
                 <div>El puntaje del proveedor es necesario</div>
@@ -70,8 +70,8 @@
               <div class="col-md-6 text-center" >
                 <table class="table table-striped">
                   <tbody>
-                  <tr *ngFor = "let vuelo of proveedor.vuelos" >
-                    <td> <dd>{{vuelo.numero}}</dd></td>
+                  <tr *ngFor = "let vuelo of proveedor.servicios" >
+                    <td> <dd>{{vuelo.nombre}}</dd></td>
                     <td id="vuelo-delete">
                       <button class="btn btn-danger" (click)="removeVuelo(vuelo)"><span class="fa fa-trash"></span></button>
                     </td>

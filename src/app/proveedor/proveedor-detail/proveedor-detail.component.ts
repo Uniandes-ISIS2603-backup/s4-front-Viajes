@@ -1,12 +1,12 @@
-import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewContainerRef} from '@angular/core';
 import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
-
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 
 import {ProveedorService} from '../proveedor.service';
 import {Proveedor} from '../proveedor';
 import {ProveedorDetail} from '../proveedor-detail';
 import {Vuelo} from '../../vuelo/vuelo';
-import {Actividad} from '../../actividad/actividad';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -26,7 +26,10 @@ export class ProveedorDetailComponent implements OnInit, OnDestroy {
   constructor(
     private proveedorService: ProveedorService,
     private route: ActivatedRoute,
-    private router: Router
+    private viewRef: ViewContainerRef,
+    private router: Router,
+    private modalDialogService: ModalDialogService,
+    private toastrService: ToastrService
   ) {
     //This is added so we can refresh the view when one of the books in
     //the "Other books" list is clicked
@@ -83,6 +86,33 @@ export class ProveedorDetailComponent implements OnInit, OnDestroy {
   }
 
   /**
+   * This function deletes the book from the BookStore
+   */
+  deleteProveedor(): void {
+    this.modalDialogService.openDialog(this.viewRef, {
+      title: 'Eliminar un proveedor',
+      childComponent: SimpleModalComponent,
+      data: {text: 'Està seguro de que desea eliminar este proveedor?'},
+      actionButtons: [
+        {
+          text: 'Yes',
+          buttonClass: 'btn btn-danger',
+          onAction: () => {
+            this.proveedorService.deleteProveedor(this.proveedor_id).subscribe(proveedor => {
+              this.toastrService.success('The proveedor  ', 'Proveedor deleted');
+              this.router.navigate(['proveedores/list']);
+            }, err => {
+              this.toastrService.error(err, 'Error');
+            });
+            return true;
+          }
+        },
+        {text: 'No', onAction: () => true}
+      ]
+    });
+  }
+
+  /**
    * The method which initilizes the component
    * We need to initialize the book and its editorial so that
    * they are never considered undefined
@@ -90,15 +120,13 @@ export class ProveedorDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.proveedor_id = +this.route.snapshot.paramMap.get('id');
     this.proveedorDetail = new class implements ProveedorDetail {
-      actividades: Actividad[];
       id: number;
+      imagen: string;
       nombre: string;
       password: string;
-      puntaje: number;
-      user: string;
-      vuelo: Vuelo;
-      imagen: string;
-      vuelos: Vuelo[];
+      puntuacion: number;
+      servicios: Vuelo[];
+      username: string;
     }
     this.getProveedorDetail();
     this.getOtherProveedores();

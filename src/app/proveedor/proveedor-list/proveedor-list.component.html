@@ -2,21 +2,17 @@
   <h1>Proveedores</h1>
   <p>A continuación se muestran los proveedores disponibles en TripBuilder:</p>
   <div class="row">
-    <div class="col-md-2" *ngFor = "let proveedor of proveedores">
-      <figure class="figure" routerLink="/proveedores/{{proveedor.id}}" style="cursor: pointer;">
-        <div class="img-thumbnail border-0">
-          <img class="img-fluid" src="http://s3.amazonaws.com/zweb-s3.uploads/carp/2011/07/air-canada-logo.jpg" alt="{{proveedor.nombre}}" />
+      <div class="card col-md-2" *ngFor = "let proveedor of proveedores" routerLink="/proveedores/{{proveedor.id}}" style="cursor: pointer;">
+        <img class="card-img-top" src="{{proveedor.imagen}}" alt="Card image cap"  height="160px">
+        <div class="card-body">
+          <p class="card-text justify-content-end">{{proveedor.nombre}}</p>
         </div>
-        <figcaption class="title-caption text-center">{{proveedor.nombre}}</figcaption>
-        <div *ngFor = "let vuelo of proveedor.vuelos">
-          <figcaption class="author-caption text-center" routerLink="/vuelos/{{vuelo.id}}">Vuelo #{{vuelo.numero}}</figcaption>
-        </div>
-      </figure>
-    </div>
+      </div>
   </div>
   <div *ngIf="showCreate">
     <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
   </div>
+  <br>
   <div class="row">
     <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
             (click)="showHideCreate()">Crear un Proveedor</button>

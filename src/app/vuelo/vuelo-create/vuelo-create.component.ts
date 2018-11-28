@@ -4,6 +4,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {VueloService} from '../../vuelo/vuelo.service';
 import {ToastrService} from 'ngx-toastr';
 import {Vuelo} from '../vuelo';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-vuelo-create',
@@ -41,19 +42,22 @@ export class VueloCreateComponent implements OnInit {
    */
     createVuelo(): Vuelo {
     console.log(this.vuelo);
-    let fechaS: Date = new Date(this.vuelo.fechaSalida.year, this.vuelo.fechaSalida.month - 1, this.vuelo.fechaSalida.day, this.vuelo.fechaSalida.hour);
-    this.vuelo.fechaSalida = this.dp.transform(fechaS, 'yyyy-MM-dd-hh');
-    console.log(this.vuelo)
+    for (let i of this.vuelo.fechasDisponibles)
+    {
+      const fechaS: Date = new Date(this.vuelo.fechasDisponibles[i].year, this.vuelo.fechasDisponibles[i].month - 1, this.vuelo.fechasDisponibles[i].day, this.vuelo.fechasDisponibles[i].hour);
+      this.vuelo.fechasDisponibles[i] = this.dp.transform(fechaS, 'yyyy-MM-dd-hh');
+    }
+    for (let i of this.vuelo.fechasLlegada)
+    {
+      const fechaL: Date = new Date(this.vuelo.fechasLlegada[i].year, this.vuelo.fechasLlegada[i].month - 1, this.vuelo.fechasLlegada[i].day, this.vuelo.fechasLlegada[i].hour);
+      this.vuelo.fechasLlegada[i] = this.dp.transform(fechaL, 'yyyy-MM-dd-hh');
+    }
     console.log(this.vuelo);
-    let fechaL: Date = new Date(this.vuelo.fechaLlegada.year, this.vuelo.fechaLlegada.month, this.vuelo.fechaLlegada.day, this.vuelo.fechaLlegada.hour);
-    this.vuelo.fechaLlegada = this.dp.transform(fechaL, 'yyyy-MM-dd-hh');
-    console.log(this.vuelo)
     this.vueloService.createVuelo(this.vuelo)
       .subscribe((vuelo) => {
         this.vuelo = vuelo;
         this.create.emit();
         this.toastrService.success("El vueo fue creado", "Creaciòn del vuelo");
-
       });
     return this.vuelo;
   }
@@ -70,18 +74,7 @@ export class VueloCreateComponent implements OnInit {
    * This function will initialize the component
    */
   ngOnInit() {
-    this.vuelo = new class implements Vuelo {
-      capacidad: number;
-      costo: number;
-      fechaLlegada: any;
-      fechaSalida: any;
-      id: number;
-      latitudDestino: number;
-      latitudOrigen: number;
-      longitudDestino: number;
-      longitudOrigen: number;
-      numero: string;
-    }
+    this.vuelo = new Vuelo();
   }
 
 }
