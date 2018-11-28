@@ -38,9 +38,18 @@
           <label for="edad"><b>Edad</b></label>
           <input type="number" name="edad" class="form-control" id="edad" [(ngModel)]="usuario.edad"
                  #edad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && edad.invalid }" required>
-          <div class="invalid-feedback">
+        <div class="invalid-feedback">
             <div>Para poder registrarte debes ingresar tu edad! </div>
           </div>
+
+          <label for="role"><b>Role</b></label>
+          <select class="custom-select" name="role" id="role" [(ngModel)]="usuario.role"
+                  #role="ngModel" [ngClass]="{ 'is-invalid': f.submitted && role.invalid }" required>
+            <option [value]="role" *ngFor="let role of roles">{{role}}</option>
+          </select>
+
+
+
 
 <div class="row form-inline justify-content-center align-self-center">
   <div class="space"></div>
