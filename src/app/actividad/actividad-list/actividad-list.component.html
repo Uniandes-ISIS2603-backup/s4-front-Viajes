@@ -1,9 +1,12 @@
+
 <style>
     
     
 </style>
-<body>
+
 <h1 id="texto">Actividades Disponibles</h1>
+<h1 id="texto">Actividades</h1>
+<p>A continuacion se muestra una lista de las actividades disponibles en TripBuilder:</p>
 
 <table class="table">
   <thead class="thead-dark">
@@ -18,7 +21,7 @@
 
 
     <td>
-        <a onClick="window.location.reload()" routerLink="/actividades/{{actividad.identificador}}">{{actividad.nombreActividad}}</a>
+        <a routerLink="/actividades/{{actividad.identificador}}">{{actividad.nombreActividad}}</a>
      
     </td>
 
@@ -31,6 +34,12 @@
   </tbody>
 </table>
 
-   
-    
-</body>
+<div *ngIf="showCreate">
+  <app-actividad-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-actividad-create>
+</div>
+
+<div class="row">
+  <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+          (click)="showHideCreate()">Crear un Actividad</button>
+</div>
+

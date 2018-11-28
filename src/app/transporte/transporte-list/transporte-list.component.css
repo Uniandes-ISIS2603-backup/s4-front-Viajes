@@ -7,3 +7,27 @@
     position: absolute;
     top: 50%;
 }
+
+.table-hover{
+  width: 50%;
+  margin: 10px;
+}
+
+.table tr th{
+  background: #152C9D;
+  color: #ffffff;
+}
+
+.table{
+  font-family: 'Cabin', sans-serif;
+}
+
+h1,p{
+  font-family: 'Cabin', sans-serif;
+  margin: 10px;
+}
+
+button{
+  background: #152C9D;
+  margin-left: 25px;
+}

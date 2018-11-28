@@ -22,7 +22,6 @@ import { ProveedorModule } from './proveedor/proveedor.module';
 
 import { AlojamientoModule } from './alojamiento/alojamiento.module';
 import { TransporteModule } from './transporte/transporte.module';
-
 import { ComboModule } from './combo/combo.module';
 import { ReservaModule } from './reserva/reserva.module';
 import { PagoModule } from './pago/pago.module';
@@ -34,7 +33,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent
-
   ],
   imports: [
     BrowserModule,

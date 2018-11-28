@@ -1,32 +1,30 @@
 <body>
-    <h1 id = "texto"> Alojamientos </h1> 
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Id</th>
-                    <th>Nombre</th>
-                    <th>Ubicacion</th>
-                    <th>Costo</th>
-                    <th>Estrellas</th>  
-                    <th>Tipo</th>
-                    <th>Latitud</th>
-                    <th>Longitud</th>
-                    <th>Puntuacion</th>     
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let alojamiento of alojamientos">
-                    <td>{{alojamiento.id}}</td>
-                    <td>{{alojamiento.nombre}}</td>
-                    <td>{{alojamiento.ubicacion}}</td>
-                    <td>{{alojamiento.costo}}</td>
-                    <td>{{alojamiento.estrellas}}</td>
-                    <td>{{alojamiento.tipo}}</td>
-                    <td>{{alojamiento.latitud}}</td>
-                    <td>{{alojamiento.longitud}}</td>
-                    <td>{{alojamiento.puntuacion}}</td>
-                </tr>
-            </tbody>
-        </table>
-    <app-alojamiento-create></app-alojamiento-create>
+    <h1 id = "texto"> Alojamientos </h1>
+    <p id="texto">A continuación se muestran los añlojamientos disponibles en TripBuilder:</p>
+    <div class="row">
+      <div class="card text-center col-sm-2" style="width: 18rem;" *ngFor = "let alojamiento of alojamientos"
+           (click)="onSelected(alojamiento.id)">
+        <div class="card-body">
+          <a><h4 class="font-weight-bold">{{alojamiento.nombre}}</h4></a>
+          <p class="card-text">Precios desde ${{alojamiento.costo}}</p>
+          <span class="fas fa-star checked"></span>
+          <span class="fas fa-star checked"></span>
+          <span class="fas fa-star checked"></span>
+          <span class="fas fa-star"></span>
+          <span class="fas fa-star"></span>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div *ngIf="selectedAlojamiento">
+        <app-alojamiento-detail [alojamientoDetail]="selectedAlojamiento"></app-alojamiento-detail>
+      </div>
+    </div>
+    <div *ngIf="showCreate">
+      <app-alojamiento-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-alojamiento-create>
+    </div>
+    <div class="row">
+      <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Crear un Alojamiento</button>
+    </div>
 </body>

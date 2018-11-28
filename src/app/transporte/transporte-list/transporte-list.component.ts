@@ -27,6 +27,11 @@ export class TransporteListComponent implements OnInit {
      transporte_id: number;
      selectedTransporte: Transporte;
 
+  /**
+   * Shows or hides the author-create-component
+   */
+  showCreate: boolean;
+
     transporteActual(transporte_id: number): Transporte {
 
         this.transporte_id = transporte_id;
@@ -36,9 +41,21 @@ export class TransporteListComponent implements OnInit {
     }
     onSelected(transporte_id: number): void {
         this.transporte_id = transporte_id;
+        this.showCreate = false;
         this.selectedTransporte = new TransporteDetail();
         this.getTransporteDetail();
     }
+
+  /**
+   * Shows or hides the create component
+   */
+  showHideCreate(): void {
+    if (this.selectedTransporte) {
+      this.selectedTransporte = undefined;
+      this.transporte_id = undefined;
+    }
+    this.showCreate = !this.showCreate;
+  }
     
     /**
      * Actualizar la lista de transportes
@@ -62,6 +79,7 @@ export class TransporteListComponent implements OnInit {
      * Inicializar 
      */
   ngOnInit() {
+    this.showCreate = false;
       this.getTransportes();
   }
 
