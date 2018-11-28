@@ -70,10 +70,100 @@
               <div class="col-md-6 text-center" >
                 <table class="table table-striped">
                   <tbody>
-                  <tr *ngFor = "let vuelo of proveedor.servicios" >
+                  <tr *ngFor = "let vuelo of proveedor.vuelos" >
                     <td> <dd>{{vuelo.nombre}}</dd></td>
                     <td id="vuelo-delete">
                       <button class="btn btn-danger" (click)="removeVuelo(vuelo)"><span class="fa fa-trash"></span></button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <h4>Actividades de {{proveedor.nombre}}: </h4>
+            <div class="row">
+              <div class="col-md-9"> <input id="typeahead-template2" type="text" class="form-control" [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [ngbTypeahead]="search"
+                                            (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead"
+                                            [resultTemplate]="rt" [inputFormatter]="formatter" />
+              </div>
+              <button type="button" (click)="addActividad()" class="btn btn-primary"><span class="fa fa-plus"></span></button>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6 text-center" >
+                <table class="table table-striped">
+                  <tbody>
+                  <tr *ngFor = "let actividad of proveedor.actividades" >
+                    <td> <dd>{{actividad.nombre}}</dd></td>
+                    <td id="actividad-delete">
+                      <button class="btn btn-danger" (click)="removeActividad(actividad)"><span class="fa fa-trash"></span></button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <h4>Alojamientos de {{proveedor.nombre}}: </h4>
+            <div class="row">
+              <div class="col-md-9"> <input id="typeahead-template3" type="text" class="form-control" [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [ngbTypeahead]="search"
+                                            (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead"
+                                            [resultTemplate]="rt" [inputFormatter]="formatter" />
+              </div>
+              <button type="button" (click)="addAlojamiento()" class="btn btn-primary"><span class="fa fa-plus"></span></button>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6 text-center" >
+                <table class="table table-striped">
+                  <tbody>
+                  <tr *ngFor = "let alojamiento of proveedor.alojamientos" >
+                    <td> <dd>{{alojamiento.nombre}}</dd></td>
+                    <td id="alojamiento-delete">
+                      <button class="btn btn-danger" (click)="removeAlojamiento(alojamiento)"><span class="fa fa-trash"></span></button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <h4>Transportes de {{proveedor.nombre}}: </h4>
+            <div class="row">
+              <div class="col-md-9"> <input id="typeahead-template4" type="text" class="form-control" [(ngModel)]="model" [ngModelOptions]="{standalone: true}" [ngbTypeahead]="search"
+                                            (focus)="focus$.next($event.target.value)" (click)="click$.next($event.target.value)" #instance="ngbTypeahead"
+                                            [resultTemplate]="rt" [inputFormatter]="formatter" />
+              </div>
+              <button type="button" (click)="addTransporte()" class="btn btn-primary"><span class="fa fa-plus"></span></button>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6 text-center" >
+                <table class="table table-striped">
+                  <tbody>
+                  <tr *ngFor = "let transporte of proveedor.transportes" >
+                    <td> <dd>{{transporte.nombre}}</dd></td>
+                    <td id="transporte-delete">
+                      <button class="btn btn-danger" (click)="removeTransporte(transporte)"><span class="fa fa-trash"></span></button>
                     </td>
                   </tr>
                   </tbody>
