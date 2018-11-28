@@ -25,7 +25,6 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import {AuthModule} from './auth/auth.module';
 
-
 @NgModule({
   declarations: [
     AppComponent

@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import {Component, OnInit, OnDestroy, ViewChild, ViewContainerRef, Input} from '@angular/core';
+import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
 
 import {MedallaService} from '../medalla.service';
 import {Medalla} from '../medalla';
@@ -15,8 +17,12 @@ export class MedallaDetailComponent implements OnInit, OnDestroy {
   constructor(
     private medallaService: MedallaService,
     private route: ActivatedRoute,
-    private router: Router
-  ) {    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+    private router: Router,
+    private modalDialogService: ModalDialogService,
+    private viewRef: ViewContainerRef,
+    private toastrService: ToastrService
+  ) {    
+      this.navigationSubscription = this.router.events.subscribe((e: any) => {
       if (e instanceof NavigationEnd) {
         this.ngOnInit();
       }
@@ -33,6 +39,8 @@ export class MedallaDetailComponent implements OnInit, OnDestroy {
    * needs to be loaded
    */
   navigationSubscription;
+  
+  showEdit: boolean;
 
   /**
    * The method which retrieves the details of the book that
@@ -43,7 +51,36 @@ export class MedallaDetailComponent implements OnInit, OnDestroy {
       .subscribe(medallaDetail => {
         this.medallaDetail = medallaDetail;
       });
+
   }
+  
+    /**
+* This function deletes the book from the BookStore 
+*/
+    deleteMedalla(): void {
+
+        this.modalDialogService.openDialog(this.viewRef, {
+            title: 'Eliminar una medalla',
+            childComponent: SimpleModalComponent,
+            data: {text: 'Está seguro que desea eliminar esta medalla?'},
+            actionButtons: [
+                {
+                    text: 'Yes',
+                    buttonClass: 'btn btn-danger',
+                    onAction: () => {
+                        this.medallaService.deleteMedalla(this.medalla_id).subscribe(medalla => {
+                            this.toastrService.success("La medalla  ", "Medalla eliminada");
+                            this.router.navigate(['medallas/list']);
+                        }, err => {
+                            this.toastrService.error(err, "Error");
+                        });
+                        return true;
+                    }
+                },
+                {text: 'No', onAction: () => true}
+            ]
+        });
+    }
 
   ngOnInit() {
     this.medalla_id = +this.route.snapshot.paramMap.get('id');
@@ -54,6 +91,7 @@ export class MedallaDetailComponent implements OnInit, OnDestroy {
       rutaImagen: string;
     }
     this.getMedallaDetail();
+    this.showEdit = true;
   }
     /**
    * This method helps to refresh the view when we need to load another book into it
