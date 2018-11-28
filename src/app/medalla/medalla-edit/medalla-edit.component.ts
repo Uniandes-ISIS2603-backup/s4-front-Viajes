@@ -3,7 +3,6 @@ import {Router, ActivatedRoute} from '@angular/router';
 import {NgbTypeahead} from '@ng-bootstrap/ng-bootstrap';
 import {Observable, Subject, merge} from 'rxjs';
 import {debounceTime, distinctUntilChanged, filter, map} from 'rxjs/operators';
-import {ToastrService} from 'ngx-toastr';
 
 import {MedallaService} from '../medalla.service';
 import {MedallaDetail} from '../medalla-detail';
@@ -45,15 +44,6 @@ export class MedallaEditComponent implements OnInit {
     focus$ = new Subject<string>();
     click$ = new Subject<string>();
 
-    search = (text$: Observable<string>) => {
-        const debouncedText$ = text$.pipe(debounceTime(200), distinctUntilChanged());
-        const clicksWithClosedPopup$ = this.click$.pipe(filter(() => !this.instance.isPopupOpen()));
-        const inputFocus$ = this.focus$;
-
-        return merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
-            map(term => (term === '' ? this.authors
-                : this.authors.filter(v => v.name.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
-        );
     }
 
     formatter = (x: {name: string}) => x.name;

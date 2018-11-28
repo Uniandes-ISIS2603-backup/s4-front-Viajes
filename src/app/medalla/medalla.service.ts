@@ -32,7 +32,7 @@ export class MedallaService {
     * @returns The confirmation that the medalla was updated
     */
     updateMedalla(medalla): Observable<MedallaDetail> {
-        return this.http.put<AuthorDetail>(API_URL + medallas + '/' + medalla.id, medalla);
+        return this.http.put<MedallaDetail>(API_URL + medallas + '/' + medalla.id, medalla);
     }
     /**
     * Deletes an editorial

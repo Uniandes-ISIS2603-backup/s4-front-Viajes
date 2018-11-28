@@ -63,12 +63,12 @@ export class MedallaListComponent implements OnInit {
       /**
     * Shows or hides the create component
     */
-    showHideEdit(author_id: number): void {
-        if (!this.showEdit || (this.showEdit && author_id != this.selectedAuthor.id)) {
+    showHideEdit(medalla_id: number): void {
+        if (!this.showEdit || (this.showEdit && medalla_id != this.selectedMedalla.id)) {
             this.showView = false;
             this.showCreate = false;
             this.showEdit = true;
-            this.author_id = author_id;
+            this.medalla_id = medalla_id;
             this.selectedMedalla = new Medalla();
             this.getMedallaDetail();
         }
