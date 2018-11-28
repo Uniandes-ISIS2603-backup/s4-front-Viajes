@@ -1,8 +1,10 @@
 /**
-* This class represents a Activity of TripBuilder. 
+* This class represents a Activity of TripBuilder.
 * It contains all the information relevant to the activitie.
 */
-export class Actividad {
+import {Servicio} from '../servicio';
+
+export class Actividad extends Servicio{
     /**
     * The activity's cost
     */

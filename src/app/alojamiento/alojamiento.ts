@@ -1,6 +1,7 @@
-import {Proveedor} from '../proveedor/proveedor'; 
+import {Proveedor} from '../proveedor/proveedor';
+import {Servicio} from '../servicio';
 
-export class Alojamiento {
+export class Alojamiento extends Servicio{
     
     /**
      * ID del alojamiento.

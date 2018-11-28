@@ -24,7 +24,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import {AuthModule} from './auth/auth.module';
-import {ModalDialogModule} from '../../node_modules/ngx-modal-dialog';
 
 
 @NgModule({

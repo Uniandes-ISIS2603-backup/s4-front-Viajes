@@ -1,4 +1,6 @@
-export class Vuelo {
+import {TransporteB} from '../transporteb';
+
+export class Vuelo extends TransporteB{
     /**
      * El identificador del vuelo
      */

@@ -1,7 +1,7 @@
-<body>
+<div class="container-fluid">
 <h1 id="texto">Actividades</h1>
 <p id="texto">A continuación se muestra una lista de las actividades disponibles en TripBuilder:</p>
-
+<div class="row">
     <div class="card col-md-2" style="width: 18rem;" *ngFor = "let actividad of actividades"  routerLink="/actividades/{{actividad.id}}" style="cursor: pointer;">
       <img class="card-img-top" src="{{actividad.imagen}}" alt="Card image cap" height="160px">
       <div class="card-body">
@@ -9,7 +9,7 @@
           Precios desde ${{actividad.costo}}</p>
       </div>
     </div>
-
+</div>
 <div *ngIf="showCreate">
   <app-actividad-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-actividad-create>
 </div>
@@ -17,4 +17,4 @@
   <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
           (click)="showHideCreate()">Crear un Actividad</button>
 </div>
-</body>
+</div>
