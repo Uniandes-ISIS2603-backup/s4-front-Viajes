@@ -70,8 +70,8 @@
               <div class="col-md-6 text-center" >
                 <table class="table table-striped">
                   <tbody>
-                  <tr *ngFor = "let vuelo of proveedor.vuelos" >
-                    <td> <dd>{{vuelo.numero}}</dd></td>
+                  <tr *ngFor = "let vuelo of proveedor.servicios" >
+                    <td> <dd>{{vuelo.nombre}}</dd></td>
                     <td id="vuelo-delete">
                       <button class="btn btn-danger" (click)="removeVuelo(vuelo)"><span class="fa fa-trash"></span></button>
                     </td>

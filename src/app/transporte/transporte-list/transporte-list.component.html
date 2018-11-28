@@ -2,16 +2,13 @@
     <h1 id = "texto"> Transportes </h1>
     <p id="texto">A continuación, se muestra un listado de los transportes terrestres disponibles en TripBuilderTeam:</p>
     <div class="row">
-      <div class="card" style="width: 18rem;" *ngFor = "let transporte of transportes" (click)="onSelected(transporte.imagen)">
-        <img class="card-img-top" src="{{transporte.imagen}}" alt="Card image cap">
+      <div class="card col-md-2" style="width: 18rem;" *ngFor = "let transporte of transportes" routerLink="/transportes/{{transporte.id}}" style="cursor: pointer;">
+        <img class="card-img-top" src="{{transporte.imagen}}" alt="Card image cap" height="160px">
         <div class="card-body">
           <p class="card-text justify-content-end">{{transporte.puntuacion}} <span class="fas fa-star checked"></span>
             Precios desde ${{transporte.costo}}</p>
         </div>
       </div>
-    </div>
-    <div *ngIf="selectedTransporte">
-      <app-transporte-detail [transporteDetail]="selectedTransporte"></app-transporte-detail>
     </div>
     <div *ngIf="showCreate">
       <app-transporte-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-transporte-create>
