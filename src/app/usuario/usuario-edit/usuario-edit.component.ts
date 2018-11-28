@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, EventEmitter, Output } from '@angular/core';
 import {DatePipe} from '@angular/common';
 import {Router, ActivatedRoute} from '@angular/router';
 import {NgxPermissionsModule} from 'ngx-permissions';
@@ -31,9 +31,23 @@ export class UsuarioEditComponent implements OnInit {
 
   }
 
-  model: any;
-  usuario: UsuarioDetail;
-  usuario_id: number;
+  /**
+   * The author id as received from the parent component
+   */
+  @Input() usuario: UsuarioDetail;
+
+  /**
+   * The output which tells the parent component
+   * that the user no longer wants to create an author
+   */
+  @Output() cancel = new EventEmitter();
+
+  /**
+   * The output which tells the parent component
+   * that the user updated a new author
+   */
+  @Output() update = new EventEmitter();
+
 
 
   @ViewChild('instance') instance: NgbTypeahead;
@@ -44,26 +58,39 @@ export class UsuarioEditComponent implements OnInit {
     const debouncedText$ = text$.pipe(debounceTime(200), distinctUntilChanged());
     const clicksWithClosedPopup$ = this.click$.pipe(filter(() => !this.instance.isPopupOpen()));
     const inputFocus$ = this.focus$;
-  }
+  };
 
     formatter = (x: {name: string}) => x.name;
 
-    updateUsuario(): void {
+    editUsuario(): void {
+      this.usuarioService.updateUsuario(this.usuario)
+        .subscribe(() => {
+          this.toastrService.success("The user information was updated", "User edition");
+        });
+      this.update.emit();
 
-     this.usuarioService.updateService(this.usuario)
-       .subscribe(()=> {
-         this.router.navigate(['/usuarios' + this.usuario_id]);
-         this.toastrService.success("Tu información ha sido actualizada!", 'Edición del usuario');
-       });
+
+    }
+
+  /**
+   * Emits the signal to tell the parent component that the
+   * user no longer wants to create an user
+   */
+  cancelEdition(): void {
+    this.cancel.emit();
+  }
+
+
+  ngOnInit() {
+
     }
 
 
-    ngOnInit() {
-      this.usuario_id = +this.route.snapshot.paramMap.get('id');
-      this.model = new Usuario();
-    }
-
-
-
+  /**
+   * This function will be called when the admin chooses another user to edit
+   */
+  ngOnChanges() {
+    this.ngOnInit();
+  }
 
 }

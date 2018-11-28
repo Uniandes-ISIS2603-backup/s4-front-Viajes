@@ -25,7 +25,7 @@
             <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fas fa-sign-in-alt"></span> Iniciar sesión</a></li>
           </div>
         </div>
-        <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
+        <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN', 'PROV']">
           <div class="form-inline">
             <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
           </div>
@@ -42,13 +42,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a id="vuelosTag" class="nav-item nav-link" [routerLink]="['/vuelos/list']" [queryParams]="{allvuelos: 'yes'}"><span class="fas fa-plane"></span> VUELOS</a>
+          <a id="vuelosTag" class="nav-item nav-link" [routerLink]="['/vuelos/list']" [queryParams]="{allvuelos: 'yes'}" ><span class="fas fa-plane"></span> VUELOS</a>
         </li>
         <li class="nav-item">
           <a id="proveedoresTag" class="nav-item nav-link" [routerLink]="['/proveedores/list']" [queryParams]="{allproveedores: 'yes'}"><span class="fas fa-suitcase"></span> PROVEEDORES</a>
         </li>
         <li class="nav-item active">
-          <a id="usuariosTag" class="nav-item nav-link" routerLink="/usuarios/list"><span class="fas fa-users"></span> USUARIOS</a>
+          <a id="usuariosTag" class="nav-item nav-link" routerLink="/usuarios/list" *ngxPermissionsOnly="['ADMIN']"><span class="fas fa-users"></span> USUARIOS</a>
         </li>
         <li class="nav-item active">
           <a id="transportesTag" class="nav-item nav-link" routerLink="/transportes/list"><span class="fas fa-shuttle-van"></span> TRANSPORTES</a>
