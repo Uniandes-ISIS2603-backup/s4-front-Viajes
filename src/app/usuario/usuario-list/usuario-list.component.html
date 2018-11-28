@@ -1,5 +1,8 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-20">
 
-    <h1 id="texto">Usuarios</h1>
+<h1 id="texto">Usuarios</h1>
     <p>A continuación, se muestra una lista de todos los usuarios registrados en TripBuilder y disponibles para realizar compras:</p>
     <table class="table table-hover">
       <tr>
@@ -8,23 +11,37 @@
 
       </tr>
       <tbody>
-      <tr *ngFor="let usuario of usuarios" (click)="onSelected(usuario.id)">
-        <td style="cursor: pointer;">
-          <dd>{{usuario.userName}}</dd>
+      <tr *ngFor="let usuario of usuarios">
+        <td>
+          {{usuario.userName}}
         </td>
         <td>
           {{usuario.documento}}
         </td>
-
+        <td *ngxPermissionsOnly="['ADMIN']">
+          <button class="btn btn-primary" (click)="showHideEdit(usuario.id)"><span class="fas fa-pen-square"></span></button>
+        </td>
+        <td *ngxPermissionsOnly="['ADMIN']">
+          <button class="btn btn-danger" (click)="deleteAuthor(usuario.id)"><span class="fa fa-trash"></span></button>
+        </td>
 
       </tr>
       </tbody>
     </table>
+    </div>
     <div class="col-8">
-      <div *ngIf="selectedUsuario">
+      <div *ngIf="showView">
         <app-usuario-detail [usuarioDetail]="selectedUsuario"></app-usuario-detail>
       </div>
+      <div *ngIf="showCreate">
+        <app-usuario-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-usuario-create>
+      </div>
+      <div *ngIf="showEdit">
+        <app-usuario-edit [usuario]="selectedUsuario" (cancel)="showHideEdit(selectedUsuario.id)" (update)="updateUsuario()" ></app-usuario-edit>
+      </div>
     </div>
+    </div>
+  </div>
 
 
 

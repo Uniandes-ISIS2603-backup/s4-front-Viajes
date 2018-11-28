@@ -1,73 +1,15 @@
-<style>
-    
-    
-</style>
 <body>
 <h1 id="texto">Actividades</h1>
-<p>A continuación se muestra una lista de las actividades disponibles en TripBuilder:</p>
+<p id="texto">A continuación se muestra una lista de las actividades disponibles en TripBuilder:</p>
 
-<table class="table table-hover">
-  <tr>
-    <th>Id</th>
-    <th>Nombre</th>
-    <th>Costo($USD)</th>
-    <th>Duracion (mins)</th>
-    <th>Latitud</th>
-    <th>Longitud</th>
-    <th>Puntuacion</th>
-    <th>Disponibilidad Fechas</th>
-    <th>Fechas Disponibles</th>
-  </tr>
-  <tbody>
-  <tr *ngFor="let actividad of actividades" >
+    <div class="card col-md-2" style="width: 18rem;" *ngFor = "let actividad of actividades"  routerLink="/actividades/{{actividad.id}}" style="cursor: pointer;">
+      <img class="card-img-top" src="{{actividad.imagen}}" alt="Card image cap" height="160px">
+      <div class="card-body">
+        <p class="card-text justify-content-end">{{actividad.puntuacion}} <span class="fas fa-star checked"></span>
+          Precios desde ${{actividad.costo}}</p>
+      </div>
+    </div>
 
-    <td>
-      {{actividad.id}}
-    </td>
-
-    <td>
-        <a routerLink="/actividades/{{actividad.id}}">{{actividad.nombre}}</a>
-     
-    </td>
-
-    <td>
-      {{actividad.costo}}
-    </td>
-
-    <td>
-      {{actividad.duracion}}
-    </td>
-    
-    <td>
-      {{actividad.latitud}}
-    </td>
-    
-    <td>
-      {{actividad.longitud}}
-    </td>
-    
-    <td>
-      {{actividad.puntuacion}}
-    </td>
-
-    <td>
-      {{actividad.disponibilidadFecha}}
-    </td>
-
-    <td>
-      {{actividad.fechasDisponibles}}
-    </td>
-    
-        
-     <!--<app-actividad-detail [actividadDetail]= "actividades[0]"></app-actividad-detail>-->
-     <!--  <a id="actividadDetailTag" class="nav-item nav-link" routerLink="/actividades/{{actividad.identificador}}">GUIAS</a>-->
-     
-      
-
-    
-  </tr>
-  </tbody>
-</table>
 <div *ngIf="showCreate">
   <app-actividad-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-actividad-create>
 </div>

@@ -119,15 +119,7 @@ export class ProveedorDetailComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this.proveedor_id = +this.route.snapshot.paramMap.get('id');
-    this.proveedorDetail = new class implements ProveedorDetail {
-      id: number;
-      imagen: string;
-      nombre: string;
-      password: string;
-      puntuacion: number;
-      servicios: Vuelo[];
-      username: string;
-    }
+    this.proveedorDetail = new ProveedorDetail();
     this.getProveedorDetail();
     this.getOtherProveedores();
     this.showEdit = true;

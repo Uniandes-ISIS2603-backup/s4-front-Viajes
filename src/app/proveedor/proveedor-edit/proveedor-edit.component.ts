@@ -156,10 +156,10 @@ export class ProveedorEditComponent implements OnInit {
 
   addVuelo(): void {
     if (this.model != undefined && this.model.id != undefined) {
-      this.proveedor.servicios.push(this.model);
-      for (let i = 0; i < this.servicios.length; i++) {
-        if (this.servicios[i].id === this.model.id) {
-          this.servicios.splice(i, 1);
+      this.proveedor.vuelos.push(this.model);
+      for (let i = 0; i < this.vuelos.length; i++) {
+        if (this.vuelos[i].id === this.model.id) {
+          this.vuelos.splice(i, 1);
         }
       }
       this.model = new Vuelo();
@@ -168,10 +168,76 @@ export class ProveedorEditComponent implements OnInit {
   }
 
   removeVuelo(vuelo): void {
-    this.servicios.push(vuelo);
-    for (let i = 0; i < this.proveedor.servicios.length; i++) {
-      if (this.proveedor.servicios[i].id == vuelo.id) {
-        this.proveedor.servicios.splice(i, 1);
+    this.vuelos.push(vuelo);
+    for (let i = 0; i < this.proveedor.vuelos.length; i++) {
+      if (this.proveedor.vuelos[i].id == vuelo.id) {
+        this.proveedor.vuelos.splice(i, 1);
+      }
+    }
+  }
+
+  addTransporte(): void {
+    if (this.model != undefined && this.model.id != undefined) {
+      this.proveedor.transportes.push(this.model);
+      for (let i = 0; i < this.transportes.length; i++) {
+        if (this.transportes[i].id === this.model.id) {
+          this.transportes.splice(i, 1);
+        }
+      }
+      this.model = new Transporte();
+    }
+
+  }
+
+  removeTransporte(transporte): void {
+    this.transportes.push(transporte);
+    for (let i = 0; i < this.proveedor.transportes.length; i++) {
+      if (this.proveedor.transportes[i].id == transporte.id) {
+        this.proveedor.transportes.splice(i, 1);
+      }
+    }
+  }
+
+  addAlojamiento(): void {
+    if (this.model != undefined && this.model.id != undefined) {
+      this.proveedor.alojamientos.push(this.model);
+      for (let i = 0; i < this.alojamientos.length; i++) {
+        if (this.alojamientos[i].id === this.model.id) {
+          this.alojamientos.splice(i, 1);
+        }
+      }
+      this.model = new Alojamiento();
+    }
+
+  }
+
+  removeAlojamiento(alojamiento): void {
+    this.alojamientos.push(alojamiento);
+    for (let i = 0; i < this.proveedor.alojamientos.length; i++) {
+      if (this.proveedor.alojamientos[i].id == alojamiento.id) {
+        this.proveedor.alojamientos.splice(i, 1);
+      }
+    }
+  }
+
+  addActividad(): void {
+    if (this.model != undefined && this.model.id != undefined) {
+      this.proveedor.actividades.push(this.model);
+      for (let i = 0; i < this.actividades.length; i++) {
+        if (this.actividades[i].id === this.model.id) {
+          this.actividades.splice(i, 1);
+        }
+      }
+      this.model = new Actividad();
+    }
+
+  }
+
+  removeActividad(actividad): void {
+    this.actividades.push(actividad);
+    for (let i = 0; i < this.proveedor.actividades.length; i++) {
+      if (this.proveedor.actividades[i].id == actividad.id) {
+        this.proveedor.actividades.splice(i, 1);
       }
     }
   }
@@ -180,13 +246,18 @@ export class ProveedorEditComponent implements OnInit {
    * This function updates the book
    */
   updateProveedor(): void {
-    if (this.proveedor.servicios.length == 0) {
+    if (this.proveedor.vuelos.length == 0) {
       this.toastrService.error('El proveedor debe de tener al menos un vuelo!', 'Error');
-    } else {
+    }
+    if (this.proveedor.transportes.length == 0)
+    {
+      this.toastrService.error('El proveedor debe de teer al menos un transporte!', 'Error');
+    }
+    else {
       this.proveedorService.updateProveedor(this.proveedor)
         .subscribe(() => {
           this.router.navigate(['/proveedores/' + this.proveedor.id]);
-          this.toastrService.success("El proveedor se actualizo correctamente.", 'Edición del proveedor');
+          this.toastrService.success('El proveedor se actualizo correctamente.', 'Edición del proveedor');
         });
     }
   }
@@ -198,6 +269,12 @@ export class ProveedorEditComponent implements OnInit {
     this.proveedor_id = +this.route.snapshot.paramMap.get('id');
     this.getProveedor();
     this.getVuelos();
+    this.getActividades();
+    this.getAlojamientos();
+    this.getTransportes();
     this.model = new Vuelo();
+    this.model = new Transporte();
+    this.model = new Alojamiento();
+    this.model = new Actividad();
   }
 }

@@ -1,29 +1,54 @@
-<div class="panel">
-    <p>Transporte# {{transporteDetail.id}}<p>
-    <div class="row">
-      <div class="col">
-        <dl>
-          <dt>Costo</dt>
-          <dd>{{transporteDetail.costo}}</dd>
-          <dt>Destino</dt>
-          <dd>{{transporteDetail.destino}}</dd>
-          <dt>LatitudOrigen</dt>
-          <dd>{{transporteDetail.latitudOrigen}}</dd>
-          <dt>LongitudOrigen</dt>
-          <dd>{{transporteDetail.longitudOrigen}}</dd>
-          <dt>LatitudDestino</dt>
-          <dd>{{transporteDetail.latitudDestino}}</dd>
-          <dt>LongitudDestino</dt>
-          <dd>{{transporteDetail.longitudDestino}}</dd>
-          <dt>Dias</dt>
-          <dd>{{transporteDetail.numeroDias}}</dd>
-          <dt>Horas</dt>
-          <dd>{{transporteDetail.numeroHoras}}</dd>
-          <dt>Minutos</dt>
-          <dd>{{transporteDetail.numeroMinutos}}</dd>
-          <dt>Puntuacion</dt>
-          <dd>{{transporteDetail.puntuacion}}</dd>
-        </dl>
+<div class="panel panel-default">
+  <div>
+    <div class="border margin">
+      <p class="h3 p-3">{{transporteDetail.nombre}}</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="img-thumbnail border-0">
+                <img class="img-fluid" src='{{transporteDetail.imagen}}' alt="{{transporteDetail.imagen}}" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <dl>
+              <hr>
+              <dt> Nombre</dt>
+              <dd>{{transporteDetail.nombre}}</dd>
+              <hr>
+              <dt>Costo</dt>
+              <dd>${{transporteDetail.costo}}</dd>
+              <hr>
+              <dt>Puntaje</dt>
+              <dd>{{transporteDetail.puntuacion}}</dd>
+              <hr>
+              <dt>Destino</dt>
+              <dd>{{transporteDetail.destino}}</dd>
+              <hr>
+              <dt>Origen</dt>
+              <dd>{{transporteDetail.origen}}</dd>
+              <hr>
+              <dt>Duración</dt>
+              <dd>{{transporteDetail.duracion}}</dd>
+              <hr>
+              <dt>Fechas Disponibles</dt>
+              <dd>{{transporteDetail.fechasDisponibles}}</dd>
+              <hr>
+              <dt>Disponibilidad Fechas</dt>
+              <dd>{{transporteDetail.disponibilidadFecha}}</dd>
+              <hr>
+              <dt>Fechas Llegada</dt>
+              <dd>{{transporteDetail.fechasLlegada}}</dd>
+              <hr>
+            </dl>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="row border margin">
+  <p class="h3 p-3">Otros transportes</p>
+  <app-transporte-list [transportes]="other_transportes"></app-transporte-list>
 </div>

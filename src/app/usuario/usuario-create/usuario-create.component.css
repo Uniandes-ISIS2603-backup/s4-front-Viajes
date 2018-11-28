@@ -1,1 +1,12 @@
 .space { margin-top: 50px; }
+button{
+  background: orange;
+  margin: 5px;
+}
+
+form{
+  background: #152C9D;
+  color: #ffffff;
+  padding: 30px;
+  border-radius: 5px;
+}

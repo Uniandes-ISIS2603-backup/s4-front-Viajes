@@ -1,3 +1,139 @@
-<p>
-  vuelo-edit works!
-</p>
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <br>
+    <h2 class="text-center">Editar un vuelo</h2>
+    <br>
+    <form class="justify-content-center" name="vuelo" (ngSubmit)="f.form.valid && editVuelo()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="authorName"><b>Name</b></label>
+        <input type="text" name="vueloNom" class="form-control" id="authorName" [(ngModel)]="vuelo.nombre"
+               #authorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && authorName.invalid }" required>
+        <div class="invalid-feedback">
+          <div>The author's name is missing</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vueloCos"><b>Imagen</b></label>
+        <input type="text" name="vueloImg" class="form-control" id="vueloImg" [(ngModel)]="vuelo.imagen"
+               #vueloImg="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloImg.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar una imagen del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vueloCos"><b>Costo</b></label>
+        <input type="number" name="vueloCos" class="form-control" id="vueloCos" [(ngModel)]="vuelo.costo"
+               #vueloCos="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloCos.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar un costo del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vueloCap"><b>Puntuación</b></label>
+        <input type="number" name="vueloPun" class="form-control" id="vueloCap" [(ngModel)]="vuelo.puntuacion"
+               #vueloPun ="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloPun.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la puntuación del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="latOri"><b>Latitud Origen</b></label>
+        <input type="number" name="latOri" class="form-control" id="latOri" [(ngModel)]="vuelo.latitud"
+               #latOri="ngModel" [ngClass]="{ 'is-invalid': f.submitted && latOri.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la latitud de origen del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lonOri"><b>Longitud Origen</b></label>
+        <input type="number" name="lonOri" class="form-control" id="lonOri" [(ngModel)]="vuelo.longitud"
+               #lonOri="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lonOri.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la longitud de origen del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="latDes"><b>Latitud Destino</b></label>
+        <input type="number" name="latDes" class="form-control" id="latDes" [(ngModel)]="vuelo.latitudDestino"
+               #latDes="ngModel" [ngClass]="{ 'is-invalid': f.submitted && latDes.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la latitud de destino del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lonDes"><b>Longitud Destino</b></label>
+        <input type="number" name="lonDes" class="form-control" id="lonDes" [(ngModel)]="vuelo.longitudDestino"
+               #lonDes="ngModel" [ngClass]="{ 'is-invalid': f.submitted && lonDes.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la longitud de destino del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lonDes"><b>Duración</b></label>
+        <input type="number" name="vueloDur" class="form-control" id="vueloDur" [(ngModel)]="vuelo.duracion"
+               #vueloDur="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloDur.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la duración del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vueloNom"><b>Origen</b></label>
+        <input type="text" name="vueloOri" class="form-control" id="vueloOri" [(ngModel)]="vuelo.origen"
+               #vueloOri ="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloOri.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar un punto de origen del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="vueloDes"><b>Destino</b></label>
+        <input type="text" name="vueloDes" class="form-control" id="vueloDes" [(ngModel)]="vuelo.destino"
+               #vueloDes ="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloDes.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar un punto de destino del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fechaS"><b>Fechas Disponibles</b></label>
+        <div [ngClass]="{ 'is-invalid': f.submitted && fechaS.invalid }">
+          <input class="form-control" id="fechaS" name="fechaS" [(ngModel)]="vuelo.fechasDisponibles"
+                 ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fechaS="ngModel" [ngClass]="{'is-invalid': f.submitted && (fechaS.untouched || fechaS.invalid) }"
+                 required>
+          <div class="invalid-feedback">
+            <div>Se requiere especificar las fechas disponibles del vuelo</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lonDes"><b>Disponibilidad fechas</b></label>
+        <input type="number" name="vueloDisp" class="form-control" id="vueloDisp" [(ngModel)]="vuelo.disponibilidadFecha"
+               #vueloDisp="ngModel" [ngClass]="{ 'is-invalid': f.submitted && vueloDisp.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la disponibilidad de fechas del vuelo</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="fechaL"><b>Fecha Llegada</b></label>
+        <div [ngClass]="{ 'is-invalid': f.submitted && fechaL.invalid }">
+          <input class="form-control" id="fechaL" name="fechaL" [(ngModel)]="vuelo.fechasLlegada"
+                 ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fechaL="ngModel" [ngClass]="{'is-invalid': f.submitted && (fechaL.untouched || fechaL.invalid) }"
+                 required>
+          <div class="invalid-feedback">
+            <div>Se requiere especificar las fechas de llegada del vuelo</div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row form-inline justify-content-center align-self-center">
+            <button  ype="submit" class="btn btn-primary"(click)="editVuelo()">Editar</button>
+
+            <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </form>
+  </div>
+</div>
+

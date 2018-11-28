@@ -4,7 +4,7 @@ export class Vuelo {
      */
     nombre: string;
 
-    id:number;
+    id: number;
     /**
      * El costo del vuelo
      */
@@ -56,7 +56,7 @@ export class Vuelo {
   /**
    * Imagen del vuelo
    */
-    imagen:string;
+    imagen: string;
 }
 
 

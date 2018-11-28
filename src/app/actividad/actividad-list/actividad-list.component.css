@@ -1,39 +1,34 @@
-.body  {
-    background-image: url("/assets/Beach Sunset HD.jpg");
-    background-color: orangered;
+
+#texto{
+  color: #000;
+  padding: 20px;
 }
 
-.wrapper {
-    text-align: right;
-    height: 100px;
+h1{
+  padding: 20px;
 }
 
-.table-hover{
-  width: 50%;
-  margin: 10px;
-}
-
-.table tr th{
+.card{
+  font-family: 'Cabin', sans-serif;
   background: #152C9D;
   color: #ffffff;
+  margin-left: 20px;
 }
 
-.table{
-  font-family: 'Cabin', sans-serif;
-}
-
-h1,p{
-  font-family: 'Cabin', sans-serif;
-  margin: 10px;
-}
-
-.table tr td a{
-  text-decoration: none;
-  color: #000;
+.row{
+  width: 80%;
+  padding: 10px;
 }
 
 button{
   background: #152C9D;
-  margin-left: 25px;
-  font-family: 'Cabin', sans-serif;
+  margin-left: 20px;
+}
+
+.list-group{
+  background: orange;
+}
+
+.checked{
+  color: gold;
 }

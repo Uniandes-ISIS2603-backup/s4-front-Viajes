@@ -13,6 +13,8 @@ export class Actividad {
     */
     duracion: number;
 
+    imagen:string;
+
     /**
     * The activity's identificator
     */
