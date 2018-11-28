@@ -42,8 +42,7 @@ export class UsuarioDetailComponent implements OnInit, OnDestroy {
    * The method which obtains the author whose details we want to show
    */
   getUsuarioDetail(): void {
-    this.usuarioService.getUsuarioDetail(this.usuario_id)
-      .subscribe(usuarioDetail => {
+    this.usuarioService.getUsuarioDetail(this.usuario_id).subscribe(usuarioDetail => {
         this.usuarioDetail = usuarioDetail;
       });
   }
