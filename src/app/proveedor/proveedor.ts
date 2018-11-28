@@ -4,7 +4,7 @@
  */
 import {Vuelo} from '../vuelo/vuelo';
 
-export interface Proveedor {
+export class Proveedor {
   /**
    * El identificador del proveedor
    */

@@ -13,6 +13,12 @@ export class Usuario {
    */
   nombre: string;
 
+
+  /**
+   * La contraseña del usuario.
+   */
+  password: string;
+
   /**
    * El documento del usuario.
    */

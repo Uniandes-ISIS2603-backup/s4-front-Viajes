@@ -80,14 +80,15 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
         fechasDisponibles: any[];
         fechasLlegada: any[];
         id: number;
+        imagen: string;
         latitud: number;
         latitudDestino: number;
         longitud: number;
         longitudDestino: number;
         nombre: string;
         origen: string;
-        imagen: string;
         puntuacion: number;
+        vuelo: Vuelo[];
       }
       this.getVueloDetail();
       this.getOtherVuelos();

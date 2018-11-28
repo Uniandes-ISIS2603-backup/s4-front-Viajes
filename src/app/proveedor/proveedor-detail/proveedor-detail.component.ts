@@ -6,7 +6,6 @@ import {ProveedorService} from '../proveedor.service';
 import {Proveedor} from '../proveedor';
 import {ProveedorDetail} from '../proveedor-detail';
 import {Vuelo} from '../../vuelo/vuelo';
-import {Actividad} from '../../actividad/actividad';
 import {ToastrService} from 'ngx-toastr';
 
 
@@ -100,10 +99,10 @@ export class ProveedorDetailComponent implements OnInit, OnDestroy {
           buttonClass: 'btn btn-danger',
           onAction: () => {
             this.proveedorService.deleteProveedor(this.proveedor_id).subscribe(proveedor => {
-              this.toastrService.success("The proveedor  ", "Proveedor deleted");
+              this.toastrService.success('The proveedor  ', 'Proveedor deleted');
               this.router.navigate(['proveedores/list']);
             }, err => {
-              this.toastrService.error(err, "Error");
+              this.toastrService.error(err, 'Error');
             });
             return true;
           }

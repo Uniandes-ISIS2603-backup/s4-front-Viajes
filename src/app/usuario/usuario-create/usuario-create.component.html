@@ -26,6 +26,14 @@
           <div class="invalid-feedback">
             <div>Para poder registrarte debes ingresar un username!</div>
           </div>
+
+        <label for="contrasena"><b>Contraseña</b></label>
+        <input type="password" name="contrasena" class="form-control" id="contrasena" [(ngModel)]="usuario.password"
+               #contrasena="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contrasena.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Para poder registrarte debes ingresar una contraseña!</div>
+        </div>
+
           <label for="edad"><b>Edad</b></label>
           <input type="number" name="edad" class="form-control" id="edad" [(ngModel)]="usuario.edad"
                  #edad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && edad.invalid }" required>
@@ -34,9 +42,9 @@
           </div>
 
 <div class="row form-inline justify-content-center align-self-center">
+  <div class="space"></div>
   <button type="submit" class="btn btn-primary" (click)="createUsuario()">Registrarse </button>
   <div class="divider"></div>
-  <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
 </div>
     </form>
   </div>

@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {Alojamiento} from '../alojamiento';
 import {AlojamientoService} from '../alojamiento.service';
-import {AlojamientoDetail} from '../alojamiento-detail'; 
+import {AlojamientoDetail} from '../alojamiento-detail';
+declare var ol: any;
+
 
 /**
 * Componente para lista de alojamientos.
@@ -12,8 +14,9 @@ import {AlojamientoDetail} from '../alojamiento-detail';
   styleUrls: ['./alojamiento-list.component.css']
 })
 export class AlojamientoListComponent implements OnInit {
-    
-    /**
+  map: any;
+
+  /**
      * Constructor del componente
      * @param alojamientoService 
      */
@@ -22,8 +25,9 @@ export class AlojamientoListComponent implements OnInit {
     /**
      * Lista de alojamientos
      */
-     alojamientos: Alojamiento[]; 
-     alojamiento_id: number;
+     alojamientos: Alojamiento[];
+
+  alojamiento_id: number;
      selectedAlojamiento: Alojamiento;
 
   /**
@@ -74,7 +78,7 @@ export class AlojamientoListComponent implements OnInit {
                 this.selectedAlojamiento = selectedAlojamiento
             });
     }
-     
+
     
      
     /**
@@ -84,6 +88,19 @@ export class AlojamientoListComponent implements OnInit {
      ngOnInit() {
        this.showCreate = false;
          this.getAlojamientos();
+      this.map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            source: new ol.source.OSM()
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([-74.0652072, 4.6013308]),
+          zoom: 20
+        }),
+      });
+
      }
 
 }

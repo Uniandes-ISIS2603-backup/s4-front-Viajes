@@ -63,8 +63,10 @@ export class UsuarioCreateComponent implements OnInit {
   }
 
 
+
   ngOnInit() {
-    this.usuario = new Usuario();
+      this.usuario = new Usuario();
   }
+
 }
 
