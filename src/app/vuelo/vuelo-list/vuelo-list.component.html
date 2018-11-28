@@ -3,18 +3,13 @@
 <h1>Vuelos</h1>
   <p id="texto">A continuación, se muestra una lista de todos los vuelos disponibles en TripBuilder:</p>
   <div class="row">
-      <div class="card text-center col-sm-2" style="width: 18rem;" *ngFor = "let vuelo of vuelos"
-           (click)="onSelected(vuelo.id)">
-        <div class="card-body">
-          <a><h4 class="font-weight-bold">Vuelo {{vuelo.numero}}</h4></a>
-          <p class="card-text">Precios desde ${{vuelo.costo}}</p>
-          <span class="fas fa-star checked"></span>
-          <span class="fas fa-star checked"></span>
-          <span class="fas fa-star checked"></span>
-          <span class="fas fa-star"></span>
-          <span class="fas fa-star"></span>
-        </div>
+    <div class="card" style="width: 18rem;" *ngFor = "let vuelo of vuelos" (click)="onSelected(vuelo.imagen)">
+      <img class="card-img-top" src="{{vuelo.imagen}}" alt="Card image cap" height="180px">
+      <div class="card-body">
+        <p class="card-text justify-content-end">{{vuelo.puntuacion}} <span class="fas fa-star checked"></span>
+          Precios desde ${{vuelo.costo}}</p>
       </div>
+    </div>
     </div>
 
   <div class="col-8">

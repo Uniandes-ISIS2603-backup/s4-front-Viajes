@@ -15,16 +15,18 @@
     <th>Latitud</th>
     <th>Longitud</th>
     <th>Puntuacion</th>
+    <th>Disponibilidad Fechas</th>
+    <th>Fechas Disponibles</th>
   </tr>
   <tbody>
   <tr *ngFor="let actividad of actividades" >
 
     <td>
-      {{actividad.identificador}}
+      {{actividad.id}}
     </td>
 
     <td>
-        <a routerLink="/actividades/{{actividad.id}}" onClick="window.location.reload()">{{actividad.nombre}}</a>
+        <a routerLink="/actividades/{{actividad.id}}" onClick="window.location.reload()" (click) = "ngOnInit()">{{actividad.nombre}}</a>
      
     </td>
 
@@ -47,13 +49,14 @@
     <td>
       {{actividad.puntuacion}}
     </td>
-    
-        
-     <!--<app-actividad-detail [actividadDetail]= "actividades[0]"></app-actividad-detail>-->
-     <!--  <a id="actividadDetailTag" class="nav-item nav-link" routerLink="/actividades/{{actividad.identificador}}">GUIAS</a>-->
-     
-      
 
+    <td>
+      {{actividad.disponibilidadFecha}}
+    </td>
+
+    <td>
+      {{actividad.fechasDisponibles}}
+    </td>
     
   </tr>
   </tbody>

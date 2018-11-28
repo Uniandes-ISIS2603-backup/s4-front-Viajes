@@ -1,4 +1,7 @@
-
+.body{
+    float: bottom;
+}
 #texto{
-    font-size: 10px;
+    text-align: center;
+    font-size: 8px;
 }

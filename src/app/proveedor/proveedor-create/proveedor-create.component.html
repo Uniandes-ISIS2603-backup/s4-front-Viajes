@@ -7,7 +7,7 @@
     <form class="justify-content-center" name="proveedor" (ngSubmit)="f.form.valid && createProveedor()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="proveedorName"><b>Usuario</b></label>
-        <input type="text" name="proveedorUser" class="form-control" id="proveedorUser" [(ngModel)]="proveedor.user"
+        <input type="text" name="proveedorUser" class="form-control" id="proveedorUser" [(ngModel)]="proveedor.username"
                #proveedorUser="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorUser.invalid }" required>
         <div class="invalid-feedback">
           <div>Se requiere especificar un usuario de proveedor</div>
@@ -30,11 +30,11 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="proveedorPun"><b>Puntaje</b></label>
-        <input type="number" name="proveedorPun" class="form-control" id="proveedorPun" [(ngModel)]="proveedor.puntaje"
-               #proveedorPun="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorPun.invalid }" required>
+        <label for="proveedorImg"><b>Ruta de Imagen</b></label>
+        <input type="text" name="proveedorImg" class="form-control" id="proveedorImg" [(ngModel)]="proveedor.imagen"
+               #proveedorImg="ngModel" [ngClass]="{ 'is-invalid': f.submitted && proveedorImg.invalid }" required>
         <div class="invalid-feedback">
-          <div>Se requiere especificar un puntaje para el proveedor</div>
+          <div>Se requiere especificar una ruta de imagen para el proveedor</div>
         </div>
       </div>
       <div class="row form-inline justify-content-center align-self-center">

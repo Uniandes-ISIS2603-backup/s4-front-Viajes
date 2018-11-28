@@ -24,6 +24,8 @@ import { PagoModule } from './pago/pago.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {AuthModule} from './auth/auth.module';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -37,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ActividadModule,
     GuiaModule,
     ProveedorModule,
+    ModalDialogModule.forRoot(),
     NgbModule,
     MedallaModule,
     AlojamientoModule,
@@ -46,11 +49,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PagoModule,
     FormsModule,
     AdministradorModule,
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+
     ToastrModule.forRoot(),
     NgxPermissionsModule.forRoot(),
     BrowserAnimationsModule,
     ModalDialogModule.forRoot(),
-    NgxPermissionsModule.forRoot()
+    NgxPermissionsModule.forRoot(),
+    AuthModule
   ],
    bootstrap: [AppComponent],
   providers: [        {

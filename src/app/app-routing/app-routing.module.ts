@@ -21,6 +21,8 @@ import {ActividadCreateComponent} from '../actividad/actividad-create/actividad-
 
 import {MedallaListComponent} from '../medalla/medalla-list/medalla-list.component';
 import {MedallaDetailComponent} from '../medalla/medalla-detail/medalla-detail.component';
+import {MedallaEditComponent} from '../medalla/medalla-edit/medalla-edit.component';
+
 import {UsuarioCreateComponent} from '../usuario/usuario-create/usuario-create.component';
 
 import {AlojamientoListComponent} from '../alojamiento/alojamiento-list/alojamiento-list.component';
@@ -43,6 +45,7 @@ import {PagoDetailComponent} from '../pago/pago-detail/pago-detail.component';
 import {PagoCreateComponent} from '../pago/pago-create/pago-create.component';
 import {ProveedorCreateComponent} from '../proveedor/proveedor-create/proveedor-create.component';
 import {ProveedorEditComponent} from '../proveedor/proveedor-edit/proveedor-edit.component';
+import {AuthLoginComponent} from '../auth/auth-login/auth-login.component';
 
 
 
@@ -68,6 +71,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: MedallaListComponent
+            },
+            {
+            path: ':id/edit',
+            component: MedallaEditComponent
             },
             {
                 path: ':id',
@@ -128,7 +135,25 @@ const routes: Routes = [
             }
         ]
     },
-    {
+
+  {
+    path: 'auth',
+    children: [
+      {
+        path: 'login',
+        component: AuthLoginComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+          permissions: {
+            only: ['GUEST']
+          }
+        }
+      }
+    ]
+  },
+
+
+  {
         path: 'guias',
         children: [
             {
@@ -169,8 +194,15 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        component: UsuarioListComponent
-      }, {
+        component: UsuarioListComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+          permissions: {
+            only: ['ADMIN']
+          }
+        }
+      },
+   {
         path: 'id',
         component: UsuarioDetailComponent
       }

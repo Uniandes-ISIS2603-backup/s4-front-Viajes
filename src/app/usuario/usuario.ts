@@ -34,5 +34,9 @@ export class Usuario {
    */
   userName: string;
 
+  /**
+   * The user's role
+   */
+  role: string;
 
 }

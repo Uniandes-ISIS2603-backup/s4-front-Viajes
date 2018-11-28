@@ -1,7 +1,11 @@
 <body>
-<h1 id="texto">Guias Asociados</h1>
-<table class="table table-condensed">
 
+<table class="table table-dark">
+
+    <tr>
+       <h1 id="texto">Guias Asociados</h1>
+    </tr>
+    
   <tr>
     <th>Nombre</th>
     <th>Puntuacion</th>
@@ -11,10 +15,7 @@
   <tr *ngFor="let guia of actividadGuias">
       
     <td>
-       <a routerLink="/guias/{{guia.documento}}">
-      {{guia.nombre}}
-       </a>
-          
+       <a routerLink="/guias/{{guia.id}}"> {{guia.nombre}} </a>
     </td>
 
     <td>

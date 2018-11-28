@@ -8,8 +8,10 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
-const actividades = '/actividad';
-const guias = '/guia';
+const actividad = '/actividad';
+const actividades = '/actividades';
+const guias = '/guias';
+const guia = '/guia';
 
 /**
  * The service provider for everything related to Activities

@@ -37,6 +37,10 @@ export class Actividad {
     * Activity´s Name
     */
     nombre: string;
+
+    fechasDisponibles: any[];
+
+    disponibilidadFecha: any[];
     
     imagen: string;
 }

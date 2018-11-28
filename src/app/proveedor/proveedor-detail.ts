@@ -4,6 +4,5 @@ import { Vuelo } from '../vuelo/vuelo';
 
 
 export interface ProveedorDetail extends Proveedor{
-  vuelos: Vuelo[];
-  actividades: Actividad[];
+  servicios: Vuelo[];
 }
