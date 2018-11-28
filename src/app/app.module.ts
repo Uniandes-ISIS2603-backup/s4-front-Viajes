@@ -21,6 +21,7 @@ import { PagoModule } from './pago/pago.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import { ModalDialogModule } from 'ngx-modal-dialog';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     PagoModule,
     FormsModule,
     AdministradorModule,
+    ModalDialogModule.forRoot(),
     ToastrModule.forRoot(),
     NgxPermissionsModule.forRoot(),
     BrowserAnimationsModule,

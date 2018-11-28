@@ -5,6 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {ProveedorService} from './proveedor.service';
 import {ProveedorListComponent} from './proveedor-list/proveedor-list.component';

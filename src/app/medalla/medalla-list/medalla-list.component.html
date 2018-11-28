@@ -9,14 +9,14 @@
       <br>
       <div class="card-columns">
         <div class="card" *ngFor = "let medalla of medallas"
-            (click)="onSelected(medalla.id)">
-        <img style="cursor: pointer;" class="card-img-top" src="{{medalla.rutaImagen}}" alt="Card image cap">
+            >
+        <img style="cursor: pointer;" routerLink="/medallas/{{medalla.id}}" class="card-img-top" src="{{medalla.rutaImagen}}" alt="Card image cap">
             <div class="card-body">
                 <h5 style="cursor: pointer;" class="card-title">{{medalla.nombre}}</h5>
                 <p class="card-text">{{medalla.descripcion}}</p>
-                <p class="card-text"><small class="text-muted">Click en la imagen o en el nombre para ver el detalle.</small></p>
+                <p class="card-text"><small class="text-muted">Click en la imagen para ver el detalle.</small></p>
             </div>
-        </div>
+        </div>          
       </div>
       <br>
     </div>

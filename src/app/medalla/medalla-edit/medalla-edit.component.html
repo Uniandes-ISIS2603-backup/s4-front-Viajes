@@ -1,0 +1,52 @@
+<!--Template para el Typeahead de los authors-->
+<ng-template #rt let-r="result" let-t="term">
+    <ngb-highlight [result]="r.name" [term]="t"></ngb-highlight>
+</ng-template>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <br>
+            <h2 class="text-center">Editar medalla</h2>
+            <br>
+            <form name="medalla" (ngSubmit)="f.form.valid && updateMedalla()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                <label for="authorName"><b>Nombre</b></label>
+                <input type="text" name="medallaName" class="form-control" id="medallaName" [(ngModel)]="medalla.nombre"
+                       #medallaName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && medallaName.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>El nombre de la medalla es requerido</div>
+                </div>
+            </div>
+         <div class="form-group">
+                <label for="medallaImg"><b>Ruta de Imagen</b></label>
+                <p> (Link a la imagen) </p>
+                <input type="text" name="medallaImg" class="form-control" id="medallaImg" [(ngModel)]="medalla.rutaImagen"
+                       #medallaImg="ngModel" [ngClass]="{ 'is-invalid': f.submitted && medallaImg.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>La ruta de la imagen es requerida</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="medallaDesc"><b>Descripcion</b></label>
+                <input type="text" name="medallaDesc" class="form-control" id="medallaDesc" [(ngModel)]="medalla.descripcion"
+                       #medallaDesc="ngModel" [ngClass]="{ 'is-invalid': f.submitted && medallaDesc.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>La descripción de la medalla es requerida</div>
+                </div>
+            </div>
+                
+                <div class="row form-inline justify-content-center ">
+                    <button type="submit" class="btn btn-primary">Editar</button>
+
+                    <div class="divider"></div>
+
+                    <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+    </div>
+</div>
+<br>
+<br>

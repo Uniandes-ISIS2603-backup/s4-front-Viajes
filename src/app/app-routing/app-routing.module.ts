@@ -18,6 +18,8 @@ import {ActividadCreateComponent} from '../actividad/actividad-create/actividad-
 
 import {MedallaListComponent} from '../medalla/medalla-list/medalla-list.component';
 import {MedallaDetailComponent} from '../medalla/medalla-detail/medalla-detail.component';
+import {MedallaEditComponent} from '../medalla/medalla-edit/medalla-edit.component';
+
 import {UsuarioCreateComponent} from '../usuario/usuario-create/usuario-create.component';
 
 import {AlojamientoListComponent} from '../alojamiento/alojamiento-list/alojamiento-list.component';
@@ -65,6 +67,10 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: MedallaListComponent
+            },
+            {
+            path: ':id/edit',
+            component: MedallaEditComponent
             },
             {
                 path: ':id',

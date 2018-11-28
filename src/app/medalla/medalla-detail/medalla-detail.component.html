@@ -1,4 +1,12 @@
- <p class="h3 p-3">{{medallaDetail.nombre}}<p> 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <br>
+      <app-medalla></app-medalla>
+      <br>
+    </div>
+    <div class="col-6">
+<p class="h3 p-3">{{medallaDetail.nombre}}<p> 
  <div class="row">
     <div class="col-md-3">
         <div class="thumb">
@@ -10,5 +18,22 @@
             <dt>Descripción</dt>
                 <dd>{{medallaDetail.descripcion}}</dd>
         </dl>
-    </div>           
+    </div>
+     <br>
+     
+     
 </div>
+ <div class="row justify-content-center align-self-center" *ngIf="showEdit" >
+            <br>
+            <div class="row justify-content-center align-self-center">
+              <button class="btn btn-primary text-center" routerLink="/medallas/{{medallaDetail.id}}/edit">Editar</button>
+              <div class="divider"></div>
+               <button class="btn btn-danger text-center" (click)="deleteMedalla()"><span class="fa fa-trash"></span></button>
+            </div>
+            <br>
+          </div>
+    </div>
+  </div>
+</div> 
+
+
