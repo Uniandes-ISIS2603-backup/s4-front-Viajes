@@ -13,6 +13,7 @@ describe('AlojamientoListComponent', () => {
   let component: AlojamientoListComponent;
   let fixture: ComponentFixture<AlojamientoListComponent>;
 
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [AppRoutingModule, HttpClientModule, AppModule],

@@ -1,4 +1,6 @@
 <div class="container-fluid">
+  <h1>Proveedores</h1>
+  <p>A continuación se muestran los proveedores disponibles en TripBuilder:</p>
   <div class="row">
     <div class="col-md-2" *ngFor = "let proveedor of proveedores">
       <figure class="figure" routerLink="/proveedores/{{proveedor.id}}" style="cursor: pointer;">
@@ -11,5 +13,12 @@
         </div>
       </figure>
     </div>
+  </div>
+  <div *ngIf="showCreate">
+    <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
+  </div>
+  <div class="row">
+    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+            (click)="showHideCreate()">Crear un Proveedor</button>
   </div>
 </div>

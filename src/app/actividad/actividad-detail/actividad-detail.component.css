@@ -3,7 +3,9 @@
 }
 #guias_list{
     width: 500px;
+    justify-content: space-around;
     float: right;
+    overflow: auto;
     
 }
 

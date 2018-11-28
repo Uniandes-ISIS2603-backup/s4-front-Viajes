@@ -106,12 +106,15 @@ export class ActividadListComponent implements OnInit {
     }
 
     onSelected(actividad_id: number): void {
+      this.showCreate = false;
         this.actividad_id = actividad_id;
         this.selectedActividad = new ActividadDetail();
         this.getActividadDetail();
 
 
     }
+
+  
 
     /**
      * Asks the service to update the list of activities

@@ -3,6 +3,18 @@
     height: 80px;
 }
 
+.btn btn-success pull-right {
+    position: absolute;
+    top: 50%;
+}
+
+.map
+{
+  height: 200px;
+  width: 200px;
+
+}
+
 #texto{
   color: #000;
 }
@@ -34,6 +46,7 @@ p{
 button{
   background: #152C9D;
   margin-left: 20px;
+  font-family: 'Cabin', sans-serif;
 }
 
 .list-group{

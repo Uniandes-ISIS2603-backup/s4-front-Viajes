@@ -1,6 +1,69 @@
+<head>
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+
+</head>
+
 <body>
     <h1 id = "texto"> Alojamientos </h1>
-    <p id="texto">A continuación se muestran los añlojamientos disponibles en TripBuilder:</p>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Ubicacion</th>
+                    <th>Costo</th>
+                    <th>Estrellas</th>
+                    <th>Tipo</th>
+                    <th>Latitud</th>
+                    <th>Longitud</th>
+                    <th>Puntuacion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let alojamiento of alojamientos">
+                    <td>{{alojamiento.id}}</td>
+                    <td>{{alojamiento.nombre}}</td>
+                    <td>{{alojamiento.ubicacion}}</td>
+                    <td>{{alojamiento.costo}}</td>
+                    <td>{{alojamiento.estrellas}}</td>
+                    <td>{{alojamiento.tipo}}</td>
+                    <td>{{alojamiento.latitud}}</td>
+                    <td>{{alojamiento.longitud}}</td>
+                    <td>{{alojamiento.puntuacion}}</td>
+                </tr>
+            </tbody>
+        </table>
+    <app-alojamiento-create></app-alojamiento-create>
+    <div id="map" class="map"></div>
+<br/>
+    <div id="myposition"></div>
+    <script src="../assets/ol3/js/ol.js"></script>
+    <script>
+      var osm_default = new ol.layer.Tile({
+        source: new ol.source.OSM()
+      });
+
+      var map = new ol.Map({
+        layers: [osm_default],
+        target: 'map',
+        view: new ol.View({
+          center: ol.proj.transform([-1.81185, 52.443141], 'EPSG:4326', 'EPSG:3857'),
+          zoom: 6
+        })  
+      });
+
+      var mousePosition = new ol.control.MousePosition({
+        coordinateFormat: ol.coordinate.createStringXY(2),
+        projection: 'EPSG:4326',
+        target: document.getElementById('myposition'),
+        undefinedHTML: '&nbsp;'
+      });
+
+      map.addControl(mousePosition);
+    </script>
+  </body>
+
+    <p id="texto1">A continuación se muestran los alojamientos disponibles en TripBuilder:</p>
     <div class="row">
       <div class="card text-center col-sm-2" style="width: 18rem;" *ngFor = "let alojamiento of alojamientos"
            (click)="onSelected(alojamiento.id)">
@@ -27,4 +90,3 @@
       <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
               (click)="showHideCreate()">Crear un Alojamiento</button>
     </div>
-</body>

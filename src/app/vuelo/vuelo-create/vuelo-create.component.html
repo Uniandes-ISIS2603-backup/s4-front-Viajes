@@ -1,10 +1,10 @@
 <div class="row">
-  <div class="col-3"></div>
-  <div class="col-6">
+  <div class="col-1"></div>
+  <div class="col-8">
     <br>
     <h2 class="text-center">Crear un vuelo</h2>
     <br>
-    <form name="vuelo" (ngSubmit)="f.form.valid && createVuelo()" #f="ngForm" novalidate>
+    <form class="justify-content-center" name="vuelo" (ngSubmit)="f.form.valid && createVuelo()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="vueloNum"><b>Numero</b></label>
         <input type="text" name="vueloNum" class="form-control" id="vueloNum" [(ngModel)]="vuelo.numero"
@@ -91,7 +91,7 @@
       </div>
     </form>
   </div>
-  <div class="col-3"></div>
+  <div class="col-1"></div>
 </div>
 
 
