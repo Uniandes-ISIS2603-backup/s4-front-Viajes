@@ -3,32 +3,41 @@
     height: 80px;
 }
 
-.btn btn-success pull-right {
-    position: absolute;
-    top: 50%;
+#texto{
+  color: #000;
 }
 
-.table-hover{
-  width: 50%;
-  margin: 10px;
-}
-
-.table tr th{
-  background: #152C9D;
+p{
   color: #ffffff;
 }
 
-.table{
-  font-family: 'Cabin', sans-serif;
+#texto{
+  color: black;
+  margin: 15px;
 }
 
-h1,p{
+.card{
   font-family: 'Cabin', sans-serif;
-  margin: 10px;
+  background: #152C9D;
+  color: #ffffff;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.row{
+  width: 80%;
+  padding: 10px;
 }
 
 button{
   background: #152C9D;
-  margin-left: 25px;
-  font-family: 'Cabin', sans-serif;
+  margin-left: 20px;
+}
+
+.list-group{
+  background: orange;
+}
+
+.checked{
+  color: gold;
 }

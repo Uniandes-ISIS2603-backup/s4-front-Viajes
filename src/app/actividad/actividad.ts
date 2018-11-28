@@ -16,7 +16,7 @@ export class Actividad {
     /**
     * The activity's identificator
     */
-    identificador: number;
+    id: number;
 
     /**
     * Activity´s Latitude
@@ -36,6 +36,12 @@ export class Actividad {
     /**
     * Activity´s Name
     */
-    nombreActividad: string;
+    nombre: string;
+
+    fechasDisponibles: any[];
+
+    disponibilidadFecha: any[];
+
+
     
 }

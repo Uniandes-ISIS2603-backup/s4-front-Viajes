@@ -37,15 +37,13 @@ export class ProveedorListComponent implements OnInit {
     this.showCreate = false;
     this.proveedor_id = proveedor_id;
     this.selectedProveedor = new class implements ProveedorDetail {
-      actividades: Actividad[];
       id: number;
       imagen: string;
       nombre: string;
       password: string;
-      puntaje: number;
-      user: string;
-      vuelo: Vuelo;
-      vuelos: Vuelo[];
+      puntuacion: number;
+      servicios: Vuelo[];
+      username: string;
     }
     this.getProveedorDetail();
   }

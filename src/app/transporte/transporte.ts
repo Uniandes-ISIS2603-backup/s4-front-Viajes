@@ -3,25 +3,24 @@ import {Proveedor} from '../proveedor/proveedor';
 export class Transporte{
     
 
+    nombre: string;
+
+    imagen:string;
     /**
      * Costo del transporte
      */
     costo: number;
 
-    /**
-     * Destino del transporte
-     */
-    destino: string;
     
     /**
      * Latitud origen
      */
-    latitudOrigen: number; 
+    latitud: number;
      
     /**
      * Longitud origen
      */
-    longitudOrigen: number; 
+    longitud: number;
      
      /**
       * Latitud destino
@@ -32,22 +31,30 @@ export class Transporte{
       * Longitud destino 
       */
     longitudDestino: number;
-       
-     /**
-      * Numero de dias de viaje
-      */
-    numeroDias: number; 
-     
-     /**
-      * Numero de horas de viaje
-      */
-     numeroHoras: number; 
-      
-     /**
-      * Numero de minutos de viaje.
-      */
-     numeroMinutos: number; 
-      
+  /**
+   * La longitud destino del vuelo
+   */
+  duracion: number;
+  /**
+   * Origen del vuelo
+   */
+  origen: string;
+  /**
+   * Destino del vuelo
+   */
+  destino: string;
+  /**
+   * La fecha de salida del vuelo
+   */
+  fechasDisponibles: any[];
+  /**
+   * La fecha de llegada del vuelo
+   */
+  fechasLlegada: any[];
+  /**
+   * disponibilidadFecha
+   */
+  disponibilidadFecha: any[];
      /**
       * Puntuacion del transporte
       */

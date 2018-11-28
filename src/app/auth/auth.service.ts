@@ -62,7 +62,7 @@ export class AuthService {
     } else {
       this.setClientRole();
     }
-    this.router.navigateByUrl('/books/list');
+    this.router.navigateByUrl('/usuarios/list');
   }
 
   /**
