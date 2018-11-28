@@ -62,26 +62,10 @@ export class UsuarioCreateComponent implements OnInit {
     this.cancel.emit();
   }
 
-  latitude: number = 18.5204;
-  longitude: number = 73.8567;
-  map: any;
-  ol: any;
 
 
   ngOnInit() {
       this.usuario = new Usuario();
-      this.map = new this.ol.Map({
-      target: 'map',
-      layers: [
-        new this.ol.layer.Tile({
-          source: new this.ol.source.OSM()
-        })
-      ],
-      view: new this.ol.View({
-        center: this.ol.proj.fromLonLat([73.8567, 18.5204]),
-        zoom: 8
-      })
-    });
   }
 
 }
