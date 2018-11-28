@@ -10,7 +10,6 @@ import { UsuarioEntradasComponent } from './usuario-entradas/usuario-entradas.co
 import { UsuarioCreateComponent } from './usuario-create/usuario-create.component';
 import {UsuarioDetailComponent} from './usuario-detail/usuario-detail.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
-import { UsuarioLoginComponent } from './usuario-login/usuario-login.component';
 
 @NgModule({
   imports: [
@@ -19,7 +18,7 @@ import { UsuarioLoginComponent } from './usuario-login/usuario-login.component';
     HttpClientModule,
     CommonModule,
     FormsModule  ],
-  declarations: [UsuarioListComponent, UsuarioEntradasComponent, UsuarioCreateComponent, UsuarioDetailComponent, UsuarioEditComponent, UsuarioLoginComponent],
+  declarations: [UsuarioListComponent, UsuarioEntradasComponent, UsuarioCreateComponent, UsuarioDetailComponent, UsuarioEditComponent],
   providers: [UsuarioService],
   bootstrap: [UsuarioListComponent]
 })

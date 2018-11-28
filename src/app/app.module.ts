@@ -21,6 +21,7 @@ import { PagoModule } from './pago/pago.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import {AuthModule} from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     ToastrModule.forRoot(),
     NgxPermissionsModule.forRoot(),
     BrowserAnimationsModule,
+    AuthModule
   ],
    bootstrap: [AppComponent],
   providers: [        {
