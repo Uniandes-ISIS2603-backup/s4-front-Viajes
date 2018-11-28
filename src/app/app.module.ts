@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ModalDialogModule } from 'ngx-modal-dialog';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import {AuthModule} from './auth/auth.module';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     ToastrModule.forRoot(),
     NgxPermissionsModule.forRoot(),
     BrowserAnimationsModule,
+    AuthModule
   ],
    bootstrap: [AppComponent],
   providers: [        {

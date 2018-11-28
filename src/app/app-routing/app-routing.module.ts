@@ -40,7 +40,8 @@ import {PagoDetailComponent} from '../pago/pago-detail/pago-detail.component';
 import {PagoCreateComponent} from '../pago/pago-create/pago-create.component';
 import {ProveedorCreateComponent} from '../proveedor/proveedor-create/proveedor-create.component';
 import {ProveedorEditComponent} from '../proveedor/proveedor-edit/proveedor-edit.component';
-
+import {AuthLoginComponent} from '../auth/auth-login/auth-login.component';
+import {NgxPermissionsGuard} from '../../../node_modules/ngx-permissions';
 
 
 const routes: Routes = [
@@ -108,7 +109,25 @@ const routes: Routes = [
             }
         ]
     },
-    {
+
+  {
+    path: 'auth',
+    children: [
+      {
+        path: 'login',
+        component: AuthLoginComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+          permissions: {
+            only: ['GUEST']
+          }
+        }
+      }
+    ]
+  },
+
+
+  {
         path: 'guias',
         children: [
             {
@@ -145,8 +164,15 @@ const routes: Routes = [
     children: [
       {
         path: 'list',
-        component: UsuarioListComponent
-      }, {
+        component: UsuarioListComponent,
+        canActivate: [NgxPermissionsGuard],
+        data: {
+          permissions: {
+            only: ['ADMIN']
+          }
+        }
+      },
+   {
         path: 'id',
         component: UsuarioDetailComponent
       }
