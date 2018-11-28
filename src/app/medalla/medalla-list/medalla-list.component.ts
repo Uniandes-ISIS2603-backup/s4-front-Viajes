@@ -75,6 +75,7 @@ export class MedallaListComponent implements OnInit {
               nombre: string;
               rutaImagen: string;
             }
+
             this.getMedallaDetail();
         }
         else {
