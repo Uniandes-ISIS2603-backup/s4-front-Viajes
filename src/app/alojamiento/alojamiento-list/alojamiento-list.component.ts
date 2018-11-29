@@ -35,6 +35,7 @@ export class AlojamientoListComponent implements OnInit {
    */
   showCreate: boolean;
 
+
     alojamientoActual(alojamiento_id: number): Alojamiento {
 
       this.showCreate = false;

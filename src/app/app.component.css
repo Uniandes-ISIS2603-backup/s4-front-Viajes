@@ -109,8 +109,8 @@ h3{
 }
 
 .contenido{
-  background: #e69500
-;
+  background: #e69500;
+  overflow: auto;
 }
 
 .contenido h3{
@@ -150,6 +150,7 @@ footer{
   font-family: 'Cabin', sans-serif;
   bottom: 0;
   position: relative;
+  overflow: auto;
 }
 
 footer ul{
@@ -160,6 +161,7 @@ footer .row{
   align-items: center;
   margin: auto;
 }
+
 
 footer ul li{
   text-decoration: none;

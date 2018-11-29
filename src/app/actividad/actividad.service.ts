@@ -8,8 +8,10 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
-const actividades = '/actividad';
-const guias = '/guia';
+const actividad = '/actividad';
+const actividades = '/actividades';
+const guias = '/guias';
+const guia = '/guia';
 
 /**
  * The service provider for everything related to Activities
@@ -28,7 +30,7 @@ export class ActividadService {
    * @returns The list of Actividades in real time
    */
   getActividades(): Observable<Actividad[]> {
-    return this.http.get<Actividad[]>(API_URL + actividades);
+    return this.http.get<Actividad[]>(API_URL + actividad);
   }
 
   /**
@@ -36,7 +38,7 @@ export class ActividadService {
    * @returns The activity details
    */
   getActividadDetail(actividadId): Observable<ActividadDetail> {
-    return this.http.get<ActividadDetail>(API_URL + actividades + '/' + actividadId);
+    return this.http.get<ActividadDetail>(API_URL + actividad + '/' + actividadId);
   }
 
   /**
@@ -45,7 +47,7 @@ export class ActividadService {
    * @returns The confirmation of the editorial's creation
    */
   createActividad(actividad): Observable<ActividadDetail> {
-    return this.http.post<ActividadDetail>(API_URL + actividades, actividad);
+    return this.http.post<ActividadDetail>(API_URL + actividad, actividad);
   }
 
   /**
@@ -53,10 +55,28 @@ export class ActividadService {
    * @param editorial The editorial which will be created
    * @returns The confirmation of the editorial's creation
    */
-  associateActividadGuia(actividadId,guiaId): Observable<Guia> {
+  associateActividadGuia(actividadId,guiaParam): Observable<Guia> {
 
-    return this.http.post<Guia>(API_URL + actividades + '/' + actividadId + guias + '/' + guiaId,null)
+    return this.http.post<Guia>(API_URL + actividades + '/' + actividadId + guias,guiaParam)
 
   }
+  
+    /**
+    * Updates an editorial
+    * @param editorial The editorial which will be update
+    * @returns The confirmation of the editorial's update
+    */
+    updateActividad(actividad): Observable<ActividadDetail> {
+        return this.http.put<ActividadDetail>(API_URL + actividad + '/' + actividad.id, actividad);
+    }
+    
+    /**
+    * Deletes an editorial
+    * @param editorialId The editorial which will be deleted
+    * @returns True if the editorial was deleted, false otherwise
+    */
+    deleteActividad(actividadId): Observable<ActividadDetail> {
+        return this.http.delete<ActividadDetail>(API_URL + actividades + '/' + actividadId);
+    }
 
 }

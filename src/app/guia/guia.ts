@@ -30,6 +30,8 @@ export class Guia {
     puntuacion: number;
     
     sueldo:number;
+    
+    id:number;
 
     
 }

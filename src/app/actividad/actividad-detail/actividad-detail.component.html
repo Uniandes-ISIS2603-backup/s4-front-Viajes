@@ -1,9 +1,38 @@
-<div *ngIf="actividadDetail.guias.length == 0">
-  <h1 id="emptyGuias">Ups! Esta actividad no tiene guias asociados,pero puede asociarle un guia existente</h1>
-</div>
+<body>
+<h1> {{actividadDetail.nombreActividad}}</h1>
+<table id ="tablaDetalle" class="table">
+  <thead class="thead-dark">
+      
+  <tr>
+    <th>Puntuacion</th>
+    <th>Costo</th>
+    <th>Duracion(mins)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>
+     {{actividadDetail.puntuacion}}
+    </td>
 
-<div *ngIf="actividadDetail.guias.length > 0">
-  <app-actividad-guias [actividadGuias]="actividadDetail.guias"></app-actividad-guias>
+    <td>
+      {{actividadDetail.costo}}
+    </td>
+    
+    <td>
+      {{actividadDetail.duracion}}
+    </td>    
+    
+  </tr>
+  </tbody>
+</table>
+    <a data-pin-do="embedBoard" data-pin-board-width="600" data-pin-scale-height="800" data-pin-scale-width="500" href=<a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="500" data-pin-scale-width="500" href={{actividadDetail.imagen}}></a>
+    
+<div id="guias_list" >
+    <div id="guiaslist">
+    <app-actividad-guias [actividadGuias]="actividadDetail.guias"></app-actividad-guias>
+    </div>
+    
+    <app-actividad-guia-create [actividadId] = "actividadDetail.id"></app-actividad-guia-create>
 </div>
-
-<app-actividad-guia-create [actividadId] = "actividadDetail.identificador"></app-actividad-guia-create>
+    </body>

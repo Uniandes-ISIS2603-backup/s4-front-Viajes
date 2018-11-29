@@ -45,7 +45,6 @@ export class Actividad extends Servicio{
     fechasDisponibles: any[];
 
     disponibilidadFecha: any[];
-
-
     
+    imagen: string;
 }

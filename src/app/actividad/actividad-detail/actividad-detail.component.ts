@@ -1,4 +1,4 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit,EventEmitter, Output} from '@angular/core';
 import { ActivatedRoute,Router,NavigationEnd } from '@angular/router';
 
 import { ActividadService } from '../actividad.service';
@@ -12,7 +12,18 @@ import { Actividad } from '../actividad';
     styleUrls: ['./actividad-detail.component.css']
 })
 export class ActividadDetailComponent implements OnInit {
+    
+      /**
+    * The output which tells the parent component
+    * that the user no longer wants to create an editorial
+    */
+    @Output() cancel = new EventEmitter();
 
+    /**
+    * The output which tells the parent component
+    * that the user created a new editorial
+    */
+    @Output() refresh = new EventEmitter();
     
     /**
     * The activity

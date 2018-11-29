@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
+import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import {VueloListComponent} from '../vuelo/vuelo-list/vuelo-list.component';
 import {VueloDetailComponent} from '../vuelo/vuelo-detail/vuelo-detail.component';
@@ -12,7 +13,9 @@ import {ProveedorDetailComponent} from '../proveedor/proveedor-detail/proveedor-
 
 import {ActividadListComponent} from '../actividad/actividad-list/actividad-list.component';
 import {ActividadDetailComponent} from '../actividad/actividad-detail/actividad-detail.component';
+import {ActividadEditComponent} from '../actividad/actividad-edit/actividad-edit.component';
 import {GuiaListComponent} from '../guia/guia-list/guia-list.component';
+import {GuiaDetailComponent} from '../guia/guia-detail/guia-detail.component';
 
 import {ActividadCreateComponent} from '../actividad/actividad-create/actividad-create.component';
 
@@ -43,7 +46,7 @@ import {PagoCreateComponent} from '../pago/pago-create/pago-create.component';
 import {ProveedorCreateComponent} from '../proveedor/proveedor-create/proveedor-create.component';
 import {ProveedorEditComponent} from '../proveedor/proveedor-edit/proveedor-edit.component';
 import {AuthLoginComponent} from '../auth/auth-login/auth-login.component';
-import {NgxPermissionsGuard} from '../../../node_modules/ngx-permissions';
+
 
 
 const routes: Routes = [
@@ -74,6 +77,10 @@ const routes: Routes = [
             component: MedallaEditComponent
             },
             {
+            path: ':id/edit',
+            component: MedallaEditComponent
+            },
+            {
                 path: ':id',
                 component: MedallaDetailComponent
             }
@@ -93,7 +100,24 @@ const routes: Routes = [
            {
                 path: 'create',
                 component: ActividadCreateComponent,
-                runGuardsAndResolvers: 'always'
+                runGuardsAndResolvers: 'always',
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
+            },
+            {
+                path: ':id/edit',
+                component: ActividadEditComponent,
+                canActivate: [NgxPermissionsGuard],
+                data: {
+                    permissions: {
+                        only: ['ADMIN']
+                    }
+                }
+                
             }
         ]
     },
@@ -139,7 +163,11 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: GuiaListComponent
-            }
+            },
+             {
+                path: ':documento',
+                component: GuiaDetailComponent
+             }
         ]
     },
   {
