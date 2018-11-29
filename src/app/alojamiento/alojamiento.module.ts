@@ -10,6 +10,7 @@ import {AlojamientoService} from './alojamiento.service';
 import { AlojamientoListComponent } from './alojamiento-list/alojamiento-list.component';
 import { AlojamientoDetailComponent } from './alojamiento-detail/alojamiento-detail.component';
 import { AlojamientoCreateComponent } from './alojamiento-create/alojamiento-create.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { AlojamientoCreateComponent } from './alojamiento-create/alojamiento-cre
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgxPermissionsModule,
     HttpClientModule,
     CommonModule,
     FormsModule

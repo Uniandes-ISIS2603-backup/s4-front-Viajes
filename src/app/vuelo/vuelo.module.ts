@@ -14,6 +14,7 @@ import {Map, View} from 'ol';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import { VueloEditComponent } from './vuelo-edit/vuelo-edit.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 const map = new Map({
   target: 'map',
@@ -32,6 +33,7 @@ const map = new Map({
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxPermissionsModule,
     CommonModule,
     NgbModule,
     FormsModule
