@@ -66,8 +66,8 @@ export class ActividadService {
     * @param editorial The editorial which will be update
     * @returns The confirmation of the editorial's update
     */
-    updateActividad(actividad): Observable<ActividadDetail> {
-        return this.http.put<ActividadDetail>(API_URL + actividad + '/' + actividad.id, actividad);
+    updateActividad(actividadId,actividadParam): Observable<ActividadDetail> {
+        return this.http.put<ActividadDetail>(API_URL + actividad + '/' + actividadId, actividadParam);
     }
     
     /**

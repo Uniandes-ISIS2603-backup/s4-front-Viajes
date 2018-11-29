@@ -1,3 +1,76 @@
-<p>
-  actividad-edit works!
-</p>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+            <br>
+            <h2 class="text-center">Editar una actividad</h2>
+            <br>
+            <form name="actividad" (ngSubmit)="f.form.valid && createActividad()" #f="ngForm" novalidate>
+                 
+                <div class="form-group">
+                    <label for="actividadName"><b>Nombre</b></label>
+                    <input type="text" name="nombreActividad" class="form-control" id="nombreActividad" [(ngModel)]="actividad.nombreActividad"
+                        #nombreActividad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreActividad.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El nombre de la actividad esta vacio</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="actividadName"><b><a href="https://co.pinterest.com">Editar tablero Pinterest</a></b></label>
+                    <input type="text" name="nombreActividad" class="form-control" id="nombreActividad" [(ngModel)]="actividad.nombreActividad"
+                        #nombreActividad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreActividad.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El nombre de la actividad esta vacio</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="actividadCosto"><b>Costo($USD)</b></label>
+                    <input type="number" name="actividadCosto" class="form-control" id="actividadCosto" [(ngModel)]="actividad.costo"
+                        #actividadCosto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadCosto.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El costo esta vacio</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="actividadDuracion"><b>Duracion (mins)</b></label>
+                    <input type="number" name="actividadDuracion" class="form-control" id="actividadDuracion" [(ngModel)]="actividad.duracion"
+                        #actividadDuracion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadDuracion.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>La duracion esta vacía</div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="actividadLatitud"><b>Latitud de la actividad</b></label>
+                    <input type="number" name="actividadLatitud" class="form-control" id="actividadLatitud" [(ngModel)]="actividad.latitud"
+                        #actividadLatitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadLatitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>La latitud esta vacia</div>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="actividadLongitud"><b>Longitud de la actividad</b></label>
+                    <input type="number" name="actividadLongitud" class="form-control" id="actividadLongitud" [(ngModel)]="actividad.longitud"
+                        #actividadLongitud="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadLongitud.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>La longitud esta vacia</div>
+                    </div>
+                </div>
+              <div class="form-group">
+                <label for="actividadPunt"><b>Puntuación de la actividad</b></label>
+                <input type="number" name="actividaPunt" class="form-control" id="actividadPunt" [(ngModel)]="actividad.puntuacion"
+                       #actividadPunt="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadPunt.invalid }" required>
+                <div class="invalid-feedback">
+                  <div>La puntuación esta vacia</div>
+                </div>
+              </div>
+                
+                <br>
+                <div class="row form-inline justify-content-center align-self-center">
+                    <button type="submit" class="btn btn-primary" onClick="window.location.reload()" (click) = "ngOnInit()">Editar</button>
+                    <div class="divider"></div>
+                    <button type="button" class="btn btn-danger" (click)="cancelEdit()">Cancelar</button>
+                </div>
+            </form>
+            <br>
+        </div>
+      <div class="col-3"></div>
+    </div>

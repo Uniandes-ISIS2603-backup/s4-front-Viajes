@@ -15,6 +15,21 @@
 </div>
 <div class="row">
   <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-          (click)="showHideCreate()">Crear un Actividad</button>
+          (click)="showHideCreate()">Crear una Actividad</button>
 </div>
+
+<div class="row">
+  <button [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" type="button" class="btn"
+          (click)="showHideEdit()">Editar una Actividad</button>
+</div>
+
+<div *ngxPermissionsOnly="['ADMIN']">
+              <button class="btn btn-primary" (click)="showHideEdit(actividad.id)"><span class="fa fa-pencil"></span></button>
+</div>
+
+<div *ngIf="showEdit">
+      <app-actividad-edit [actividad_id]="actividad_edit_id" (cancel)="showHideEdit(actividad_edit_id)" (update)="updateActividad()"></app-actividad-edit>
+    </div>
+
+
 </div>
