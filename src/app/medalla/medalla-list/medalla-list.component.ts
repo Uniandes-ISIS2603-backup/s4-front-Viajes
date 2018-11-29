@@ -69,7 +69,13 @@ export class MedallaListComponent implements OnInit {
             this.showCreate = false;
             this.showEdit = true;
             this.medalla_id = medalla_id;
-            //this.selectedMedalla = new Medalla();
+            this.selectedMedalla = new class implements Medalla {
+              descripcion: string;
+              id: number;
+              nombre: string;
+              rutaImagen: string;
+            }
+
             this.getMedallaDetail();
         }
         else {

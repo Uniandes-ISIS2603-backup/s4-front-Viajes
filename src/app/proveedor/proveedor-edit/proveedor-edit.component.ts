@@ -18,6 +18,7 @@ import {Vuelo} from '../../vuelo/vuelo';
 import {Transporte} from '../../transporte/transporte';
 import {Actividad} from '../../actividad/actividad';
 import {Alojamiento} from '../../alojamiento/alojamiento';
+import {Servicio} from '../../servicio';
 
 @Component({
   selector: 'app-proveedor-edit',
@@ -57,27 +58,8 @@ export class ProveedorEditComponent implements OnInit {
   proveedor: ProveedorDetail
 
   proveedor_id: number;
-  /**
-   * The list of all the authors in the BookStore
-   */
-  vuelos: Vuelo[];
 
-  servicios: Vuelo[];
-
-  /**
-   * The list of all the editorials in the BookStore
-   */
-  transportes: Transporte[];
-
-  /**
-   * The list of all the editorials in the BookStore
-   */
-  actividades: Actividad[];
-
-  /**
-   * The list of all the editorials in the BookStore
-   */
-  alojamientos: Alojamiento[];
+  servicios: Servicio[];
 
 
   @ViewChild('instance') instance: NgbTypeahead;
@@ -90,8 +72,8 @@ export class ProveedorEditComponent implements OnInit {
     const inputFocus$ = this.focus$;
 
     return merge(debouncedText$, inputFocus$, clicksWithClosedPopup$).pipe(
-      map(term => (term === '' ? this.vuelos
-        : this.vuelos.filter(v => v.nombre.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
+      map(term => (term === '' ? this.servicios
+        : this.servicios.filter(v => v.nombre.toLowerCase().indexOf(term.toLowerCase()) > -1)).slice(0, 10))
     );
   }
 
@@ -111,7 +93,7 @@ export class ProveedorEditComponent implements OnInit {
   getVuelos(): void {
     this.vueloService.getVuelos()
       .subscribe(vuelos => {
-        this.vuelos = vuelos;
+        this.servicios = vuelos;
       });
   }
 
@@ -121,7 +103,7 @@ export class ProveedorEditComponent implements OnInit {
   getTransportes(): void {
     this.transporteService.getTransportes()
       .subscribe(transportes => {
-        this.transportes = transportes;
+        this.servicios = transportes;
       });
   }
 
@@ -131,7 +113,7 @@ export class ProveedorEditComponent implements OnInit {
   getActividades(): void {
     this.actividadService.getActividades()
       .subscribe(actividades => {
-        this.actividades = actividades;
+        this.servicios = actividades;
       });
   }
 
@@ -141,7 +123,7 @@ export class ProveedorEditComponent implements OnInit {
   getAlojamientos(): void {
     this.alojamientoService.getAlojamientos()
       .subscribe(alojamientos => {
-        this.alojamientos = alojamientos;
+        this.servicios = alojamientos;
       });
   }
 
@@ -176,17 +158,84 @@ export class ProveedorEditComponent implements OnInit {
     }
   }
 
+  addTransporte(): void {
+    if (this.model != undefined && this.model.id != undefined) {
+      this.proveedor.servicios.push(this.model);
+      for (let i = 0; i < this.servicios.length; i++) {
+        if (this.servicios[i].id === this.model.id) {
+          this.servicios.splice(i, 1);
+        }
+      }
+      this.model = new Transporte();
+    }
+
+  }
+
+  removeTransporte(transporte): void {
+    this.servicios.push(transporte);
+    for (let i = 0; i < this.proveedor.servicios.length; i++) {
+      if (this.proveedor.servicios[i].id == transporte.id) {
+        this.proveedor.servicios.splice(i, 1);
+      }
+    }
+  }
+
+  addAlojamiento(): void {
+    if (this.model != undefined && this.model.id != undefined) {
+      this.proveedor.servicios.push(this.model);
+      for (let i = 0; i < this.servicios.length; i++) {
+        if (this.servicios[i].id === this.model.id) {
+          this.servicios.splice(i, 1);
+        }
+      }
+      this.model = new Alojamiento();
+    }
+
+  }
+
+  removeAlojamiento(alojamiento): void {
+    this.servicios.push(alojamiento);
+    for (let i = 0; i < this.proveedor.servicios.length; i++) {
+      if (this.proveedor.servicios[i].id == alojamiento.id) {
+        this.proveedor.servicios.splice(i, 1);
+      }
+    }
+  }
+
+  addActividad(): void {
+    if (this.model != undefined && this.model.id != undefined) {
+      this.proveedor.servicios.push(this.model);
+      for (let i = 0; i < this.servicios.length; i++) {
+        if (this.servicios[i].id === this.model.id) {
+          this.servicios.splice(i, 1);
+        }
+      }
+      this.model = new Actividad();
+    }
+
+  }
+
+  removeActividad(actividad): void {
+    this.servicios.push(actividad);
+    for (let i = 0; i < this.proveedor.servicios.length; i++) {
+      if (this.proveedor.servicios[i].id == actividad.id) {
+        this.proveedor.servicios.splice(i, 1);
+      }
+    }
+  }
+
   /**
    * This function updates the book
    */
   updateProveedor(): void {
     if (this.proveedor.servicios.length == 0) {
       this.toastrService.error('El proveedor debe de tener al menos un vuelo!', 'Error');
-    } else {
+    }
+    else {
       this.proveedorService.updateProveedor(this.proveedor)
         .subscribe(() => {
           this.router.navigate(['/proveedores/' + this.proveedor.id]);
-          this.toastrService.success("El proveedor se actualizo correctamente.", 'Edición del proveedor');
+          this.toastrService.success('El proveedor se actualizo correctamente.', 'Edición del proveedor');
         });
     }
   }
@@ -198,6 +247,12 @@ export class ProveedorEditComponent implements OnInit {
     this.proveedor_id = +this.route.snapshot.paramMap.get('id');
     this.getProveedor();
     this.getVuelos();
+    this.getActividades();
+    this.getAlojamientos();
+    this.getTransportes();
     this.model = new Vuelo();
+    this.model = new Transporte();
+    this.model = new Alojamiento();
+    this.model = new Actividad();
   }
 }

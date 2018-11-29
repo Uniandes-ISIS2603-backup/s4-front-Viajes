@@ -1,9 +1,10 @@
-import { Component,Input, OnInit } from '@angular/core';
-import { ActivatedRoute,Router,NavigationEnd } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import {AlojamientoService} from '../alojamiento.service';
-import {AlojamientoDetail} from '../alojamiento-detail'; 
-import {Alojamiento} from '../alojamiento'; 
+import {AlojamientoDetail} from '../alojamiento-detail';
+import {Alojamiento} from '../alojamiento';
+declare var ol: any;
 
 @Component({
   selector: 'app-alojamiento-detail',
@@ -12,7 +13,10 @@ import {Alojamiento} from '../alojamiento';
 })
 export class AlojamientoDetailComponent implements OnInit {
 
-    /**
+
+  map: any;
+
+  /**
     * Alojamiento buscado
     */
     @Input ()alojamientoDetail: AlojamientoDetail;
@@ -21,7 +25,7 @@ export class AlojamientoDetailComponent implements OnInit {
     * Constructor del componente
     * @param route The route which helps to retrieves the id of the alojamiento to be shown
     */
-    constructor(private route: ActivatedRoute, 
+    constructor(private route: ActivatedRoute,
                 private alojamientoService: AlojamientoService,
                 private router: Router) { }
     
@@ -29,6 +33,7 @@ export class AlojamientoDetailComponent implements OnInit {
      * Id del alojamiento
      */
      alojamientoId: number;
+
      
      /**
      * Obtener el detail del aojamiento
@@ -48,6 +53,19 @@ export class AlojamientoDetailComponent implements OnInit {
         if (this.alojamientoId) {
         this.alojamientoDetail = new AlojamientoDetail();
         this.getAlojamientoDetail();
+          this.map = new ol.Map({
+            target: 'map',
+            layers: [
+              new ol.layer.Tile({
+                source: new ol.source.OSM()
+              })
+            ],
+            view: new ol.View({
+              center: ol.proj.fromLonLat([this.alojamientoDetail.longitud, this.alojamientoDetail.latitud]),
+              zoom: 20
+            }),
+          });
+
         }
     }
 }

@@ -20,7 +20,7 @@ export class AuthService {
   start (): void {
     this.permissionsService.flushPermissions();
     this.roleService.flushRoles();
-    this.permissionsService.loadPermissions(['edit_author_permission', 'delete_author_permission', 'leave_review']);
+    this.permissionsService.loadPermissions(['']);
     const role = localStorage.getItem('role');
     if (!role) {
       this.setGuestRole();
@@ -36,15 +36,21 @@ export class AuthService {
     this.roleService.addRole('GUEST', ['']);
   }
 
+  setProveedorRole (): void {
+    this.roleService.flushRoles();
+    this.roleService.addRole('PROV', ['']);
+  }
+
+
   setClientRole (): void {
     this.roleService.flushRoles();
-    this.roleService.addRole('CLIENT', ['leave_review']);
+    this.roleService.addRole('CLIENT', ['']);
     localStorage.setItem('role', 'CLIENT');
   }
 
   setAdministratorRole (): void {
     this.roleService.flushRoles();
-    this.roleService.addRole('ADMIN', ['edit_author_permission', 'delete_author_permission']);
+    this.roleService.addRole('ADMIN', ['']);
     localStorage.setItem('role', 'ADMIN');
   }
 
@@ -59,10 +65,12 @@ export class AuthService {
   login (role): void {
     if (role === 'Administrator') {
       this.setAdministratorRole();
+    } else if (role === 'Proveedor') {
+      this.setProveedorRole();
     } else {
       this.setClientRole();
     }
-    this.router.navigateByUrl('/usuarios/list');
+    this.router.navigateByUrl('/');
   }
 
   /**

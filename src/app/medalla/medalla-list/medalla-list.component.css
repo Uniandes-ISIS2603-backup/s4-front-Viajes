@@ -7,3 +7,10 @@ button{
   margin-left: 20px;
   font-family: 'Cabin', sans-serif;
 }
+
+.card{
+  font-family: 'Cabin', sans-serif;
+  background: #152C9D;
+  color: #ffffff;
+  margin: 3px;
+}

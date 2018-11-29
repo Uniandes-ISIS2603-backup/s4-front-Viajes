@@ -39,7 +39,7 @@
             <dt>Puntaje</dt>
             <dd>{{proveedorDetail.puntuacion}}</dd>
             <hr>
-            <dt> Vuelos</dt>
+            <dt> Servicios</dt>
             <div *ngFor = "let vuelo of proveedorDetail.servicios">
               <dd class="caption" routerLink="/vuelos/{{vuelo.id}}">{{vuelo.nombre}}</dd>
             </div>

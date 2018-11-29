@@ -6,7 +6,7 @@
             <br>
             <form name="reserva" (ngSubmit)="f.form.valid && createReserva()" #f="ngForm" novalidate>
                   <div class="form-group">
-                    <label for="cantidadPersonas"><b>Indique la cantidad de personas que haran uso del servicio a reservar.(recuerda que tiene que ser único)</b></label>
+                    <label for="cantidadPersonas"><b>Indique la cantidad de personas que harán uso del servicio a reservar</b></label>
                     <input type="number" name="cantidadPersonas" class="form-control" id="cantidadPersonas" [(ngModel)]="reserva.cantidadPersonas"
                         #cantidadPersonas="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cantidadPersonas.invalid }" required>
                     <div class="invalid-feedback">

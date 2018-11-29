@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {AuthModule} from './auth/auth.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -48,6 +49,7 @@ import {AuthModule} from './auth/auth.module';
     ReservaModule,
     PagoModule,
     FormsModule,
+    ModalDialogModule.forRoot(),
     AdministradorModule,
     ToastrModule.forRoot({
       timeOut: 10000,

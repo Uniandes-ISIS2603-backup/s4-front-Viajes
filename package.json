@@ -27,6 +27,7 @@
     "bootstrap-duallistbox": "^3.0.6",
     "core-js": "^2.5.4",
     "jquery": "^3.2.1",
+    "ngx-modal-dialog": "^3.0.0",
     "ngx-permissions": "^6.0.4",
     "ngx-modal-dialog": "^3.0.0",
     "ngx-toastr": "^9.0.2",

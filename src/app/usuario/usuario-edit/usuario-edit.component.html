@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-12">
+    <br>
+    <h2 class="text-center">Editar un usuario</h2>
+    <br>
+    <form name="usuario" (ngSubmit)="f.form.valid && editUsuario()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="nombre"><b>Nombre</b></label>
+        <input type="text" name="nombre" class="form-control" id="nombre" [(ngModel)]="usuario.nombre"
+               #nombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombre.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Debes ingresar el nombre a modificar del usuario!</div>
+        </div>
+      </div>
+
+      <label for="documento"><b>Documento</b></label>
+      <input type="text" name="documento" class="form-control" id="documento" [(ngModel)]="usuario.documento"
+             #documento="ngModel" [ngClass]="{ 'is-invalid': f.submitted && documento.invalid }" required>
+      <div class="invalid-feedback">
+        <div>Para poder registrarte debes ingresar tu documento!</div>
+      </div>
+
+      <label for="userName"><b>Nombre de usuario</b></label>
+      <input type="text" name="userName" class="form-control" id="userName" [(ngModel)]="usuario.userName"
+             #userName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && userName.invalid }" required>
+      <div class="invalid-feedback">
+        <div>Para poder registrarte debes ingresar un username!</div>
+      </div>
+
+      <label for="contrasena"><b>Contraseña</b></label>
+      <input type="password" name="contrasena" class="form-control" id="contrasena" [(ngModel)]="usuario.password"
+             #contrasena="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contrasena.invalid }" required>
+      <div class="invalid-feedback">
+        <div>Para poder registrarte debes ingresar una contraseña!</div>
+      </div>
+
+      <label for="edad"><b>Edad</b></label>
+      <input type="number" name="edad" class="form-control" id="edad" [(ngModel)]="usuario.edad"
+             #edad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && edad.invalid }" required>
+      <div class="invalid-feedback">
+        <div>Para poder registrarte debes ingresar tu edad! </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="row form-inline justify-content-center align-self-center">
+      <i  style="padding-right: 1em;"class="fa fa-save " (click)="editUsuario()"></i>
+
+      <i class="fa fa-ban" (click)="cancelEdition()"></i>
+    </div>
+  </div>
+</div>
+<br>
+<br>

@@ -4,8 +4,6 @@ import {Entrada} from './entrada';
 
 export class UsuarioDetail extends Usuario {
 
-carrito: CarritoCompras;
-
-entrada: Entrada;
+    entradas: Entrada[];
 
 }

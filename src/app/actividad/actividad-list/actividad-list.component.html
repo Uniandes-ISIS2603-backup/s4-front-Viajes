@@ -1,67 +1,15 @@
-<style>
-    
-    
-</style>
-<body>
+<div class="container-fluid">
 <h1 id="texto">Actividades</h1>
-<p>A continuación se muestra una lista de las actividades disponibles en TripBuilder:</p>
-
-<table class="table table-hover">
-  <tr>
-    <th>Id</th>
-    <th>Nombre</th>
-    <th>Costo($USD)</th>
-    <th>Duracion (mins)</th>
-    <th>Latitud</th>
-    <th>Longitud</th>
-    <th>Puntuacion</th>
-    <th>Disponibilidad Fechas</th>
-    <th>Fechas Disponibles</th>
-  </tr>
-  <tbody>
-  <tr *ngFor="let actividad of actividades" >
-
-    <td>
-      {{actividad.id}}
-    </td>
-
-    <td>
-        <a routerLink="/actividades/{{actividad.id}}" onClick="window.location.reload()" (click) = "ngOnInit()">{{actividad.nombre}}</a>
-     
-    </td>
-
-    <td>
-      {{actividad.costo}}
-    </td>
-
-    <td>
-      {{actividad.duracion}}
-    </td>
-    
-    <td>
-      {{actividad.latitud}}
-    </td>
-    
-    <td>
-      {{actividad.longitud}}
-    </td>
-    
-    <td>
-      {{actividad.puntuacion}}
-    </td>
-
-
-    <td>
-      {{actividad.disponibilidadFecha}}
-    </td>
-
-    <td>
-      {{actividad.fechasDisponibles}}
-    </td>
-    
-  </tr>
-  </tbody>
-</table>
+<p id="texto">A continuación se muestra una lista de las actividades disponibles en TripBuilder:</p>
+<div class="row">
+    <div class="card col-md-2" style="width: 18rem;" *ngFor = "let actividad of actividades"  onClick ="window.location.reload()" routerLink="/actividades/{{actividad.id}}" style="cursor: pointer;">
+      <img class="card-img-top" src="{{actividad.imagen}}" alt="Card image cap" height="160px">
+      <div class="card-body">
+        <p class="card-text justify-content-end">{{actividad.puntuacion}} <span class="fas fa-star checked"></span>
+          Precios desde ${{actividad.costo}}</p>
+      </div>
+    </div>
+</div>
 <div *ngIf="showCreate">
   <app-actividad-create (cancel)="showHideCreate()" ></app-actividad-create>
 </div>
@@ -69,4 +17,4 @@
   <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
           (click)="showHideCreate()">Crear un Actividad</button>
 </div>
-</body>
+</div>
