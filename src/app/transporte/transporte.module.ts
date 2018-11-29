@@ -10,6 +10,7 @@ import { TransporteListComponent } from './transporte-list/transporte-list.compo
 import {TransporteService} from './transporte.service';
 import { TransporteDetailComponent } from './transporte-detail/transporte-detail.component';
 import { TransporteCreateComponent } from './transporte-create/transporte-create.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @NgModule({
   declarations: [TransporteListComponent, TransporteDetailComponent, TransporteCreateComponent],
@@ -17,9 +18,10 @@ import { TransporteCreateComponent } from './transporte-create/transporte-create
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxPermissionsModule,
     CommonModule,
     FormsModule
-    //NgbModule
+    // NgbModule
   ],
   providers: [TransporteService],
   bootstrap: [TransporteListComponent]

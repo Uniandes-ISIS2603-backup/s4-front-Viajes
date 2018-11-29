@@ -60,7 +60,7 @@
           <a id="combosTag" class="nav-item nav-link" routerLink="/combos/list"><span class="fas fa-box"></span> COMBOS</a>
         </li>
         <li class="nav-item active">
-          <a id="medallasTag" class="nav-item nav-link" routerLink="/medallas/list"><span class="fas fa-medal"></span> MEDALLAS</a>
+          <a id="medallasTag" class="nav-item nav-link" routerLink="/medallas/list" *ngxPermissionsOnly="['ADMIN']"><span class="fas fa-medal"></span> MEDALLAS</a>
         </li>
         <li class="nav-item active">
           <a id="guiasTag" class="nav-item nav-link" routerLink="/guias/list"><span class="fas fa-map"></span> GUIAS</a>

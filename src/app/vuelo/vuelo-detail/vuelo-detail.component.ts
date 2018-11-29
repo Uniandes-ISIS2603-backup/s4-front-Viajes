@@ -5,6 +5,8 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { VueloService } from '../vuelo.service';
 import { Vuelo } from '../vuelo';
 import { VueloDetail } from '../vuelo-detail';
+declare var ol: any;
+
 
 
 @Component({
@@ -14,6 +16,7 @@ import { VueloDetail } from '../vuelo-detail';
 })
 export class VueloDetailComponent implements OnInit, OnDestroy {
 
+  map: any;
 
   constructor(
     private vueloService: VueloService,
@@ -75,6 +78,19 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
       this.vueloDetail = new VueloDetail();
       this.getVueloDetail();
       this.getOtherVuelos();
+    this.map = new ol.Map({
+      target: 'map',
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+      ],
+      view: new ol.View({
+        center: ol.proj.fromLonLat([this.vueloDetail.longitudDestino, this.vueloDetail.latitudDestino]),
+        zoom: 20
+      }),
+    });
+
   }
 
   /**

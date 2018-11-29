@@ -14,12 +14,14 @@
   <app-actividad-create (cancel)="showHideCreate()" ></app-actividad-create>
 </div>
 <div class="row">
-  <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-          (click)="showHideCreate()">Crear una Actividad</button>
+
+  <button *ngxPermissionsOnly="['ADMIN','PROV']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+          (click)="showHideCreate()">Crear un Actividad</button>
+
 </div>
 
 <div class="row">
-  <button [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" type="button" class="btn"
+  <button *ngxPermissionsOnly="['ADMIN','PROV']" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" type="button" class="btn"
           (click)="showHideEdit()">Editar una Actividad</button>
 </div>
 

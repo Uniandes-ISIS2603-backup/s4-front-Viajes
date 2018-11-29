@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {NgxPermissionsModule} from 'ngx-permissions';
-
 import { ActividadListComponent } from './actividad-list/actividad-list.component';
 import { ActividadService } from './actividad.service';
 import { ActividadDetailComponent } from './actividad-detail/actividad-detail.component';
-
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,12 +19,12 @@ import { ActividadEditComponent } from './actividad-edit/actividad-edit.componen
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
-        NgxPermissionsModule,
+      NgxPermissionsModule,
         CommonModule,
         FormsModule,
         GuiaModule
     ],
-    declarations: [ActividadListComponent,ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent, ActividadGuiaCreateComponent, ActividadEditComponent],
+    declarations: [ActividadListComponent, ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent, ActividadGuiaCreateComponent, ActividadEditComponent],
     providers: [ActividadService],
     bootstrap: [ActividadListComponent]
 })
