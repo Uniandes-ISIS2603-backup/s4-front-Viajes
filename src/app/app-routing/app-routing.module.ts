@@ -77,6 +77,10 @@ const routes: Routes = [
             component: MedallaEditComponent
             },
             {
+            path: ':id/edit',
+            component: MedallaEditComponent
+            },
+            {
                 path: ':id',
                 component: MedallaDetailComponent
             }

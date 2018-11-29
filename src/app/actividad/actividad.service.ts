@@ -30,7 +30,7 @@ export class ActividadService {
    * @returns The list of Actividades in real time
    */
   getActividades(): Observable<Actividad[]> {
-    return this.http.get<Actividad[]>(API_URL + actividades);
+    return this.http.get<Actividad[]>(API_URL + actividad);
   }
 
   /**
@@ -38,7 +38,7 @@ export class ActividadService {
    * @returns The activity details
    */
   getActividadDetail(actividadId): Observable<ActividadDetail> {
-    return this.http.get<ActividadDetail>(API_URL + actividades + '/' + actividadId);
+    return this.http.get<ActividadDetail>(API_URL + actividad + '/' + actividadId);
   }
 
   /**
@@ -47,7 +47,7 @@ export class ActividadService {
    * @returns The confirmation of the editorial's creation
    */
   createActividad(actividad): Observable<ActividadDetail> {
-    return this.http.post<ActividadDetail>(API_URL + actividades, actividad);
+    return this.http.post<ActividadDetail>(API_URL + actividad, actividad);
   }
 
   /**
@@ -55,9 +55,9 @@ export class ActividadService {
    * @param editorial The editorial which will be created
    * @returns The confirmation of the editorial's creation
    */
-  associateActividadGuia(actividadId,guiaId): Observable<Guia> {
+  associateActividadGuia(actividadId,guiaParam): Observable<Guia> {
 
-    return this.http.post<Guia>(API_URL + actividades + '/' + actividadId + guias + '/' + guiaId,null)
+    return this.http.post<Guia>(API_URL + actividades + '/' + actividadId + guias,guiaParam)
 
   }
   
@@ -67,7 +67,7 @@ export class ActividadService {
     * @returns The confirmation of the editorial's update
     */
     updateActividad(actividad): Observable<ActividadDetail> {
-        return this.http.put<ActividadDetail>(API_URL + actividades + '/' + actividad.id, actividad);
+        return this.http.put<ActividadDetail>(API_URL + actividad + '/' + actividad.id, actividad);
     }
     
     /**

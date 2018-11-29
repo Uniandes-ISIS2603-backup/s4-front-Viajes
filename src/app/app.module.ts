@@ -58,8 +58,6 @@ import {AuthModule} from './auth/auth.module';
     ToastrModule.forRoot(),
     NgxPermissionsModule.forRoot(),
     BrowserAnimationsModule,
-    ModalDialogModule.forRoot(),
-    NgxPermissionsModule.forRoot(),
     AuthModule
   ],
    bootstrap: [AppComponent],

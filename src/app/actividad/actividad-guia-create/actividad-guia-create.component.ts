@@ -59,18 +59,11 @@ export class ActividadGuiaCreateComponent implements OnInit {
     * Creates an activity
     */
     createGuia(): Guia {
-        this.guiaService.createGuia(this.guia)
-            .subscribe((guia) =>
-            {
-                this.guia = this.guia;
-                this.guiaId = this.guia.documento;
-                this.create.emit();
-                this.toastrService.success("El guia fue creada", "Creacion de guia");
-                
-            }
-            );
-        this.actividadService.associateActividadGuia(this.actividadId,this.guia.documento).
+
+        this.actividadService.associateActividadGuia(this.actividadId,this.guia).
             subscribe(() => {
+                this.guiaId = this.guia.id;
+                this.guia = this.guia;
                 this.updateGuias.emit();
                 this.toastrService.success("El guia se pudo asociar a la actividad", 'Guia asociado');
             }, err => {
@@ -85,8 +78,8 @@ export class ActividadGuiaCreateComponent implements OnInit {
     */
     associateActividadGuia(): any{
 
-       console.log(this.actividadService.associateActividadGuia(this.actividadId,this.guiaId));
-       return this.actividadService.associateActividadGuia(this.actividadId,this.guiaId);
+       console.log(this.actividadService.associateActividadGuia(this.actividadId,this.guia));
+       return this.actividadService.associateActividadGuia(this.actividadId,this.guia);
             
     }
     

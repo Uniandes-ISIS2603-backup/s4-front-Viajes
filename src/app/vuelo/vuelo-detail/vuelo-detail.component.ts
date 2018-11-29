@@ -72,24 +72,7 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this.vuelo_id = +this.route.snapshot.paramMap.get('id');
-      this.vueloDetail = new class implements VueloDetail {
-        costo: number;
-        destino: string;
-        disponibilidadFecha: any[];
-        duracion: number;
-        fechasDisponibles: any[];
-        fechasLlegada: any[];
-        id: number;
-        imagen: string;
-        latitud: number;
-        latitudDestino: number;
-        longitud: number;
-        longitudDestino: number;
-        nombre: string;
-        origen: string;
-        puntuacion: number;
-        vuelo: Vuelo[];
-      }
+      this.vueloDetail = new VueloDetail();
       this.getVueloDetail();
       this.getOtherVuelos();
   }

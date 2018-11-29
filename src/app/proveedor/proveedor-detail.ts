@@ -3,6 +3,6 @@ import { Vuelo } from '../vuelo/vuelo';
   import { Actividad } from '../actividad/actividad';
 
 
-export interface ProveedorDetail extends Proveedor{
+export class ProveedorDetail extends Proveedor{
   servicios: Vuelo[];
 }

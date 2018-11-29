@@ -8,7 +8,7 @@ import {TransporteDetail} from '../transporte-detail';
 * Componente para lista de transportes.
 */
 @Component({
-  selector: 'app-transporte',
+  selector: 'app-transporte-list',
   templateUrl: './transporte-list.component.html',
   styleUrls: ['./transporte-list.component.css']
 })
@@ -23,8 +23,10 @@ export class TransporteListComponent implements OnInit {
     /**
      * Lista de transportes
      */
-     transportes: Transporte[]; 
+     @Input() transportes: Transporte[];
+
      transporte_id: number;
+
      selectedTransporte: Transporte;
 
   /**
@@ -32,13 +34,6 @@ export class TransporteListComponent implements OnInit {
    */
   showCreate: boolean;
 
-    transporteActual(transporte_id: number): Transporte {
-
-        this.transporte_id = transporte_id;
-        this.selectedTransporte = new TransporteDetail();
-        this.getTransporteDetail();
-        return this.selectedTransporte;
-    }
     onSelected(transporte_id: number): void {
         this.transporte_id = transporte_id;
         this.showCreate = false;
