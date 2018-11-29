@@ -1,17 +1,14 @@
 <body>
 <div>
-<h1> {{actividadDetail.nombreActividad}}</h1>
+<h2> {{actividadDetail.nombre}}</h2>
 </div>
 
-<table id ="tablaDetalle" class="table">
-  <thead class="thead-dark">
-      
+<table id ="tablaDetalle" class="table table-hover">
   <tr>
     <th>Puntuacion</th>
     <th>Costo</th>
     <th>Duracion(mins)</th>
   </tr>
-  </thead>
   <tbody>
   <tr>
     <td>
@@ -25,7 +22,8 @@
     <td>
       {{actividadDetail.duracion}}
     </td>    
-    
+
+
   </tr>
   </tbody>
 </table>

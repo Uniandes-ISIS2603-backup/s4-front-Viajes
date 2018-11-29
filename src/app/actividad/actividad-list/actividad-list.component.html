@@ -2,14 +2,20 @@
 <h1 id="texto">Actividades</h1>
 <p id="texto">A continuación se muestra una lista de las actividades disponibles en TripBuilder:</p>
 <div class="row">
-    <div class="card col-md-2" style="width: 18rem;" *ngFor = "let actividad of actividades"  onClick ="window.location.reload()" routerLink="/actividades/{{actividad.id}}" style="cursor: pointer;">
-      <img class="card-img-top" src="{{actividad.imagen}}" alt="Card image cap" height="160px">
+    <div class="card col-md-2" style="width: 18rem;" *ngFor = "let actividad of actividades">
+      <img class="card-img-top" src="{{actividad.imagen}}" alt="Card image cap" height="160px"  style="cursor: pointer;" (click)="onSelected(actividad.id)">
       <div class="card-body">
         <p class="card-text justify-content-end">{{actividad.puntuacion}} <span class="fas fa-star checked"></span>
           Precios desde ${{actividad.costo}}</p>
       </div>
+      <div class="row">
+        <button class="btn" id="calificar" (click)="showHideCalificar(actividad.id)">Calificar</button>
+      </div>
     </div>
 </div>
+  <div *ngIf="showView">
+    <app-actividad-detail [actividadDetail]="selectedActividad"></app-actividad-detail>
+  </div>
 <div *ngIf="showCreate">
   <app-actividad-create (cancel)="showHideCreate()" ></app-actividad-create>
 </div>
@@ -17,4 +23,7 @@
   <button *ngxPermissionsOnly="['ADMIN','PROV']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
           (click)="showHideCreate()">Crear un Actividad</button>
 </div>
+  <div *ngIf="showCalificar">
+    <app-actividad-calificar [actividad]="selectedActividad" (cancel)="showHideCalificar(selectedActividad.id)" (update)="updateActividad()" ></app-actividad-calificar>
+  </div>
 </div>
