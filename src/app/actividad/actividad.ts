@@ -15,7 +15,7 @@ export class Actividad extends Servicio{
     */
     duracion: number;
 
-    imagen:string;
+
 
     /**
     * The activity's identificator
