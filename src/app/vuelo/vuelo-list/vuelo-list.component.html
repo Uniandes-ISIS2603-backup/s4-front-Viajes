@@ -10,10 +10,10 @@
           Precios desde ${{vuelo.costo}}</p>
       </div>
       <div class="row">
-        <button class="btn btn-primary" (click)="showHideEdit(vuelo.id)"><span class="fas fa-pencil-alt"></span></button>
+        <button *ngxPermissionsOnly="['ADMIN']" class="btn btn-primary" (click)="showHideEdit(vuelo.id)"><span class="fas fa-pencil-alt"></span></button>
       </div>
       <div class="row">
-        <button class="btn btn-danger" (click)="deleteVuelo(vuelo.id)"><span class="fas fa-trash-alt"></span></button>
+        <button  *ngxPermissionsOnly="['ADMIN']" class="btn btn-danger" (click)="deleteVuelo(vuelo.id)"><span class="fas fa-trash-alt"></span></button>
       </div>
     </div>
 
@@ -33,4 +33,5 @@
   <div *ngIf="showEdit">
     <app-vuelo-edit [vuelo]="selectedVuelo" (cancel)="showHideEdit(selectedVuelo.id)" (update)="updateVuelo()" ></app-vuelo-edit>
   </div>
+</div>
 </div>

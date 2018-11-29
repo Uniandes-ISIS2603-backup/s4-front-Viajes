@@ -36,6 +36,9 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
 
   vuelo_id: number;
 
+  mostrar: false;
+
+
   /**
    * The other books shown in the sidebar
    */
@@ -70,8 +73,8 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
 
   /**
    * The method which initilizes the component
-   * We need to initialize the book and its editorial so that
-   * they are never considered undefined
+   * We need to initialize the usuario
+   * Usuario is never considered undefined
    */
   ngOnInit() {
     this.vuelo_id = +this.route.snapshot.paramMap.get('id');
@@ -84,11 +87,7 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
         new ol.layer.Tile({
           source: new ol.source.OSM()
         })
-      ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([this.vueloDetail.longitudDestino, this.vueloDetail.latitudDestino]),
-        zoom: 20
-      }),
+      ]
     });
 
   }

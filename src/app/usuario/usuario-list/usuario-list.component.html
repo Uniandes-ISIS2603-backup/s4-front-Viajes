@@ -22,7 +22,7 @@
           <button class="btn btn-primary" (click)="showHideEdit(usuario.id)"><span class="fas fa-pen-square"></span></button>
         </td>
         <td *ngxPermissionsOnly="['ADMIN']">
-          <button class="btn btn-danger" (click)="deleteAuthor(usuario.id)"><span class="fa fa-trash"></span></button>
+          <button class="btn btn-danger" (click)="deleteUsuario(usuario.id)"><span class="fa fa-trash"></span></button>
         </td>
 
       </tr>
