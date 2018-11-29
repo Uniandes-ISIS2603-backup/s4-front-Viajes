@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <br>
+    <h2 class="text-center">Calificar actividad</h2>
+    <br>
+    <form class="justify-content-center" name="actividad" (ngSubmit)="f.form.valid && calificarActividad()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="vueloCap"><b>Puntuación</b></label>
+        <input type="number" name="actPun" class="form-control" id="actPun" [(ngModel)]="actividad.puntuacion"
+               #actPun ="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actPun.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la puntuación de la actividad</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row form-inline justify-content-center align-self-center">
+            <button  ype="submit" class="btn btn-primary"(click)="calificarActividad()">Calificar</button>
+
+            <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </form>
+  </div>
+</div>
+
+

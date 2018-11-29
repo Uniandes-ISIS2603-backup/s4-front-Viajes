@@ -49,7 +49,7 @@ export class ActividadEditComponent implements OnInit {
     * Retrieves the information of the editorial
     */
     getActividad(): void {
-        this.editorialService.getActividadDetail(this.actividad_id)
+        this.actividadService.getActividadDetail(this.actividad_id)
             .subscribe(actividad => {
                 this.actividad = actividad;
             });

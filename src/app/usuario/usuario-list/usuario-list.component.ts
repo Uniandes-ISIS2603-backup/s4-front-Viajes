@@ -103,7 +103,7 @@ import {ToastrService} from '../../../../node_modules/ngx-toastr';
   /**
    * Deletes an usuario
    */
-  deleteAuthor(usuarioId): void {
+  deleteUsuario(usuarioId): void {
     this.modalDialogService.openDialog(this.viewRef, {
       title: 'Delete an usuario',
       childComponent: SimpleModalComponent,

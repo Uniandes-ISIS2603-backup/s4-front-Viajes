@@ -15,6 +15,7 @@ import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import { VueloEditComponent } from './vuelo-edit/vuelo-edit.component';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import { VueloCalificarComponent } from './vuelo-calificar/vuelo-calificar.component';
 
 const map = new Map({
   target: 'map',
@@ -40,7 +41,7 @@ const map = new Map({
   ],
 
   declarations: [VueloListComponent,
-    VueloDetailComponent, VueloCreateComponent, VueloEditComponent
+    VueloDetailComponent, VueloCreateComponent, VueloEditComponent, VueloCalificarComponent
   ],
 
   providers: [VueloService],

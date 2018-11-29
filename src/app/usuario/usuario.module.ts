@@ -11,6 +11,7 @@ import { UsuarioCreateComponent } from './usuario-create/usuario-create.componen
 import {UsuarioDetailComponent} from './usuario-detail/usuario-detail.component';
 import { UsuarioEditComponent } from './usuario-edit/usuario-edit.component';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     HttpClientModule,
     NgxPermissionsModule,
     CommonModule,
-    FormsModule  ],
+    FormsModule,
+    NgbModule  ],
   declarations: [UsuarioListComponent, UsuarioEntradasComponent, UsuarioCreateComponent, UsuarioDetailComponent, UsuarioEditComponent],
   providers: [UsuarioService],
   bootstrap: [UsuarioListComponent]

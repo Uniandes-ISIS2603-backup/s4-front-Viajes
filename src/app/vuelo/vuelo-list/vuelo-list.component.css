@@ -30,3 +30,8 @@ button{
 .checked{
   color: gold;
 }
+
+#calificar{
+  color: #ffffff;
+  background: limegreen;
+}
