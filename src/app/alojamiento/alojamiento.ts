@@ -57,6 +57,6 @@ export class Alojamiento extends Servicio{
      * Proveedor del alojamiento
      */
      
-     proveedor: Proveedor; 
+    //proveedor: Proveedor; 
 }
 

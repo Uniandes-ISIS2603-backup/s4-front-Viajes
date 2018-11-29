@@ -6,7 +6,7 @@ import { Alojamiento } from './alojamiento';
 * Contiene toda la informacion relevante. 
 */
 export class AlojamientoDetail extends Alojamiento {
-    
+    Alojamiento: Alojamiento[]; 
 }
 
 

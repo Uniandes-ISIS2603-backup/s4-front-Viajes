@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {Router} from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 

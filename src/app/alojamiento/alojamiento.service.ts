@@ -31,6 +31,14 @@ export class AlojamientoService {
     }
     
     /**
+    * Retorna el detail de alojameinto
+    * @returns Detail del recurso
+    */
+    getAlojamientoDetail(alojamientoId): Observable<AlojamientoDetail> {
+        return this.http.get<AlojamientoDetail>(API_URL + alojamientos + '/' + alojamientoId);
+    }
+    
+    /**
     * Crea un nuevo alojamiento
     * @param alojamiento 
     * @returns True si se crea correctamente, false de lo contrario
@@ -40,12 +48,20 @@ export class AlojamientoService {
     }
     
     /**
-    * Retorna el detail de alojameinto
-    * @returns Detail del recurso
+    * Actualiza un alojamiento
+    * @param alojameinto
+    * @returns Confirmacion del alojameinto actualizado
     */
-    getAlojamientoDetail(alojamientoId): Observable<AlojamientoDetail> {
-        return this.http.get<AlojamientoDetail>(API_URL + alojamientos + '/' + alojamientoId);
+    updateAlojamiento(alojamiento): Observable<AlojamientoDetail> {
+    return this.http.put<AlojamientoDetail>(API_URL + alojamientos + '/' + alojamiento.id, alojamiento);
     }
+    
+    /**
+    * Deletes an author from the BookStore
+    * @param authorId The id of the author
+    * @returns The confirmation that the author was deleted
+    */
+    deleteAlojamiento(alojamientoId): Observable<boolean> {
+    return this.http.delete<boolean>(API_URL + alojamientos + '/' + alojamientoId);
+    }   
 }
-
-
