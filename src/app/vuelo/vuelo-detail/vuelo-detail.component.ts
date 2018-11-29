@@ -44,6 +44,7 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
 
   vuelo_id: number;
 
+  mostrar: false;
 
 
   /**
@@ -60,11 +61,12 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
    * The method which retrieves the details of the book that
    * we want to show
    */
-  async getVueloDetail() {
+  getVueloDetail(): VueloDetail {
     this.vueloService.getVueloDetail(this.vuelo_id)
       .subscribe(vueloDetail => {
         this.vueloDetail = vueloDetail;
       });
+    return this.vueloDetail
 
   }
 
@@ -97,10 +99,9 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
     this.layer = new OlTileLayer({
       source: this.source
     });
-    console.log('LONGITUD:' + this.vueloDetail.latitudDestino );
 
     this.view = new OlView({
-      center: fromLonLat([this.vueloDetail.longitudDestino, this.vueloDetail.latitudDestino]),
+      center: fromLonLat([95.955971, 21.916222]),
       zoom: 10
     });
 
