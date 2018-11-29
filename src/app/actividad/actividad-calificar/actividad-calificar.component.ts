@@ -55,7 +55,7 @@ export class ActividadCalificarComponent implements OnInit {
    * This function will initialize the component
    */
   ngOnInit() {
-    this.calificarActividad();
+
   }
 
   /**

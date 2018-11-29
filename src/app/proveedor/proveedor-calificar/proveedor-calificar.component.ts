@@ -55,7 +55,6 @@ export class ProveedorCalificarComponent implements OnInit {
    * This function will initialize the component
    */
   ngOnInit() {
-    this.calificarProveedor();
   }
 
   /**
