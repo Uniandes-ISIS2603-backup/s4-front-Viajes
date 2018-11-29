@@ -44,9 +44,6 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
 
   vuelo_id: number;
 
-  mostrar: false;
-
-  algo: VueloDetail;
 
 
   /**
@@ -63,7 +60,7 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
    * The method which retrieves the details of the book that
    * we want to show
    */
-  getVueloDetail(): void {
+  async getVueloDetail() {
     this.vueloService.getVueloDetail(this.vuelo_id)
       .subscribe(vueloDetail => {
         this.vueloDetail = vueloDetail;
@@ -89,8 +86,7 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.vuelo_id = +this.route.snapshot.paramMap.get('id');
-    this.algo = new VueloDetail();
-    this.vueloDetail = this.algo;
+    this.vueloDetail = new VueloDetail();
     this.getVueloDetail();
     this.getOtherVuelos();
 
@@ -101,7 +97,7 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
     this.layer = new OlTileLayer({
       source: this.source
     });
-    console.log('LONGITUD: ' + this.algo.latitudDestino);
+    console.log('LONGITUD:' + this.vueloDetail.latitudDestino );
 
     this.view = new OlView({
       center: fromLonLat([this.vueloDetail.longitudDestino, this.vueloDetail.latitudDestino]),

@@ -16,7 +16,7 @@
         <button  *ngxPermissionsOnly="['ADMIN']" class="btn btn-danger" (click)="deleteVuelo(vuelo.id)"><span class="fas fa-trash-alt"></span></button>
       </div>
       <div class="row">
-        <button class="btn" id="calificar" (click)="showHideCalificar(vuelo.id)">Calificar</button>
+        <button *ngxPermissionsOnly="['USER']" class="btn" id="calificar" (click)="showHideCalificar(vuelo.id)">Calificar</button>
       </div>
     </div>
 
