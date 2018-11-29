@@ -11,7 +11,7 @@ declare var ol: any;
   templateUrl: './alojamiento-detail.component.html',
   styleUrls: ['./alojamiento-detail.component.css']
 })
-export class AlojamientoDetailComponent implements OnInit, OnDestroy {
+export class AlojamientoDetailComponent implements OnInit {
 
 
   map: any;
@@ -69,7 +69,7 @@ export class AlojamientoDetailComponent implements OnInit, OnDestroy {
     this.alojamientoService.getAlojamientos()
       .subscribe(alojamientos => {
         this.other_alojamientos = alojamientos;
-        this.other_alojamientos = this.other_alojamientos.filter(alojamientos => alojamiento.id !== this.alojamiento_id);
+        this.other_alojamientos = this.other_alojamientos.filter(alojamientos => alojamientos.id !== this.alojamientoId);
       });
     }
     
