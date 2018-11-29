@@ -37,7 +37,7 @@ export class ActividadCalificarComponent implements OnInit {
    * Updates the information of the author
    */
   calificarActividad(): void {
-    this.actividadService.updateActividad(this.actividad)
+    this.actividadService.updateActividad(this.actividad.id,this.actividad)
       .subscribe(() => {
         this.toastrService.success("La actividad fue calificada", "Calificar actividad");
       });

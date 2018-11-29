@@ -15,14 +15,32 @@
 </div>
   <div *ngIf="showView">
     <app-actividad-detail [actividadDetail]="selectedActividad"></app-actividad-detail>
+     <a data-pin-do="embedBoard" data-pin-board-width="600" data-pin-scale-height="800" data-pin-scale-width="500" href="selectedActividad.imagen"></a>
   </div>
 <div *ngIf="showCreate">
   <app-actividad-create (cancel)="showHideCreate()" ></app-actividad-create>
 </div>
 <div class="row">
+
   <button *ngxPermissionsOnly="['ADMIN','PROV']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
           (click)="showHideCreate()">Crear un Actividad</button>
+
 </div>
+
+<div class="row">
+  <button *ngxPermissionsOnly="['ADMIN','PROV']" [ngClass]="{ 'btn-primary': !showEdit, 'btn-danger': showEdit }" type="button" class="btn"
+          (click)="showHideEdit()">Editar una Actividad</button>
+</div>
+
+<div *ngxPermissionsOnly="['ADMIN']">
+              <button class="btn btn-primary" (click)="showHideEdit(actividad.id)"><span class="fa fa-pencil"></span></button>
+</div>
+
+<div *ngIf="showEdit">
+      <app-actividad-edit [actividad_id]="actividad_edit_id" (cancel)="showHideEdit(actividad_edit_id)" (update)="updateActividad()"></app-actividad-edit>
+    </div>
+
+
   <div *ngIf="showCalificar">
     <app-actividad-calificar [actividad]="selectedActividad" (cancel)="showHideCalificar(selectedActividad.id)" (update)="updateActividad()" ></app-actividad-calificar>
   </div>

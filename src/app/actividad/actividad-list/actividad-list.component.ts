@@ -42,6 +42,8 @@ export class ActividadListComponent implements OnInit {
    * Shows or hides the detail of an author
    */
   showView: boolean;
+  
+  showDelete: boolean;
 
   /**
    * Shows or hides the detail of an author
@@ -179,6 +181,7 @@ export class ActividadListComponent implements OnInit {
       this.showCalificar = false;
       this.selectedActividad = undefined;
       this.actividad_id = undefined;
+        this.showDelete = false;
         this.getActividades();
     }
 }
