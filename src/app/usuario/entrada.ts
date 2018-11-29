@@ -15,7 +15,7 @@ export class Entrada {
         /**
     * El texto de contenido de la entrada
     */
-    texto: string;
+    textoContenido: string;
     
      /**
     * La puntuacion dada a la entrada

@@ -12,6 +12,10 @@ export class UsuarioEntradasComponent implements OnInit {
       @Input() usuarioEntradas : Entrada [];
     public isCollapsed = true;
     
+        updateReviews(entradas:Entrada[]): void {
+        this.usuarioEntradas = entradas;
+    }
+    
     ngOnInit(){
         
     }

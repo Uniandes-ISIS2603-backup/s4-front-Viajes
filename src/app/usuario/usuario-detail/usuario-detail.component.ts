@@ -15,7 +15,7 @@ export class UsuarioDetailComponent implements OnInit, OnDestroy {
    */
   @Input()usuarioDetail: UsuarioDetail;
   navigationSubscription;
-  /**
+      /**
    * Constructor for the component
    * @param route The route which helps to retrieves the id of the usuario to be shown
    * @param usuarioService The usuario services provider
@@ -32,9 +32,9 @@ export class UsuarioDetailComponent implements OnInit, OnDestroy {
       }
     });
   }
+  
 
-
-  /**
+        /**
    * El id del usuario que viene en el path get .../usuario/usuario_id
    */
   usuario_id: number;
