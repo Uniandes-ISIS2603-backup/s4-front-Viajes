@@ -138,6 +138,7 @@ export class ActividadListComponent implements OnInit {
     ngOnInit() {
         this.showCreate = false;
         this.showEdit = false;
+        this.showDelete = false;
         this.getActividades();
     }
 }
