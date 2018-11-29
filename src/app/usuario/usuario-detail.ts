@@ -4,6 +4,6 @@ import {Entrada} from './entrada';
 
 export class UsuarioDetail extends Usuario {
 
-
+    entradas: Entrada[];
 
 }

@@ -48,24 +48,7 @@ export class VueloListComponent implements OnInit {
       this.showView = true;
       this.showEdit = false;
       this.vuelo_id = vuelo_id;
-    this.selectedVuelo = new class implements VueloDetail {
-      costo: number;
-      destino: string;
-      disponibilidadFecha: any[];
-      duracion: number;
-      fechasDisponibles: any[];
-      fechasLlegada: any[];
-      id: number;
-      imagen: string;
-      latitud: number;
-      latitudDestino: number;
-      longitud: number;
-      longitudDestino: number;
-      nombre: string;
-      origen: string;
-      puntuacion: number;
-      vuelo: Vuelo[];
-    }
+    this.selectedVuelo = new VueloDetail();
     this.getVueloDetail();
   }
 

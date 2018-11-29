@@ -36,15 +36,7 @@ export class ProveedorListComponent implements OnInit {
   onSelected(proveedor_id: number):void {
     this.showCreate = false;
     this.proveedor_id = proveedor_id;
-    this.selectedProveedor = new class implements ProveedorDetail {
-      id: number;
-      imagen: string;
-      nombre: string;
-      password: string;
-      puntuacion: number;
-      servicios: Vuelo[];
-      username: string;
-    }
+    this.selectedProveedor = new ProveedorDetail();
     this.getProveedorDetail();
   }
 

@@ -1,10 +1,10 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-20">
+    <div class="col-6">
 
 <h1 id="texto">Usuarios</h1>
     <p>A continuación, se muestra una lista de todos los usuarios registrados en TripBuilder y disponibles para realizar compras:</p>
-    <table class="table table-hover">
+    <table class="table table-borderless">
       <tr>
         <th>UserName</th>
         <th>Documento</th>
@@ -12,7 +12,7 @@
       </tr>
       <tbody>
       <tr *ngFor="let usuario of usuarios">
-        <td>
+        <td (click) ="onSelected(usuario.id)">
           {{usuario.userName}}
         </td>
         <td>
@@ -29,7 +29,9 @@
       </tbody>
     </table>
     </div>
-    <div class="col-8">
+    <div class="col-6">
+        <br>
+        <br>
       <div *ngIf="showView">
         <app-usuario-detail [usuarioDetail]="selectedUsuario"></app-usuario-detail>
       </div>

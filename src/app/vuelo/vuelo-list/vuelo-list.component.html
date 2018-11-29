@@ -3,8 +3,8 @@
 <h1>Vuelos</h1>
   <p id="texto">A continuación, se muestra una lista de todos los vuelos disponibles en TripBuilder:</p>
   <div class="row">
-    <div class="card col-md-2" style="width: 18rem;" *ngFor = "let vuelo of vuelos"  routerLink="/vuelos/{{vuelo.id}}" style="cursor: pointer;">
-      <img class="card-img-top" src="{{vuelo.imagen}}" alt="Card image cap" height="160px">
+    <div class="card col-md-2" style="width: 18rem;" *ngFor = "let vuelo of vuelos">
+      <img class="card-img-top" src="{{vuelo.imagen}}" alt="Card image cap" height="160px" style="cursor: pointer;" (click)="onSelected(vuelo.id)">
       <div class="card-body">
         <p class="card-text justify-content-end">{{vuelo.puntuacion}} <span class="fas fa-star checked"></span>
           Precios desde ${{vuelo.costo}}</p>
@@ -18,7 +18,9 @@
     </div>
     </div>
   <div class="col-8">
-
+    <div *ngIf="showView">
+      <app-vuelo-detail [vueloDetail]="selectedVuelo"></app-vuelo-detail>
+    </div>
     <div *ngIf="showCreate">
       <app-vuelo-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-vuelo-create>
     </div>
