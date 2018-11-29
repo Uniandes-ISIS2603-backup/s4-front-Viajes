@@ -72,7 +72,7 @@ export class VueloListComponent implements OnInit {
     if (!this.showCalificar || (this.showCalificar && vuelo_id != this.selectedVuelo.id)) {
       this.showView = false;
       this.showCreate = false;
-      this.showEdit = false;
+      this.showEdit = true;
       this.showCalificar = true;
       this.vuelo_id = vuelo_id;
       this.selectedVuelo = new VueloDetail();
