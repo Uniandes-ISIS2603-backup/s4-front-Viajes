@@ -63,7 +63,6 @@ export class ActividadGuiaCreateComponent implements OnInit {
         this.actividadService.associateActividadGuia(this.actividadId,this.guia).
             subscribe(() => {
                 this.guiaId = this.guia.id;
-                this.guia = this.guia;
                 this.updateGuias.emit();
                 this.toastrService.success("El guia se pudo asociar a la actividad", 'Guia asociado');
             }, err => {
