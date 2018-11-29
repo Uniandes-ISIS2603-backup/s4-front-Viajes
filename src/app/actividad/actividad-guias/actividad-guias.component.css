@@ -5,3 +5,8 @@
     text-align: center;
     font-size: 8px;
 }
+
+table th{
+  background: #152C9D;
+  color: white;
+}

@@ -43,10 +43,16 @@ export class VueloListComponent implements OnInit {
    */
   showView: boolean;
 
+  /**
+   * Shows or hides the detail of an author
+   */
+  showCalificar: boolean;
+
   onSelected(vuelo_id: number):void {
       this.showCreate = false;
       this.showView = true;
       this.showEdit = false;
+      this.showCalificar = false;
       this.vuelo_id = vuelo_id;
     this.selectedVuelo = new VueloDetail();
     this.getVueloDetail();
@@ -58,7 +64,25 @@ export class VueloListComponent implements OnInit {
   showHideCreate(): void {
     this.showView = true;
     this.showEdit = false;
+    this.showCalificar = false;
     this.showCreate = !this.showCreate;
+  }
+
+  showHideCalificar(vuelo_id: number): void {
+    if (!this.showCalificar || (this.showCalificar && vuelo_id != this.selectedVuelo.id)) {
+      this.showView = false;
+      this.showCreate = false;
+      this.showEdit = true;
+      this.showCalificar = true;
+      this.vuelo_id = vuelo_id;
+      this.selectedVuelo = new VueloDetail();
+      this.getVueloDetail();
+    }
+    else {
+      this.showEdit = false;
+      this.showView = true;
+      this.showCalificar = false;
+    }
   }
 
   /**
@@ -69,6 +93,7 @@ export class VueloListComponent implements OnInit {
       this.showView = false;
       this.showCreate = false;
       this.showEdit = true;
+      this.showCalificar = false;
       this.vuelo_id = vuelo_id;
       this.selectedVuelo = new VueloDetail();
       this.getVueloDetail();
@@ -76,6 +101,7 @@ export class VueloListComponent implements OnInit {
     else {
       this.showEdit = false;
       this.showView = true;
+      this.showCalificar = false;
     }
   }
 
@@ -98,6 +124,7 @@ export class VueloListComponent implements OnInit {
   updateVuelo(): void {
     this.showEdit = false;
     this.showView = true;
+    this.showCalificar = false;
   }
 
   /**
@@ -135,6 +162,7 @@ export class VueloListComponent implements OnInit {
       this.showCreate = false;
       this.showEdit = false;
       this.showView = false;
+      this.showCalificar = false;
       this.selectedVuelo = undefined;
       this.vuelo_id = undefined;
       this.getVuelos();

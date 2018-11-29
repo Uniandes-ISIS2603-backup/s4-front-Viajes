@@ -5,6 +5,14 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { VueloService } from '../vuelo.service';
 import { Vuelo } from '../vuelo';
 import { VueloDetail } from '../vuelo-detail';
+import OlMap from 'ol/Map';
+import OlXYZ from 'ol/source/XYZ';
+import OlTileLayer from 'ol/layer/Tile';
+import OlView from 'ol/View';
+
+import { fromLonLat } from 'ol/proj';
+
+
 declare var ol: any;
 
 
@@ -16,7 +24,7 @@ declare var ol: any;
 })
 export class VueloDetailComponent implements OnInit, OnDestroy {
 
-  map: any;
+//  map: any;
 
   constructor(
     private vueloService: VueloService,
@@ -35,6 +43,11 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
   @Input() vueloDetail: VueloDetail;
 
   vuelo_id: number;
+
+  mostrar: false;
+
+  algo: VueloDetail;
+
 
   /**
    * The other books shown in the sidebar
@@ -55,6 +68,7 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
       .subscribe(vueloDetail => {
         this.vueloDetail = vueloDetail;
       });
+
   }
 
   /**
@@ -68,30 +82,51 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
       });
   }
 
-  /**
-   * The method which initilizes the component
-   * We need to initialize the book and its editorial so that
-   * they are never considered undefined
-   */
+  map: OlMap;
+  source: OlXYZ;
+  layer: OlTileLayer;
+  view: OlView;
+
   ngOnInit() {
     this.vuelo_id = +this.route.snapshot.paramMap.get('id');
-      this.vueloDetail = new VueloDetail();
-      this.getVueloDetail();
-      this.getOtherVuelos();
-    this.map = new ol.Map({
-      target: 'map',
-      layers: [
-        new ol.layer.Tile({
-          source: new ol.source.OSM()
-        })
-      ],
-      view: new ol.View({
-        center: ol.proj.fromLonLat([this.vueloDetail.longitudDestino, this.vueloDetail.latitudDestino]),
-        zoom: 20
-      }),
+    this.algo = new VueloDetail();
+    this.vueloDetail = this.algo;
+    this.getVueloDetail();
+    this.getOtherVuelos();
+
+    this.source = new OlXYZ({
+      url: 'http://tile.osm.org/{z}/{x}/{y}.png'
     });
 
+    this.layer = new OlTileLayer({
+      source: this.source
+    });
+    console.log('LONGITUD: ' + this.algo.latitudDestino);
+
+    this.view = new OlView({
+      center: fromLonLat([this.vueloDetail.longitudDestino, this.vueloDetail.latitudDestino]),
+      zoom: 10
+    });
+
+    this.map = new OlMap({
+      target: 'map',
+      layers: [this.layer],
+      view: this.view
+    });
   }
+
+
+  /**
+   * The method which initilizes the component
+   * We need to initialize the usuario
+   * Usuario is never considered undefined
+   */
+  //ngOnInit() {
+    //this.vuelo_id = +this.route.snapshot.paramMap.get('id');
+      //this.vueloDetail = new VueloDetail();
+     // this.getVueloDetail();
+    //  this.getOtherVuelos();
+  //}
 
   /**
    * This method helps to refresh the view when we need to load another book into it
@@ -101,6 +136,8 @@ export class VueloDetailComponent implements OnInit, OnDestroy {
     if (this.navigationSubscription) {
       this.navigationSubscription.unsubscribe();
     }
+
+
   }
 
 }

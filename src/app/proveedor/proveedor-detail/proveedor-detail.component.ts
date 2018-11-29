@@ -1,11 +1,10 @@
-import {Component, OnInit, OnDestroy, ViewContainerRef} from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewContainerRef, Input} from '@angular/core';
 import {ActivatedRoute, Router, NavigationEnd} from '@angular/router';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 
 import {ProveedorService} from '../proveedor.service';
 import {Proveedor} from '../proveedor';
 import {ProveedorDetail} from '../proveedor-detail';
-import {Vuelo} from '../../vuelo/vuelo';
 import {ToastrService} from 'ngx-toastr';
 
 
@@ -43,12 +42,12 @@ export class ProveedorDetailComponent implements OnInit, OnDestroy {
   /**
    * The book's id retrieved from the path
    */
-  proveedor_id: number;
+   proveedor_id: number;
 
   /**
    * The book whose details are shown
    */
-  proveedorDetail: ProveedorDetail;
+  @Input() proveedorDetail: ProveedorDetail;
 
   /**
    * The other books shown in the sidebar

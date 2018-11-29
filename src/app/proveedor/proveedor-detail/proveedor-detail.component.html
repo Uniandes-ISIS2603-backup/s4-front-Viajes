@@ -14,9 +14,9 @@
           <div *ngIf="showEdit" >
             <br>
             <div class="row justify-content-center align-self-center">
-              <button class="btn btn-primary text-center" routerLink="/proveedores/{{proveedorDetail.id}}/edit">Editar</button>
+              <button *ngxPermissionsOnly="['ADMIN','PROV']" class="btn btn-primary text-center" routerLink="/proveedores/{{proveedorDetail.id}}/edit">Editar</button>
               <div class="divider"></div>
-              <button class="btn btn-danger text-center" (click)="deleteProveedor()"><span class="fa fa-trash"></span></button>
+              <button *ngxPermissionsOnly="['ADMIN','PROV']"  class="btn btn-danger text-center" (click)="deleteProveedor()"><span class="fa fa-trash"></span></button>
             </div>
             <br>
           </div>

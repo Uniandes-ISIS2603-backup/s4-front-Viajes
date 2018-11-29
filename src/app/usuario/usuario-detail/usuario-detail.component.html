@@ -10,6 +10,20 @@
           <dd>{{usuarioDetail.documento}}</dd>
           <dt>Edad</dt>
           <dd>{{usuarioDetail.edad}}</dd>
+           <dt>Medallas obtenidas</dt>
+          <dd *ngFor="let medalla of usuarioDetail.medallas">
+              {{medalla.nombre}}
+              <br>
+              <img style="cursor: pointer;" routerLink="/medallas/{{medalla.id}}" height ="160 px" src="{{medalla.rutaImagen}}" alt="imagen">
+        </dd>
+          
+          <dt>Pagos (id's)</dt>
+          <dd *ngFor="let pago of usuarioDetail.pagos">{{pago.id}}</dd>
+          <dt>Combos</dt>
+          <dd *ngFor="let combo of usuarioDetail.combos">{{combo.nombre}}</dd>
+          <dt>Entradas</dt>
+          <dd *ngFor="let entrada of usuarioDetail.entradas">{{entrada.titulo}}     {{entrada.puntuacion}}</dd>
+
         </dl>
       </div>
     </div>
