@@ -22,7 +22,7 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     NgxPermissionsModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
     NgbModule
   ],
   providers: [AlojamientoService],
