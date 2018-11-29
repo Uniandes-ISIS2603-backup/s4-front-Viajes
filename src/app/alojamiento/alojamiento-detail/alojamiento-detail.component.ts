@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 import {AlojamientoService} from '../alojamiento.service';
@@ -69,7 +69,7 @@ export class AlojamientoDetailComponent implements OnInit, OnDestroy {
     this.alojamientoService.getAlojamientos()
       .subscribe(alojamientos => {
         this.other_alojamientos = alojamientos;
-        this.other_alojamientos = this.other_alojamientos.filter(alojamientos => alojamiento.id !== this.alojamiento_id);
+        this.other_alojamientos = this.other_alojamientos.filter(alojamientos => alojamiento.id !== this.alojamientoId);
       });
     }
     
