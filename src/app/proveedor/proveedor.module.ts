@@ -13,6 +13,7 @@ import { ProveedorVuelosComponent } from './proveedor-vuelos/proveedor-vuelos.co
 import {VueloModule} from '../vuelo/vuelo.module';
 import { ProveedorEditComponent } from './proveedor-edit/proveedor-edit.component';
 import {NgxPermissionsModule} from 'ngx-permissions';
+import { ProveedorCalificarComponent } from './proveedor-calificar/proveedor-calificar.component';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import {NgxPermissionsModule} from 'ngx-permissions';
     ProveedorDetailComponent,
     ProveedorCreateComponent,
     ProveedorVuelosComponent,
-    ProveedorEditComponent
+    ProveedorEditComponent,
+    ProveedorCalificarComponent
   ],
   providers: [ProveedorService],
   bootstrap: [ProveedorListComponent]

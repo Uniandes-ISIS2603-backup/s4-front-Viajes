@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <br>
+    <h2 class="text-center">Calificar proveedor</h2>
+    <br>
+    <form class="justify-content-center" name="proveedor" (ngSubmit)="f.form.valid && calificarProveedor()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="provPun"><b>Puntuación</b></label>
+        <input type="number" name="provPun" class="form-control" id="provPun" [(ngModel)]="proveedor.puntuacion"
+               #vueloPun ="ngModel" [ngClass]="{ 'is-invalid': f.submitted && provPun.invalid }" required>
+        <div class="invalid-feedback">
+          <div>Se requiere especificar la puntuación del proveedor</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="row form-inline justify-content-center align-self-center">
+            <button  ype="submit" class="btn btn-primary"(click)="calificarProveedor()">Calificar</button>
+
+            <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+          </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </form>
+  </div>
+</div>
+

@@ -5,6 +5,7 @@ import { ActividadDetail } from '../actividad-detail';
 import {ToastrService} from 'ngx-toastr';
 
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {VueloDetail} from '../../vuelo/vuelo-detail';
 
 /**
  * The component for the list of activities in TripBuilder
@@ -36,20 +37,58 @@ export class ActividadListComponent implements OnInit {
     actividades: Actividad[];
     actividad_id: number;
     selectedActividad: Actividad;
+
+  /**
+   * Shows or hides the detail of an author
+   */
+  showView: boolean;
+
+  /**
+   * Shows or hides the detail of an author
+   */
+  showCalificar: boolean;
     
     /**
      * The id of the editorial being edited.
      */
     actividad_edit_id: number;
+
+  onSelected(actividad_id: number):void {
+    this.showCreate = false;
+    this.showView = true;
+    this.showEdit = false;
+    this.showCalificar = false;
+    this.actividad_id = actividad_id;
+    this.selectedActividad = new ActividadDetail();
+    this.getActividadDetail();
+  }
     
       /**
     * Shows or hides the create component
     */
     showHideCreate(): void {
         this.showEdit = false;
+        this.showView = true;
+        this.showCalificar = false;
         this.showCreate = !this.showCreate!
     }
-    
+
+  showHideCalificar(actividad_id: number): void {
+    if (!this.showCalificar || (this.showCalificar && actividad_id != this.selectedActividad.id)) {
+      this.showView = false;
+      this.showCreate = false;
+      this.showEdit = false;
+      this.showCalificar = true;
+      this.actividad_id = actividad_id;
+      this.selectedActividad = new ActividadDetail();
+      this.getActividadDetail();
+    }
+    else {
+      this.showEdit = false;
+      this.showView = true;
+      this.showCalificar = false;
+    }
+  }
      /**
     * Shows or hides the create component
     */
@@ -57,15 +96,21 @@ export class ActividadListComponent implements OnInit {
         if (!this.showEdit || (this.showEdit && actividad_id != this.actividad_edit_id)) {
             this.showCreate = false;
             this.showEdit = true;
+            this.showCalificar = false;
+            this.showView = false;
             this.actividad_edit_id = actividad_id;
         }
         else {
             this.showEdit = false;
+            this.showView = true;
+            this.showCalificar = false;
         }
     }
 
     updateActividad(): void {
         this.showEdit = false;
+        this.showView = true;
+        this.showCalificar = false;
     }
     
     /**
@@ -105,14 +150,6 @@ export class ActividadListComponent implements OnInit {
 
     }
 
-    onSelected(actividad_id: number): void {
-      this.showCreate = false;
-        this.actividad_id = actividad_id;
-        this.selectedActividad = new ActividadDetail();
-        this.getActividadDetail();
-
-
-    }
 
   
 
@@ -138,6 +175,10 @@ export class ActividadListComponent implements OnInit {
     ngOnInit() {
         this.showCreate = false;
         this.showEdit = false;
+      this.showView = false;
+      this.showCalificar = false;
+      this.selectedActividad = undefined;
+      this.actividad_id = undefined;
         this.getActividades();
     }
 }

@@ -13,6 +13,7 @@ import { ActividadCreateComponent } from './actividad-create/actividad-create.co
 import { ActividadGuiasComponent } from './actividad-guias/actividad-guias.component';
 import { ActividadGuiaCreateComponent } from './actividad-guia-create/actividad-guia-create.component';
 import { ActividadEditComponent } from './actividad-edit/actividad-edit.component';
+import { ActividadCalificarComponent } from './actividad-calificar/actividad-calificar.component';
 
 @NgModule({
     imports: [
@@ -24,7 +25,7 @@ import { ActividadEditComponent } from './actividad-edit/actividad-edit.componen
         FormsModule,
         GuiaModule
     ],
-    declarations: [ActividadListComponent, ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent, ActividadGuiaCreateComponent, ActividadEditComponent],
+    declarations: [ActividadListComponent, ActividadDetailComponent, ActividadCreateComponent, ActividadGuiasComponent, ActividadGuiaCreateComponent, ActividadEditComponent, ActividadCalificarComponent],
     providers: [ActividadService],
     bootstrap: [ActividadListComponent]
 })

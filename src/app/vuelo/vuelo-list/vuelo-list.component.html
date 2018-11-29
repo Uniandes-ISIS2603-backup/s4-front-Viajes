@@ -15,6 +15,9 @@
       <div class="row">
         <button class="btn btn-danger" (click)="deleteVuelo(vuelo.id)"><span class="fas fa-trash-alt"></span></button>
       </div>
+      <div class="row">
+        <button class="btn" id="calificar" (click)="showHideCalificar(vuelo.id)">Calificar</button>
+      </div>
     </div>
 
     
@@ -33,4 +36,7 @@
   <div *ngIf="showEdit">
     <app-vuelo-edit [vuelo]="selectedVuelo" (cancel)="showHideEdit(selectedVuelo.id)" (update)="updateVuelo()" ></app-vuelo-edit>
   </div>
+    <div *ngIf="showCalificar">
+      <app-vuelo-calificar [vuelo]="selectedVuelo" (cancel)="showHideCalificar(selectedVuelo.id)" (update)="updateVuelo()" ></app-vuelo-calificar>
+    </div>
 </div>

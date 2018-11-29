@@ -2,12 +2,18 @@
   <h1>Proveedores</h1>
   <p>A continuación se muestran los proveedores disponibles en TripBuilder:</p>
   <div class="row">
-      <div class="card col-md-2" *ngFor = "let proveedor of proveedores" routerLink="/proveedores/{{proveedor.id}}" style="cursor: pointer;">
-        <img class="card-img-top" src="{{proveedor.imagen}}" alt="Card image cap"  height="160px">
+      <div class="card col-md-2" *ngFor = "let proveedor of proveedores" >
+        <img class="card-img-top" src="{{proveedor.imagen}}" alt="Card image cap"  height="160px" style="cursor: pointer;" (click)="onSelected(proveedor.id)">
         <div class="card-body">
           <p class="card-text justify-content-end">{{proveedor.nombre}}</p>
         </div>
+        <div class="row">
+          <button class="btn" id="calificar" (click)="showHideCalificar(proveedor.id)">Calificar</button>
+        </div>
       </div>
+  </div>
+  <div *ngIf="showView">
+    <app-proveedor-detail [proveedorDetail]="selectedProveedor"></app-proveedor-detail>
   </div>
   <div *ngIf="showCreate" >
     <app-proveedor-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-proveedor-create>
@@ -16,5 +22,8 @@
   <div class="row">
     <button *ngxPermissionsOnly="['ADMIN']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
             (click)="showHideCreate()">Crear un Proveedor</button>
+  </div>
+  <div *ngIf="showCalificar">
+    <app-proveedor-calificar [proveedor]="selectedProveedor" (cancel)="showHideCalificar(selectedProveedor.id)" (update)="updateProveedor()" ></app-proveedor-calificar>
   </div>
 </div>

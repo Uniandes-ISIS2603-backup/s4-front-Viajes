@@ -15,3 +15,8 @@ button{
   width: 80%;
   padding: 10px;
 }
+
+#calificar{
+  color: #ffffff;
+  background: limegreen;
+}
