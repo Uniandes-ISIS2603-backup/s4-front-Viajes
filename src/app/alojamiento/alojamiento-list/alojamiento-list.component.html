@@ -4,7 +4,7 @@
 <p id="texto">A continuación se muestra una lista de los alojamientos disponibles en TripBuilder:</p>
 <div class="row">
     <div class="card col-md-2" style="width: 18rem;" *ngFor = "let alojamiento of alojamientos">
-      <img class="card-img-top" src="{{alojamiento.imagen}}" alt="Card image cap" height="160px" (click)="onSelected(vuelo.id)">
+      <img class="card-img-top" src="{{alojamiento.imagen}}" alt="Card image cap" height="160px" (click)="onSelected(alojamiento.id)">
       <div class="card-body">
         <p class="card-text justify-content-end">{{alojamiento.puntuacion}} <span class="fas fa-star checked"></span>
           Precios desde ${{alojamiento.costo}}</p>
