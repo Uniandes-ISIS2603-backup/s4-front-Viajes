@@ -5,16 +5,17 @@
             <h2 class="text-center">Agregar una nueva actividad</h2>
             <br>
             <form name="actividad" (ngSubmit)="f.form.valid && createActividad()" #f="ngForm" novalidate>
-                  <div class="form-group">
-                    <label for="actividadIdentificador"><b>ID(recuerda que tiene que ser único)</b></label>
-                    <input type="number" name="actividadIdentificador" class="form-control" id="actividadIdentificador" [(ngModel)]="actividad.identificador"
-                        #actividadIdentificador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && actividadIdentificador.invalid }" required>
+                 
+                <div class="form-group">
+                    <label for="actividadName"><b>Nombre</b></label>
+                    <input type="text" name="nombreActividad" class="form-control" id="nombreActividad" [(ngModel)]="actividad.nombreActividad"
+                        #nombreActividad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreActividad.invalid }" required>
                     <div class="invalid-feedback">
-                        <div>El ID esta vacio</div>
+                        <div>El nombre de la actividad esta vacio</div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="actividadName"><b>Nombre</b></label>
+                    <label for="actividadName"><b><a href="https://co.pinterest.com">¡Añade un tablero Pinterest a tu actividad!</a></b></label>
                     <input type="text" name="nombreActividad" class="form-control" id="nombreActividad" [(ngModel)]="actividad.nombreActividad"
                         #nombreActividad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nombreActividad.invalid }" required>
                     <div class="invalid-feedback">
@@ -64,7 +65,7 @@
                 
                 <br>
                 <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary" onClick="window.location.reload()">Crear</button>
+                    <button type="submit" class="btn btn-primary" onClick="window.location.reload()" (click) = "ngOnInit()">Crear</button>
                     <div class="divider"></div>
                     <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
                 </div>

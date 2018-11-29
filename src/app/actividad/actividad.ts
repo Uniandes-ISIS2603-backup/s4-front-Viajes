@@ -15,7 +15,7 @@ export class Actividad extends Servicio{
     */
     duracion: number;
 
-    imagen:string;
+
 
     /**
     * The activity's identificator
@@ -45,7 +45,6 @@ export class Actividad extends Servicio{
     fechasDisponibles: any[];
 
     disponibilidadFecha: any[];
-
-
     
+    imagen: string;
 }

@@ -1,12 +1,19 @@
-.row{
+#tablaDetalle{
+    width:500px;
+    
+}
+#guias_list{
     width: 500px;
+    justify-content: space-around;
+    float: right;
+    overflow: auto;
+    
 }
 
-
-#emptyGuias {
-    align-content: center;
-    height: 200px;
-    text-align: center;
-    opacity: 0.5;
+#guiaslist{
+   
+    border-style: outset;
+   
 }
+
 

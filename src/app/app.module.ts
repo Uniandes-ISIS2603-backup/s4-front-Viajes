@@ -4,6 +4,9 @@ import {HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpErrorInterceptor } from './interceptors/httperrorinterceptor.service';
 import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxPermissionsModule} from 'ngx-permissions';
+import { ModalDialogModule } from 'ngx-modal-dialog';
+
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { UsuarioModule } from './usuario/usuario.module';
@@ -21,8 +24,6 @@ import { PagoModule } from './pago/pago.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { ModalDialogModule } from 'ngx-modal-dialog';
-import {NgxPermissionsModule} from 'ngx-permissions';
 import {AuthModule} from './auth/auth.module';
 
 

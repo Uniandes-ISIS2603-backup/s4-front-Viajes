@@ -2,7 +2,7 @@
 <h1 id="texto">Actividades</h1>
 <p id="texto">A continuación se muestra una lista de las actividades disponibles en TripBuilder:</p>
 <div class="row">
-    <div class="card col-md-2" style="width: 18rem;" *ngFor = "let actividad of actividades"  routerLink="/actividades/{{actividad.id}}" style="cursor: pointer;">
+    <div class="card col-md-2" style="width: 18rem;" *ngFor = "let actividad of actividades"  onClick ="window.location.reload()" routerLink="/actividades/{{actividad.id}}" style="cursor: pointer;">
       <img class="card-img-top" src="{{actividad.imagen}}" alt="Card image cap" height="160px">
       <div class="card-body">
         <p class="card-text justify-content-end">{{actividad.puntuacion}} <span class="fas fa-star checked"></span>
@@ -11,7 +11,7 @@
     </div>
 </div>
 <div *ngIf="showCreate">
-  <app-actividad-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-actividad-create>
+  <app-actividad-create (cancel)="showHideCreate()" ></app-actividad-create>
 </div>
 <div class="row">
   <button *ngxPermissionsOnly="['ADMIN','PROV']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"

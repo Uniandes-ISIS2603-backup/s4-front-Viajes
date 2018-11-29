@@ -1,31 +1,21 @@
-<h1 id="texto">Guias</h1>
-<table class="table">
-  <thead class="thead-dark">
+<body>
+
+<table class="table table-dark">
+
+    <tr>
+       <h1 id="texto">Guias Asociados</h1>
+    </tr>
+    
   <tr>
     <th>Nombre</th>
-    <th>Documento</th>
-    <th>Edad</th>
-    <th>Idioma</th>
     <th>Puntuacion</th>
   </tr>
-  </thead>
+  
   <tbody>
   <tr *ngFor="let guia of actividadGuias">
       
     <td>
-      {{guia.nombre}}
-    </td>
-
-    <td>
-      {{guia.documento}}
-    </td>
-
-    <td>
-      {{guia.edad}}
-    </td>
-
-    <td>
-      {{guia.edad}}
+       <a> {{guia.nombre}} </a>
     </td>
 
     <td>
@@ -35,3 +25,4 @@
   </tr>
   </tbody>
 </table>
+</body>
