@@ -2,20 +2,9 @@
       <div  class="col-3"></div>
         <div class="col-6">
             <br>
-            <h2 class="text-center">Agregar un nuevo alojamiento</h2>
+            <h2 class="text-center">Editar un alojamiento</h2>
             <br>
-            <form name="alojamiento" (ngSubmit)="f.form.valid && createAlojamiento()" #f="ngForm" novalidate>
-                  
-                <div class="form-group">
-                    <label for="alojamientoId"><b>ID(Identificador unico)</b></label>
-                    <input type="number" name="alojamientoId" class="form-control" id="alojamientoId" [(ngModel)]="alojamiento.id"
-                        #alojamientoId="ngModel" [ngClass]="{ 'is-invalid': f.submitted && alojamientoId.invalid }" required>
-                    <div class="invalid-feedback">
-                        <div>Id invalido</div>
-                    </div>
-                </div>
-                  
-                  
+            <form name="alojamiento" (ngSubmit)="f.form.valid && editAlojamiento()" #f="ngForm" novalidate>       
                 <div class="form-group">
                     <label for="nombreAlojamiento"><b>Nombre</b></label>
                     <input type="text" name="nombreAlojamiento" class="form-control" id="nombreAlojamiento" [(ngModel)]="alojamiento.nombre"
@@ -97,16 +86,15 @@
                         <div>Ubicacion invalido</div>
                     </div>
                 </div>
-                  
-                <br>
-                <div class="row form-inline justify-content-center align-self-center">
-                    <button type="submit" class="btn btn-primary">Crear</button>
-                    <div class="divider"></div>
-                    <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancelar</button>
-                </div>
-            </form>
-            <br>
-        </div>
-      <div  class="col-3"></div>
-
-    </div>
+                  <div class="row">
+                    <div class="col-12">
+                    <div class="row form-inline justify-content-center align-self-center">
+                    <button  ype="submit" class="btn btn-primary"(click)="editAlojamiento()">Editar</button>
+                    <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancelar</button>
+                    </div>
+                    </div>
+                    <div class="col-3"></div>
+                  </div>
+                </form>
+            </div>
+</div>

@@ -11,7 +11,7 @@ declare var ol: any;
   templateUrl: './alojamiento-detail.component.html',
   styleUrls: ['./alojamiento-detail.component.css']
 })
-export class AlojamientoDetailComponent implements OnInit {
+export class AlojamientoDetailComponent implements OnInit, OnDestroy {
 
 
   map: any;
@@ -27,14 +27,31 @@ export class AlojamientoDetailComponent implements OnInit {
     */
     constructor(private route: ActivatedRoute,
                 private alojamientoService: AlojamientoService,
-                private router: Router) { }
+                private router: Router) {
+                this.navigationSubscription = this.router.events.subscribe((e: any) => {
+                if (e instanceof NavigationEnd) {
+                this.ngOnInit();
+      }
+    });
+    }
     
     /**
      * Id del alojamiento
      */
      alojamientoId: number;
 
-     
+     /**
+      * Alojamientos sidebar
+      */
+      
+      other_alojamientos: Alojamiento[]; 
+      
+     /**
+      * Nuevo alojamiento necesita ser cargado. 
+      */
+      
+      navigationSubscription;
+      
      /**
      * Obtener el detail del aojamiento
      */
@@ -46,13 +63,24 @@ export class AlojamientoDetailComponent implements OnInit {
     }
     
     /**
+    * This method retrieves all the books in the Bookstore to show them in the list
+    */
+    getOtherAlojamientos(): void {
+    this.alojamientoService.getAlojamientos()
+      .subscribe(alojamientos => {
+        this.other_alojamientos = alojamientos;
+        this.other_alojamientos = this.other_alojamientos.filter(alojamientos => alojamiento.id !== this.alojamiento_id);
+      });
+    }
+    
+    /**
     * Inicializar el componente
     */
     ngOnInit() {
         this.alojamientoId = +this.route.snapshot.paramMap.get('id');
-        if (this.alojamientoId) {
         this.alojamientoDetail = new AlojamientoDetail();
         this.getAlojamientoDetail();
+        this.getOtherAlojamientos();
           this.map = new ol.Map({
             target: 'map',
             layers: [
@@ -65,7 +93,5 @@ export class AlojamientoDetailComponent implements OnInit {
               zoom: 20
             }),
           });
-
-        }
     }
 }
