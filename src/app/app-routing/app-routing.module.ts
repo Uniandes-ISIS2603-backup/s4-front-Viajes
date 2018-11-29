@@ -71,8 +71,13 @@ const routes: Routes = [
             },
             {
             path: ':id/edit',
-            component: MedallaEditComponent
-            },
+            component: MedallaEditComponent,
+              canActivate: [NgxPermissionsGuard],
+              data: {
+                permissions: {
+                  only: ['ADMIN']
+                }
+            }},
             {
                 path: ':id',
                 component: MedallaDetailComponent
@@ -93,7 +98,12 @@ const routes: Routes = [
            {
                 path: 'create',
                 component: ActividadCreateComponent,
-                runGuardsAndResolvers: 'always'
+                runGuardsAndResolvers: 'always',
+             data: {
+               permissions: {
+                 only: ['ADMIN']
+               }
+             }
             }
         ]
     },
@@ -152,16 +162,31 @@ const routes: Routes = [
           {
             path: 'add',
             component: ProveedorCreateComponent,
-            runGuardsAndResolvers: 'always'
+            runGuardsAndResolvers: 'always',
+            data: {
+              permissions: {
+                only: ['ADMIN']
+              }
+            }
           },
           {
             path: ':id/edit',
-            component: ProveedorEditComponent
+            component: ProveedorEditComponent,
+            data: {
+              permissions: {
+                only: ['ADMIN']
+              }
+            }
           },
           {
             path: ':id',
             component: ProveedorDetailComponent,
-            runGuardsAndResolvers: 'always'
+            runGuardsAndResolvers: 'always',
+            data: {
+              permissions: {
+                only: ['ADMIN']
+              }
+            }
           }
           ]
     },
@@ -180,14 +205,24 @@ const routes: Routes = [
       },
    {
         path: 'id',
-        component: UsuarioDetailComponent
+        component: UsuarioDetailComponent,
+     data: {
+       permissions: {
+         only: ['ADMIN']
+       }
+     }
       }
     ]
   },
 
   {
     path: 'registro',
-    component: UsuarioCreateComponent
+    component: UsuarioCreateComponent,
+    data: {
+      permissions: {
+        only: ['ADMIN']
+      }
+    }
 
   },
 

@@ -13,12 +13,14 @@ import { GuiaModule } from '../guia/guia.module';
 import { ActividadCreateComponent } from './actividad-create/actividad-create.component';
 import { ActividadGuiasComponent } from './actividad-guias/actividad-guias.component';
 import { ActividadGuiaCreateComponent } from './actividad-guia-create/actividad-guia-create.component';
+import {NgxPermissionsModule} from 'ngx-permissions';
 
 @NgModule({
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
+      NgxPermissionsModule,
         CommonModule,
         FormsModule,
         GuiaModule

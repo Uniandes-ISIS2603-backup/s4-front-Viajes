@@ -14,7 +14,7 @@
       <app-transporte-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-transporte-create>
     </div>
     <div class="row ">
-      <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+      <button *ngxPermissionsOnly="['ADMIN','PROV']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
               (click)="showHideCreate()">Crear un Transporte</button>
     </div>
 </body>

@@ -58,10 +58,11 @@
         <app-alojamiento-detail [alojamientoDetail]="selectedAlojamiento"></app-alojamiento-detail>
       </div>
     </div>
-    <div *ngIf="showCreate">
+
+    <div>
       <app-alojamiento-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-alojamiento-create>
     </div>
     <div class="row">
-      <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+      <button *ngxPermissionsOnly="['ADMIN','PROV']" [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
               (click)="showHideCreate()">Crear un Alojamiento</button>
     </div>
