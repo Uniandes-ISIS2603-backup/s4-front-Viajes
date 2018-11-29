@@ -1,0 +1,9 @@
+<div id="collapseReview" [ngbCollapse]="isCollapsed">
+    <table class="table table-striped">
+        <tbody>
+            <tr *ngFor="let entrada of usuarioEntradas">
+                <td><span id="entrada-title"><b>{{entrada.titulo}}</b></span><span>: </span><span id="entrada-punt">{{entrada.puntuacion}}</span><br></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
